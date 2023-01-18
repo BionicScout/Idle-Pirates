@@ -24,11 +24,11 @@ public class ControlManager : MonoBehaviour {
             Win();
         }
         else {
-            Debug.Log(currentTerritories);
+            //Debug.Log(currentTerritories);
         }
     }
 
     void Win() {
-        Debug.Log("WIN");
+        //Debug.Log("WIN");
     }
 }
