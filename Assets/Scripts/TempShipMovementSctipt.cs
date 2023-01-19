@@ -4,14 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TempShipMovementSctipt : MonoBehaviour {
-    public TimeQuery timeQuery;
+    TimeQuery timeQuery;
+    public string queryName;
+    public int minutes, seconds;
     public float percentDone;
 
-    public Vector2 point1, point2;
+    public Vector2 start, end;
     public GameObject ship;
 
     void Start() {
-        ship.transform.position = point1;
+        ship.transform.position = start;
+        
+        timeQuery = gameObject.AddComponent(typeof(TimeQuery)) as TimeQuery;
+        timeQuery.startInfo(queryName, minutes, seconds);
     }
 
     void Update() {
@@ -20,10 +25,10 @@ public class TempShipMovementSctipt : MonoBehaviour {
             double timeLeft_seconds = timeLeft_TimeSpan.TotalSeconds;
             double totalTime = timeQuery.timeInterval.TotalSeconds;
 
-            percentDone = (float)(timeLeft_seconds / totalTime);
+            percentDone = 1 - (float)(timeLeft_seconds / totalTime);
 
 
-            ship.transform.position = Vector2.Lerp(point1, point2, 1 - percentDone);
+            ship.transform.position = Vector2.Lerp(start, end, percentDone);
         }
     }
 }

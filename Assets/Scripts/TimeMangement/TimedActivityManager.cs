@@ -13,8 +13,11 @@ using UnityEngine;
 public class TimedActivityManager : MonoBehaviour {
     public List<TimeQuery> timeQueries;
     DateTime currentTime;
+    public static TimedActivityManager instance;
 
     void Awake() {
+        instance = this;
+
         currentTime = System.DateTime.Now;
         Debug.Log("Start Time is " + currentTime.ToString("F"));
     }
@@ -31,5 +34,9 @@ public class TimedActivityManager : MonoBehaviour {
                 i--;
             }
         }
+    }
+
+    public void addQuery(TimeQuery query) {
+        timeQueries.Add(query);
     }
 }
