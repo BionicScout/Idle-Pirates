@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Territory : MonoBehaviour {
+public class Territory : MonoBehaviour 
+{
     public int totalCities = 4, controlledCities = 0;
     bool controlled = false, updated = false;
+
+
 
     void Start() 
     {
@@ -13,6 +16,10 @@ public class Territory : MonoBehaviour {
 
     void Update() 
     {
+
+
+
+
         if(controlledCities == totalCities && !controlled)
             controlled = true;
 

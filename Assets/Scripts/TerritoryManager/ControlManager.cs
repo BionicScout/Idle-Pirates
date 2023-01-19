@@ -13,22 +13,22 @@ public class ControlManager : MonoBehaviour {
     //}
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Equals) && currentTerritories < totalTerritories) {
-            currentTerritories++;
-        }
-        if(Input.GetKeyDown(KeyCode.Minus) && currentTerritories > 0) {
-            currentTerritories--;
-        }
+        //if(Input.GetKeyDown(KeyCode.Equals) && currentTerritories < totalTerritories) {
+        //    currentTerritories++;
+        //}
+        //if(Input.GetKeyDown(KeyCode.Minus) && currentTerritories > 0) {
+        //    currentTerritories--;
+        //}
 
         if(currentTerritories == totalTerritories) {
             Win();
         }
         else {
-            //Debug.Log(currentTerritories);
+            Debug.Log(currentTerritories);
         }
     }
 
     void Win() {
-        //Debug.Log("WIN");
+        Debug.Log("WIN");
     }
 }
