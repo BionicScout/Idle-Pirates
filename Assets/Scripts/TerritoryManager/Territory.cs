@@ -6,11 +6,13 @@ public class Territory : MonoBehaviour {
     public int totalCities = 4, controlledCities = 0;
     bool controlled = false, updated = false;
 
-    void Start() {
+    void Start() 
+    {
 
     }
 
-    void Update() {
+    void Update() 
+    {
         if(controlledCities == totalCities && !controlled)
             controlled = true;
 
