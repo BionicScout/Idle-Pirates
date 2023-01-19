@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimeQuery : MonoBehaviour {
@@ -9,9 +10,17 @@ public class TimeQuery : MonoBehaviour {
 
     public DateTime startTime;
     public DateTime finishTime;
-    public TimeSpan timeInterval;
+    public TimeSpan timeInterval; 
+
+    public void startInfo(string name, int min, int sec) {
+        queryName = name;
+        minutes = min;
+        seconds = sec;
+    }
 
     void Start() {
+        TimedActivityManager.instance.addQuery(this);
+
         startTime = System.DateTime.Now;
         finishTime = startTime.AddMinutes(minutes);
         finishTime = finishTime.AddSeconds(seconds);
