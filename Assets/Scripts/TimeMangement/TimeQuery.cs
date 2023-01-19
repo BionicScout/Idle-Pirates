@@ -7,12 +7,16 @@ public class TimeQuery : MonoBehaviour {
     public int seconds;
     public bool triggered;
 
+    public DateTime startTime;
     public DateTime finishTime;
+    public TimeSpan timeInterval;
 
     void Start() {
-        finishTime = System.DateTime.Now;
-        finishTime = finishTime.AddMinutes(minutes);
+        startTime = System.DateTime.Now;
+        finishTime = startTime.AddMinutes(minutes);
         finishTime = finishTime.AddSeconds(seconds);
+
+        timeInterval = finishTime - startTime;
 
         Debug.Log(queryName + " will complete at " + finishTime.ToString("F"));
     }
