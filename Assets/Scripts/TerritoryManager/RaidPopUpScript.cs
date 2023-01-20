@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class RaidPopUpScript : MonoBehaviour
 {
-    public static bool tookCity = false;
+    public bool tookCity = false;
+    public List<CityScript> cityList;
+    public int currentCity = 0;
 
     //try to change color of city when raided
+
+    private void Update()
+    {
+
+    }
 
     public void YesButtonPressed()
     {
         //raidPopUp.SetActive(true);
 
-
+        //currentCity = cityList;
         tookCity = true;
         this.gameObject.SetActive(false); 
 
@@ -23,6 +30,12 @@ public class RaidPopUpScript : MonoBehaviour
     public void NoButtonPressed()
     {
         this.gameObject.SetActive(false);
+        currentCity = 0;
+    }
+
+    public void cityNumberUpdate(int cityNum)
+    {
+        currentCity = cityList[cityNum-1].cityNumber;
     }
 
 }
