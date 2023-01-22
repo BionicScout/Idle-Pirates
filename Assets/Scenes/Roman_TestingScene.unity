@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1251692102}
+      - m_Target: {fileID: 164852042}
         m_TargetAssemblyTypeName: CityScript, Assembly-CSharp
         m_MethodName: OnCityButtonPressed
         m_Mode: 1
@@ -406,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raidPopUp: {fileID: 529959699}
   cityNumber: 0
+  cityTaken: 0
 --- !u!1 &168872654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raidPopUp: {fileID: 529959699}
   cityNumber: 0
+  cityTaken: 0
 --- !u!1 &1319201547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1251692102}
+      - m_Target: {fileID: 1461000318}
         m_TargetAssemblyTypeName: CityScript, Assembly-CSharp
         m_MethodName: OnCityButtonPressed
         m_Mode: 1
@@ -1591,6 +1593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raidPopUp: {fileID: 529959699}
   cityNumber: 0
+  cityTaken: 0
 --- !u!1 &1625313773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,7 +1925,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1251692102}
+      - m_Target: {fileID: 1748917834}
         m_TargetAssemblyTypeName: CityScript, Assembly-CSharp
         m_MethodName: OnCityButtonPressed
         m_Mode: 1
@@ -1986,6 +1989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raidPopUp: {fileID: 529959699}
   cityNumber: 0
+  cityTaken: 0
 --- !u!1 &2112871854
 GameObject:
   m_ObjectHideFlags: 0

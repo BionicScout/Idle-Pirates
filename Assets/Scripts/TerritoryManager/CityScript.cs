@@ -11,12 +11,13 @@ public class CityScript : MonoBehaviour
     //public GameObject cityButton;
     public GameObject raidPopUp;
     public int cityNumber;
+    public bool cityTaken;
     
     // Start is called before the first frame update
     void Start()
     {
-       //raidPopUp.GetComponent<RaidPopUpScript>().
-       //this.gameObject.name.ToIntArray();
+       //Grab the name of the game object and turn it into an int 
+       //and put it in the cityNumber var
        int.TryParse(this.gameObject.name, out cityNumber);
     }
 
@@ -29,9 +30,9 @@ public class CityScript : MonoBehaviour
     public void OnCityButtonPressed()
     {
         raidPopUp.gameObject.GetComponent<RaidPopUpScript>()
-            .cityNumberUpdate(this.gameObject.GetComponent<CityScript>().cityNumber);
+            .cityNumberUpdate(/*this.gameObject.GetComponent<CityScript>().*/cityNumber);
         raidPopUp.SetActive(true);
-        //raidPopUp.GetComponent<RaidPopUpScript>().
+        
     }
 
     public void RaidedCity()
