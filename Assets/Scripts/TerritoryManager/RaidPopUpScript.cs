@@ -21,8 +21,8 @@ public class RaidPopUpScript : MonoBehaviour
 
         //currentCity = cityList;
         tookCity = true;
-        this.gameObject.SetActive(false); 
-
+        this.gameObject.SetActive(false);
+        currentCity = 0;
 
 
     }
@@ -35,7 +35,7 @@ public class RaidPopUpScript : MonoBehaviour
 
     public void cityNumberUpdate(int cityNum)
     {
-        currentCity = cityList[cityNum-1].cityNumber;
+        currentCity = cityList[cityNum - 1].cityNumber;
     }
 
 }
