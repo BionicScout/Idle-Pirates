@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class RaidPopUpScript : MonoBehaviour
 {
-    public bool tookCity = false;
-    public List<CityScript> cityScriptList;
-    public int currentCity = 0;
+
+    [SerializeField]
+    private int currentCity = 0;
+
+    [SerializeField]
+    private List<CityScript> cityScriptList;
+
 
     //try to change color of city when raided
 
@@ -20,9 +24,9 @@ public class RaidPopUpScript : MonoBehaviour
         //raidPopUp.SetActive(true);
 
         //currentCity = cityScriptList;
-        tookCity = true;
+
         this.gameObject.SetActive(false);
-        cityScriptList[currentCity - 1].cityTaken = true;
+        cityScriptList[currentCity - 1].SetCityTaken(true);
         cityScriptList[currentCity - 1].RaidedCity();
         currentCity = 0;
 
@@ -37,7 +41,8 @@ public class RaidPopUpScript : MonoBehaviour
 
     public void CityNumberUpdate(int cityNum)
     {
-        currentCity = cityScriptList[cityNum - 1].cityNumber;
+        //currentCity = cityScriptList[cityNum - 1].cityNumber;
+        currentCity = cityNum;
     }
 
 }

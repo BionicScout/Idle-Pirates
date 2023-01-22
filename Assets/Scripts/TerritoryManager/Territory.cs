@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Territory : MonoBehaviour 
 {
-    public int totalCities = 0, controlledCities = 0;
+    [SerializeField] 
+    private int totalCities = 0, controlledCities = 0;
 
     [SerializeField]
-    public bool controlled = false, updated = false;
-    public List<GameObject> cityList;
+    private bool controlled = false, updated = false;
+
+    [SerializeField] 
+    private List<GameObject> cityList;
 
 
     void Start() 
@@ -29,7 +32,14 @@ public class Territory : MonoBehaviour
         {
             updated = true;
             ControlManager.controlledTerritories++;
+            Debug.Log(ControlManager.controlledTerritories);
         }
             
     }
+
+    public void AddControlledCities ()
+    {
+        controlledCities += 1;
+    }
+
 }

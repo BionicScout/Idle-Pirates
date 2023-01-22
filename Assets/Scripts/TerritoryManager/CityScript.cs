@@ -7,12 +7,17 @@ using TMPro;
 
 public class CityScript : MonoBehaviour
 {
+    [SerializeField] 
+    private GameObject raidPopUp;
 
-    //public GameObject cityButton;
-    public GameObject raidPopUp;
-    public GameObject currentTerritory;
-    public int cityNumber;
-    public bool cityTaken = false;
+    [SerializeField] 
+    private GameObject currentTerritory;
+
+    [SerializeField] 
+    private int cityNumber;
+
+    [SerializeField] 
+    private bool cityTaken = false;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +33,29 @@ public class CityScript : MonoBehaviour
 
 
     }
+
+    public void SetCityNumber(int num)
+    {
+        cityNumber = num;
+    }
+
+    public int getCityNumber()
+    {
+        return cityNumber;
+    
+    }
+
+    public void SetCityTaken(bool signal) 
+    {
+        cityTaken = signal;
+    
+    }
+
+    //public bool IsCityTaken() 
+    //{
+    //    return cityTaken;
+    //}
+
 
     public void OnCityButtonPressed()
     {
@@ -45,7 +73,7 @@ public class CityScript : MonoBehaviour
         {
             this.gameObject.GetComponent<Image>().color =
                 new Color32(77, 77, 77, 255);
-            currentTerritory.GetComponent<Territory>().controlledCities += 1;
+            currentTerritory.GetComponent<Territory>().AddControlledCities();
         }
         
     }

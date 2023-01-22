@@ -3,13 +3,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ControlManager : MonoBehaviour {
-    public int totalTerritories = 5;
+public class ControlManager : MonoBehaviour 
+{
+    [SerializeField]
+    private int totalTerritories = 5;
     public static int controlledTerritories = 0;
 
-    public List<GameObject> territoryList;
+    [SerializeField]
+    private List<GameObject> territoryList;
 
-    public string winningSceneName;
+    [SerializeField]
+    private string winningSceneName;
 
     //public static ControlManager cm;
 
