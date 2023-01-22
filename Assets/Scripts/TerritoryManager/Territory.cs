@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class Territory : MonoBehaviour 
 {
-    public int totalCities = 4, controlledCities = 0;
-    bool controlled = false, updated = false;
+    public int totalCities = 0, controlledCities = 0;
 
+    [SerializeField]
+    public bool controlled = false, updated = false;
+    public List<GameObject> cityList;
 
 
     void Start() 
     {
-
+        totalCities = cityList.Count;
     }
 
     void Update() 
     {
 
-
-
-
-        if(controlledCities == totalCities && !controlled)
+        if (controlledCities == totalCities && !controlled)
+        {
             controlled = true;
+        }
 
-        if(controlled && !updated) {
+
+        if(controlled && !updated) 
+        {
             updated = true;
-            ControlManager.currentTerritories++;
+            ControlManager.controlledTerritories++;
         }
             
     }

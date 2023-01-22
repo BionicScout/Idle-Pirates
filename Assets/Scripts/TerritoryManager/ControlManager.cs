@@ -1,34 +1,52 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControlManager : MonoBehaviour {
     public int totalTerritories = 5;
-    public static int currentTerritories = 0;
+    public static int controlledTerritories = 0;
+
+    public List<GameObject> territoryList;
+
+    public string winningSceneName;
+
     //public static ControlManager cm;
 
 
-    //void Start() {
-    //    if(cm == null)
-    //        cm = this;
-    //}
+    void Start()
+    {
+        //if (cm == null)
+        //    cm = this;
 
-    void Update() {
-        //if(Input.GetKeyDown(KeyCode.Equals) && currentTerritories < totalTerritories) {
-        //    currentTerritories++;
+        totalTerritories = territoryList.Count;
+    }
+
+    void Update() 
+    {
+
+        //if(Input.GetKeyDown(KeyCode.Equals) && controlledTerritories < totalTerritories) {
+        //    controlledTerritories++;
         //}
-        //if(Input.GetKeyDown(KeyCode.Minus) && currentTerritories > 0) {
-        //    currentTerritories--;
+        //if(Input.GetKeyDown(KeyCode.Minus) && controlledTerritories > 0) {
+        //    controlledTerritories--;
         //}
 
-        if(currentTerritories == totalTerritories) {
+        //if (territoryList[controlledTerritories].GetComponent<Territory>().controlled == true)
+        //{
+        //    controlledTerritories++;
+        //}
+
+
+        if (controlledTerritories == totalTerritories) {
             Win();
         }
-        else {
-            Debug.Log(currentTerritories);
-        }
+        
+
     }
 
     void Win() {
         Debug.Log("WIN");
+        SceneManager.LoadScene(winningSceneName);
     }
 }

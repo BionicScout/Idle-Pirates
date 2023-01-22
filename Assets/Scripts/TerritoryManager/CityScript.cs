@@ -10,8 +10,9 @@ public class CityScript : MonoBehaviour
 
     //public GameObject cityButton;
     public GameObject raidPopUp;
+    public GameObject currentTerritory;
     public int cityNumber;
-    public bool cityTaken;
+    public bool cityTaken = false;
     
     // Start is called before the first frame update
     void Start()
@@ -24,20 +25,29 @@ public class CityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
     }
 
     public void OnCityButtonPressed()
     {
-        raidPopUp.gameObject.GetComponent<RaidPopUpScript>()
-            .cityNumberUpdate(/*this.gameObject.GetComponent<CityScript>().*/cityNumber);
-        raidPopUp.SetActive(true);
-        
+        if (cityTaken == false)
+        {
+            raidPopUp.GetComponent<RaidPopUpScript>()
+                .CityNumberUpdate(cityNumber);
+            raidPopUp.SetActive(true);
+        }
     }
 
     public void RaidedCity()
     {
-        //if(raidPopUp.to)
+        if (cityTaken == true)
+        {
+            this.gameObject.GetComponent<Image>().color =
+                new Color32(77, 77, 77, 255);
+            currentTerritory.GetComponent<Territory>().controlledCities += 1;
+        }
+        
     }
 
 }
