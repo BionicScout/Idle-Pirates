@@ -23,7 +23,7 @@ public class CityScript : MonoBehaviour
     void Start()
     {
        //Grab the name of the game object and turn it into an int 
-       //and put it in the cityNumber var
+       //and put it in the cityNumber variable
        int.TryParse(this.gameObject.name, out cityNumber);
     }
 
@@ -34,43 +34,39 @@ public class CityScript : MonoBehaviour
 
     }
 
-    public void SetCityNumber(int num)
-    {
-        cityNumber = num;
-    }
-
-    public int getCityNumber()
-    {
-        return cityNumber;
-    
-    }
-
+    //sets the cityTaken boolean to true or false
+    //based on the parameter
     public void SetCityTaken(bool signal) 
     {
         cityTaken = signal;
     
     }
 
-    //public bool IsCityTaken() 
-    //{
-    //    return cityTaken;
-    //}
-
-
+    //When the button is pressed and the city has not been taken,
+    //it shows the raid pop-up and sends its cityNumber
+    //to the raid pop-up script
     public void OnCityButtonPressed()
     {
         if (cityTaken == false)
         {
             raidPopUp.GetComponent<RaidPopUpScript>()
                 .CityNumberUpdate(cityNumber);
+
+            //activates the pop-up
             raidPopUp.SetActive(true);
         }
     }
 
+
+    //If the city has been raided,
+    //change the color of the image and
+    //call the AddControlledCities() function in the territory object
+    //that the city currently resides in.
     public void RaidedCity()
     {
         if (cityTaken == true)
         {
+            //change the color of image to gray
             this.gameObject.GetComponent<Image>().color =
                 new Color32(77, 77, 77, 255);
             currentTerritory.GetComponent<Territory>().AddControlledCities();

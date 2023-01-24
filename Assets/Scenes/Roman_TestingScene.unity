@@ -505,7 +505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.7422, y: -108.66179}
+  m_AnchoredPosition: {x: -346, y: -15}
   m_SizeDelta: {x: 44.1761, y: 31.9744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164852039
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e105fca72ad40d4b8b88e4d19365e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tookCity: 0
+  currentCity: 0
   cityScriptList:
   - {fileID: 164852042}
   - {fileID: 1748917834}
@@ -1246,7 +1246,6 @@ MonoBehaviour:
   - {fileID: 741431698}
   - {fileID: 1380751420}
   - {fileID: 1723252699}
-  currentCity: 0
 --- !u!1 &627056499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 129.7, y: 16.7}
+  m_AnchoredPosition: {x: -249, y: 26}
   m_SizeDelta: {x: 44.1761, y: 31.9744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251692099
@@ -3012,7 +3011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5bfea1d4fb68dd438ef0f39ad0a39d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee0aefbbf4f5fbe4b9c5bd2e6ed7cec7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3458,7 +3457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7, y: 97.2}
+  m_AnchoredPosition: {x: -134, y: 97.2}
   m_SizeDelta: {x: 44.1761, y: 31.9744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461000315
@@ -3936,7 +3935,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746611113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfd89075c422a1c47a57b872974be67f, type: 3}
   m_Name: 
@@ -3952,7 +3951,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746611113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfd89075c422a1c47a57b872974be67f, type: 3}
   m_Name: 
