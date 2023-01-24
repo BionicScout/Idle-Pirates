@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZoom : MonoBehaviour {
- // Movement based Scroll Wheel Zoom.
-    public Transform map;
+    // Movement based Scroll Wheel Zoom.
+    [SerializeField]
+    private Transform map;
     Vector3 minScale;
 
-//Zoom Level
-    public float zoomLevel = 1;
-    public float sensitivity = 1;
-    public float maxZoom = 30;
+    //Zoom Level
+    [SerializeField]
+    private float zoomLevel = 1;
 
-//Move Map
-    public Camera cam;
-    public float grabSpeed = 10;
+    [SerializeField]
+    private float sensitivity = 1;
+
+    [SerializeField]
+    private float maxZoom = 30;
+
+    //Move Map
+    [SerializeField]
+    private Camera cam;
+
+    [SerializeField]
+    private float grabSpeed = 10;
 
     Vector2 startPos;
     Vector2 lastMosueFrame;

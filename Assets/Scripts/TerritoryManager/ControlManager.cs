@@ -28,25 +28,10 @@ public class ControlManager : MonoBehaviour
 
     void Update() 
     {
-
-        //if(Input.GetKeyDown(KeyCode.Equals) && controlledTerritories < totalTerritories) {
-        //    controlledTerritories++;
-        //}
-        //if(Input.GetKeyDown(KeyCode.Minus) && controlledTerritories > 0) {
-        //    controlledTerritories--;
-        //}
-
-        //if (territoryList[controlledTerritories].GetComponent<Territory>().controlled == true)
-        //{
-        //    controlledTerritories++;
-        //}
-
-
         if (controlledTerritories == totalTerritories) {
             Win();
         }
         
-
     }
 
     void Win() {
