@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlManager : MonoBehaviour 
 {
+    public TMP_Text text; //Temp Object
+
     [SerializeField]
     private int totalTerritories = 5;
     public static int controlledTerritories = 0;
@@ -31,11 +34,18 @@ public class ControlManager : MonoBehaviour
         if (controlledTerritories == totalTerritories) {
             Win();
         }
-        
+        UpdateText();
     }
 
     void Win() {
         Debug.Log("WIN");
         SceneManager.LoadScene(winningSceneName);
+    }
+
+    void UpdateText() { //TEMP METHOD
+        float percent = (int)((controlledTerritories * 100f)/ totalTerritories);
+        //Debug.Log(controlledTerritories);
+        Debug.Log(percent);
+        text.text = percent.ToString() + "%";
     }
 }
