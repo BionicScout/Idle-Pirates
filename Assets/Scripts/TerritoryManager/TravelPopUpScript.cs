@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaidPopUpScript : MonoBehaviour
+public class TravelPopUpScript : MonoBehaviour
 {
 
     [SerializeField]
     private int currentCity = 0;
 
     [SerializeField]
-    private List<CityScript> cityScriptList;
-
-
-    
+    private List<CityButtonScript> cityScriptList;
 
     private void Update()
     {
@@ -23,6 +20,16 @@ public class RaidPopUpScript : MonoBehaviour
     {
         //Disactivates the pop-up
         this.gameObject.SetActive(false);
+
+
+
+
+
+
+
+
+
+
 
         //Sends the true statement into the SetCityTaken function
         //to the specific object in the list

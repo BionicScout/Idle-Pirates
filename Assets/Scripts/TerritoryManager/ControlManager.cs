@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ControlManager : MonoBehaviour 
 {
-    public TMP_Text text; //Temp Object
+    public TMP_Text percentageText; //Temp Object
 
     [SerializeField]
     private int totalTerritories = 5;
@@ -14,6 +14,15 @@ public class ControlManager : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> territoryList;
+
+    public static int percentage = 0;
+
+    //Would be used to change the percentage based on the cities
+    //[SerializeField]
+    //private List<GameObject> cityList;
+    //[SerializeField]
+    //private int totalCities = 5;
+    //public static int controlledCities = 0;
 
     [SerializeField]
     private string winningSceneName;
@@ -27,6 +36,7 @@ public class ControlManager : MonoBehaviour
         //    cm = this;
 
         totalTerritories = territoryList.Count;
+        
     }
 
     void Update() 
@@ -42,10 +52,11 @@ public class ControlManager : MonoBehaviour
         SceneManager.LoadScene(winningSceneName);
     }
 
-    void UpdateText() { //TEMP METHOD
-        float percent = (int)((controlledTerritories * 100f)/ totalTerritories);
+    void UpdateText() 
+    {   //TEMP METHOD
+        percentage = (int)((controlledTerritories * 100f)/ totalTerritories);
         //Debug.Log(controlledTerritories);
-        Debug.Log(percent);
-        text.text = percent.ToString() + "%";
+        // Debug.Log(percent);
+        percentageText.text = percentage.ToString() + "%";
     }
 }

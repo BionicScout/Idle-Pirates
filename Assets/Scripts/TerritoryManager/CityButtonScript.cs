@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class CityScript : MonoBehaviour
+public class CityButtonScript : MonoBehaviour
 {
     [SerializeField] 
     private GameObject raidPopUp;
@@ -18,7 +19,13 @@ public class CityScript : MonoBehaviour
 
     [SerializeField] 
     private bool cityTaken = false;
-    
+
+    [SerializeField]
+    private string cityName;
+
+    [SerializeField]
+    private string citySceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +56,7 @@ public class CityScript : MonoBehaviour
     {
         if (cityTaken == false)
         {
-            raidPopUp.GetComponent<RaidPopUpScript>()
+            raidPopUp.GetComponent<TravelPopUpScript>()
                 .CityNumberUpdate(cityNumber);
 
             //activates the pop-up
@@ -72,6 +79,11 @@ public class CityScript : MonoBehaviour
             currentTerritory.GetComponent<Territory>().AddControlledCities();
         }
         
+    }
+
+    public void TraveledtoCity()
+    {
+        SceneManager.LoadScene(citySceneName);
     }
 
 }

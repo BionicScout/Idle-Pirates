@@ -12,6 +12,8 @@ public class MainMenuScript : MonoBehaviour
     private string CreditsSceneName;
     [SerializeField]
     private string TitleMenuSceneName;
+    [SerializeField]
+    private string mapSceneName;
 
     [Header("Sound Sources")]
     [SerializeField]
@@ -62,6 +64,15 @@ public class MainMenuScript : MonoBehaviour
 
     }
 
+    public void MapButtonPressed()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        soundSource.PlayOneShot(menuClick);
+        StartCoroutine(WaitforMapButton(clickTimer));
+
+    }
+
 
     public void CloseGame()
     {
@@ -103,4 +114,15 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
 
     }
+
+    IEnumerator WaitforMapButton(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);   //Wait
+
+        //reset save data
+
+        SceneManager.LoadScene(mapSceneName);
+    }
+
 }

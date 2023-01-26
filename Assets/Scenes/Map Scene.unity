@@ -314,6 +314,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 291003316}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &28879947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +619,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
+  cityName: S
 --- !u!1 &168872654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1177,6 @@ RectTransform:
   m_Children:
   - {fileID: 1870436023}
   - {fileID: 1846843274}
-  - {fileID: 1327014377}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1196,7 +1197,7 @@ GameObject:
   - component: {fileID: 427317062}
   - component: {fileID: 427317061}
   m_Layer: 5
-  m_Name: Raid Text
+  m_Name: Travel Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1242,7 +1243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Would You Like to Raid the City
+  m_text: Would you like to travel to the City
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1305,7 +1306,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 17.643616, y: 0, z: 20.164062, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1435,7 +1436,7 @@ GameObject:
   - component: {fileID: 529959700}
   - component: {fileID: 529959703}
   m_Layer: 5
-  m_Name: Raid Pop Up
+  m_Name: Travel Pop Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1591,6 +1592,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1407114025}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &627056502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1918,6 +1920,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 2141877176}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &741431699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,6 +2071,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1407114025}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &869207662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,6 +2278,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 291003316}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &931358992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2424,6 +2429,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1407114025}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &935116415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,6 +2642,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1024928090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,6 +2793,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 116149591}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1027853719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,6 +3100,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
+  cityName: M
 --- !u!1 &1252566668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,6 +3157,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1252566671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3343,18 +3353,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327014376}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 13.982024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 420540471}
-  m_RootOrder: 2
+  m_Father: {fileID: 1846843274}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -400, y: 475}
-  m_SizeDelta: {x: -800, y: -950}
+  m_AnchoredPosition: {x: -445.14282, y: 494.1328}
+  m_SizeDelta: {x: 1120, y: 129.9999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327014378
 MonoBehaviour:
@@ -3481,6 +3491,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 2141877176}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1380751421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3691,6 +3702,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 116149591}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1429875138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3784,6 +3796,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429875135}
+  m_CullTransparentMesh: 1
+--- !u!1 &1437487444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437487445}
+  - component: {fileID: 1437487447}
+  - component: {fileID: 1437487446}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1437487445
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437487444}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1849330319}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1.9086914, y: 1.3970337}
+  m_SizeDelta: {x: 2.8255005, y: -3.2280884}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1437487446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437487444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1437487447
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437487444}
   m_CullTransparentMesh: 1
 --- !u!1 &1461000313
 GameObject:
@@ -3935,6 +4023,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
+  cityName: I
 --- !u!1 &1625313773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4214,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 902395065}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1723252700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4252,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d68716e22e6c9344a8f7e2f5dd07b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1863362261}
+  percentageText: {fileID: 1863362261}
   totalTerritories: 5
   territoryList:
   - {fileID: 1094456049}
@@ -4492,6 +4582,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
+  cityName: W
 --- !u!1 &1846843273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4523,10 +4614,49 @@ Transform:
   - {fileID: 529959702}
   - {fileID: 2050682135}
   - {fileID: 2132556350}
-  - {fileID: 1863362260}
+  - {fileID: 1327014377}
+  - {fileID: 1849330319}
   m_Father: {fileID: 420540471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1849330318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849330319}
+  m_Layer: 5
+  m_Name: Pecentage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1849330319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849330318}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 13.982024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1437487445}
+  - {fileID: 1863362260}
+  m_Father: {fileID: 1846843274}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 617.2644, y: 465.8451}
+  m_SizeDelta: {x: 450.0609, y: 100.0001}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1862938583
 GameObject:
   m_ObjectHideFlags: 0
@@ -4583,6 +4713,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1862938586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4689,7 +4820,7 @@ GameObject:
   - component: {fileID: 1863362262}
   - component: {fileID: 1863362261}
   m_Layer: 5
-  m_Name: Temp Notoritey Text
+  m_Name: Temp Notority Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4703,17 +4834,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863362259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 13.982024}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1846843274}
-  m_RootOrder: 3
+  m_Father: {fileID: 1849330319}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 495.85718, y: 488.1328}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.29370117, y: -0.17425537}
+  m_SizeDelta: {x: 442.2272, y: 94.9241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863362261
 MonoBehaviour:
@@ -4798,7 +4929,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -266.54712, y: 0, z: -244.93506, w: -235.32977}
+  m_margin: {x: 0.3996582, y: 0, z: 0.17053223, w: 1.9029541}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4906,6 +5037,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &1986055593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5056,6 +5188,7 @@ MonoBehaviour:
   currentTerritory: {fileID: 116149591}
   cityNumber: 0
   cityTaken: 0
+  cityName: 
 --- !u!114 &2036198555
 MonoBehaviour:
   m_ObjectHideFlags: 0
