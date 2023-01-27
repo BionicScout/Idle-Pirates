@@ -22,27 +22,22 @@ public class TravelPopUpScript : MonoBehaviour
         this.gameObject.SetActive(false);
 
 
-
-
-
-
-
-
+        cityScriptList[currentCity - 1].TraveltoCity();
 
 
 
         //Sends the true statement into the SetCityTaken function
         //to the specific object in the list
         //based on the current city the player clicked on 
-        cityScriptList[currentCity - 1].SetCityTaken(true);
+        //cityScriptList[currentCity - 1].SetCityTaken(true);
 
         //then it calls the raidedCity function
         //to the specific object in the list
         //based on the current city the player clicked on 
-        cityScriptList[currentCity - 1].RaidedCity();
+        //cityScriptList[currentCity - 1].RaidedCity();
 
         //resets the current city the player clicked on
-        currentCity = 0;
+        //currentCity = 0;
 
 
     }

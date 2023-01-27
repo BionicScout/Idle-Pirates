@@ -9,7 +9,7 @@ using TMPro;
 public class CityButtonScript : MonoBehaviour
 {
     [SerializeField] 
-    private GameObject raidPopUp;
+    private GameObject travelPopUp;
 
     [SerializeField] 
     private GameObject currentTerritory;
@@ -56,11 +56,11 @@ public class CityButtonScript : MonoBehaviour
     {
         if (cityTaken == false)
         {
-            raidPopUp.GetComponent<TravelPopUpScript>()
+            travelPopUp.GetComponent<TravelPopUpScript>()
                 .CityNumberUpdate(cityNumber);
 
             //activates the pop-up
-            raidPopUp.SetActive(true);
+            travelPopUp.SetActive(true);
         }
     }
 
@@ -81,7 +81,7 @@ public class CityButtonScript : MonoBehaviour
         
     }
 
-    public void TraveledtoCity()
+    public void TraveltoCity()
     {
         SceneManager.LoadScene(citySceneName);
     }

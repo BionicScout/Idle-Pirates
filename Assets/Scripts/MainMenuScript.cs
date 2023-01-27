@@ -18,8 +18,10 @@ public class MainMenuScript : MonoBehaviour
     [Header("Sound Sources")]
     [SerializeField]
     private AudioSource soundSource;
+
     [SerializeField]
     private AudioClip menuClick;
+
     [SerializeField]
     private float clickTimer = 0.5f;
 

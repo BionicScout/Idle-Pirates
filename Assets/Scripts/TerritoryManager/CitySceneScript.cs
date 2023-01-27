@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class CitySceneScript : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject raidPopUp;
+
+    
+    public static bool cityTaken = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +21,14 @@ public class CitySceneScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnRaidButtonPressed()
+    {
+        if (cityTaken == false)
+        {
+            //activates the pop-up
+            raidPopUp.SetActive(true);
+        }
     }
 }

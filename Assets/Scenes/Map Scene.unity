@@ -315,6 +315,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &28879947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +621,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: S
+  citySceneName: City 1 Scene
 --- !u!1 &168872654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1595,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &627056502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1924,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &741431699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,6 +2076,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &869207662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,6 +2284,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &931358992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2430,6 +2436,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &935116415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,6 +2650,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1024928090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2794,6 +2802,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1027853719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3101,6 +3110,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: M
+  citySceneName: Stock City Scene
 --- !u!1 &1252566668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,6 +3168,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1252566671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3492,6 +3503,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1380751421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,6 +3715,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1429875138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4024,6 +4037,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: I
+  citySceneName: Stock City Scene
 --- !u!1 &1625313773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,6 +4229,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1723252700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4583,6 +4598,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: W
+  citySceneName: Stock City Scene
 --- !u!1 &1846843273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,6 +4730,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1862938586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5038,6 +5055,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &1986055593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5189,6 +5207,7 @@ MonoBehaviour:
   cityNumber: 0
   cityTaken: 0
   cityName: 
+  citySceneName: Stock City Scene
 --- !u!114 &2036198555
 MonoBehaviour:
   m_ObjectHideFlags: 0
