@@ -93,6 +93,9 @@ public class MainMenuScript : MonoBehaviour
 
         //reset save data
 
+        CityInbetweenManagementScript.staticCityList.Clear();
+        CityInbetweenManagementScript.currentStaticCityNumber = 0;
+
         SceneManager.LoadScene(StartSceneName);
     }
     IEnumerator WaitforTitleMenuButton(float duration)

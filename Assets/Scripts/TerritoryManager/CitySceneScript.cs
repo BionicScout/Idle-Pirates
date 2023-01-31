@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CitySceneScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject raidPopUp;
 
-
+    [SerializeField]
+    private string mapSceneName;
 
     [SerializeField]
     private int cityNumber;
@@ -38,5 +40,10 @@ public class CitySceneScript : MonoBehaviour
             raidPopUp.GetComponent<RaidPopUpScript>()
                 .CityNumberUpdate(cityNumber);
         }
+    }
+
+    public void OnMapButtonPressed()
+    {
+        SceneManager.LoadScene(mapSceneName);
     }
 }

@@ -35,23 +35,22 @@ public class CityButtonScript : MonoBehaviour
 
         //Maybe make it so that if number from static script is equal to
         //cityNumber in this object, call raidedCity function
-
         if(CityInbetweenManagementScript.staticCityList.Contains(cityNumber)
-            && cityTaken == false && 
-            CityInbetweenManagementScript.currentStaticCityNumber == cityNumber) 
+            && cityTaken == false /*&& 
+            CityInbetweenManagementScript.currentStaticCityNumber == cityNumber*/) 
         {
             cityTaken = true;
             RaidedCity();
 
         }
-        //else if(CityInbetweenManagementScript.staticCityList.Contains(cityNumber)
+        //else if (CityInbetweenManagementScript.staticCityList.Contains(cityNumber)
         //    && cityTaken == false)
         //{
         //    cityTaken = true;
         //    ChangeCityColor();
         //}
 
-       
+
     }
 
     // Update is called once per frame
