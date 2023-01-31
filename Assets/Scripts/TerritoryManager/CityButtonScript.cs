@@ -36,12 +36,22 @@ public class CityButtonScript : MonoBehaviour
         //Maybe make it so that if number from static script is equal to
         //cityNumber in this object, call raidedCity function
 
-        if(CityInbetweenManagementScript.staticCityNumber == cityNumber) 
+        if(CityInbetweenManagementScript.staticCityList.Contains(cityNumber)
+            && cityTaken == false && 
+            CityInbetweenManagementScript.currentStaticCityNumber == cityNumber) 
         {
             cityTaken = true;
             RaidedCity();
-        
+
         }
+        //else if(CityInbetweenManagementScript.staticCityList.Contains(cityNumber)
+        //    && cityTaken == false)
+        //{
+        //    cityTaken = true;
+        //    ChangeCityColor();
+        //}
+
+       
     }
 
     // Update is called once per frame
@@ -89,6 +99,17 @@ public class CityButtonScript : MonoBehaviour
             currentTerritory.GetComponent<Territory>().AddControlledCities();
         }
         
+    }
+    public void ChangeCityColor()
+    {
+        if (cityTaken == true)
+        {
+            //change the color of image to gray
+            this.gameObject.GetComponent<Image>().color =
+                new Color32(77, 77, 77, 255);
+            
+        }
+
     }
 
     public void TraveltoCity()

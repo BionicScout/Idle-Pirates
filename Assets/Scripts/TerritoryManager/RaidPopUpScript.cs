@@ -30,7 +30,10 @@ public class RaidPopUpScript : MonoBehaviour
         this.gameObject.SetActive(false);
 
         //call static script
-        CityInbetweenManagementScript.staticCityNumber = cityNumber;
+
+        CityInbetweenManagementScript.currentStaticCityNumber = cityNumber;
+        CityInbetweenManagementScript.staticCityList.Add(cityNumber);
+
 
         SceneManager.LoadScene(mapName);
 
