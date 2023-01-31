@@ -310,12 +310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 291003316}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 16 Scene
 --- !u!114 &28879947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
@@ -1590,12 +1590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1407114025}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 11 Scene
 --- !u!114 &627056502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,12 +1919,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 2141877176}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 17 Scene
 --- !u!114 &741431699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,12 +2071,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1407114025}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 10 Scene
 --- !u!114 &869207662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,12 +2279,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 291003316}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 15 Scene
 --- !u!114 &931358992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,12 +2431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1407114025}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 9 Scene
 --- !u!114 &935116415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2645,12 +2645,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 7 Scene
 --- !u!114 &1024928090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,12 +2797,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 116149591}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 14 Scene
 --- !u!114 &1027853719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3105,12 +3105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
   cityName: M
-  citySceneName: Stock City Scene
+  citySceneName: City 4 Scene
 --- !u!1 &1252566668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,12 +3163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 5 Scene
 --- !u!114 &1252566671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3498,12 +3498,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 2141877176}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 18 Scene
 --- !u!114 &1380751421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3710,12 +3710,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 116149591}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 12 Scene
 --- !u!114 &1429875138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4032,12 +4032,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
   cityName: I
-  citySceneName: Stock City Scene
+  citySceneName: City 3 Scene
 --- !u!1 &1625313773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,12 +4224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 902395065}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 19 Scene
 --- !u!114 &1723252700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4593,12 +4593,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 1094456049}
   cityNumber: 0
   cityTaken: 0
   cityName: W
-  citySceneName: Stock City Scene
+  citySceneName: City 2 Scene
 --- !u!1 &1846843273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,12 +4725,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 6 Scene
 --- !u!114 &1862938586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,12 +5050,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 987062146}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 8 Scene
 --- !u!114 &1986055593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5202,12 +5202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a498f0a934d164aa206a0fdd6f3258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidPopUp: {fileID: 529959699}
+  travelPopUp: {fileID: 529959699}
   currentTerritory: {fileID: 116149591}
   cityNumber: 0
   cityTaken: 0
   cityName: 
-  citySceneName: Stock City Scene
+  citySceneName: City 13 Scene
 --- !u!114 &2036198555
 MonoBehaviour:
   m_ObjectHideFlags: 0

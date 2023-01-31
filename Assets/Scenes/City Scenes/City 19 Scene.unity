@@ -351,7 +351,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 790154895}
         m_TargetAssemblyTypeName: RaidPopUpScript, Assembly-CSharp
         m_MethodName: YesButtonPressed
         m_Mode: 1
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 790154892}
   - component: {fileID: 790154894}
   - component: {fileID: 790154893}
+  - component: {fileID: 790154895}
   m_Layer: 5
   m_Name: Raid Pop Up
   m_TagString: Untagged
@@ -615,6 +616,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790154891}
   m_CullTransparentMesh: 1
+--- !u!114 &790154895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790154891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601ba6cff9abd9a42bd2a5b45a8e51f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cityNumber: 0
+  mapName: Map Scene
 --- !u!1 &822902545
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raidPopUp: {fileID: 790154891}
+  cityNumber: 19
 --- !u!1 &1097528630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1279,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 790154895}
         m_TargetAssemblyTypeName: RaidPopUpScript, Assembly-CSharp
         m_MethodName: NoButtonPressed
         m_Mode: 1
@@ -1531,7 +1547,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1362282540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 932762093}
+        m_TargetAssemblyTypeName: CitySceneScript, Assembly-CSharp
+        m_MethodName: OnRaidButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1362282540
 MonoBehaviour:
   m_ObjectHideFlags: 0

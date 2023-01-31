@@ -17,8 +17,8 @@ public class CityButtonScript : MonoBehaviour
     [SerializeField] 
     private int cityNumber;
 
-    [SerializeField] 
-    private bool cityTaken = false;
+    [SerializeField]
+    public bool cityTaken = false;
 
     [SerializeField]
     private string cityName;
@@ -32,6 +32,16 @@ public class CityButtonScript : MonoBehaviour
        //Grab the name of the game object and turn it into an int 
        //and put it in the cityNumber variable
        int.TryParse(this.gameObject.name, out cityNumber);
+
+        //Maybe make it so that if number from static script is equal to
+        //cityNumber in this object, call raidedCity function
+
+        if(CityInbetweenManagementScript.staticCityNumber == cityNumber) 
+        {
+            cityTaken = true;
+            RaidedCity();
+        
+        }
     }
 
     // Update is called once per frame

@@ -7,7 +7,12 @@ public class CitySceneScript : MonoBehaviour
     [SerializeField]
     private GameObject raidPopUp;
 
-    
+
+
+    [SerializeField]
+    private int cityNumber;
+
+
     public static bool cityTaken = false;
 
 
@@ -29,6 +34,9 @@ public class CitySceneScript : MonoBehaviour
         {
             //activates the pop-up
             raidPopUp.SetActive(true);
+
+            raidPopUp.GetComponent<RaidPopUpScript>()
+                .CityNumberUpdate(cityNumber);
         }
     }
 }
