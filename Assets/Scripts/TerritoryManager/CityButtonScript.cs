@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class CityScript : MonoBehaviour
+public class CityButtonScript : MonoBehaviour
 {
     [SerializeField] 
-    private GameObject raidPopUp;
+    private GameObject travelPopUp;
 
     [SerializeField] 
     private GameObject currentTerritory;
@@ -16,15 +17,31 @@ public class CityScript : MonoBehaviour
     [SerializeField] 
     private int cityNumber;
 
-    [SerializeField] 
-    private bool cityTaken = false;
-    
+    [SerializeField]
+    public bool cityTaken = false;
+
+    [SerializeField]
+    private string cityName;
+
+    [SerializeField]
+    private string citySceneName;
+
     // Start is called before the first frame update
     void Start()
     {
        //Grab the name of the game object and turn it into an int 
        //and put it in the cityNumber variable
        int.TryParse(this.gameObject.name, out cityNumber);
+
+        //Maybe make it so that if number from static script is equal to
+        //cityNumber in this object, call raidedCity function
+
+        if(CityInbetweenManagementScript.staticCityNumber == cityNumber) 
+        {
+            cityTaken = true;
+            RaidedCity();
+        
+        }
     }
 
     // Update is called once per frame
@@ -49,11 +66,11 @@ public class CityScript : MonoBehaviour
     {
         if (cityTaken == false)
         {
-            raidPopUp.GetComponent<RaidPopUpScript>()
+            travelPopUp.GetComponent<TravelPopUpScript>()
                 .CityNumberUpdate(cityNumber);
 
             //activates the pop-up
-            raidPopUp.SetActive(true);
+            travelPopUp.SetActive(true);
         }
     }
 
@@ -72,6 +89,11 @@ public class CityScript : MonoBehaviour
             currentTerritory.GetComponent<Territory>().AddControlledCities();
         }
         
+    }
+
+    public void TraveltoCity()
+    {
+        SceneManager.LoadScene(citySceneName);
     }
 
 }

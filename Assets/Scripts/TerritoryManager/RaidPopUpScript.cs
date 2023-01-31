@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class RaidPopUpScript : MonoBehaviour
 {
+    [SerializeField]
+    private int cityNumber;
 
     [SerializeField]
-    private int currentCity = 0;
+    private string mapName;
 
-    [SerializeField]
-    private List<CityScript> cityScriptList;
-
-
-    
-
-    private void Update()
+    // Start is called before the first frame update
+    void Start()
     {
+        
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     public void YesButtonPressed()
@@ -24,19 +29,10 @@ public class RaidPopUpScript : MonoBehaviour
         //Disactivates the pop-up
         this.gameObject.SetActive(false);
 
-        //Sends the true statement into the SetCityTaken function
-        //to the specific object in the list
-        //based on the current city the player clicked on 
-        cityScriptList[currentCity - 1].SetCityTaken(true);
+        //call static script
+        CityInbetweenManagementScript.staticCityNumber = cityNumber;
 
-        //then it calls the raidedCity function
-        //to the specific object in the list
-        //based on the current city the player clicked on 
-        cityScriptList[currentCity - 1].RaidedCity();
-
-        //resets the current city the player clicked on
-        currentCity = 0;
-
+        SceneManager.LoadScene(mapName);
 
     }
 
@@ -45,16 +41,13 @@ public class RaidPopUpScript : MonoBehaviour
     public void NoButtonPressed()
     {
         this.gameObject.SetActive(false);
-        currentCity = 0;
+        cityNumber = 0;
     }
 
-
-    //Sets the current city the player is trying to raid 
-    //based on which city object called this function
     public void CityNumberUpdate(int cityNum)
     {
-        
-        currentCity = cityNum;
+
+        cityNumber = cityNum;
     }
 
 }
