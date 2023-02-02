@@ -1944,7 +1944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Heavy
   speed: 1
-  attack: 1
+  attack: 10
   health: 20
   maxHealth: 20
   dead: 0
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Normal
   speed: 3
-  attack: 1
+  attack: 5
   health: 10
   maxHealth: 10
   dead: 0
@@ -1997,7 +1997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Fast
   speed: 5
-  attack: 1
+  attack: 2
   health: 5
   maxHealth: 5
   dead: 0

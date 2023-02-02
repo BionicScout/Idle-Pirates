@@ -1,11 +1,5 @@
-using Newtonsoft.Json.Converters;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using TMPro;
-using UnityEditor;
-using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -106,7 +100,6 @@ public class Combat : MonoBehaviour {
     void Win() {
         if(!updated) {
             text.text = "Win!\nPress Esc to Go Back";
-            updated = true;
         }
         else {
             text.text = "Switch";
@@ -118,7 +111,7 @@ public class Combat : MonoBehaviour {
     void Ran() {
         if(!updated) {
             text.text = "Ran!\nPress Esc to Go Back";
-            updated = true;
+
         }
         else {
             text.text = "Switch";
@@ -128,7 +121,6 @@ public class Combat : MonoBehaviour {
     void Lose() {
         if(!updated) {
             text.text = "Lose!\nPress Esc to Go Back";
-            updated = true;
         }
         else {
             text.text = "Switch";
@@ -310,9 +302,6 @@ public class Combat : MonoBehaviour {
         }
 
         enemyAttack();
-
-
-        gameState = GameState.PlayersTurn;
     }
 
     void enemyAttack() {
@@ -335,6 +324,8 @@ public class Combat : MonoBehaviour {
             playerShip = playerFleet.ships[playerShip_index];
             text.text = text.text + "\n" + playerShip.shipName + " has come to fight";
         }
+
+        gameState = GameState.PlayersTurn;
     }
     void enemySwitch() {
         text.text = text.text + "\n" + "Enemy Switch";
