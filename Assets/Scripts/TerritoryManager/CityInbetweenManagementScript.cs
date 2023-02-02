@@ -14,19 +14,5 @@ public static class CityInbetweenManagementScript
         
     }
 
-    //public static bool Contains(int num)
-    //{
-    //    for (int i = 0; i < staticCityList.Count; i++)
-    //    {
-    //        if (num == i)
-    //        {
-    //            return true;
-    //        }
-            
-
-    //    }
-
-    //    return false;
-    //}
-
+ 
 }

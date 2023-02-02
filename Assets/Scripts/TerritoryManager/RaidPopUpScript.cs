@@ -10,7 +10,7 @@ public class RaidPopUpScript : MonoBehaviour
     private int cityNumber;
 
     [SerializeField]
-    private string mapName;
+    private string mapSceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class RaidPopUpScript : MonoBehaviour
         CityInbetweenManagementScript.staticCityList.Add(cityNumber);
 
 
-        SceneManager.LoadScene(mapName);
+        SceneManager.LoadScene(mapSceneName);
 
     }
 

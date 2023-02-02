@@ -10,12 +10,12 @@ public class ControlManager : MonoBehaviour
 
     [SerializeField]
     private int totalTerritories = 5;
-    public static int controlledTerritories = 0;
+    public int controlledTerritories = 0;
 
     [SerializeField]
     private List<GameObject> territoryList;
 
-    public static int percentage = 0;
+    public int percentage = 0;
 
     //Would be used to change the percentage based on the cities
     //[SerializeField]
@@ -36,6 +36,7 @@ public class ControlManager : MonoBehaviour
         //    cm = this;
 
         totalTerritories = territoryList.Count;
+        //Debug.Log(controlledTerritories);
         
     }
 
@@ -58,5 +59,11 @@ public class ControlManager : MonoBehaviour
         //Debug.Log(controlledTerritories);
         // Debug.Log(percent);
         percentageText.text = percentage.ToString() + "%";
+    }
+
+    public void AddControlledTerritories()
+    {
+        controlledTerritories += 1;
+        Debug.Log(controlledTerritories);
     }
 }

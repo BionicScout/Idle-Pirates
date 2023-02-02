@@ -12,6 +12,9 @@ public class Territory : MonoBehaviour {
     [SerializeField]
     private List<GameObject> cityList;
 
+    [SerializeField]
+    private GameObject controlManager;
+
 
     void Start() {
         totalCities = cityList.Count;
@@ -26,8 +29,8 @@ public class Territory : MonoBehaviour {
 
         if(controlled && !updated) {
             updated = true;
-            ControlManager.controlledTerritories++;
-            Debug.Log(ControlManager.controlledTerritories);
+            controlManager.GetComponent<ControlManager>().AddControlledTerritories();
+            //Debug.Log(ControlManager.controlledTerritories);
         }
 
     }
