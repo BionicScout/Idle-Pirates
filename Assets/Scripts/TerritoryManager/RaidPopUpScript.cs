@@ -29,8 +29,8 @@ public class RaidPopUpScript : MonoBehaviour
         //Disactivates the pop-up
         this.gameObject.SetActive(false);
 
-        //call static script
-
+        //sets the int of the static class equal to the cityNumber of this scene
+        //and inserts the cityNumber into the list in the static class
         CityInbetweenManagementScript.currentStaticCityNumber = cityNumber;
         CityInbetweenManagementScript.staticCityList.Add(cityNumber);
 

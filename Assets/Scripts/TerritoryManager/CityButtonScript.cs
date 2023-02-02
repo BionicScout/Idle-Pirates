@@ -33,8 +33,9 @@ public class CityButtonScript : MonoBehaviour
        //and put it in the cityNumber variable
        int.TryParse(this.gameObject.name, out cityNumber);
 
-        //Maybe make it so that if number from static script is equal to
-        //cityNumber in this object, call raidedCity function
+        //This checks if the city is not taken (although when the scene is loaded,
+        //any data from before you travelled to a city is erased) 
+        //AND if the city is inside of the list of city on the static class
         if(CityInbetweenManagementScript.staticCityList.Contains(cityNumber)
             && cityTaken == false /*&& 
             CityInbetweenManagementScript.currentStaticCityNumber == cityNumber*/) 
