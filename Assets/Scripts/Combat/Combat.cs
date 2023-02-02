@@ -1,12 +1,14 @@
-//using System.Collections;
+using Newtonsoft.Json.Converters;
+using System.Collections;
 using System.Collections.Generic;
-//using System.Runtime.InteropServices;
-//using System.Security.Cryptography;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using TMPro;
-//using UnityEditor;
-//using UnityEditor.TextCore.Text;
+using UnityEditor;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 /*
     TO DO LIST:
@@ -41,7 +43,6 @@ public class Combat : MonoBehaviour {
 
     public TMP_Text shipTitle, text;
 
-
     [SerializeField]
     private string mapSceneName;
 
@@ -53,6 +54,7 @@ public class Combat : MonoBehaviour {
     }
 
     void Update() {
+        //Allow Player to update text
         if(Input.GetKeyDown(KeyCode.Mouse0)) {
             updated = false;
             //Debug.Log("Pressed\nUpdated: "+updated);
@@ -61,9 +63,19 @@ public class Combat : MonoBehaviour {
             //Debug.Log("A");
             return;
         }
-        else if(gameState == GameState.Lose) {
 
+        //End States
+        else if(gameState == GameState.Win) {
+            Win();
         }
+        else if(gameState == GameState.Ran) {
+            Ran();
+        }
+        else if(gameState == GameState.Lose) {
+            Lose();
+        }
+
+        //Game States
         else if(gameState == GameState.PlayersTurn) {
             shipTitle.text = playerShip.shipName;
             playersTurn();
@@ -85,20 +97,51 @@ public class Combat : MonoBehaviour {
             EnemysTurn();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene(mapSceneName);
         }
     }
 
-//Player Turn Methods
+    //Game End States
+    void Win() {
+        if(!updated) {
+            text.text = "Win!\nPress Esc to Go Back";
+            updated = true;
+        }
+        else {
+            text.text = "Switch";
+        }
+
+
+    }
+
+    void Ran() {
+        if(!updated) {
+            text.text = "Ran!\nPress Esc to Go Back";
+            updated = true;
+        }
+        else {
+            text.text = "Switch";
+        }
+    }
+
+    void Lose() {
+        if(!updated) {
+            text.text = "Lose!\nPress Esc to Go Back";
+            updated = true;
+        }
+        else {
+            text.text = "Switch";
+        }
+    }
+
+    //Player Turn Methods
 
     /*
         This method announces the actions the player can currently do and allows the user to input their desired action.
     */
     void playersTurn() {
-
-    //Is player has switched ships, they can't switch again
+        //Is player has switched ships, they can't switch again
         if(switched) {
             if(!updated) { //General Message
                 text.text = "(A)ttack or (R)un";
@@ -115,7 +158,7 @@ public class Combat : MonoBehaviour {
                 switched = false;
             }
         }
-    //They player hasn't switched ships yet
+        //They player hasn't switched ships yet
         else {
             if(!updated) {  //General Message
                 text.text = "(A)ttack, (S)witch, or (R)un";
@@ -141,7 +184,7 @@ public class Combat : MonoBehaviour {
         This method allows the player to attack the enemy ship. The method does damage ot the enemy ship based off the player's ship's
         attack and then checks if the enemy ship was deystroyed. If the ship was deystroyed, the next enemy ships comes out. If all 
         ships were they deystroyed, the win State is called.
-    */ 
+    */
     void playerAttack() {
         if(!updated) {
             updated = true;
@@ -184,10 +227,10 @@ public class Combat : MonoBehaviour {
             if(playerFleet.ships[i].dead)
                 continue;
 
-            possibleSwitches.Add(playerFleet.ships[i]);  
+            possibleSwitches.Add(playerFleet.ships[i]);
         }
 
-    //If there are no ships to switch to
+        //If there are no ships to switch to
         if(possibleSwitches.Count == 0) {
             text.text = "No other ships to switched to";
             gameState = GameState.PlayersTurn;
@@ -217,7 +260,7 @@ public class Combat : MonoBehaviour {
                 if(playerFleet.ships[i] == playerShip) {
                     playerShip_index = i;
                     break;
-                }                    
+                }
             }
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2) && possibleSwitches.Count == 2) {
@@ -249,7 +292,7 @@ public class Combat : MonoBehaviour {
 
         int totalWeight = playerShip.speed + enemyShip.speed;
         float playerEscapeChance = (float)playerShip.speed / totalWeight;
-        
+
         if(Random.value >= playerEscapeChance) {
             text.text = "Escaped";
             gameState = GameState.Ran;
@@ -260,13 +303,13 @@ public class Combat : MonoBehaviour {
         }
     }
 
-//Enemy Turn Method
+    //Enemy Turn Method
     void EnemysTurn() {
         if(!updated) {
             updated = true;
         }
 
-         enemyAttack();
+        enemyAttack();
 
 
         gameState = GameState.PlayersTurn;
@@ -297,7 +340,7 @@ public class Combat : MonoBehaviour {
         text.text = text.text + "\n" + "Enemy Switch";
     }
 
-//Other Functions
+    //Other Functions
     int SelectNewShip(CombatFleet fleet) {
         for(int i = 0; i < fleet.ships.Count; i++) {
             if(!fleet.ships[i].dead) {
