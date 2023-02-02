@@ -14,6 +14,8 @@ public class MainMenuScript : MonoBehaviour
     private string TitleMenuSceneName;
     [SerializeField]
     private string mapSceneName;
+    [SerializeField]
+    private string combatSceneName;
 
     [Header("Sound Sources")]
     [SerializeField]
@@ -24,6 +26,7 @@ public class MainMenuScript : MonoBehaviour
 
     [SerializeField]
     private float clickTimer = 0.5f;
+    
 
 
     // Start is called before the first frame update
@@ -72,6 +75,15 @@ public class MainMenuScript : MonoBehaviour
         Cursor.visible = true;
         soundSource.PlayOneShot(menuClick);
         StartCoroutine(WaitforMapButton(clickTimer));
+
+    }
+
+    public void CombatButtonPressed()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        soundSource.PlayOneShot(menuClick);
+        StartCoroutine(WaitforCombatButton(clickTimer));
 
     }
 
@@ -128,6 +140,17 @@ public class MainMenuScript : MonoBehaviour
         //reset save data
 
         SceneManager.LoadScene(mapSceneName);
+    }
+
+
+    IEnumerator WaitforCombatButton(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);   //Wait
+
+        //reset save data
+
+        SceneManager.LoadScene(combatSceneName);
     }
 
 }

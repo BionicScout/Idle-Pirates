@@ -16,9 +16,10 @@ public class CombatShip : MonoBehaviour {
     }
 
     void Update() {
-        if(health < 0)
+        if (health < 0)
+        {
             health = 0;
-
+        }
         ui.text = shipName + "\n" + health + "/" + maxHealth + "\nAttack " + attack;
     }
 }

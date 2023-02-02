@@ -1333,6 +1333,7 @@ MonoBehaviour:
   gameState: 0
   shipTitle: {fileID: 564838601}
   text: {fileID: 1865248463}
+  mapSceneName: Map Scene
 --- !u!4 &721840187
 Transform:
   m_ObjectHideFlags: 0

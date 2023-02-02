@@ -1,11 +1,12 @@
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
+//using System.Runtime.InteropServices;
+//using System.Security.Cryptography;
 using TMPro;
-using UnityEditor;
-using UnityEditor.TextCore.Text;
+//using UnityEditor;
+//using UnityEditor.TextCore.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*
     TO DO LIST:
@@ -39,6 +40,10 @@ public class Combat : MonoBehaviour {
     bool updated, switched;
 
     public TMP_Text shipTitle, text;
+
+
+    [SerializeField]
+    private string mapSceneName;
 
     void Start() {
         gameState = GameState.PlayersTurn;
@@ -78,6 +83,11 @@ public class Combat : MonoBehaviour {
         else if(gameState == GameState.EnemysTurn) {
             shipTitle.text = "Enemy";
             EnemysTurn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(mapSceneName);
         }
     }
 
