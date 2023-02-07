@@ -287,14 +287,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b186d2ed46c4ad44bf5eacb211d7c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSceneName: Coconut Mini-Game
-  CreditsSceneName: 
-  TitleMenuSceneName: Title
+  startGameSceneName: 
+  startSceneName: Coconut Mini-Game
+  creditsSceneName: 
+  titleMenuSceneName: 
   mapSceneName: 
   combatSceneName: 
+  miniGameSceneName: 
   soundSource: {fileID: 1892563699}
   menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
   clickTimer: 0.5
+  extrasWindow: {fileID: 0}
 --- !u!4 &584991031
 Transform:
   m_ObjectHideFlags: 0

@@ -7,15 +7,19 @@ public class MainMenuScript : MonoBehaviour
 {
     [Header("Scene Names")]
     [SerializeField]
-    private string StartSceneName;
+    private string startGameSceneName;
     [SerializeField]
-    private string CreditsSceneName;
+    private string startSceneName;
     [SerializeField]
-    private string TitleMenuSceneName;
+    private string creditsSceneName;
+    [SerializeField]
+    private string titleMenuSceneName;
     [SerializeField]
     private string mapSceneName;
     [SerializeField]
     private string combatSceneName;
+    [SerializeField]
+    private string miniGameSceneName;
 
     [Header("Sound Sources")]
     [SerializeField]
@@ -26,19 +30,21 @@ public class MainMenuScript : MonoBehaviour
 
     [SerializeField]
     private float clickTimer = 0.5f;
-    
 
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Window Variables")]
+    [SerializeField]
+    private GameObject extrasWindow;
+
+
+
+    public void StartGameButtonPressed()
     {
-        
-    }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        soundSource.PlayOneShot(menuClick);
+        StartCoroutine(WaitforStartGameButton(clickTimer));
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
@@ -87,6 +93,29 @@ public class MainMenuScript : MonoBehaviour
 
     }
 
+    public void MiniGameButtonPressed()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        soundSource.PlayOneShot(menuClick);
+        StartCoroutine(WaitforMiniGameButton(clickTimer));
+
+    }
+
+
+    public void MinimizeButtonPressed()
+    {
+        //Set window to false
+        soundSource.PlayOneShot(menuClick);
+        extrasWindow.SetActive(false);
+    }
+    public void ExtrasWindowPressed() 
+    {
+        //Set window to true
+        soundSource.PlayOneShot(menuClick);
+        extrasWindow.SetActive(true);
+    }
+
 
     public void CloseGame()
     {
@@ -98,30 +127,40 @@ public class MainMenuScript : MonoBehaviour
     }
 
 
-    IEnumerator WaitforStartButton(float duration)
+    IEnumerator WaitforStartGameButton(float duration)
     {
 
         yield return new WaitForSeconds(duration);   //Wait
 
         //reset save data
-
+        //Make sure this is set to only button on title screen
         CityInbetweenManagementScript.staticCityList.Clear();
         CityInbetweenManagementScript.currentStaticCityNumber = 0;
 
-        SceneManager.LoadScene(StartSceneName);
+        SceneManager.LoadScene(startGameSceneName);
     }
+
+    IEnumerator WaitforStartButton(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);   //Wait
+
+        SceneManager.LoadScene(startSceneName);
+    }
+
+
     IEnumerator WaitforTitleMenuButton(float duration)
     {
 
         yield return new WaitForSeconds(duration);   //Wait
-        SceneManager.LoadScene(TitleMenuSceneName);
+        SceneManager.LoadScene(titleMenuSceneName);
     }
 
     IEnumerator WaitforCreditsButton(float duration)
     {
 
         yield return new WaitForSeconds(duration);   //Wait
-        SceneManager.LoadScene(CreditsSceneName);
+        SceneManager.LoadScene(creditsSceneName);
     }
 
     IEnumerator WaitforCloseButton(float duration)
@@ -151,6 +190,17 @@ public class MainMenuScript : MonoBehaviour
         //reset save data
 
         SceneManager.LoadScene(combatSceneName);
+    }
+
+
+    IEnumerator WaitforMiniGameButton(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);   //Wait
+
+        //reset save data
+
+        SceneManager.LoadScene(miniGameSceneName);
     }
 
 }
