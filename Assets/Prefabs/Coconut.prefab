@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3149301746877832254}
   - component: {fileID: 10209966}
-  - component: {fileID: 603854683434201317}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Untagged
@@ -26,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185022967357013874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19440639, y: 3.7355866, z: -9.91196}
+  m_LocalPosition: {x: 0.19440639, y: 3.7355866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,22 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36f0f4c6503a7a43b1f084f955f6f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &603854683434201317
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185022967357013874}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &4690967844198759640
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,6 +56,7 @@ GameObject:
   - component: {fileID: 688632716451718317}
   - component: {fileID: 1195679089167552765}
   - component: {fileID: 2801982288958612799}
+  - component: {fileID: 6164534114388261001}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -88,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4690967844198759640}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9.91196}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,9 +146,25 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &6164534114388261001
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690967844198759640}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

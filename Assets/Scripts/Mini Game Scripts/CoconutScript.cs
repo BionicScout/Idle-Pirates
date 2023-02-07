@@ -21,26 +21,31 @@ public class CoconutScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Box"))
         {
             Destroy(this.gameObject);
+
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
 
         }
+
+        Debug.Log("Triggered");
     }
 
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Box"))
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            Destroy(this.gameObject);
+        }
 
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
 
-    //    }
-    //}
+        }
+
+        Debug.Log("Collided");
+    }
 
 }

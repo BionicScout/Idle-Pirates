@@ -47,10 +47,9 @@ public class CoconutSpawner : MonoBehaviour
             secPassed = 0;
 
             //Sets spawn at random x based on the two points
-            spawnPosition.position = new Vector3(
+            spawnPosition.position = new Vector2(
                 Random.Range(minXPosition, maxXPosition),
-                spawnPosition.position.y,
-                spawnPosition.position.z);
+                spawnPosition.position.y);
 
            
 
