@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Box
+  - Coconut
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Coconut
   - 
   - 
   - 

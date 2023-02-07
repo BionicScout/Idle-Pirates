@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CoconutScript : MonoBehaviour
 {
+    [SerializeField]
+    private int timeTillDespawn = 10;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(ItemTimer(timeTillDespawn));
     }
 
     // Update is called once per frame
@@ -18,14 +22,9 @@ public class CoconutScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
+        if (collision.gameObject.layer == 3)
         {
             Destroy(this.gameObject);
-
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
 
         }
 
@@ -35,17 +34,21 @@ public class CoconutScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Box"))
+        if (collision.gameObject.layer == 3)
         {
             Destroy(this.gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
+            
         }
 
         Debug.Log("Collided");
+    }
+
+
+    IEnumerator ItemTimer(int duration)
+    {
+        yield return new WaitForSeconds(duration);
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
 }

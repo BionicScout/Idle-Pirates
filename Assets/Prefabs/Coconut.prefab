@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3149301746877832254}
   - component: {fileID: 10209966}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coconut
-  m_TagString: Untagged
+  m_TagString: Coconut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36f0f4c6503a7a43b1f084f955f6f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTillDespawn: 4
+  score: 50
 --- !u!1 &4690967844198759640
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +59,7 @@ GameObject:
   - component: {fileID: 1195679089167552765}
   - component: {fileID: 2801982288958612799}
   - component: {fileID: 6164534114388261001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +164,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
