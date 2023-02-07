@@ -273,7 +273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530942336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.68, y: -3.3, z: -9.53795}
+  m_LocalPosition: {x: 3.68, y: -3.3, z: -9.91196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -397,7 +397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568199839}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15999985, y: 0.18000007, z: 9.53795}
+  m_LocalPosition: {x: 0.15999985, y: 0.18000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -935,7 +935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572312026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1063,10 +1063,6 @@ PrefabInstance:
     - target: {fileID: 185022967357013874, guid: 70c86de17ab8d7d4abddf71896ee77d7, type: 3}
       propertyPath: m_Name
       value: Coconut
-      objectReference: {fileID: 0}
-    - target: {fileID: 185022967357013874, guid: 70c86de17ab8d7d4abddf71896ee77d7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3149301746877832254, guid: 70c86de17ab8d7d4abddf71896ee77d7, type: 3}
       propertyPath: m_RootOrder
