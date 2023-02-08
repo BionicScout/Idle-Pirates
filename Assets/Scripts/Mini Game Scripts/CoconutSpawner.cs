@@ -29,8 +29,7 @@ public class CoconutSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
-        spawnEverySeconds = Random.Range(minSpawnSec, maxSpawnSec);
+        RandomizeSpawnSeconds();
 
         minXPosition = startPoint.position.x;
         maxXPosition = endPoint.position.x;
@@ -47,9 +46,9 @@ public class CoconutSpawner : MonoBehaviour
             secPassed = 0;
 
             //Sets spawn at random x based on the two points
-            spawnPosition.position = new Vector2(
+            spawnPosition.position = new Vector3(
                 Random.Range(minXPosition, maxXPosition),
-                spawnPosition.position.y);
+                spawnPosition.position.y, spawnPosition.position.z);
 
            
 
@@ -59,7 +58,15 @@ public class CoconutSpawner : MonoBehaviour
                 spawnPosition.position, 
                 coconutPrefab.transform.rotation);
 
-            spawnEverySeconds = Random.Range(minSpawnSec, maxSpawnSec);
+            RandomizeSpawnSeconds();
         }
+    }
+
+
+
+    void RandomizeSpawnSeconds()
+    {
+        spawnEverySeconds = Random.Range(minSpawnSec, maxSpawnSec);
+
     }
 }
