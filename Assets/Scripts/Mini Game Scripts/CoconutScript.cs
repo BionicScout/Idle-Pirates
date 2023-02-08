@@ -20,35 +20,12 @@ public class CoconutScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            Destroy(this.gameObject);
-
-        }
-
-        Debug.Log("Triggered");
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            Destroy(this.gameObject);
-            
-        }
-
-        Debug.Log("Collided");
-    }
-
 
     IEnumerator ItemTimer(int duration)
     {
         yield return new WaitForSeconds(duration);
         //this.gameObject.SetActive(false);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
 }
