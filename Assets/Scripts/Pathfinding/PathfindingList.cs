@@ -61,8 +61,6 @@ public class PathfindingList {
     }
 
     public void printInfo() {
-        Debug.Log("--------------------------------------------------------------------------------------");
-
         for(int i = 0; i < distances.Count; i++) {
             Debug.Log("(" + distances[i] + ", " + nodes[i] + ")");
         }
@@ -82,31 +80,11 @@ public class PathfindingList {
         end procedure 
     */
     public void Sort() { // Based off of insertion sort    
-        //for(int i = 1; i < distances.Count; i++) {
-        //    for(int j = 1; j > 0; j--) {
-        //        if(distances[j - 1] > distances[j]) {
-
-        //            Debug.Log(distances[j - 1] + " > " + distances[j]);
-        //            float tempDist = distances[j - 1];
-        //            distances[j - 1] = distances[j];
-        //            distances[j] = tempDist;
-
-        //            Node tempNode = nodes[j - 1];
-        //            nodes[j - 1] = nodes[j];
-        //            nodes[j] = tempNode;
-        //        }
-        //    }
-        //}
-
         for(int i = 1; i < distances.Count; ++i) {
             float key = distances[i];
             Node nodeKey = nodes[i];
             int j = i - 1;
 
-            // Move elements of arr[0..i-1],
-            // that are greater than key,
-            // to one position ahead of
-            // their current position
             while(j >= 0 && distances[j] > key) {
                 distances[j + 1] = distances[j];
                 nodes[j + 1] = nodes[j];
@@ -115,7 +93,5 @@ public class PathfindingList {
             distances[j + 1] = key;
             nodes[j + 1] = nodeKey;
         }
-
-        //printInfo();
     }
 }

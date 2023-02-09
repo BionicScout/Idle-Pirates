@@ -13,11 +13,9 @@ public class Pathfinding : MonoBehaviour{
 
         if(node.start) {
             startNode = node;
-            //Debug.Log("Start Node: " + node.nodeName);
         }
         if(node.end) {
             startNode = node;
-            //Debug.Log("End Node: " + node.nodeName);
         }
     }
 
@@ -31,7 +29,6 @@ public class Pathfinding : MonoBehaviour{
         Node startNode = null;
         Node endNode = null;
 
-        int processed = 0; //Use to prevent duplicate keys
         foreach(Node node in nodes) {
             if(node.start) {
                 unvisted.add(0, node);
@@ -45,7 +42,6 @@ public class Pathfinding : MonoBehaviour{
                 endNode = node;
         }
 
-        Debug.Log("(1+2)");
     //(3-6) Find Shortest Path
         bool foundPath = false;
         Node currentNode = startNode;
@@ -53,15 +49,11 @@ public class Pathfinding : MonoBehaviour{
         startNode.previous = null;
 
         unvisted.printInfo();
-        Debug.Log("Before Search");
 
         while(!foundPath) {
             toUpdatedList = new PathfindingList();
 
         //(3) For current closest node, look at all adjusted unvisted nodes and calulate distance
-            int currentIndex = unvisted.getIndex(currentNode);
-            //Debug.Log(currentNode.nodeName + ": " + unvisted.getDistance(currentNode));
-
             foreach(Node neighboor in currentNode.neighboorNodes.getNodes()) {
             //Check if visted
                 if(neighboor.visted)
@@ -70,19 +62,16 @@ public class Pathfinding : MonoBehaviour{
             //Calculate Distance from current node
                 float currentNodeDistance = unvisted.getDistance(currentNode);
                 float distance = currentNodeDistance + currentNode.distanceFrom(neighboor);
-                //Debug.Log(currentNode.nodeName + ": " + currentNodeDistance + "\n" + neighboor.nodeName + ": " + distance);
 
             //Update neighboor's distance to smaller value from either current value or new value
                 float neighboorCurrentDistance = unvisted.getDistance(neighboor);
-                //Debug.Log("Distance: " + distance + "\nNeighboor Distance: " + neighboorCurrentDistance);
+
                 if(neighboorCurrentDistance > distance) {
                     neighboorCurrentDistance = distance;
                     neighboor.previous = currentNode;
-                    //Debug.Log(neighboor + "'s previous: " + currentNode.nodeName);
                 }
 
                 toUpdatedList.add(distance, neighboor);
-                //Debug.Log(neighboor.nodeName + ": " + unvisted.getDistance(neighboor));
             }
 
         //(3) Update unvisted nodes
@@ -92,17 +81,15 @@ public class Pathfinding : MonoBehaviour{
 
                 unvisted.remove(node);
                 unvisted.add(distance, node);
-               //Debug.Log("Updated: " + node.nodeName + " = " + distance);
             }
 
         //(4) Remove Curretn Node from unvisted
             currentNode.visted = true;
             unvisted.remove(currentNode);
 
-            //unvisted.printInfo();
             Debug.Log("After Search");
 
-            //(5) If end node has been visted then alitrithum is done
+        //(5) If end node has been visted then alitrithum is done
             if(endNode.visted) {
                 foundPath = true;
                 break;
@@ -110,12 +97,8 @@ public class Pathfinding : MonoBehaviour{
 
         //(6) select next node
             currentNode = unvisted.getFirst();
-            Debug.Log("Current Node: " + (currentNode.nodeName));
-
-            Debug.Log("========================================================================================================");
         }
 
-        Debug.Log("========================================================================================================");
         Debug.Log("Found");
 
         Node tempNode = endNode;

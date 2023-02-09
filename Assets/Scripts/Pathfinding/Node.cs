@@ -25,11 +25,9 @@ public class Node : MonoBehaviour {
     public void addEdge(Edge edge) {
         if(nodeName != edge.node1.nodeName) {
             neighboorNodes.add(edge.distance, edge.node1);
-            //Debug.Log(nodeName + " -> " + edge.node1);
         }
         else {
             neighboorNodes.add(edge.distance, edge.node2);
-            //Debug.Log(nodeName + " -> " + edge.node2);
         }
     }
 
