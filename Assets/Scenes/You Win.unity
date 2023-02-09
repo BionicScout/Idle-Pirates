@@ -774,13 +774,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b186d2ed46c4ad44bf5eacb211d7c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSceneName: Map Scene
-  CreditsSceneName: 
-  TitleMenuSceneName: Title
+  startGameSceneName: 
+  startSceneName: 
+  creditsSceneName: 
+  titleMenuSceneName: Title
   mapSceneName: 
+  combatSceneName: 
+  miniGameSceneName: 
   soundSource: {fileID: 1972201955}
   menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
   clickTimer: 0.5
+  extrasWindow: {fileID: 0}
 --- !u!4 &1497404543
 Transform:
   m_ObjectHideFlags: 0
@@ -854,7 +858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Win
+  m_text: You Win The Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
