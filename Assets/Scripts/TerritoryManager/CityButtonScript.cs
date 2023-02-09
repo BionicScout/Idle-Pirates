@@ -74,14 +74,13 @@ public class CityButtonScript : MonoBehaviour
     //to the raid pop-up script
     public void OnCityButtonPressed()
     {
-        if (cityTaken == false)
-        {
-            travelPopUp.GetComponent<TravelPopUpScript>()
-                .CityNumberUpdate(cityNumber);
+       
+        travelPopUp.GetComponent<TravelPopUpScript>()
+            .CityNumberUpdate(cityNumber);
 
             //activates the pop-up
-            travelPopUp.SetActive(true);
-        }
+        travelPopUp.SetActive(true);
+        
     }
 
 
