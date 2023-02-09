@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Pathfinding : MonoBehaviour{
     public static List<Node> nodes = new List<Node>();
@@ -12,11 +13,9 @@ public class Pathfinding : MonoBehaviour{
 
         if(node.start) {
             startNode = node;
-            Debug.Log("Start Node: " + node.nodeName);
         }
         if(node.end) {
             startNode = node;
-            Debug.Log("End Node: " + node.nodeName);
         }
     }
 
@@ -24,37 +23,91 @@ public class Pathfinding : MonoBehaviour{
         https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
     */
     public static void DijkstraSearch() {
-        //SortedList<float, Node> openNodes = new SortedList<float, Node>(); //float is equal to distance from start
-        //openNodes.Add(0, startNode);
 
-        //bool foundEnd = false;
-
-        //while(!foundEnd) {
-        //    Node smallestNode = openNodes.Values[0];
-        //    Node nextSmallestNode = 
-        //}
-
-    //(SET UP) Set all nodes to max value except start node
-        SortedList<float, Node> unvisted = new SortedList<float, Node>();
+    //(1 and 2) Set all nodes to max value except start node
+        PathfindingList unvisted = new PathfindingList();
         Node startNode = null;
+        Node endNode = null;
+
         foreach(Node node in nodes) {
             if(node.start) {
-                unvisted.Add(0, node);
+                unvisted.add(0, node);
                 startNode = node;
             }
-            else
-                unvisted.Add(float.MaxValue, node);
-        }
-
-    //Find Shortest Path
-        bool foundPath = false;
-        Node currentNode = startNode;
-        while(!foundPath) {
-        //For current closest node, look at all adjusted unvisted nodes and calulate distance
-            foreach(Node neighboor in currentNode.neighboorNodes.Values) {
-
+            else {
+                unvisted.add(60*100, node);
             }
 
+            if(node.end)
+                endNode = node;
+        }
+
+    //(3-6) Find Shortest Path
+        bool foundPath = false;
+        Node currentNode = startNode;
+        PathfindingList toUpdatedList;
+        startNode.previous = null;
+
+        unvisted.printInfo();
+
+        while(!foundPath) {
+            toUpdatedList = new PathfindingList();
+
+        //(3) For current closest node, look at all adjusted unvisted nodes and calulate distance
+            foreach(Node neighboor in currentNode.neighboorNodes.getNodes()) {
+            //Check if visted
+                if(neighboor.visted)
+                    continue;
+
+            //Calculate Distance from current node
+                float currentNodeDistance = unvisted.getDistance(currentNode);
+                float distance = currentNodeDistance + currentNode.distanceFrom(neighboor);
+
+            //Update neighboor's distance to smaller value from either current value or new value
+                float neighboorCurrentDistance = unvisted.getDistance(neighboor);
+
+                if(neighboorCurrentDistance > distance) {
+                    neighboorCurrentDistance = distance;
+                    neighboor.previous = currentNode;
+                }
+
+                toUpdatedList.add(distance, neighboor);
+            }
+
+        //(3) Update unvisted nodes
+            for(int i = 0; i < toUpdatedList.count(); i++) {
+                Node node = toUpdatedList.getNode(i);
+                float distance = toUpdatedList.getDistance(i);
+
+                unvisted.remove(node);
+                unvisted.add(distance, node);
+            }
+
+        //(4) Remove Curretn Node from unvisted
+            currentNode.visted = true;
+            unvisted.remove(currentNode);
+
+            Debug.Log("After Search");
+
+        //(5) If end node has been visted then alitrithum is done
+            if(endNode.visted) {
+                foundPath = true;
+                break;
+            }
+
+        //(6) select next node
+            currentNode = unvisted.getFirst();
+        }
+
+        Debug.Log("Found");
+
+        Node tempNode = endNode;
+        List<Node> path = new List<Node>();
+
+        while(tempNode != null) {
+            Debug.Log(tempNode.nodeName);
+            path.Add(tempNode);
+            tempNode = tempNode.previous;
         }
     }
 
