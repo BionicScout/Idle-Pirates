@@ -32,6 +32,14 @@ public class CitySceneScript : MonoBehaviour
         //{
         //    raidButton.SetActive(false);
         //}
+
+        if (CityInbetweenManagementScript.staticCityList.Contains(cityNumber))
+        {
+            raidButton.SetActive(false);
+            
+
+        }
+
     }
 
     // Update is called once per frame
