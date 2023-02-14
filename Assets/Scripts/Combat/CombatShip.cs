@@ -9,7 +9,11 @@ public class CombatShip : MonoBehaviour {
     public int attack;
     public int health, maxHealth;
     public bool dead;
+
+    //Put this in CombatUI script
     public TMP_Text ui;
+
+    public GameObject shipImage;
 
     void Start() {
         maxHealth = health;
@@ -19,8 +23,9 @@ public class CombatShip : MonoBehaviour {
         if (health < 0)
         {
             health = 0;
+            shipImage.SetActive(false);
         }
         //Put this into CombatUI Script
-        ui.text = shipName + "\n" + health + "/" + maxHealth + "\nAttack " + attack;
+        
     }
 }

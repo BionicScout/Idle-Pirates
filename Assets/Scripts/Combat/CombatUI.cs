@@ -12,6 +12,8 @@ public class CombatUI : MonoBehaviour {
     bool updated = true, startTic = true;
     public bool clickToMoveText;
 
+    public List<CombatShip> shipList = new List<CombatShip>();
+
     private void Update() {
         if((Input.GetKeyDown(KeyCode.Mouse0) && !updated && clickToMoveText) || startTic) { //PUT INPUT MANAGER CODE IN
             updateTextBox();
@@ -19,6 +21,14 @@ public class CombatUI : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Mouse0))
             Debug.Log("Update: " + updated + "\nClick: " + clickToMoveText);
+
+        for(int i = 0; i < shipList.Count; i++)
+        {
+            shipList[i].ui.text = shipList[i].shipName + "\n" 
+                + shipList[i].health + "/" + shipList[i].maxHealth;
+        }
+
+
     }
 
     public void updateTextBox() {

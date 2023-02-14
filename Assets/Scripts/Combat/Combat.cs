@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,6 +45,26 @@ public class Combat : MonoBehaviour {
     List<CombatShip> possibleSwitches = new List<CombatShip>();
     bool startTic;
 
+
+    //[Header("Buttons")]
+    //[SerializeField]
+    //private GameObject attackButton;
+    //[SerializeField]
+    //private GameObject swapButton;
+    //[SerializeField]
+    //private GameObject fleeButton;
+
+    [SerializeField]
+    private GameObject fleePopUp;
+    [SerializeField]
+    private GameObject swapPopUp;
+
+
+    [Range(0, 15f)]
+    public float textWaitSpeed = 3f;
+
+
+
     void Start() {
         gameState = GameState.PlayersTurn;
 
@@ -54,7 +75,7 @@ public class Combat : MonoBehaviour {
         startTic = true;
 
         UI.clickToMoveText = true;
-        playersTurn();
+        PlayersTurn();
     }
 
     void Update() {
@@ -75,19 +96,19 @@ public class Combat : MonoBehaviour {
 
         //Game States
         else if(gameState == GameState.PlayersTurn) {
-            playersTurn();
+            PlayersTurn();
         }
         else if(gameState == GameState.PlayersAttack) {
-            playerAttack();
+            StartCoroutine(PlayerAttack());
         }
         else if(gameState == GameState.PlayersCheckSwitch) {
-            playerCheckSwitch();
+            StartCoroutine(PlayerCheckSwitch());
         }
         else if(gameState == GameState.PlayerSwitch) {
-            playerSwitch();
+            PlayerSwitch();
         }
         else if(gameState == GameState.PlayersRun) {
-            playerRun();
+            PlayerRun();
         }
         else if(gameState == GameState.EnemysTurn) {
             EnemysTurn();
@@ -104,7 +125,9 @@ public class Combat : MonoBehaviour {
         UI.add("", "Win!");
 
         if(UI.getUpdate())
-            UI.add("DEBUG ERROR", "Please add code to switch scenes and get rewards (if any)\nPress Esc to Go Back");
+        {
+            SceneManager.LoadScene(mapSceneName);
+        }
     }
 
     void Ran() {
@@ -114,14 +137,18 @@ public class Combat : MonoBehaviour {
 
 
         if(UI.getUpdate())
-            UI.add("DEBUG ERROR", "Please add code to switch scenes and get rewards (if any)\nPress Esc to Go Back");
+        {
+            SceneManager.LoadScene(mapSceneName);
+        }
     }
 
     void Lose() {
         UI.add("", "Lose!");
 
         if(UI.getUpdate())
-            UI.add("DEBUG ERROR", "Please add code to switch scenes and get rewards (if any)\nPress Esc to Go Back");
+        {
+            SceneManager.LoadScene(mapSceneName);
+        }
     }
 
     //Player Turn Methods
@@ -129,7 +156,7 @@ public class Combat : MonoBehaviour {
     /*
         This method announces the actions the player can currently do and allows the user to input their desired action.
     */
-    void playersTurn() {
+    void PlayersTurn() {
         //Is player has switched ships, they can't switch again
         if(switched) {
         //UI
@@ -144,16 +171,16 @@ public class Combat : MonoBehaviour {
             }
 
         //Player Action
-            if(Input.GetKeyDown(KeyCode.A)) { //Attacked
-                gameState = GameState.PlayersAttack;
-                updated = false;
-                switched = false;
-            }
-            else if(Input.GetKeyDown(KeyCode.R)) { //Run
-                gameState = GameState.PlayersRun;
-                updated = false;
-                switched = false;
-            }
+            //if(Input.GetKeyDown(KeyCode.A)) { //Attacked
+            //    gameState = GameState.PlayersAttack;
+            //    updated = false;
+            //    switched = false;
+            //}
+            //else if(Input.GetKeyDown(KeyCode.R)) { //Run
+            //    gameState = GameState.PlayersRun;
+            //    updated = false;
+            //    switched = false;
+            //}
         }
         //They player hasn't switched ships yet
         else {
@@ -169,16 +196,15 @@ public class Combat : MonoBehaviour {
 
             if(Input.GetKeyDown(KeyCode.A)) { //Attack
                 gameState = GameState.PlayersAttack;
-                updated = false;
             }
             else if(Input.GetKeyDown(KeyCode.S) && !switched) { //Switch
                 gameState = GameState.PlayersCheckSwitch;
-                updated = false;
+
                 switched = true;
             }
             else if(Input.GetKeyDown(KeyCode.R)) { //Run
                 gameState = GameState.PlayersRun;
-                updated = false;
+
             }
         }
     }
@@ -188,8 +214,9 @@ public class Combat : MonoBehaviour {
         attack and then checks if the enemy ship was deystroyed. If the ship was deystroyed, the next enemy ships comes out. If all 
         ships were they deystroyed, the win State is called.
     */
-    void playerAttack() {
-    //Attack Enemy Ship
+    IEnumerator PlayerAttack() 
+    {
+        //Attack Enemy Ship
         enemyShip.health -= playerShip.attack;
 
         UI.add("", enemyShip.shipName + " HP: " + enemyShip.health + "/" + enemyShip.maxHealth);
@@ -200,24 +227,27 @@ public class Combat : MonoBehaviour {
         //If Enemy Ship was destroyed
         if(enemyShip.health <= 0) {
             UI.add("", enemyShip.shipName + " Destroyed");
+            yield return new WaitForSeconds(textWaitSpeed);
             enemyFleet.ships[enemyShip_index].dead = true;
         
         //If enemy fleet was deystroyed
             enemyShip_index = SelectNewShip(enemyFleet);
             if(enemyShip_index == -1) { //If no ship can be selected
                 gameState = GameState.Win;
-                return;
+                
             }
 
         //Switch to other enemy ship
             enemyShip = enemyFleet.ships[enemyShip_index];
+            enemyShip.shipImage.SetActive(true);
             UI.add("", enemyShip.shipName + " has come to fight");
+            yield return new WaitForSeconds(textWaitSpeed);
         }
 
         gameState = GameState.EnemysTurn;
     }
 
-    void playerCheckSwitch() {
+    IEnumerator PlayerCheckSwitch() {
         //Get List of Ships to switched to 
         possibleSwitches = new List<CombatShip>();
 
@@ -234,10 +264,10 @@ public class Combat : MonoBehaviour {
         if(possibleSwitches.Count == 0) {
             UI.add("", "No other ships to switched to");
             UI.updateTextBox();
+            yield return new WaitForSeconds(textWaitSpeed);
             UI.clickToMoveText = true;
             gameState = GameState.PlayersTurn;
 
-            return;
         }
 
         //If other ships to switch to
@@ -248,7 +278,7 @@ public class Combat : MonoBehaviour {
         Switches ships 
         WORK IN PROGRESS
     */
-    void playerSwitch() {
+    void PlayerSwitch() {
         if(UI.getUpdate()) { //General Message
             if(possibleSwitches.Count == 1)
                 UI.add(" ", "(1) " + possibleSwitches[0].shipName);
@@ -262,14 +292,14 @@ public class Combat : MonoBehaviour {
 
 
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            shipSwitcher(1);
+            ShipSwitcher(1);
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2) && possibleSwitches.Count == 2) {
-            shipSwitcher(2);
+            ShipSwitcher(2);
         }
     }
 
-    void shipSwitcher(int shipIndex) {
+    void ShipSwitcher(int shipIndex) {
         playerFleet.ships[playerShip_index] = playerShip;
         playerShip = possibleSwitches[shipIndex];
 
@@ -291,7 +321,8 @@ public class Combat : MonoBehaviour {
         This mechanic allows the use to run away in combat. The players esacpe chance is based on the speed of the player's ship \
         divided by the total speed of both ships currently out. If the 
     */
-    void playerRun() {
+    IEnumerator PlayerRun() 
+    {
         int totalWeight = playerShip.speed + enemyShip.speed;
         float playerEscapeChance = (float)playerShip.speed / totalWeight;
 
@@ -301,6 +332,7 @@ public class Combat : MonoBehaviour {
         else {
             UI.add("", "Failed Run");
             UI.updateTextBox();
+            yield return new WaitForSeconds(textWaitSpeed);
             UI.clickToMoveText = true;
             gameState = GameState.EnemysTurn;
         }
@@ -308,10 +340,10 @@ public class Combat : MonoBehaviour {
 
     //Enemy Turn Method
     void EnemysTurn() {
-        enemyAttack();
+        StartCoroutine(EnemyAttack());
     }
 
-    void enemyAttack() {
+    IEnumerator EnemyAttack() {
         UI.add(enemyShip.shipName + " (Enemy)", "Enemy Attack");
 
         playerShip.health -= enemyShip.attack;
@@ -319,16 +351,20 @@ public class Combat : MonoBehaviour {
 
         if(playerShip.health <= 0) {
             UI.add(enemyShip.shipName + " (Enemy)", playerShip.shipName + " Destroyed");
+            yield return new WaitForSeconds(textWaitSpeed);
             playerFleet.ships[playerShip_index].dead = true;
+
 
             playerShip_index = SelectNewShip(playerFleet);
             if(playerShip_index == -1) { //If no ship can be selected
                 gameState = GameState.Lose;
-                return;
+               
             }
 
             playerShip = playerFleet.ships[playerShip_index];
+            playerShip.shipImage.SetActive(true);
             UI.add("", playerShip.shipName + " has come to fight");
+            yield return new WaitForSeconds(textWaitSpeed);
         }
 
         gameState = GameState.PlayersTurn;
@@ -344,4 +380,97 @@ public class Combat : MonoBehaviour {
 
         return -1;
     }
+
+
+
+    //Button Methods
+    public void OnAttackButtonPressed()
+    {
+        if(gameState != GameState.PlayersTurn)
+        {
+            return;
+        }
+
+        gameState = GameState.PlayersAttack;
+        switched = false;
+
+        //Attack
+    }
+
+
+    public void OnFleeButtonPressed() 
+    {
+        if (gameState != GameState.PlayersTurn)
+        {
+            return;
+        }
+
+        fleePopUp.SetActive(true);
+        //Open flee window
+
+    }
+
+
+    public void OnSwapButtonPressed()
+    {
+        if (gameState != GameState.PlayersTurn)
+        {
+            return;
+        }
+
+
+        swapPopUp.SetActive(true);
+        //Open swap window
+
+    }
+
+
+    public void YesFleeButtonPressed()
+    {
+        //SceneManager.LoadScene(mapSceneName);
+        fleePopUp.SetActive(false);
+
+        gameState = GameState.PlayersRun;
+        switched = false;
+
+    }
+
+    public void NoFleeButtonPressed()
+    {
+        fleePopUp.SetActive(false);
+    }
+
+    public void NormalButtonPressed()
+    {
+        swapPopUp.SetActive(false);
+        gameState = GameState.PlayersCheckSwitch;
+
+        switched = true;
+    }
+
+    public void FastButtonPressed()
+    {
+        swapPopUp.SetActive(false);
+        gameState = GameState.PlayersCheckSwitch;
+
+        switched = true;
+
+    }
+
+
+    public void HeavyButtonPressed()
+    {
+        swapPopUp.SetActive(false);
+        gameState = GameState.PlayersCheckSwitch;
+
+        switched = true;
+
+    }
+
+    public void BackButtonPressed()
+    {
+        swapPopUp.SetActive(false);
+
+    }
+
 }
