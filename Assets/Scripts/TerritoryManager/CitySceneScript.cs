@@ -9,6 +9,9 @@ public class CitySceneScript : MonoBehaviour
     private GameObject raidPopUp;
 
     [SerializeField]
+    private GameObject raidButton;
+
+    [SerializeField]
     private string mapSceneName;
 
     [SerializeField]
@@ -21,7 +24,22 @@ public class CitySceneScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //if (cityTaken == false)
+        //{
+        //    raidButton.SetActive(true);
+        //}
+        //else
+        //{
+        //    raidButton.SetActive(false);
+        //}
+
+        if (CityInbetweenManagementScript.staticCityList.Contains(cityNumber))
+        {
+            raidButton.SetActive(false);
+            
+
+        }
+
     }
 
     // Update is called once per frame

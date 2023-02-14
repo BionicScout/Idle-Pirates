@@ -6,7 +6,8 @@ public class TimeQuery : MonoBehaviour {
     public string queryName = "Query #";
     public int minutes;
     public int seconds;
-    public bool triggered;
+    public bool triggered, active;
+    bool updated;
 
     public DateTime startTime;
     public DateTime finishTime;
@@ -18,16 +19,24 @@ public class TimeQuery : MonoBehaviour {
         seconds = sec;
     }
 
-    void Start() {
-        TimedActivityManager.instance.addQuery(this);
+    public void activate() {
+        active = true;
+    }
 
-        startTime = System.DateTime.Now;
-        finishTime = startTime.AddMinutes(minutes);
-        finishTime = finishTime.AddSeconds(seconds);
+    void Update() {
+        if(active && !updated) {
+            TimedActivityManager.instance.addQuery(this);
 
-        timeInterval = finishTime - startTime;
+            startTime = System.DateTime.Now;
+            finishTime = startTime.AddMinutes(minutes);
+            finishTime = finishTime.AddSeconds(seconds);
 
-        Debug.Log(queryName + " will complete at " + finishTime.ToString("F"));
+            timeInterval = finishTime - startTime;
+
+            Debug.Log(queryName + " will complete at " + finishTime.ToString("F"));
+
+            updated = true;
+        }
     }
 
     public void printLog() {
