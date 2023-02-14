@@ -25,7 +25,6 @@ public class CombatShip : MonoBehaviour {
             health = 0;
             shipImage.SetActive(false);
         }
-        //Put this into CombatUI Script
-        
+       
     }
 }
