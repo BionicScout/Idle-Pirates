@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Node : MonoBehaviour {
@@ -18,7 +20,21 @@ public class Node : MonoBehaviour {
     private void Update() {
         if(find) {
             find = false;
-            Pathfinding.DijkstraSearch();
+            List<Node> path = Pathfinding.DijkstraSearch();
+
+            TimeQuery query = null;
+            GameObject queryManagerObj = TimedActivityManager.instance.GameObject();
+            for(int i = 0; i < path.Count-1; i++) {
+                TimeQuery newQuery = queryManagerObj.AddComponent<TimeQuery>();
+                newQuery.startInfo("To " + path[i].nodeName, 0, (int)path[i].distanceFrom(path[i+1]), query); //CHANGE FROM SECONDS TO MINUTES
+                newQuery.isShipQuery(path[i+1], path[i]);
+                query = newQuery;
+            }
+
+            //TimedActivityManager.instance.addQuery(query);
+            query.activate();
+            MapShip.instance.timeQuery = query;
+            MapShip.instance.setLocs();
         }
     }
 
@@ -32,6 +48,8 @@ public class Node : MonoBehaviour {
     }
 
     public void resetSort() {
+        start = false;
+        end = false;
         visted = false;
         previous = null;
     }
