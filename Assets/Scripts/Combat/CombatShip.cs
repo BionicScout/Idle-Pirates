@@ -20,6 +20,7 @@ public class CombatShip : MonoBehaviour {
         {
             health = 0;
         }
+        //Put this into CombatUI Script
         ui.text = shipName + "\n" + health + "/" + maxHealth + "\nAttack " + attack;
     }
 }
