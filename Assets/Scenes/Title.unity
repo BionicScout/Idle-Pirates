@@ -590,6 +590,7 @@ MonoBehaviour:
   CreditsSceneName: 
   TitleMenuSceneName: Title
   mapSceneName: 
+  combatSceneName: 
   soundSource: {fileID: 386568716}
   menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
   clickTimer: 0.5
