@@ -9,14 +9,35 @@ public class TimeQuery : MonoBehaviour {
     public bool triggered, active;
     bool updated;
 
+    bool shipQuery = false;
+    public Node startNode, endNode;
+
     public DateTime startTime;
     public DateTime finishTime;
-    public TimeSpan timeInterval; 
+    public TimeSpan timeInterval;
+    
+    public TimeQuery nextQuery;
 
     public void startInfo(string name, int min, int sec) {
         queryName = name;
         minutes = min;
         seconds = sec;
+
+        nextQuery = null;
+    }
+
+    public void startInfo(string name, int min, int sec, TimeQuery query) {
+        queryName = name;
+        minutes = min;
+        seconds = sec;
+
+        nextQuery = query;
+    }
+
+    public void isShipQuery(Node start, Node end) {
+        shipQuery = true;
+        startNode = start;
+        endNode = end;
     }
 
     public void activate() {

@@ -22,7 +22,7 @@ public class Pathfinding : MonoBehaviour{
     /*
         https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
     */
-    public static void DijkstraSearch() {
+    public static List<Node> DijkstraSearch() {
 
     //(1 and 2) Set all nodes to max value except start node
         PathfindingList unvisted = new PathfindingList();
@@ -101,6 +101,7 @@ public class Pathfinding : MonoBehaviour{
 
         Debug.Log("Found");
 
+    //Get Path
         Node tempNode = endNode;
         List<Node> path = new List<Node>();
 
@@ -109,6 +110,13 @@ public class Pathfinding : MonoBehaviour{
             path.Add(tempNode);
             tempNode = tempNode.previous;
         }
+
+    //Reset
+        foreach(Node node in nodes) {
+            node.resetSort();
+        }
+
+        return path;
     }
 
 }

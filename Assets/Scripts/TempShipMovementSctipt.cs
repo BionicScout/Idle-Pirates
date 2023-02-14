@@ -5,21 +5,21 @@ using UnityEngine;
 
 public class TempShipMovementSctipt : MonoBehaviour {
     TimeQuery timeQuery;
-    public string queryName;
-    public int minutes, seconds;
     public float percentDone;
 
     public Vector2 start, end;
     public GameObject ship;
 
+    public static TempShipMovementSctipt instance;
+
     void Start() {
-        ship.transform.position = start;
-        
-        timeQuery = gameObject.AddComponent(typeof(TimeQuery)) as TimeQuery;
-        timeQuery.startInfo(queryName, minutes, seconds);
+        instance = this;
     }
 
     void Update() {
+        if(timeQuery == null)
+            return;
+
         if(!timeQuery.triggered) {
             TimeSpan timeLeft_TimeSpan = timeQuery.finishTime - System.DateTime.Now;
             double timeLeft_seconds = timeLeft_TimeSpan.TotalSeconds;
@@ -30,5 +30,11 @@ public class TempShipMovementSctipt : MonoBehaviour {
 
             ship.transform.position = Vector2.Lerp(start, end, percentDone);
         }
+        if(timeQuery.triggered == true)
+            timeQuery = timeQuery.nextQuery;
+    }
+
+    public void setQuery(TimeQuery query) {
+        timeQuery = query;
     }
 }
