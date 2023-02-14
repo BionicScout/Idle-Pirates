@@ -4386,7 +4386,7 @@ MonoBehaviour:
   creditsSceneName: 
   titleMenuSceneName: 
   mapSceneName: 
-  combatSceneName: Roman's Test Scene
+  combatSceneName: Combat
   miniGameSceneName: Coconut Mini Game Instructions
   soundSource: {fileID: 478566548}
   menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
@@ -5364,6 +5364,7 @@ MonoBehaviour:
   minutes: 0
   seconds: 30
   triggered: 0
+  active: 0
 --- !u!114 &1746611118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5380,6 +5381,7 @@ MonoBehaviour:
   minutes: 2
   seconds: 0
   triggered: 0
+  active: 0
 --- !u!114 &1746611119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5396,6 +5398,7 @@ MonoBehaviour:
   minutes: 1
   seconds: 30
   triggered: 0
+  active: 0
 --- !u!1 &1748917829
 GameObject:
   m_ObjectHideFlags: 0
