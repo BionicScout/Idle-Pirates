@@ -9,7 +9,7 @@ public class TimeQuery : MonoBehaviour {
     public bool triggered, active;
     bool updated;
 
-    bool shipQuery = false;
+    public bool shipQuery = false;
     public Node startNode, endNode;
 
     public DateTime startTime;

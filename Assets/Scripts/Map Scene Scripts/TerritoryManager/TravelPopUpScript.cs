@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TravelPopUpScript : MonoBehaviour
-{
+public class TravelPopUpScript : MonoBehaviour {
 
     [SerializeField]
     private int currentCity = 0;
@@ -11,18 +10,23 @@ public class TravelPopUpScript : MonoBehaviour
     [SerializeField]
     private List<CityButtonScript> cityScriptList;
 
-    private void Update()
-    {
+    private void Update() {
 
     }
 
-    public void YesButtonPressed()
-    {
+    public void YesButtonPressed() {
         //Disactivates the pop-up
         this.gameObject.SetActive(false);
 
+        Node cityNode = cityScriptList[currentCity - 1].cityNode;
 
-        cityScriptList[currentCity - 1].TraveltoCity();
+        if(cityNode.start == true)
+            cityScriptList[currentCity - 1].TraveltoCity();
+        else {
+            cityNode.end = true;
+            MapShip.instance.currentLocation.find = true;
+        }
+            
 
 
 
@@ -44,8 +48,7 @@ public class TravelPopUpScript : MonoBehaviour
 
     //When they press the no button, the pop-up is disactivated 
     //and resets the current city the player clicked on
-    public void NoButtonPressed()
-    {
+    public void NoButtonPressed() {
         this.gameObject.SetActive(false);
         currentCity = 0;
     }
@@ -53,9 +56,8 @@ public class TravelPopUpScript : MonoBehaviour
 
     //Sets the current city the player is trying to raid 
     //based on which city object called this function
-    public void CityNumberUpdate(int cityNum)
-    {
-        
+    public void CityNumberUpdate(int cityNum) {
+
         currentCity = cityNum;
     }
 

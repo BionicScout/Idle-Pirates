@@ -11,17 +11,28 @@ public class MapShip : MonoBehaviour {
     public GameObject ship;
     Vector2 start, end;
 
+    public Node currentLocation;
+
     public static MapShip instance;
 
     void Start() {
         instance = this;
 
         timeQuery = null;
+        transform.position = currentLocation.gameObject.transform.position;
+
+        currentLocation.start = true;
     }
 
     public void setLocs() {
         start = timeQuery.startNode.gameObject.transform.position;
         end = timeQuery.endNode.gameObject.transform.position;
+    }
+
+    public void updateLocation(Node node) {
+        currentLocation.start = false;
+        currentLocation = node;
+        currentLocation.start = true;
     }
 
     void Update() {

@@ -26,6 +26,8 @@ public class CityButtonScript : MonoBehaviour {
     [SerializeField]
     private string citySceneName;
 
+    public Node cityNode;
+
     void Start() {
         //Grab the name of the game object and turn it into an int 
         //and put it in the cityNumber variable

@@ -48,7 +48,6 @@ public class Node : MonoBehaviour {
     }
 
     public void resetSort() {
-        start = false;
         end = false;
         visted = false;
         previous = null;

@@ -35,8 +35,15 @@ public class TimedActivityManager : MonoBehaviour {
                 TimeQuery next = timeQueries[i].nextQuery;
                 if(next != null) {
                     next.activate();
-                    MapShip.instance.timeQuery = next;
-                    MapShip.instance.setLocs();
+
+                    if(timeQueries[i].shipQuery) {
+                        MapShip.instance.timeQuery = next;
+                        MapShip.instance.setLocs();
+                    }
+                }
+
+                if(timeQueries[i].shipQuery) {
+                    MapShip.instance.updateLocation(timeQueries[i].endNode);
                 }
 
                 timeQueries.RemoveAt(i);
