@@ -586,14 +586,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b186d2ed46c4ad44bf5eacb211d7c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartSceneName: Map Scene
-  CreditsSceneName: 
-  TitleMenuSceneName: Title
+  startGameSceneName: Map Scene
+  startSceneName: 
+  creditsSceneName: 
+  titleMenuSceneName: 
   mapSceneName: 
   combatSceneName: 
+  miniGameSceneName: 
   soundSource: {fileID: 386568716}
   menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
   clickTimer: 0.5
+  extrasWindow: {fileID: 0}
 --- !u!4 &492646734
 Transform:
   m_ObjectHideFlags: 0
@@ -829,7 +832,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 492646733}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: StartButtonPressed
+        m_MethodName: StartGameButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
