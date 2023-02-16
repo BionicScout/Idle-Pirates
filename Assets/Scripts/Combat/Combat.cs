@@ -35,7 +35,7 @@ public class Combat : MonoBehaviour {
     int playerShip_index, enemyShip_index;
 
     public GameState gameState;
-    bool switched;
+    private bool switched;
 
     public CombatUI UI;
 
@@ -93,9 +93,9 @@ public class Combat : MonoBehaviour {
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            SceneManager.LoadScene(mapSceneName);
-        }
+        //if(Input.GetKeyDown(KeyCode.Escape)) {
+        //    SceneManager.LoadScene(mapSceneName);
+        //}
     }
 
     //Game End States
