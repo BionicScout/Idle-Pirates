@@ -141,7 +141,8 @@ public class Combat : MonoBehaviour {
         Debug.Log("Player Attack");
 
         //If Enemy Ship was destroyed
-        if(enemyShip.health <= 0) {
+        if(enemyShip.health <= 0) 
+        {
             UI.add("", enemyShip.shipName + " Destroyed");
             //yield return new WaitForSeconds(textWaitSpeed);
             enemyFleet.ships[enemyShip_index].dead = true;
