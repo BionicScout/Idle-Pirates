@@ -9,10 +9,11 @@ public static class CityInbetweenManagementScript
 
     public static List<int> staticCityList = new List<int>();
 
+    /*
     public static void UpdateRaidedCity()
     {
-        
-    }
 
- 
+    }
+    */
+
 }

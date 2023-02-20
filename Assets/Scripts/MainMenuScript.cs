@@ -134,8 +134,10 @@ public class MainMenuScript : MonoBehaviour
 
         //reset save data
         //Make sure this is set to only button on title screen
-        CityInbetweenManagementScript.staticCityList.Clear();
-        CityInbetweenManagementScript.currentStaticCityNumber = 0;
+        //CityInbetweenManagementScript.staticCityList.Clear();
+        //CityInbetweenManagementScript.currentStaticCityNumber = 0;
+
+        SaveStateManager.instance.DeleteData();
 
         SceneManager.LoadScene(startGameSceneName);
     }
