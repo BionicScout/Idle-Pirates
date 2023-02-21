@@ -35,6 +35,8 @@ public class MainMenuScript : MonoBehaviour
     [Header("Window Variables")]
     [SerializeField]
     private GameObject extrasWindow;
+    [SerializeField]
+    private GameObject pauseWindow;
 
 
 
@@ -113,6 +115,7 @@ public class MainMenuScript : MonoBehaviour
     {
         //Set window to true
         soundSource.PlayOneShot(menuClick);
+        pauseWindow.SetActive(false);
         extrasWindow.SetActive(true);
     }
 
