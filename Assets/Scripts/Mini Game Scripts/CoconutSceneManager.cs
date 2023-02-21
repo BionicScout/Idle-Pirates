@@ -61,6 +61,10 @@ public class CoconutSceneManager : MonoBehaviour
             if(gatheredNumber >= neededNumber)
             {
                 SceneManager.LoadScene(winScene);
+
+                //When the game is over, calculate the number of cocnuts gathered
+                //and subtract that by the number of coconuts you needed to get
+                //so you can get materials from it.
             }
             else
             {

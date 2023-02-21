@@ -1904,6 +1904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: Cancel
   pauseMenuObject: {fileID: 1771233870}
+  extrasWindow: {fileID: 1013228080}
   Menu: Title
   clickTimer: 0.5
   soundSource: {fileID: 478566548}
@@ -4985,7 +4986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1013228081}
   m_Layer: 5
-  m_Name: Mini Game/Combat Window
+  m_Name: Extras Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6559,7 +6560,6 @@ MonoBehaviour:
   menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
   clickTimer: 0.5
   extrasWindow: {fileID: 1013228080}
-  pauseWindow: {fileID: 1771233870}
 --- !u!1 &1373860158
 GameObject:
   m_ObjectHideFlags: 0
@@ -10219,7 +10219,15 @@ PrefabInstance:
     - target: {fileID: 272935264, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1358880718}
+      objectReference: {fileID: 420540472}
+    - target: {fileID: 272935264, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExtrasWindowPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 272935264, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2359019352417556620, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10315,6 +10323,22 @@ PrefabInstance:
     - target: {fileID: 3076165697413466869, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168764070564117893, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 510910477}
+    - target: {fileID: 6168764070564117893, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSaveButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168764070564117893, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168764070564117893, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8807412729635831403, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -6,11 +6,21 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     //The key needed to press and open pause menu
-    public string keyName;
+    [SerializeField]
+    private string keyName;
+
     //Game Object in canvas with menu
-    public GameObject pauseMenuObject;
-    public string Menu;
-    public float clickTimer = 0.5f;
+    [SerializeField]
+    private GameObject pauseMenuObject;
+
+    [SerializeField]
+    private GameObject extrasWindow;
+
+    [SerializeField]
+    private string Menu;
+
+    [SerializeField]
+    private float clickTimer = 0.5f;
 
     //keeps track of whether game is paused
     bool isPaused = false;
@@ -21,12 +31,18 @@ public class PauseMenu : MonoBehaviour
 
     [Header("SFX")]
     //audio source to play UI sound
-    public AudioSource soundSource;
+    [SerializeField]
+    private AudioSource soundSource;
 
     //sounds that will play when button Pressed
-    public AudioClip pauseSound;
-    public AudioClip unpauseSound;
-    public AudioClip menuClick;
+    [SerializeField]
+    private AudioClip pauseSound;
+
+    [SerializeField]
+    private AudioClip unpauseSound;
+
+    [SerializeField]
+    private AudioClip menuClick;
 
     private void Update()
     {
@@ -83,6 +99,15 @@ public class PauseMenu : MonoBehaviour
         soundSource.PlayOneShot(menuClick);
         StartCoroutine(Wait(clickTimer));
 
+    }
+
+    public void ExtrasWindowPressed()
+    {
+        //Set window to true
+        soundSource.PlayOneShot(menuClick);
+        UnPause();
+        pauseMenuObject.SetActive(false);
+        extrasWindow.SetActive(true);
     }
 
     IEnumerator Wait(float duration)
