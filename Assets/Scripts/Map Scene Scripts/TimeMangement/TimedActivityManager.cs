@@ -39,7 +39,10 @@ public class TimedActivityManager : MonoBehaviour {
                     if(timeQueries[i].shipQuery) {
                         MapShip.instance.timeQuery = next;
                         MapShip.instance.setLocs();
+
+                        AudioManager.instance.Play("Moving");
                     }
+
                 }
 
                 if(timeQueries[i].shipQuery) {
