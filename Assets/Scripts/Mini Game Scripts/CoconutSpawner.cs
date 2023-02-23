@@ -8,10 +8,16 @@ public class CoconutSpawner : MonoBehaviour
     private Transform spawnPosition;
 
     [SerializeField]
-    private float minSpawnSec = 5, maxSpawnSec = 30;
+    private float spawnSetSec = 2;
+    private float minSpawnSec = 2, maxSpawnSec = 4;
+    [SerializeField]
+    private float minWarningSec = 1, maxWarningSec = 2;
 
     [SerializeField]
     private GameObject coconutPrefab;
+
+    [SerializeField] 
+    private GameObject warningSprite;
 
     [SerializeField]
     private Transform startPoint, endPoint;
@@ -20,9 +26,14 @@ public class CoconutSpawner : MonoBehaviour
 
     [SerializeField]
     private float spawnEverySeconds;
+    [SerializeField]
+    private float warningEverySeconds;
+    [SerializeField]
+    private float spawnEverySetSeconds;
 
     //For checking how many seconds have passed.
     float secPassed = 0;
+    float secWarningPassed = 0;
 
 
 
@@ -30,6 +41,7 @@ public class CoconutSpawner : MonoBehaviour
     private void Start()
     {
         RandomizeSpawnSeconds();
+        RandomizeSpawnPosition();
 
         minXPosition = startPoint.position.x;
         maxXPosition = endPoint.position.x;
@@ -39,26 +51,37 @@ public class CoconutSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        secPassed += Time.deltaTime;
-
-        if (secPassed > spawnEverySeconds)
+        if (secPassed <= 0)
         {
-            secPassed = 0;
+            secWarningPassed += Time.deltaTime;
+        }
 
-            //Sets spawn at random x based on the two points
-            spawnPosition.position = new Vector3(
-                Random.Range(minXPosition, maxXPosition),
-                spawnPosition.position.y, spawnPosition.position.z);
+        if (secWarningPassed > warningEverySeconds)
+        {
+            //secWarningPassed = 0;
 
-           
+            warningSprite.SetActive(true);
 
-            //Spawns object at a random x
-            GameObject temp = 
-                Instantiate(coconutPrefab,
-                spawnPosition.position, 
-                coconutPrefab.transform.rotation);
+            secPassed += Time.deltaTime;
 
-            RandomizeSpawnSeconds();
+            if (secPassed > spawnEverySetSeconds)
+            {
+                warningSprite.SetActive(false);
+                secWarningPassed = 0;
+                secPassed = 0;
+
+                //Spawns object at a random x
+                GameObject temp =
+                    Instantiate(coconutPrefab,
+                    spawnPosition.position,
+                    coconutPrefab.transform.rotation);
+
+
+                RandomizeSpawnPosition();
+
+                RandomizeSpawnSeconds();
+
+            }
         }
     }
 
@@ -66,7 +89,18 @@ public class CoconutSpawner : MonoBehaviour
 
     void RandomizeSpawnSeconds()
     {
+        warningEverySeconds = Random.Range(minWarningSec, maxWarningSec);
         spawnEverySeconds = Random.Range(minSpawnSec, maxSpawnSec);
 
+        spawnEverySetSeconds = spawnSetSec;
+
+
+    }
+    void RandomizeSpawnPosition()
+    {
+        //Sets spawn at random x based on the two points
+        spawnPosition.position = new Vector3(
+            Random.Range(minXPosition, maxXPosition),
+            spawnPosition.position.y, spawnPosition.position.z);
     }
 }

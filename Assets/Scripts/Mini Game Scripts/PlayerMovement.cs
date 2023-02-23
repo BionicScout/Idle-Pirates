@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 50)]
     private float speed;
-    private float movement;
+    //private float movement;
 
 
     // Start is called before the first frame update
@@ -24,8 +24,9 @@ public class PlayerMovement : MonoBehaviour
     {
         //movement = Input.GetAxis("Horizontal") * speed;
 
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        rigbody.velocity = new Vector2(horizontalInput * speed, rigbody.velocity.y);
+        rigbody.velocity = new Vector2(horizontalInput * speed,
+            rigbody.velocity.y);
     }
 }

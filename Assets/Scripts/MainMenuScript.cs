@@ -35,6 +35,8 @@ public class MainMenuScript : MonoBehaviour
     [Header("Window Variables")]
     [SerializeField]
     private GameObject extrasWindow;
+    //[SerializeField]
+    //private GameObject pauseWindow;
 
 
 
@@ -109,12 +111,7 @@ public class MainMenuScript : MonoBehaviour
         soundSource.PlayOneShot(menuClick);
         extrasWindow.SetActive(false);
     }
-    public void ExtrasWindowPressed() 
-    {
-        //Set window to true
-        soundSource.PlayOneShot(menuClick);
-        extrasWindow.SetActive(true);
-    }
+    
 
 
     public void CloseGame()
@@ -134,8 +131,10 @@ public class MainMenuScript : MonoBehaviour
 
         //reset save data
         //Make sure this is set to only button on title screen
-        CityInbetweenManagementScript.staticCityList.Clear();
-        CityInbetweenManagementScript.currentStaticCityNumber = 0;
+        //CityInbetweenManagementScript.staticCityList.Clear();
+        //CityInbetweenManagementScript.currentStaticCityNumber = 0;
+
+        SaveStateManager.instance.DeleteData();
 
         SceneManager.LoadScene(startGameSceneName);
     }

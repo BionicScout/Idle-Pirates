@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTillDespawn: 4
-  score: 50
 --- !u!1 &4690967844198759640
 GameObject:
   m_ObjectHideFlags: 0
