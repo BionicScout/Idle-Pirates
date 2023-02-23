@@ -2170,14 +2170,14 @@ MonoBehaviour:
   sounds:
   - name: Main Music
     clip: {fileID: 8300000, guid: 82e8c0ec8d61a9c4bbb8892907534ede, type: 3}
-    volume: 1
+    volume: 0.614
     pitch: 1
     loop: 0
     soundTrack: 1
     source: {fileID: 0}
   - name: Moving
-    clip: {fileID: 8300000, guid: 7b38b1b758f207b48a4a78cd0b7b94fa, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.155
     pitch: 1
     loop: 0
     soundTrack: 0
