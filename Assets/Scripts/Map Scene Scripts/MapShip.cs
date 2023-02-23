@@ -7,9 +7,10 @@ using UnityEngine;
 public class MapShip : MonoBehaviour {
     public TimeQuery timeQuery;
     public float percentDone;
+    public static bool done = true;
 
     public GameObject ship;
-    Vector2 start, end;
+    public Vector2 start, end;
 
     public Node currentLocation;
 
@@ -25,6 +26,9 @@ public class MapShip : MonoBehaviour {
     }
 
     public void setLocs() {
+        if(timeQuery == null)
+            return;
+
         start = timeQuery.startNode.gameObject.transform.position;
         end = timeQuery.endNode.gameObject.transform.position;
     }
@@ -36,8 +40,12 @@ public class MapShip : MonoBehaviour {
     }
 
     void Update() {
-        if(timeQuery == null)
+        if(timeQuery == null) {
+            done = true;
             return;
+        }
+
+        done = false;
 
         TimeSpan timeLeft_TimeSpan = timeQuery.finishTime - System.DateTime.Now;
         double timeLeft_seconds = timeLeft_TimeSpan.TotalSeconds;

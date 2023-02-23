@@ -29,6 +29,9 @@ public class CameraZoom : MonoBehaviour {
     Vector2 lastMosueFrame;
     Vector2 currentMouseFrame;
 
+//Adjust Ship Vectors
+    public MapShip ship;
+
     void Start() {
         minScale = map.localScale;
     }
@@ -55,6 +58,9 @@ public class CameraZoom : MonoBehaviour {
         }
 
         ClampMap();
+
+        //Adjust Ship vecotrs to move to
+        ship.setLocs();
     }
 
     /*

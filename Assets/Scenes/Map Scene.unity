@@ -2463,6 +2463,7 @@ MonoBehaviour:
   maxZoom: 3
   cam: {fileID: 519420031}
   grabSpeed: 45
+  ship: {fileID: 1746611117}
 --- !u!1 &523381665
 GameObject:
   m_ObjectHideFlags: 0
@@ -8067,6 +8068,8 @@ MonoBehaviour:
   timeQuery: {fileID: 0}
   percentDone: 0
   ship: {fileID: 456228577}
+  start: {x: 0, y: 0}
+  end: {x: 0, y: 0}
   currentLocation: {fileID: 28879950}
 --- !u!1 &1748917829
 GameObject:

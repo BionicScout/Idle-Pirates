@@ -44,6 +44,9 @@ public class TimedActivityManager : MonoBehaviour {
 
                 if(timeQueries[i].shipQuery) {
                     MapShip.instance.updateLocation(timeQueries[i].endNode);
+
+                    if(next == null)
+                        MapShip.instance.timeQuery = next;
                 }
 
                 timeQueries.RemoveAt(i);
