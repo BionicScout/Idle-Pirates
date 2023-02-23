@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CombatShip : MonoBehaviour {
     public string shipName;
@@ -13,7 +14,7 @@ public class CombatShip : MonoBehaviour {
     //Put this in CombatUI script
     public TMP_Text ui;
 
-    public GameObject shipImage;
+    public Texture shipImage;
 
     void Start() {
         maxHealth = health;
@@ -23,7 +24,8 @@ public class CombatShip : MonoBehaviour {
         if (health <= 0)
         {
             health = 0;
-            shipImage.SetActive(false);
+            dead = true;
+            //shipImage.SetActive(false);
         }
        
     }

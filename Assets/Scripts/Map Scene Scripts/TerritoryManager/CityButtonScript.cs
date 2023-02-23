@@ -70,6 +70,9 @@ public class CityButtonScript : MonoBehaviour {
     //it shows the raid pop-up and sends its cityNumber
     //to the raid pop-up script
     public void OnCityButtonPressed() {
+    //If the Ship is moving from locations, don't allow to click ona new city
+        if(MapShip.done == false)
+            return;
 
         travelPopUp.GetComponent<TravelPopUpScript>()
             .CityNumberUpdate(cityNumber);

@@ -2282,7 +2282,7 @@ MonoBehaviour:
   shipName: Fast
   speed: 5
   attack: 2
-  health: 5
+  health: 0
   maxHealth: 5
   dead: 0
   ui: {fileID: 656617577}
@@ -3922,7 +3922,7 @@ GameObject:
   - component: {fileID: 1374242650}
   - component: {fileID: 1374242649}
   m_Layer: 5
-  m_Name: Ship 1
+  m_Name: ShipImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4139,7 +4139,7 @@ GameObject:
   - component: {fileID: 1430677341}
   - component: {fileID: 1430677340}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ShipName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

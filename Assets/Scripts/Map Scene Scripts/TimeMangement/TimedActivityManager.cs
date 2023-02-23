@@ -16,7 +16,14 @@ public class TimedActivityManager : MonoBehaviour {
     public static TimedActivityManager instance;
 
     void Awake() {
-        instance = this;
+        //if(instance == null)
+            instance = this;
+        //else {
+        //    Destroy(gameObject);
+        //    return;
+        //}
+
+        //DontDestroyOnLoad(gameObject);
 
         currentTime = System.DateTime.Now;
         //Debug.Log("Start Time is " + currentTime.ToString("F"));
@@ -27,25 +34,30 @@ public class TimedActivityManager : MonoBehaviour {
 
         for(int i = 0; i < timeQueries.Count; i++) {
 
+        //If Querry Finshed
             if(DateTime.Compare(timeQueries[i].finishTime, currentTime) <= 0) { //If the query time is done
                 timeQueries[i].triggered = true;
                 timeQueries[i].printLog();
 
-                //Check for next qeury
+            //Check for next qeury
                 TimeQuery next = timeQueries[i].nextQuery;
-                if(next != null) {
+                if(next != null) 
                     next.activate();
 
-                    if(timeQueries[i].shipQuery) {
-                        MapShip.instance.timeQuery = next;
+            //Check if Querry is Ship Queerry
+                if(timeQueries[i].shipQuery) {
+                    MapShip.instance.updateLocation(timeQueries[i].endNode);
+                    MapShip.instance.timeQuery = next;
+
+                //If Ship has a next location
+                    if(next != null) {
                         MapShip.instance.setLocs();
+
+                        AudioManager.instance.Play("Moving");
                     }
                 }
 
-                if(timeQueries[i].shipQuery) {
-                    MapShip.instance.updateLocation(timeQueries[i].endNode);
-                }
-
+            //Remove Querry From list
                 timeQueries.RemoveAt(i);
                 i--;
             }

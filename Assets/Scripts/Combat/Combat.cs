@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 /*
@@ -156,7 +157,7 @@ public class Combat : MonoBehaviour {
 
             //Switch to other enemy ship
             enemyShip = enemyFleet.ships[enemyShip_index];
-            enemyShip.shipImage.SetActive(true);
+            //enemyShip.shipImage.SetActive(true);
             UI.add("", enemyShip.shipName + " has come to fight");
             //yield return new WaitForSeconds(textWaitSpeed);
         }
@@ -258,7 +259,7 @@ public class Combat : MonoBehaviour {
             }
 
             playerShip = playerFleet.ships[playerShip_index];
-            playerShip.shipImage.SetActive(true);
+            //playerShip.shipImage.SetActive(true);
             UI.add("", playerShip.shipName + " has come to fight");
             //yield return new WaitForSeconds(textWaitSpeed);
         }
@@ -327,10 +328,18 @@ public class Combat : MonoBehaviour {
         if(possibleSwitches.Count == 0)
             return;
 
-        if(possibleSwitches.Count == 1)
+    //Switch Art Imagies and Pull up display
+
+        if(possibleSwitches.Count == 1) {
+            Texture shipImage = possibleSwitches[0].shipImage;
+            Debug.Log(oneShip_swapPopUp.transform.GetChild(2).name); //GetComponent<Image>();
+            //image.image = shipImage;
+
             oneShip_swapPopUp.SetActive(true);
-        else if(possibleSwitches.Count == 2)
+        }
+        else if(possibleSwitches.Count == 2) {
             twoShip_swapPopUp.SetActive(true);
+        }
     }
 
     public void Ship1_ButtonPressed() {
