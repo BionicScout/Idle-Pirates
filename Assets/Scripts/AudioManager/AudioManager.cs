@@ -70,6 +70,6 @@ public class AudioManager : MonoBehaviour {
         
         s.source.Play();
 
-        Debug.Log("PLAYING");
+        //Debug.Log("PLAYING");
     }
 }
