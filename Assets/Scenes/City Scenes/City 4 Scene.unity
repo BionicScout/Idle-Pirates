@@ -1760,7 +1760,7 @@ PrefabInstance:
     - target: {fileID: 4558959196218757145, guid: 4b8249b9f47113749b6488cb9292e4a1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1996246601}
     - target: {fileID: 4558959196218757145, guid: 4b8249b9f47113749b6488cb9292e4a1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MenuPressed
@@ -1784,7 +1784,7 @@ PrefabInstance:
     - target: {fileID: 7332548010883299070, guid: 4b8249b9f47113749b6488cb9292e4a1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1996246601}
     - target: {fileID: 7332548010883299070, guid: 4b8249b9f47113749b6488cb9292e4a1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UnPause
@@ -1794,6 +1794,11 @@ PrefabInstance:
 --- !u!224 &1373232794 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3839594390973710944, guid: 4b8249b9f47113749b6488cb9292e4a1, type: 3}
+  m_PrefabInstance: {fileID: 1373232793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1373232795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3839594390973710945, guid: 4b8249b9f47113749b6488cb9292e4a1, type: 3}
   m_PrefabInstance: {fileID: 1373232793}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1507366340
@@ -2636,15 +2641,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22230db4b084c3d40b521e52b9c042cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyName: 
-  pauseMenuObject: {fileID: 0}
+  keyName: Cancel
+  pauseMenuObject: {fileID: 1373232795}
   extrasWindow: {fileID: 0}
-  Menu: 
+  Menu: Title
   clickTimer: 0.5
-  soundSource: {fileID: 0}
-  pauseSound: {fileID: 0}
-  unpauseSound: {fileID: 0}
-  menuClick: {fileID: 0}
+  soundSource: {fileID: 735981870}
+  pauseSound: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
+  unpauseSound: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
+  menuClick: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
 --- !u!1 &2023518150
 GameObject:
   m_ObjectHideFlags: 0
