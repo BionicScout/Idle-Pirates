@@ -18,6 +18,13 @@ public class BackgroundMovement : MonoBehaviour
     [SerializeField]
     private float length;
 
+    private float disappearTime = 9f;
+
+    [SerializeField]
+    private float timer = 0;
+
+
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -25,11 +32,30 @@ public class BackgroundMovement : MonoBehaviour
 
         length = boxCollider.size.y;
         rb.velocity = new Vector2(0, speed);
+
+        disappearTime = -(speed) * 3;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
+
+        if (timer < disappearTime)
+        {
+            timer += Time.deltaTime;
+
+        }
+        else 
+        { 
+            Destroy(this.gameObject);
+           
+        }
+
+
         if(transform.position.y < -length) 
         {
             Reposition();
@@ -45,6 +71,9 @@ public class BackgroundMovement : MonoBehaviour
         Vector2 vector = new Vector2(0, length * 2f);
         transform.position = (Vector2)transform.position + vector;
     }
+
+
+
 
 
 }
