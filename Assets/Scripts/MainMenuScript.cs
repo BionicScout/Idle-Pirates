@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuScript : MonoBehaviour
-{
+public class MainMenuScript : MonoBehaviour {
     [Header("Scene Names")]
     [SerializeField]
     private string startGameSceneName;
@@ -21,12 +20,6 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField]
     private string miniGameSceneName;
 
-    [Header("Sound Sources")]
-    [SerializeField]
-    private AudioSource soundSource;
-
-    [SerializeField]
-    private AudioClip menuClick;
 
     [SerializeField]
     private float clickTimer = 0.5f;
@@ -39,94 +32,75 @@ public class MainMenuScript : MonoBehaviour
     //private GameObject pauseWindow;
 
 
-
-    public void StartGameButtonPressed()
-    {
+//Buton Press Functions
+    public void StartGameButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
+        AudioManager.instance.Play("Menu Sound");
         StartCoroutine(WaitforStartGameButton(clickTimer));
-
     }
 
-
-    public void StartButtonPressed()
-    {
+    public void StartButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
-        StartCoroutine(WaitforStartButton(clickTimer));
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, startSceneName));
 
     }
 
-    public void CreditsButtonPressed()
-    {
+    public void CreditsButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
-        StartCoroutine(WaitforCreditsButton(clickTimer));
-
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, creditsSceneName));
     }
 
-    public void TitleMenuButtonPressed()
-    {
+    public void TitleMenuButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
-        StartCoroutine(WaitforTitleMenuButton(clickTimer));
-
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, titleMenuSceneName));
     }
 
-    public void MapButtonPressed()
-    {
+    public void MapButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
-        StartCoroutine(WaitforMapButton(clickTimer));
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, mapSceneName));
 
     }
 
-    public void CombatButtonPressed()
-    {
+    public void CombatButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
-        StartCoroutine(WaitforCombatButton(clickTimer));
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, combatSceneName));
 
     }
 
-    public void MiniGameButtonPressed()
-    {
+    public void MiniGameButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
-        StartCoroutine(WaitforMiniGameButton(clickTimer));
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, miniGameSceneName));
 
     }
 
-
-    public void MinimizeButtonPressed()
-    {
+    public void MinimizeButtonPressed() {
         //Set window to false
-        soundSource.PlayOneShot(menuClick);
+        AudioManager.instance.Play("Menu Sound");
         extrasWindow.SetActive(false);
     }
-    
 
-
-    public void CloseGame()
-    {
+    public void CloseGame() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
+        AudioManager.instance.Play("Menu Sound");
         StartCoroutine(WaitforCloseButton(clickTimer));
-
     }
 
-
-    IEnumerator WaitforStartGameButton(float duration)
-    {
-
+//Wait Methods
+    IEnumerator WaitforStartGameButton(float duration) {
         yield return new WaitForSeconds(duration);   //Wait
 
         //reset save data
@@ -136,70 +110,19 @@ public class MainMenuScript : MonoBehaviour
 
         SaveStateManager.instance.DeleteData();
 
-        SceneManager.LoadScene(startGameSceneName);
+        SceneSwitcher.instance.A_LoadScene(startGameSceneName);
     }
 
-    IEnumerator WaitforStartButton(float duration)
-    {
-
-        yield return new WaitForSeconds(duration);   //Wait
-
-        SceneManager.LoadScene(startSceneName);
-    }
-
-
-    IEnumerator WaitforTitleMenuButton(float duration)
-    {
-
-        yield return new WaitForSeconds(duration);   //Wait
-        SceneManager.LoadScene(titleMenuSceneName);
-    }
-
-    IEnumerator WaitforCreditsButton(float duration)
-    {
-
-        yield return new WaitForSeconds(duration);   //Wait
-        SceneManager.LoadScene(creditsSceneName);
-    }
-
-    IEnumerator WaitforCloseButton(float duration)
-    {
-
+    IEnumerator WaitforCloseButton(float duration) {
         yield return new WaitForSeconds(duration);   //Wait
         Application.Quit();
-
     }
 
-    IEnumerator WaitforMapButton(float duration)
-    {
-
+    IEnumerator WaitButton(float duration, string sceneName) {
         yield return new WaitForSeconds(duration);   //Wait
 
         //reset save data
 
-        SceneManager.LoadScene(mapSceneName);
+        SceneSwitcher.instance.A_LoadScene(sceneName);
     }
-
-
-    IEnumerator WaitforCombatButton(float duration)
-    {
-
-        yield return new WaitForSeconds(duration);   //Wait
-
-        //reset save data
-
-        SceneManager.LoadScene(combatSceneName);
-    }
-
-
-    IEnumerator WaitforMiniGameButton(float duration)
-    {
-
-        yield return new WaitForSeconds(duration);   //Wait
-
-        //reset save data
-
-        SceneManager.LoadScene(miniGameSceneName);
-    }
-
 }
