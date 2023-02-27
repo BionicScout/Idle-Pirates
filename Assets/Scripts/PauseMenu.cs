@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
     //The key needed to press and open pause menu
     [SerializeField]
     private string keyName;
@@ -29,33 +28,14 @@ public class PauseMenu : MonoBehaviour
     //[Header("Music")]
     //public MusicManager musicManager;
 
-    [Header("SFX")]
-    //audio source to play UI sound
-    [SerializeField]
-    private AudioSource soundSource;
+    private void Update() {
+        if(Input.GetButtonDown(keyName)) {
 
-    //sounds that will play when button Pressed
-    [SerializeField]
-    private AudioClip pauseSound;
 
-    [SerializeField]
-    private AudioClip unpauseSound;
-
-    [SerializeField]
-    private AudioClip menuClick;
-
-    private void Update()
-    {
-        if (Input.GetButtonDown(keyName))
-        {
-       
-
-            if(isPaused)
-            {
+            if(isPaused) {
                 UnPause();
             }
-            else
-            {
+            else {
                 Pause();
 
             }
@@ -64,55 +44,50 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void UnPause()
-    {
+    public void UnPause() {
         pauseMenuObject.SetActive(false);
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
         isPaused = false;
         Time.timeScale = 1f;
-        soundSource.PlayOneShot(unpauseSound);
+        AudioManager.instance.Play("Menu Sound");
 
         //pointScript.enabled = true;
         //musicManager.UnPause();
     }
 
-    public void Pause()
-    {
+    public void Pause() {
         pauseMenuObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isPaused = true;
         Time.timeScale = 0f;
 
-        soundSource.PlayOneShot(pauseSound);
+        AudioManager.instance.Play("Menu Sound");
 
         //pointScript.enabled = false;
         //musicManager.Pause();
     }
 
-    public void MenuPressed()
-    {
+    public void MenuPressed() {
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        soundSource.PlayOneShot(menuClick);
+        AudioManager.instance.Play("Menu Sound");
         StartCoroutine(Wait(clickTimer));
 
     }
 
-    public void ExtrasWindowPressed()
-    {
+    public void ExtrasWindowPressed() {
         //Set window to true
-        soundSource.PlayOneShot(menuClick);
+        AudioManager.instance.Play("Menu Sound");
         UnPause();
         pauseMenuObject.SetActive(false);
         extrasWindow.SetActive(true);
     }
 
-    IEnumerator Wait(float duration)
-    {
-        
+    IEnumerator Wait(float duration) {
+
         yield return new WaitForSecondsRealtime(duration);   //Wait
         Time.timeScale = 1f;
         SceneManager.LoadScene(Menu);
