@@ -280,10 +280,19 @@ MonoBehaviour:
   speed: -3
   length: 0
   timer: 0
-  maxXPosition: {fileID: 8101155863332071348}
-  minXPosition: {fileID: 547647475303505211}
-  maxYPosition: {fileID: 3710588457097403438}
-  minYPosition: {fileID: 5225015365074504077}
+  maxXPositionObj: {fileID: 8101155863332071348}
+  minXPositionObj: {fileID: 547647475303505211}
+  maxYPositionObj: {fileID: 3710588457097403438}
+  minYPositionObj: {fileID: 5225015365074504077}
+  maxXPosition: 0
+  minXPosition: 0
+  maxYPosition: 0
+  minYPosition: 0
+  obstaclePrefabList:
+  - {fileID: 2155376225918342373, guid: b27634d4284843144b54de8bbb401b40, type: 3}
+  - {fileID: 5764840329335003857, guid: 38fdcaa4bcf8a9840b638ced09951364, type: 3}
+  maxSpawnItems: 3
+  numOfSpawnItems: 0
 --- !u!1 &8101155863332071348
 GameObject:
   m_ObjectHideFlags: 0
