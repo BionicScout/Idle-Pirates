@@ -62,7 +62,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Menu Sound
     clip: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
-    volume: 1
+    volume: 0.215
     pitch: 1
     loop: 0
     soundTrack: 0

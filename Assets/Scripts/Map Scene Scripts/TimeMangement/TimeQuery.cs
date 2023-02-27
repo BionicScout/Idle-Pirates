@@ -11,6 +11,7 @@ public class TimeQuery : MonoBehaviour {
 
     public bool shipQuery = false;
     public Node startNode, endNode;
+    public string startName, endName;
 
     public DateTime startTime;
     public DateTime finishTime;
@@ -36,12 +37,32 @@ public class TimeQuery : MonoBehaviour {
 
     public void isShipQuery(Node start, Node end) {
         shipQuery = true;
+
         startNode = start;
+        startName = start.nodeName;
+
         endNode = end;
+        endName = end.nodeName;
     }
 
     public void activate() {
         active = true;
+    }
+
+    public void refreshNodes() {
+        startNode = refreshNodes(startName);
+        endNode = refreshNodes(endName);
+    }
+
+    public Node refreshNodes(string nodeName) {
+        foreach(Node n in Pathfinding.nodes) {
+            if(n.nodeName == nodeName) {
+                return n;
+            }
+
+        }
+
+        return null;
     }
 
     void Update() {

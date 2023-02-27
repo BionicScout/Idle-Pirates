@@ -84,13 +84,13 @@ public class Combat : MonoBehaviour {
 
         //End States
         else if(gameState == GameState.Win) {
-            SceneManager.LoadScene(mapSceneName);
+            SceneSwitcher.instance.A_LoadScene(mapSceneName);
         }
         else if(gameState == GameState.Ran) {
-            SceneManager.LoadScene(mapSceneName);
+            SceneSwitcher.instance.A_LoadScene(mapSceneName);
         }
         else if(gameState == GameState.Lose) {
-            SceneManager.LoadScene(mapSceneName);
+            SceneSwitcher.instance.A_LoadScene(mapSceneName);
         }
 
 

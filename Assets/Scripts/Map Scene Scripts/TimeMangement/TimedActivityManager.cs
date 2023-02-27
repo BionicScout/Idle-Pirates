@@ -16,17 +16,26 @@ public class TimedActivityManager : MonoBehaviour {
     public static TimedActivityManager instance;
 
     void Awake() {
-        //if(instance == null)
+        if(instance == null)
             instance = this;
-        //else {
-        //    Destroy(gameObject);
-        //    return;
-        //}
+        else {
+            Destroy(gameObject);
+            return;
+        }
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         currentTime = System.DateTime.Now;
         //Debug.Log("Start Time is " + currentTime.ToString("F"));
+    }
+
+    public TimeQuery getShipQuery() {
+        for(int i = 0; i < timeQueries.Count; i++) {
+            if(timeQueries[i].shipQuery)
+                return timeQueries[i];
+        }
+
+        return null;
     }
 
     void Update() {
@@ -46,11 +55,11 @@ public class TimedActivityManager : MonoBehaviour {
 
             //Check if Querry is Ship Queerry
                 if(timeQueries[i].shipQuery) {
-                    MapShip.instance.updateLocation(timeQueries[i].endNode);
+                    MapShip.instance.updateLocation(timeQueries[i].endNode); //#1
                     MapShip.instance.timeQuery = next;
 
                 //If Ship has a next location and is in map scene
-                    if(next != null) {
+                    if(next != null && SceneSwitcher.currentScene == "Map Scene") {
                         MapShip.instance.setLocs();
 
                         AudioManager.instance.Play("Moving");
@@ -68,5 +77,18 @@ public class TimedActivityManager : MonoBehaviour {
         timeQueries.Add(query);
         //Debug.Log("Start Time is " + currentTime.ToString("F"));
         //query.activate();
+    }
+
+    public void refreshQuerries() {
+        Pathfinding.refresh();
+
+        foreach(TimeQuery q in timeQueries) {
+            TimeQuery temp = q;
+            while(temp != null) {
+                temp.refreshNodes();
+                //Debug.Log(temp.queryName + " has been refreshed");
+                temp = temp.nextQuery;
+            }
+        }
     }
 }

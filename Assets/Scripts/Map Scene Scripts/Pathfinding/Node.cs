@@ -20,6 +20,7 @@ public class Node : MonoBehaviour {
     private void Update() {
         if(find) {
             find = false;
+            Pathfinding.refresh();
             List<Node> path = Pathfinding.DijkstraSearch();
 
             TimeQuery query = null;

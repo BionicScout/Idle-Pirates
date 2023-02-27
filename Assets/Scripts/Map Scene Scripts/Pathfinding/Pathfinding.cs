@@ -19,6 +19,21 @@ public class Pathfinding : MonoBehaviour{
         }
     }
 
+    public static void clear() {
+        nodes.Clear();
+    }
+
+    public static void refresh() {
+        clear();
+
+        //Object[] nodes = Resources.FindObjectsOfTypeAll(typeof(Node));
+        Node[] nodes = FindObjectsOfType(typeof(Node)) as Node[];
+
+        foreach(Node n in nodes) {
+            add(n);
+        }
+    }
+
     /*
         https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
     */
