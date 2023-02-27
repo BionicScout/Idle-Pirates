@@ -12,21 +12,22 @@ public class CombatShip : MonoBehaviour {
     public bool dead;
 
     //Put this in CombatUI script
-    public TMP_Text ui;
-
-    public Texture shipImage;
+    public Sprite shipImage;
 
     void Start() {
         maxHealth = health;
     }
 
-    void Update() {
-        if (health <= 0)
-        {
+    public void removeHP(int damage) {
+        health -= damage;
+        if(health <= 0) {
             health = 0;
             dead = true;
             //shipImage.SetActive(false);
         }
-       
+    }
+
+    void Update() {
+
     }
 }
