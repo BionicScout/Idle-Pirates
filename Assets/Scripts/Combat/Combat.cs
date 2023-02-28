@@ -36,7 +36,6 @@ public class Combat : MonoBehaviour {
     int playerShip_index, enemyShip_index;
 
     public GameState gameState;
-    private bool switched;
 
     public CombatUI UI;
 
@@ -65,8 +64,6 @@ public class Combat : MonoBehaviour {
     [Range(0, 15f)]
     public float textWaitSpeed = 3f;
 
-
-
     void Start() {
         gameState = GameState.PlayersTurn;
 
@@ -92,11 +89,6 @@ public class Combat : MonoBehaviour {
         else if(gameState == GameState.Lose) {
             SceneSwitcher.instance.A_LoadScene(mapSceneName);
         }
-
-
-        //if(Input.GetKeyDown(KeyCode.Escape)) {
-        //    SceneManager.LoadScene(mapSceneName);
-        //}
     }
 
     //Game End States
@@ -135,7 +127,7 @@ public class Combat : MonoBehaviour {
         gameState = GameState.PlayersAttack;
 
         //Attack Enemy Ship
-        enemyShip.health -= playerShip.attack;
+        enemyShip.removeHP(playerShip.attack);
 
         UI.add("", enemyShip.shipName + " HP: " + enemyShip.health + "/" + enemyShip.maxHealth);
         UI.updateTextBox();
@@ -203,6 +195,7 @@ public class Combat : MonoBehaviour {
         UI.add("", "Switched to " + playerShip.shipName);
         UI.updateTextBox();
         UI.clickToMoveText = true;
+        UI.updateShipUI(UI.playerShipUI, playerShip);
 
         for(int i = 0; i < playerFleet.ships.Count; i++) {
             if(playerFleet.ships[i] == playerShip) {
@@ -238,12 +231,15 @@ public class Combat : MonoBehaviour {
     //Enemy Turn Method
     void EnemysTurn() {
         EnemyAttack();
+
+        UI.updateShipUI(UI.playerShipUI, playerShip);
+        UI.updateShipUI(UI.enemyShipUI, enemyShip);
     }
 
     void EnemyAttack() {
         UI.add(enemyShip.shipName + " (Enemy)", "Enemy Attack");
 
-        playerShip.health -= enemyShip.attack;
+        playerShip.removeHP(enemyShip.attack);
         UI.add(enemyShip.shipName + " (Enemy)", playerShip.shipName + " HP: " + playerShip.health + "/" + playerShip.maxHealth);
 
         if(playerShip.health <= 0) {
@@ -284,23 +280,25 @@ public class Combat : MonoBehaviour {
 
 //Attack Button
     public void OnAttackButtonPressed() {
-        if(gameState != GameState.PlayersTurn || !UI.getUpdate()) {
+        if(gameState != GameState.PlayersTurn || !UI.canUseButttons) {
             return;
         }
 
-        switched = false;
+        UI.switched = false;
         PlayerAttack();
+        UI.canUseButttons = false;
 
         //Attack
     }
 
 //Run Button
     public void OnFleeButtonPressed() {
-        if(gameState != GameState.PlayersTurn || !UI.getUpdate()) {
+        if(gameState != GameState.PlayersTurn || !UI.canUseButttons) {
             return;
         }
 
         fleePopUp.SetActive(true);
+        UI.canUseButttons = false;
         //Open flee window
 
     }
@@ -308,8 +306,8 @@ public class Combat : MonoBehaviour {
     public void YesFleeButtonPressed() {
         //SceneManager.LoadScene(mapSceneName);
         fleePopUp.SetActive(false);
-        
-        switched = false;
+
+        UI.switched = false;
         PlayerRun();
     }
 
@@ -319,7 +317,7 @@ public class Combat : MonoBehaviour {
 
 //Swap Button
     public void OnSwapButtonPressed() {
-        if(gameState != GameState.PlayersTurn || !UI.getUpdate()) {
+        if(gameState != GameState.PlayersTurn || !UI.canUseButttons) {
             return;
         }
 
@@ -331,7 +329,7 @@ public class Combat : MonoBehaviour {
     //Switch Art Imagies and Pull up display
 
         if(possibleSwitches.Count == 1) {
-            Texture shipImage = possibleSwitches[0].shipImage;
+            //Texture shipImage = possibleSwitches[0].shipImage;
             Debug.Log(oneShip_swapPopUp.transform.GetChild(2).name); //GetComponent<Image>();
             //image.image = shipImage;
 
@@ -343,14 +341,14 @@ public class Combat : MonoBehaviour {
     }
 
     public void Ship1_ButtonPressed() {
-        switched = true;
+        UI.switched = true;
         PlayerSwitch(0);
         oneShip_swapPopUp.SetActive(false);
         twoShip_swapPopUp.SetActive(false);
     }
 
     public void Ship2_ButtonPressed() {
-        switched = true;
+        UI.switched = true;
         PlayerSwitch(1);
         twoShip_swapPopUp.SetActive(false);
     }
@@ -359,5 +357,4 @@ public class Combat : MonoBehaviour {
         oneShip_swapPopUp.SetActive(false);
         twoShip_swapPopUp.SetActive(false);
     }
-
 }
