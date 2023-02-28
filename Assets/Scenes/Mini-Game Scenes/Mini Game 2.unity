@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundPrefab: {fileID: 5383547829182080165, guid: 674095b45d522584eb817c1ad4090bfe, type: 3}
-  spawnTime: 4
+  spawnTime: 3
   timer: 0
 --- !u!1001 &5383547828883704868
 PrefabInstance:
@@ -465,10 +465,6 @@ PrefabInstance:
     - target: {fileID: 5383547829182080167, guid: 674095b45d522584eb817c1ad4090bfe, type: 3}
       propertyPath: speed
       value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383547829182080167, guid: 674095b45d522584eb817c1ad4090bfe, type: 3}
-      propertyPath: disappearTime
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674095b45d522584eb817c1ad4090bfe, type: 3}

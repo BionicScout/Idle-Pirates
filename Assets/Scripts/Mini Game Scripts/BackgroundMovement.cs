@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class BackgroundMovement : MonoBehaviour
 {
@@ -79,12 +80,12 @@ public class BackgroundMovement : MonoBehaviour
         //obstacles spawned
 
         //Goes through each item in List and randomize position
-        for(int j = 0; j < obstaclePrefabList.Count;j++) 
+        for (int j = 0; j < obstaclePrefabList.Count; j++)
         {
-            obstaclePrefabList[j].transform.position = 
-                new Vector3(Random.Range(minXPosition, maxXPosition), 
+            obstaclePrefabList[j].transform.position =
+                new Vector3(Random.Range(minXPosition, maxXPosition),
                 Random.Range(minYPosition, maxYPosition), 0);
-        
+
         }
 
 
@@ -95,10 +96,17 @@ public class BackgroundMovement : MonoBehaviour
         //spawn random objects up to the number of items that can be spawned
         for(int i = 0; i < numOfSpawnItems; i++) 
         {
-            int objectSpawnNumber = Random.Range(0, obstaclePrefabList.Count - 1);
+            int objectSpawnNumber = Random.Range(0, obstaclePrefabList.Count);
 
-            Instantiate(obstaclePrefabList[objectSpawnNumber], 
-                transform.position, transform.rotation);
+            //transform.position = new Vector3(Random.Range(minXPosition, maxXPosition),
+            //    Random.Range(minYPosition, maxYPosition), 0);
+
+
+            GameObject child = Instantiate(obstaclePrefabList[objectSpawnNumber],
+                obstaclePrefabList[objectSpawnNumber].transform.position,
+                transform.rotation) as GameObject;
+
+            child.transform.parent = this.transform;
 
         }
 

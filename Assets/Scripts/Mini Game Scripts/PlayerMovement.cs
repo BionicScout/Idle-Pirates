@@ -29,4 +29,9 @@ public class PlayerMovement : MonoBehaviour
         rigbody.velocity = new Vector2(horizontalInput * speed,
             rigbody.velocity.y);
     }
+
+
+
+    //When player collides with rock, lock movement
+
 }
