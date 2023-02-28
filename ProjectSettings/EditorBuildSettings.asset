@@ -78,6 +78,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Mini-Game Scenes/Coconut Mini-Game.unity
     guid: c16eb8ac39997af46b2ee6adc9d9ebef
   - enabled: 1
+    path: Assets/Scenes/Mini-Game Scenes/Ship Mini Game Instructions.unity
+    guid: b72d871c9a71d524bbce29054ff942ad
+  - enabled: 1
+    path: Assets/Scenes/Mini-Game Scenes/Ship Mini Game.unity
+    guid: 224abb5acbc138d43817e2b4ed8c7e79
+  - enabled: 1
     path: Assets/Scenes/Mini-Game Scenes/Mini Game Lose Scene.unity
     guid: c22572e3d6ff95a41a21328892fc7ee6
   - enabled: 1

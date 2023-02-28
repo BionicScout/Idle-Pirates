@@ -18,7 +18,9 @@ public class MainMenuScript : MonoBehaviour {
     [SerializeField]
     private string combatSceneName;
     [SerializeField]
-    private string miniGameSceneName;
+    private string coconutMiniGameSceneName;
+    [SerializeField]
+    private string shipMiniGameSceneName;
 
 
     [SerializeField]
@@ -78,13 +80,23 @@ public class MainMenuScript : MonoBehaviour {
 
     }
 
-    public void MiniGameButtonPressed() {
+    public void CoconutMiniGameButtonPressed() {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         AudioManager.instance.Play("Menu Sound");
-        StartCoroutine(WaitButton(clickTimer, miniGameSceneName));
+        StartCoroutine(WaitButton(clickTimer, coconutMiniGameSceneName));
 
     }
+
+    public void ShipMiniGameButtonPressed()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, shipMiniGameSceneName));
+
+    }
+
 
     public void MinimizeButtonPressed() {
         //Set window to false
