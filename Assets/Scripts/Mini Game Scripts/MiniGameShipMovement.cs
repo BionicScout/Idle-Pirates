@@ -10,10 +10,9 @@ public class MiniGameShipMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 50)]
     private float speed;
-    //private float movement;
 
     [SerializeField]
-    private bool gotHit = false;
+    public static bool gotHit = false;
 
     [SerializeField]
     [Range(0, 5)]
@@ -29,7 +28,6 @@ public class MiniGameShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //movement = Input.GetAxis("Horizontal") * horizontalSpeed;
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
@@ -41,14 +39,17 @@ public class MiniGameShipMovement : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.CompareTag("Obstacles"))
         {
             gotHit = true;
+            Destroy(other.gameObject);
             StartCoroutine(HitTimer(timer));
         }
     }
+
+    
 
 
     IEnumerator HitTimer(float duration)

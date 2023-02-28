@@ -24,16 +24,19 @@ public class BackgroundSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < spawnTime)
+        if (MiniGameShipMovement.gotHit == false)
         {
-            timer += Time.deltaTime;
+            if (timer < spawnTime)
+            {
+                timer += Time.deltaTime;
 
-        }
-        else
-        {
-            Spawn();
-            timer = 0;
+            }
+            else
+            {
+                Spawn();
+                timer = 0;
 
+            }
         }
     }
 

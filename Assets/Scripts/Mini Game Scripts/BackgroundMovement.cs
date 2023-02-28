@@ -66,7 +66,14 @@ public class BackgroundMovement : MonoBehaviour
 
         //length = boxCollider.size.y;
 
-        rb.velocity = new Vector2(0, speed);
+        if (MiniGameShipMovement.gotHit == false)
+        {
+            rb.velocity = new Vector2(0, speed);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
 
         disappearTime = -(speed) * 3;
 
@@ -116,19 +123,20 @@ public class BackgroundMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-
-        if (timer < disappearTime)
+    {
+        if (MiniGameShipMovement.gotHit == false)
         {
-            timer += Time.deltaTime;
+            if (timer < disappearTime)
+            {
+                timer += Time.deltaTime;
 
-        }
-        else 
-        { 
-            Destroy(this.gameObject);
-           
-        }
+            }
+            else
+            {
+                Destroy(this.gameObject);
 
+            }
+        }
 
         //if(transform.position.y < -length) 
         //{

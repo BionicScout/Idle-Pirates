@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Coconut
+  - Obstacles
   layers:
   - Default
   - TransparentFX
