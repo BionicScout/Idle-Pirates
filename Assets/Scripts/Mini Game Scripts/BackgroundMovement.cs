@@ -14,12 +14,16 @@ public class BackgroundMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
-    private float speed = -3f;
+    public float speed = -3f;
 
     //[SerializeField]
     //private float length;
 
-    private float disappearTime = 9f;
+    [SerializeField]
+    private float disappearTime;
+
+    [SerializeField]
+    public int disappearMultiplier = 3;
 
     [SerializeField]
     private float timer = 0;
@@ -66,16 +70,11 @@ public class BackgroundMovement : MonoBehaviour
 
         //length = boxCollider.size.y;
 
-        if (MiniGameShipMovement.gotHit == false)
-        {
-            rb.velocity = new Vector2(0, speed);
-        }
-        else
-        {
-            rb.velocity = new Vector2(0, 0);
-        }
+        //rb.velocity = new Vector2(0, speed);
 
-        disappearTime = -(speed) * 3;
+        
+
+        disappearTime = -(speed) * disappearMultiplier;
 
 
         maxXPosition = maxXPositionObj.transform.position.x;
@@ -138,20 +137,33 @@ public class BackgroundMovement : MonoBehaviour
             }
         }
 
+
+        if (MiniGameShipMovement.gotHit == true)
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, speed);
+        }
+
         //if(transform.position.y < -length) 
         //{
         //    Reposition();
-        
+
         //}
 
 
 
     }
 
-    //private void Reposition()
+    //private void OnTriggerEnter2D(Collider2D collision)
     //{
-    //    Vector2 vector = new Vector2(0, length * 2f);
-    //    transform.position = (Vector2)transform.position + vector;
+    //    if(collision.gameObject.CompareTag("Obstacles"))
+    //    {
+    //        Destroy(boxCollider); 
+
+    //    }
     //}
 
 

@@ -14,36 +14,53 @@ public class BackgroundSpawnerScript : MonoBehaviour
     [SerializeField]
     private float timer = 0;
 
+    [SerializeField]
+    private float spawnCountOffset = 1.43f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Spawn();
+        spawnTime = 
+            -(backgroundPrefab.GetComponent<BackgroundMovement>().speed) * spawnCountOffset; 
+
+        //Spawn();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (MiniGameShipMovement.gotHit == false)
-        {
-            if (timer < spawnTime)
-            {
-                timer += Time.deltaTime;
+        //if (MiniGameShipMovement.gotHit == false)
+        //{
+        //    if (timer < spawnTime)
+        //    {
+        //        timer += Time.deltaTime;
 
-            }
-            else
-            {
-                Spawn();
-                timer = 0;
+        //    }
+        //    else
+        //    {
+        //        Spawn();
+        //        timer = 0;
 
-            }
-        }
+        //    }
+        //}
     }
 
     private void Spawn()
     {
         Instantiate(backgroundPrefab, transform.position, transform.rotation);
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Background"))
+        {
+            Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
+            Spawn();
+
+        }
     }
 
 

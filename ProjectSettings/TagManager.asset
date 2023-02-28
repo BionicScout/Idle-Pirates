@@ -7,6 +7,7 @@ TagManager:
   - Box
   - Coconut
   - Obstacles
+  - Background
   layers:
   - Default
   - TransparentFX

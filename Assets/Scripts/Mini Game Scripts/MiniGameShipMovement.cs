@@ -36,6 +36,9 @@ public class MiniGameShipMovement : MonoBehaviour
             rigbody.velocity = new Vector2(horizontalInput * speed,
                 rigbody.velocity.y);
         }
+
+        //Make score system
+
     }
 
 
@@ -44,6 +47,7 @@ public class MiniGameShipMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacles"))
         {
             gotHit = true;
+            rigbody.velocity = new Vector2(0, 0);
             Destroy(other.gameObject);
             StartCoroutine(HitTimer(timer));
         }
