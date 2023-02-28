@@ -10,19 +10,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     [Range(0, 50)]
     private float speed;
-    //private float movement;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //movement = Input.GetAxis("Horizontal") * speed;
+        //movement = Input.GetAxis("Horizontal") * horizontalSpeed;
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 

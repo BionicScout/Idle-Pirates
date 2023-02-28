@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MiniGameShipMovement : MonoBehaviour
+{
+    [SerializeField]
+    private Rigidbody2D rigbody;
+
+    [SerializeField]
+    [Range(0, 50)]
+    private float speed;
+    //private float movement;
+
+    [SerializeField]
+    private bool gotHit = false;
+
+    [SerializeField]
+    [Range(0, 5)]
+    private float timer;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //movement = Input.GetAxis("Horizontal") * horizontalSpeed;
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (gotHit == false)
+        {
+            rigbody.velocity = new Vector2(horizontalInput * speed,
+                rigbody.velocity.y);
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            gotHit = true;
+            StartCoroutine(HitTimer(timer));
+        }
+    }
+
+
+    IEnumerator HitTimer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        gotHit = false;
+    }
+
+    //When player collides with rock, lock movement
+
+}

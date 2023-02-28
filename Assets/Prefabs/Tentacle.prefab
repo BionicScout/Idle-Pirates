@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5764840327718066563}
   - component: {fileID: 5764840327718066564}
   - component: {fileID: 8623453820570171327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5764840329335003858}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tentacle
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5764840329335003857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.74135, y: 15.159318, z: 0}
+  m_LocalPosition: {x: 7.1589813, y: 19.219925, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

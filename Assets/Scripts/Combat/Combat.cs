@@ -207,8 +207,8 @@ public class Combat : MonoBehaviour {
 
 
     /*
-        This mechanic allows the use to run away in combat. The players esacpe chance is based on the speed of the player's ship \
-        divided by the total speed of both ships currently out. If the 
+        This mechanic allows the use to run away in combat. The players esacpe chance is based on the horizontalSpeed of the player's ship \
+        divided by the total horizontalSpeed of both ships currently out. If the 
     */
     void PlayerRun() {
         int totalWeight = playerShip.speed + enemyShip.speed;
