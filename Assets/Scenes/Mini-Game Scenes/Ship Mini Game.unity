@@ -1105,10 +1105,9 @@ MonoBehaviour:
   gatheredDistanceText: {fileID: 911652602}
   neededDistanceText: {fileID: 987469995}
   timerText: {fileID: 1024504771}
-  scoreMultipler: 100
   currentDistance: 0
   neededDistance: 2000
-  timerNumber: 30
+  timerNumber: 45
   timeInt: 0
   winScene: Mini Game Win Scene
   loseScene: Mini Game Lose Scene
@@ -1685,9 +1684,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundPrefab: {fileID: 5383547829182080165, guid: 674095b45d522584eb817c1ad4090bfe, type: 3}
-  spawnTime: 4.3
-  timer: 0
-  spawnCountOffset: 1.43
 --- !u!61 &1984800004
 BoxCollider2D:
   m_ObjectHideFlags: 0

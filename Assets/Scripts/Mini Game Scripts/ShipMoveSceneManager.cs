@@ -16,8 +16,8 @@ public class ShipMoveSceneManager : MonoBehaviour
     private TextMeshProUGUI timerText;
 
 
-    [SerializeField]
-    private int scoreMultipler = 100;
+    //[SerializeField]
+    //private int scoreMultipler = 100;
 
     [SerializeField]
     private float currentDistance = 0;

@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class BackgroundMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    //Try to make a speed booster to 
+    //have the backgrounds move faster
+    //Also add way to get rid of backgrounds without 
+    //timer and with collision.
+    //Find way to have score increase based on speed of background
+
 
     //[SerializeField]
     //private BoxCollider2D boxCollider;

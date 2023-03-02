@@ -8,21 +8,21 @@ public class BackgroundSpawnerScript : MonoBehaviour
     [SerializeField]
     private GameObject backgroundPrefab;
 
-    [SerializeField]
-    private float spawnTime = 10f;
+    //[SerializeField]
+    //private float spawnTime = 10f;
 
-    [SerializeField]
-    private float timer = 0;
+    //[SerializeField]
+    //private float timer = 0;
 
-    [SerializeField]
-    private float spawnCountOffset = 1.43f;
+    //[SerializeField]
+    //private float spawnCountOffset = 1.43f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnTime = 
-            -(backgroundPrefab.GetComponent<BackgroundMovement>().speed) * spawnCountOffset; 
+        //spawnTime = 
+            //-(backgroundPrefab.GetComponent<BackgroundMovement>().speed) * spawnCountOffset; 
 
         //Spawn();
 

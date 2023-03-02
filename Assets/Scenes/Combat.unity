@@ -2036,7 +2036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e9bac4f74b36e4291c6e5492c36207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerUI: {fileID: 0}
+  headerUI: {fileID: 1460444440}
   textUI: {fileID: 1460444440}
   clickToMoveText: 0
   canUseButttons: 0

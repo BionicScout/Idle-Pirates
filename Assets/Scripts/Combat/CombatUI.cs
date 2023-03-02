@@ -60,7 +60,7 @@ public class CombatUI : MonoBehaviour {
         shipUI.transform.GetChild(0).GetComponent<TMP_Text>().text =
             "Name: " + ship.shipName + "\nHealth: " + ship.health + "/" + ship.maxHealth;
 
-        //Update Health BAr
+        //Update Health Bar
         //Update Image
         shipUI.transform.GetChild(2).GetComponent<Image>().sprite = ship.shipImage;
     }
