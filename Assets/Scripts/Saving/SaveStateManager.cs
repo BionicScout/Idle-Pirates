@@ -50,14 +50,14 @@ public class SaveStateManager : MonoBehaviour {
         }
 
     //Get data for time quieres 
-        TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
+        //TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
 
     //Save Objects
         FileStream dataStream = new FileStream(filePath, FileMode.Create); //try to save data of scene
         BinaryFormatter converter = new BinaryFormatter();
 
         converter.Serialize(dataStream, saveData);
-        converter.Serialize(dataStream, queryList);
+        //converter.Serialize(dataStream, queryList);
 
 
         dataStream.Close();
@@ -75,7 +75,7 @@ public class SaveStateManager : MonoBehaviour {
             BinaryFormatter converter = new BinaryFormatter();
 
             GameData saveData = converter.Deserialize(dataStream) as GameData;
-            TimeQueryList_Saveable queryList = converter.Deserialize(dataStream) as TimeQueryList_Saveable;
+            //TimeQueryList_Saveable queryList = converter.Deserialize(dataStream) as TimeQueryList_Saveable;
 
             //Load data into game
             CityInbetweenManagementScript.currentStaticCityNumber
@@ -86,7 +86,7 @@ public class SaveStateManager : MonoBehaviour {
             }
 
         //Load data for Time Queries
-            queryList.load();
+            //queryList.load();
 
             //Stop Loading
 
