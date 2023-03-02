@@ -26,9 +26,9 @@ public class Node : MonoBehaviour {
             TimeQuery query = null;
             GameObject queryManagerObj = TimedActivityManager.instance.GameObject();
             for(int i = 0; i < path.Count-1; i++) {
-                TimeQuery newQuery = queryManagerObj.AddComponent<TimeQuery>();
-                newQuery.startInfo("To " + path[i].nodeName, 0, (int)path[i].distanceFrom(path[i+1]), query); //CHANGE FROM SECONDS TO MINUTES
-                newQuery.isShipQuery(path[i+1], path[i]);
+                Debug.Log("Here");
+                TimeQuery newQuery = new TimeQuery("To " + path[i].nodeName, 0, (int)path[i].distanceFrom(path[i + 1]), query, path[i + 1], path[i]);
+                TimedActivityManager.instance.addQuery(newQuery);
                 query = newQuery;
             }
 

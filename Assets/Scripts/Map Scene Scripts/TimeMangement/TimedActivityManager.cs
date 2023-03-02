@@ -25,6 +25,8 @@ public class TimedActivityManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
 
+        timeQueries = new List<TimeQuery>();
+
         currentTime = System.DateTime.Now;
         //Debug.Log("Start Time is " + currentTime.ToString("F"));
     }
@@ -42,8 +44,12 @@ public class TimedActivityManager : MonoBehaviour {
         currentTime = System.DateTime.Now;
 
         for(int i = 0; i < timeQueries.Count; i++) {
+            timeQueries[i].Update();
 
-        //If Querry Finshed
+            //if(SceneSwitcher.currentScene == "Map Scene" && timeQueries[i].shipQuery)
+            //    timeQueries[i].refreshNodes();
+
+            //If Querry Finshed
             if(DateTime.Compare(timeQueries[i].finishTime, currentTime) <= 0) { //If the query time is done
                 timeQueries[i].triggered = true;
                 timeQueries[i].printLog();
@@ -53,16 +59,22 @@ public class TimedActivityManager : MonoBehaviour {
                 if(next != null) 
                     next.activate();
 
-            //Check if Querry is Ship Queerry
+                //AudioManager.instance.Play("Moving");
+
+                //Check if Querry is Ship Queerry
                 if(timeQueries[i].shipQuery) {
-                    MapShip.instance.updateLocation(timeQueries[i].endNode); //#1
                     MapShip.instance.timeQuery = next;
 
-                //If Ship has a next location and is in map scene
-                    if(next != null && SceneSwitcher.currentScene == "Map Scene") {
-                        MapShip.instance.setLocs();
+                    if(SceneSwitcher.currentScene == "Map Scene") {
+                        //If Ship has a next location and is in map scene
+                        
+                        MapShip.instance.updateLocation(timeQueries[i].endNode); //#1
 
-                        AudioManager.instance.Play("Moving");
+                        if(next != null) {
+                            MapShip.instance.setLocs();
+
+                            //AudioManager.instance.Play("Moving");
+                        }
                     }
                 }
 
@@ -90,5 +102,18 @@ public class TimedActivityManager : MonoBehaviour {
                 temp = temp.nextQuery;
             }
         }
+    }
+
+    public void Load(List<TimeQuery> shipQueries) {
+        DateTime earliest = DateTime.MaxValue;
+        foreach(TimeQuery q in shipQueries) {
+            if(earliest.Ticks > q.finishTime.Ticks)
+                earliest = q.finishTime;
+        }
+
+        TimeSpan passedTime = System.DateTime.Now - earliest;
+
+
+
     }
 }

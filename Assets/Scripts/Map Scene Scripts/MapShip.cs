@@ -29,6 +29,7 @@ public class MapShip : MonoBehaviour {
         if(timeQuery == null)
             return;
 
+        timeQuery.refreshNodes();
         start = timeQuery.startNode.gameObject.transform.position; //#2
         end = timeQuery.endNode.gameObject.transform.position; //#3
     }

@@ -1,8 +1,10 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.Search;
 using UnityEngine;
 
-public class TimeQuery : MonoBehaviour {
+[System.Serializable]
+public class TimeQuery {
     public string queryName = "Query #";
     public int minutes;
     public int seconds;
@@ -19,23 +21,12 @@ public class TimeQuery : MonoBehaviour {
     
     public TimeQuery nextQuery;
 
-    public void startInfo(string name, int min, int sec) {
-        queryName = name;
-        minutes = min;
-        seconds = sec;
-
-        nextQuery = null;
-    }
-
-    public void startInfo(string name, int min, int sec, TimeQuery query) {
+    public TimeQuery(string name, int min, int sec, TimeQuery query, Node start, Node end) {
         queryName = name;
         minutes = min;
         seconds = sec;
 
         nextQuery = query;
-    }
-
-    public void isShipQuery(Node start, Node end) {
         shipQuery = true;
 
         startNode = start;
@@ -43,6 +34,23 @@ public class TimeQuery : MonoBehaviour {
 
         endNode = end;
         endName = end.nodeName;
+
+        finishTime = DateTime.MaxValue;
+    }
+
+    public TimeQuery(TimeQuery_Saveable saveQuery, TimeQuery q) {
+        queryName = saveQuery.queryName;
+        triggered = saveQuery.triggered;
+        active = saveQuery.active;
+        shipQuery = saveQuery.shipQuery;
+
+        startTime = saveQuery.startTime;
+        finishTime = saveQuery.finishTime;
+
+        startName = saveQuery.startName;
+        endName = saveQuery.endName;
+
+        nextQuery = q;
     }
 
     public void activate() {
@@ -65,9 +73,9 @@ public class TimeQuery : MonoBehaviour {
         return null;
     }
 
-    void Update() {
+    public void Update() {
         if(active && !updated) {
-            TimedActivityManager.instance.addQuery(this);
+            //TimedActivityManager.instance.addQuery(this);
 
             startTime = System.DateTime.Now;
             finishTime = startTime.AddMinutes(minutes);
