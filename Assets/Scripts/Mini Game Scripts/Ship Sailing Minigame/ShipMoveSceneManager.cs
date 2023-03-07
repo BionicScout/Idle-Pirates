@@ -69,11 +69,11 @@ public class ShipMoveSceneManager : MonoBehaviour
         {
             if (currentDistance >= neededDistance)
             {
-                SceneManager.LoadScene(winScene);
+                int goldEarned = Mathf.FloorToInt((currentDistance - neededDistance) / (neededDistance * .1f));
+                Resource gold = new Resource(Resource.Type.Gold, "Gold", goldEarned);
+                Inventory.instance.addResource(gold);
 
-                //When the game is over, calculate the number of cocnuts gathered
-                //and subtract that by the number of coconuts you needed to get
-                //so you can get materials from it.
+                SceneManager.LoadScene(winScene);
             }
             else
             {
