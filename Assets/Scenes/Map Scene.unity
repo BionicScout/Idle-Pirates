@@ -8183,13 +8183,13 @@ MonoBehaviour:
     queryName: 
     minutes: 0
     seconds: 0
-    triggered: 0
     active: 0
     shipQuery: 0
     startNode: {fileID: 0}
     endNode: {fileID: 0}
     startName: 
     endName: 
+    nextQueryName: 
   percentDone: 0
   ship: {fileID: 456228577}
   start: {x: 0, y: 0}
@@ -10404,6 +10404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dont Destroy Time Query
       objectReference: {fileID: 0}
+    - target: {fileID: 2682891668072785698, guid: 0242d53798367e841945414a29103c9f, type: 3}
+      propertyPath: mapShip
+      value: 
+      objectReference: {fileID: 1746611117}
     - target: {fileID: 2682891668072785699, guid: 0242d53798367e841945414a29103c9f, type: 3}
       propertyPath: m_RootOrder
       value: 9
