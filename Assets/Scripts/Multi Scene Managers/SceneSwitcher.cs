@@ -40,8 +40,10 @@ public class SceneSwitcher : MonoBehaviour {
 
     IEnumerator MapSceneRefresh() {
         yield return new WaitForSeconds(Time.deltaTime);
-        MapShip.instance.ship = GameObject.Find("Ship (MapShip)");
-        MapShip.instance.timeQuery = TimedActivityManager.instance.getShipQuery();
+        MapShip mapShip = GameObject.Find("SceneController").GetComponent<MapShip>();
+        TimedActivityManager.instance.mapShip = mapShip;
+
+        mapShip.timeQuery = TimedActivityManager.instance.getShipQuery();
         Pathfinding.refresh();
         TimedActivityManager.instance.refreshQuerries();
     }

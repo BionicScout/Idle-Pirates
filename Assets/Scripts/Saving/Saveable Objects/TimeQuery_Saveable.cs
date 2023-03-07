@@ -6,7 +6,8 @@ using Unity.VisualScripting;
 public class TimeQuery_Saveable {
 
     public string queryName;
-    public bool triggered, active, shipQuery;
+    public int minutes, seconds;
+    public bool active, shipQuery;
     public DateTime startTime, finishTime;
     public string startName, endName;
     public string nextQuery;
@@ -14,12 +15,15 @@ public class TimeQuery_Saveable {
     public TimeQuery_Saveable(TimeQuery q) {
     //Save Basic Data
         queryName = q.queryName;
-        triggered = q.triggered;
+        minutes = q.minutes;
+        seconds = q.seconds;
+
         active = q.active;
         shipQuery = q.shipQuery;
 
     //Save DateTime vars
         startTime = q.startTime;
+        UnityEngine.Debug.Log(queryName + ": " + startTime);
         finishTime = q.finishTime;
 
         //Start and End node names
