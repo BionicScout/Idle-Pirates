@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Resource {
     public enum Type {
         Gold,
@@ -9,9 +10,15 @@ public class Resource {
         Trade
     }
 
-    Type type;
-    string resourceName;
-    int amount;
+    public Type type;
+    public string resourceName;
+    public int amount;
+
+    public Resource(Type t, string name, int a) {
+        type = t;
+        resourceName = name;
+        amount = a;
+    }
 
     public string name() {
         return resourceName;

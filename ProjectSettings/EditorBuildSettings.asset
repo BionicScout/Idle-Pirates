@@ -72,16 +72,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Combat.unity
     guid: a0328d1285aeab94a815e81cad3a21c6
   - enabled: 1
-    path: Assets/Scenes/Mini-Game Scenes/Coconut Mini Game Instructions.unity
+    path: Assets/Scenes/Mini-Game Scenes/Coconut Minigame/Coconut Mini Game Instructions.unity
     guid: 9ab419c18ce928142bc5cfddcf69729e
   - enabled: 1
-    path: Assets/Scenes/Mini-Game Scenes/Coconut Mini-Game.unity
+    path: Assets/Scenes/Mini-Game Scenes/Coconut Minigame/Coconut Mini-Game.unity
     guid: c16eb8ac39997af46b2ee6adc9d9ebef
   - enabled: 1
-    path: Assets/Scenes/Mini-Game Scenes/Ship Mini Game Instructions.unity
+    path: Assets/Scenes/Mini-Game Scenes/Ship Sailing Minigame/Ship Mini Game Instructions.unity
     guid: b72d871c9a71d524bbce29054ff942ad
   - enabled: 1
-    path: Assets/Scenes/Mini-Game Scenes/Ship Mini Game.unity
+    path: Assets/Scenes/Mini-Game Scenes/Ship Sailing Minigame/Ship Mini Game.unity
     guid: 224abb5acbc138d43817e2b4ed8c7e79
   - enabled: 1
     path: Assets/Scenes/Mini-Game Scenes/Mini Game Lose Scene.unity

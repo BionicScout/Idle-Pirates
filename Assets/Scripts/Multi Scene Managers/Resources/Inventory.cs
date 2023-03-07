@@ -3,8 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-    static List<Resource> resources;
+    public List<Resource> resources;
+    public List<InventoryShip> ships;
+    public List<InventoryCrew> crew;
+    public static Inventory instance;
 
+    void Awake() {
+
+        if(instance == null)
+            instance = this;
+        else {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+//Resource Managment
     public void addResource(Resource newResource) {
         int index = findResource(newResource.name());
 
@@ -16,7 +32,7 @@ public class Inventory : MonoBehaviour {
         resources.Add(newResource);
     }
 
-    public int findResource(string name) {
+    int findResource(string name) {
         for(int i = 0; i < resources.Count; i++)
             if(resources[i].name() == name)
                 return i;
@@ -24,5 +40,21 @@ public class Inventory : MonoBehaviour {
         return -1;
     }
 
-    
+//Ship Managment
+    public void addShip(InventoryShip s) {
+        ships.Add(s);
+    }
+
+//Crew Managment
+    public void addShip(InventoryCrew c) {
+        crew.Add(c);
+    }
+
+
+    //TESTING METHODS
+    void Update() {
+
+    }
+
+
 }

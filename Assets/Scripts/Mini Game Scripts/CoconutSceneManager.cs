@@ -60,11 +60,10 @@ public class CoconutSceneManager : MonoBehaviour
         {
             if(gatheredNumber >= neededNumber)
             {
-                SceneManager.LoadScene(winScene);
+                Resource coconuts = new Resource(Resource.Type.Trade, "Coconuts", gatheredNumber - neededNumber);
+                Inventory.instance.addResource(coconuts);
 
-                //When the game is over, calculate the number of cocnuts gathered
-                //and subtract that by the number of coconuts you needed to get
-                //so you can get materials from it.
+                SceneManager.LoadScene(winScene);
             }
             else
             {
