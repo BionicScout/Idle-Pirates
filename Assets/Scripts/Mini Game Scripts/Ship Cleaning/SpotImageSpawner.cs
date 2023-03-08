@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 public class SpotImageSpawner : MonoBehaviour
 {
-    public Canvas canvas;
-    public GameObject imageToSpawn;
-    public PolygonCollider2D polyCollider;
-    public Camera canvasCamera;
+    [SerializeField]
+    private Canvas canvas;
+
+    [SerializeField]
+    private GameObject imageToSpawn;
+
+    [SerializeField]
+    private PolygonCollider2D polyCollider;
+
+    [SerializeField]
+    private Camera canvasCamera;
 
     [SerializeField]
     private int numberOfSpots = 10;
