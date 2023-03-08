@@ -151,6 +151,8 @@ MonoBehaviour:
   newAlpha:
     serializedVersion: 2
     rgba: 0
+  manager: {fileID: 0}
+  explosion: {fileID: 5418457138305826790, guid: f5386da6030457143876a59be2a4f11c, type: 3}
 --- !u!60 &1296077035879934320
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -13,11 +13,19 @@ public class SpotScript : MonoBehaviour
     [SerializeField]
     private Color32 newAlpha;
 
+    [SerializeField]
+    private ShipCleaningSceneManager manager;
+
+    //[SerializeField]
+    //private ParticleSystem explosion;
 
     // Start is called before the first frame update
     void Start()
     {
         newAlpha = this.GetComponent<Image>().color;
+
+        manager = GameObject.FindObjectOfType<ShipCleaningSceneManager>();
+
     }
 
     // Update is called once per frame
@@ -25,7 +33,13 @@ public class SpotScript : MonoBehaviour
     {
         if(this.GetComponent<Image>().color.a == 0)
         {
+            
+            manager.SpotCleanedUpdate();
+
             //Maybe create a particle to signal to spot is gone
+            //Instantiate(explosion, transform.position, Quaternion.identity);
+
+            
             Destroy(this.gameObject);
         }
     }

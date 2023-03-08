@@ -17,8 +17,7 @@ public class SpotImageSpawner : MonoBehaviour
     [SerializeField]
     private Camera canvasCamera;
 
-    [SerializeField]
-    private int numberOfSpots = 10;
+    public int numberOfSpots = 10;
 
 
     void Start()
