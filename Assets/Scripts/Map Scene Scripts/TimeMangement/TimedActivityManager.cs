@@ -31,7 +31,7 @@ public class TimedActivityManager : MonoBehaviour {
 
     public TimeQuery getShipQuery() {
         for(int i = 0; i < timeQueries.Count; i++) {
-            if(timeQueries[i].shipQuery)
+            if(timeQueries[i].shipQuery && timeQueries[i].active)
                 return timeQueries[i];
         }
 

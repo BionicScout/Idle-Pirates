@@ -37,6 +37,9 @@ public class MapShip : MonoBehaviour {
     }
 
     void Update() {
+        if(Input.GetKeyDown(KeyCode.Q))
+            MinigameSelecter.getMinigame();
+
         if(timeQuery == null) {
             done = true;
             return;
