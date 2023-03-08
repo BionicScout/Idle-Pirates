@@ -9,7 +9,7 @@ public class FirstBackgroundMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
-    public float speed = -3f;
+    private float speed = -3f;
 
 
     [SerializeField]
