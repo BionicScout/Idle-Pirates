@@ -14,11 +14,7 @@ public class MapShip : MonoBehaviour {
 
     public Node currentLocation;
 
-    public static MapShip instance;
-
     void Start() {
-        instance = this;
-
         timeQuery = null;
         transform.position = currentLocation.gameObject.transform.position;
 

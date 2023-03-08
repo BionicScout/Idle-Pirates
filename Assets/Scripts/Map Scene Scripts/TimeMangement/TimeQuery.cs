@@ -7,8 +7,7 @@ public class TimeQuery {
     public string queryName = "Query #";
     public int minutes;
     public int seconds;
-    public bool triggered, active;
-    bool updated;
+    public bool active;
 
     public bool shipQuery = false;
     public Node startNode, endNode;
@@ -17,7 +16,8 @@ public class TimeQuery {
     public DateTime startTime;
     public DateTime finishTime;
     public TimeSpan timeInterval;
-    
+
+    public string nextQueryName;
     public TimeQuery nextQuery;
 
     public TimeQuery(string name, int min, int sec, TimeQuery query, Node start, Node end) {
@@ -27,6 +27,10 @@ public class TimeQuery {
 
         nextQuery = query;
         shipQuery = true;
+        if(query == null)
+            nextQueryName = null;
+        else
+            nextQueryName = nextQuery.queryName;
 
         startNode = start;
         startName = start.nodeName;
@@ -34,12 +38,15 @@ public class TimeQuery {
         endNode = end;
         endName = end.nodeName;
 
+        startTime = DateTime.MinValue;
         finishTime = DateTime.MaxValue;
     }
 
-    public TimeQuery(TimeQuery_Saveable saveQuery, TimeQuery q) {
+    public TimeQuery(TimeQuery_Saveable saveQuery) {
         queryName = saveQuery.queryName;
-        triggered = saveQuery.triggered;
+        minutes = saveQuery.minutes;
+        seconds = saveQuery.seconds;
+
         active = saveQuery.active;
         shipQuery = saveQuery.shipQuery;
 
@@ -49,11 +56,22 @@ public class TimeQuery {
         startName = saveQuery.startName;
         endName = saveQuery.endName;
 
-        nextQuery = q;
+        nextQueryName = saveQuery.nextQuery;
     }
 
-    public void activate() {
+    public void activate(DateTime startAt) {
         active = true;
+
+        //TimedActivityManager.instance.addQuery(this);
+
+        startTime = startAt;
+        finishTime = startTime.AddMinutes(minutes);
+        finishTime = finishTime.AddSeconds(seconds);
+
+        timeInterval = finishTime - startTime;
+
+        Debug.Log(minutes + " " + seconds);
+        Debug.Log(queryName + " will complete at " + finishTime.ToString("F"));
     }
 
     public void refreshNodes() {
@@ -70,22 +88,6 @@ public class TimeQuery {
         }
 
         return null;
-    }
-
-    public void Update() {
-        if(active && !updated) {
-            //TimedActivityManager.instance.addQuery(this);
-
-            startTime = System.DateTime.Now;
-            finishTime = startTime.AddMinutes(minutes);
-            finishTime = finishTime.AddSeconds(seconds);
-
-            timeInterval = finishTime - startTime;
-
-            Debug.Log(queryName + " will complete at " + finishTime.ToString("F"));
-
-            updated = true;
-        }
     }
 
     public void printLog() {
