@@ -91,12 +91,22 @@ public class MainMenuScript : MonoBehaviour {
 
     }
 
-    public void ShipMiniGameButtonPressed()
+    public void ShipSailingMiniGameButtonPressed()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         AudioManager.instance.Play("Menu Sound");
         StartCoroutine(WaitButton(clickTimer, shipSailingMiniGameSceneName));
+
+    }
+
+    public void ShipCleaningMiniGameButtonPressed()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        AudioManager.instance.Play("Menu Sound");
+        StartCoroutine(WaitButton(clickTimer, shipCleaningMiniGameSceneName));
+
 
     }
 
