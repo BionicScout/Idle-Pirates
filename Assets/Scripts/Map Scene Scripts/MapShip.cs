@@ -37,8 +37,12 @@ public class MapShip : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Q))
-            MinigameSelecter.getMinigame();
+        if(Input.GetKeyDown(KeyCode.Q)) {
+            List<string> list = MinigameSelecter.getMinigameList(3);
+
+            foreach(string str in list)
+                Debug.Log(str);
+        }
 
         if(timeQuery == null) {
             done = true;

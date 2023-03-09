@@ -12,6 +12,7 @@ public class TimedActivityManager : MonoBehaviour {
     DateTime currentTime;
     public static TimedActivityManager instance;
     public MapShip mapShip;
+    public DateTime lastTimeOn;
 
     void Awake() {
         if(instance == null)
@@ -26,6 +27,7 @@ public class TimedActivityManager : MonoBehaviour {
         timeQueries = new List<TimeQuery>();
 
         currentTime = System.DateTime.Now;
+        lastTimeOn = currentTime;
         //Debug.Log("Start Time is " + currentTime.ToString("F"));
     }
 

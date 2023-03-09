@@ -4,13 +4,9 @@ using UnityEngine;
 
 public static class MinigameSelecter {
     static string[] minigameScenes = { "Combat", "Ship Cleaning", "Coconut Mini Game Instructions", "Ship Mini Game Instructions" };
-    static int[] minigameWeights = { 40, 20, 20, 20 };
+    static int[] minigameWeights = { 3, 1, 1, 1};
 
-    //Method to get a single mini game
-    //Method to make a list of games
-    //Switch to minigame scenes
-
-    public static void getMinigame() {
+    public static string getMinigame() {
         int totalWeight = 0;
 
         foreach(int n in minigameWeights)
@@ -33,5 +29,25 @@ public static class MinigameSelecter {
         }
 
         UnityEngine.Debug.Log("Scene: " + selectedGame);
+
+        return selectedGame;
+    }
+
+    public static List<string> getMinigameList(int numberOfGames) {
+        if(numberOfGames > minigameWeights.Length)
+            numberOfGames = minigameWeights.Length;
+
+        List<string> scenes = new List<string>();
+
+        for(int i = 0; i < numberOfGames; i++) {
+            string str = getMinigame();
+
+            while(scenes.Contains(str))
+                str = getMinigame();
+
+            scenes.Add(str);
+        }
+
+        return scenes;
     }
 }
