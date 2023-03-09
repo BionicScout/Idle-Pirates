@@ -10,6 +10,7 @@ public class InventoryShip {
     public int speed;
     public int attack;
     public int health;
+    public int maxCargo;
     public Sprite shipImage;
     public USED_IN use = USED_IN.none; //Used to determine if the ship can be used in diffent tasks
 }
