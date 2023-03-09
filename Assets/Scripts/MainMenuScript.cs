@@ -20,7 +20,10 @@ public class MainMenuScript : MonoBehaviour {
     [SerializeField]
     private string coconutMiniGameSceneName;
     [SerializeField]
-    private string shipMiniGameSceneName;
+    private string shipSailingMiniGameSceneName;
+    [SerializeField]
+    private string shipCleaningMiniGameSceneName;
+
 
 
     [SerializeField]
@@ -93,7 +96,7 @@ public class MainMenuScript : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         AudioManager.instance.Play("Menu Sound");
-        StartCoroutine(WaitButton(clickTimer, shipMiniGameSceneName));
+        StartCoroutine(WaitButton(clickTimer, shipSailingMiniGameSceneName));
 
     }
 

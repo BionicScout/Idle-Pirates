@@ -6551,7 +6551,8 @@ MonoBehaviour:
   mapSceneName: 
   combatSceneName: Combat
   coconutMiniGameSceneName: Coconut Mini Game Instructions
-  shipMiniGameSceneName: Ship Mini Game Instructions
+  shipSailingMiniGameSceneName: Ship Sailing Mini Game Instructions
+  shipCleaningMiniGameSceneName: Ship Cleaning Instructions
   clickTimer: 0.5
   extrasWindow: {fileID: 1013228080}
 --- !u!1 &1373860158

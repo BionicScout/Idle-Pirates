@@ -78,11 +78,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Mini-Game Scenes/Coconut Minigame/Coconut Mini-Game.unity
     guid: c16eb8ac39997af46b2ee6adc9d9ebef
   - enabled: 1
-    path: Assets/Scenes/Mini-Game Scenes/Ship Sailing Minigame/Ship Mini Game Instructions.unity
+    path: Assets/Scenes/Mini-Game Scenes/Ship Sailing Minigame/Ship Sailing Mini
+      Game Instructions.unity
     guid: b72d871c9a71d524bbce29054ff942ad
   - enabled: 1
-    path: Assets/Scenes/Mini-Game Scenes/Ship Sailing Minigame/Ship Mini Game.unity
+    path: Assets/Scenes/Mini-Game Scenes/Ship Sailing Minigame/Ship Sailing Mini
+      Game.unity
     guid: 224abb5acbc138d43817e2b4ed8c7e79
+  - enabled: 1
+    path: Assets/Scenes/Mini-Game Scenes/Ship Cleaning Mini Game/Ship Cleaning Instructions.unity
+    guid: 2b52907e6a636e5428e3b630e6db0c93
+  - enabled: 1
+    path: Assets/Scenes/Mini-Game Scenes/Ship Cleaning Mini Game/Ship Cleaning.unity
+    guid: 784892a29702e2a4598d255ca949ae73
   - enabled: 1
     path: Assets/Scenes/Mini-Game Scenes/Mini Game Lose Scene.unity
     guid: c22572e3d6ff95a41a21328892fc7ee6
