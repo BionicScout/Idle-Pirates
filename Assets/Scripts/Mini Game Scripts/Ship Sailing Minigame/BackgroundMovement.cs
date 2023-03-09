@@ -8,7 +8,7 @@ public class BackgroundMovement : MonoBehaviour
 
     //Try to make a speed booster to 
     //have the backgrounds move faster
-    //Also add way to get rid of backgrounds without 
+    //Also Add way to get rid of backgrounds without 
     //timer and with collision.
     //Find way to have score increase based on speed of background
 

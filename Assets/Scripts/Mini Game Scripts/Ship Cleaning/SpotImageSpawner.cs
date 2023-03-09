@@ -74,7 +74,7 @@ public class SpotImageSpawner : MonoBehaviour
 
         //    if (polyCollider.OverlapPoint(randomPoint))
         //    {
-        //        // Create a new instance of the image and add it to the canvas
+        //        // Create a new instance of the image and Add it to the canvas
         //        Image newImage = Instantiate(imageToSpawn, canvas.transform);
 
         //        // Convert the random point from world space to local space within the canvas

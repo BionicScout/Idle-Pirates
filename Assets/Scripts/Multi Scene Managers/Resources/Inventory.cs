@@ -21,32 +21,33 @@ public class Inventory : MonoBehaviour {
     }
 
 //Resource Managment
-    public void addResource(Resource newResource) {
-        int index = findResource(newResource.name());
+    public void AddResource(Resource newResource) {
+        int index = FindResource(newResource.Name());
 
-        if(index >= 0) { //If item exsits, combine the objects
-            resources[index].add(newResource);
+        if(index >= 0) 
+        { //If item exsits, combine the objects
+            resources[index].Add(newResource);
             return;
         }
 
         resources.Add(newResource);
     }
 
-    int findResource(string name) {
+    int FindResource(string name) {
         for(int i = 0; i < resources.Count; i++)
-            if(resources[i].name() == name)
+            if(resources[i].Name() == name)
                 return i;
 
         return -1;
     }
 
 //Ship Managment
-    public void addShip(InventoryShip s) {
+    public void AddShip(InventoryShip s) {
         ships.Add(s);
     }
 
 //Crew Managment
-    public void addShip(InventoryCrew c) {
+    public void AddShip(InventoryCrew c) {
         crew.Add(c);
     }
 

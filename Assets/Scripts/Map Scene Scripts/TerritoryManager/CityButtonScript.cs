@@ -29,7 +29,7 @@ public class CityButtonScript : MonoBehaviour {
     public Node cityNode;
 
     void Start() {
-        //Grab the name of the game object and turn it into an int 
+        //Grab the Name of the game object and turn it into an int 
         //and put it in the cityNumber variable
         int.TryParse(this.gameObject.name, out cityNumber);
 

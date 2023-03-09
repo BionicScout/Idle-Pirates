@@ -20,15 +20,15 @@ public class Resource {
         amount = a;
     }
 
-    public string name() {
+    public string Name() {
         return resourceName;
     }
 
-    public int getAmount() {
+    public int GetAmount() {
         return amount;
     }
 
-    public void add(Resource newResource) {
-        amount += newResource.getAmount();
+    public void Add(Resource newResource) {
+        amount += newResource.GetAmount();
     }
 }
