@@ -856,7 +856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &89506057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ GameObject:
   - component: {fileID: 237788569}
   - component: {fileID: 237788568}
   m_Layer: 5
-  m_Name: Minimize Button (1)
+  m_Name: Minimize Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1471,7 +1471,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 237788569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: MaterialListMinimizeButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &237788569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6522,9 +6534,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: Item1MaterialListButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6926,9 +6938,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: Item3MaterialListButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7274,7 +7286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ed76394f260584598c19e9b34ee9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopMenu: {fileID: 1033190406}
+  resourceShopMenu: {fileID: 1033190406}
+  shipShopMenu: {fileID: 1613154343}
   item1Button: {fileID: 0}
   item2Button: {fileID: 0}
   item3Button: {fileID: 0}
@@ -8495,9 +8508,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: Item2MaterialListButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9494,7 +9507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1613154342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9532,25 +9545,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613154341}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5318f559367e31a4e973ae4ad7a75d0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ff8b97137d57f44588fb8f8b8a2e033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemTitles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  itemAmountNumbertexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  itemAmountNumbers: 000000000000000000000000
-  itemCostNumbertexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  itemCostNumbers: 000000000000000000000000
+  - {fileID: 49559828}
+  - {fileID: 1988834256}
+  - {fileID: 407074471}
+  itemMaterialTexts: []
+  materialListParent: {fileID: 89506056}
+  itemReference: 0
+  itemMaterialListText: {fileID: 801129817}
 --- !u!1 &1656382463
 GameObject:
   m_ObjectHideFlags: 0
