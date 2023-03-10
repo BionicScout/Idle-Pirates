@@ -5,19 +5,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TradingManager : MonoBehaviour {
+    [Header("Available Ship Menu")]
     public GameObject availableShipScreen, availableShipUI, availableShipInfoPrefab;
     List<GameObject> availableShips;
 
+    [Header("Trade Ship Menu")]
     public GameObject tradeShipScreen, tradeShipUI, tradeShipInfoPrefab;
     List<GameObject> tradeShips;
+
+    [Header("Select Ship")]
+    public InventoryShip selectedShip;
+    public GameObject buySellMenu;
 
     void Start() {
         availableShips = new List<GameObject>();
         tradeShips = new List<GameObject>();
     }
 
-
-    //Button Interactions
+//Main Trade Menus Button Interactions
     public void openMenu() {
         refreshTradeShipList();
         tradeShipScreen.SetActive(true);
@@ -27,6 +32,8 @@ public class TradingManager : MonoBehaviour {
 
     public void toAvailiableScreen() {
         tradeShipScreen.SetActive(false);
+        buySellMenu.SetActive(false);
+        selectedShip = null;
 
         refreshAvailableList();
         availableShipScreen.SetActive(true);
@@ -57,7 +64,9 @@ public class TradingManager : MonoBehaviour {
         foreach(InventoryShip ship in Inventory.instance.ships) {
             if(ship.use == InventoryShip.USED_IN.none) {
                 GameObject obj = Instantiate(availableShipInfoPrefab);
+                obj.GetComponent<InventoryShipHolder>().ship = ship;
                 obj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
+                obj.transform.GetChild(0).transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { toBuySell(obj); });
                 obj.transform.GetChild(1).GetComponent<TMP_Text>().text = ship.shipName + "\nSpeed: " + ship.speed + "\nMax Cargo: " + ship.maxCargo;
 
                 obj.transform.SetParent(availableShipUI.transform);
@@ -72,7 +81,7 @@ public class TradingManager : MonoBehaviour {
         }
     }
 
-//Available Ship Functions
+//Trade Ship Functions
     public void refreshTradeShipList() {
         deleteTradeShipList();
 
@@ -92,5 +101,13 @@ public class TradingManager : MonoBehaviour {
         foreach(GameObject obj in tradeShips) {
             Destroy(obj);
         }
+    }
+
+//Selecting to Trade
+    public void toBuySell(GameObject selectShipObj) {
+        availableShipScreen.SetActive(false);
+        buySellMenu.SetActive(true);
+
+        selectedShip = selectShipObj.GetComponent<InventoryShipHolder>().ship;
     }
 }
