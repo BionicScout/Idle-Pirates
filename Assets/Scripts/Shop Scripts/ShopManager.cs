@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    //public List<ShopMenu> shopMenus;
+    //public List<ResourceShopMenu> shopMenus;
     //public List<InventoryShip> shipsToBuy;
     //public List<InventoryCrew> crewToBuy;
 
-    public ShopMenu shopMenu;
+    public ResourceShopMenu shopMenu;
+
+    //Maybe have a class for each shop?
 
 
     [SerializeField]
@@ -19,7 +21,7 @@ public class ShopManager : MonoBehaviour
     private GameObject item3Button;
 
     [SerializeField]
-    private GameObject shopInventory;
+    private Inventory shopInventory;
 
 
     [SerializeField]
@@ -42,7 +44,7 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shopMenu.SetValues(shopInventory.GetComponent<Inventory>());
+        shopMenu.SetValues(shopInventory);
 
 
         //Set each shop to the stock

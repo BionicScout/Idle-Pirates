@@ -13,4 +13,7 @@ public class InventoryShip {
     public int maxCargo;
     public Sprite shipImage;
     public USED_IN use = USED_IN.none; //Used to determine if the ship can be used in diffent tasks
+
+    //Materials Needed;
+    public List<Resource> resourcesNeeded;
 }

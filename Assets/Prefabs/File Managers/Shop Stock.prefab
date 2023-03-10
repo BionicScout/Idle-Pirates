@@ -62,20 +62,42 @@ MonoBehaviour:
     speed: 0
     attack: 0
     health: 0
+    maxCargo: 0
     shipImage: {fileID: 0}
     use: 0
+    resourcesNeeded:
+    - type: 1
+      resourceName: Wood
+      amount: 15
+      cost: 0
+    - type: 1
+      resourceName: Metal
+      amount: 10
+      cost: 0
   - shipName: Davey
     speed: 0
     attack: 0
     health: 0
+    maxCargo: 0
     shipImage: {fileID: 0}
     use: 0
-  - shipName: Speed
+    resourcesNeeded:
+    - type: 1
+      resourceName: Wood
+      amount: 20
+      cost: 0
+  - shipName: Speedster
     speed: 0
     attack: 0
     health: 0
+    maxCargo: 0
     shipImage: {fileID: 0}
     use: 0
+    resourcesNeeded:
+    - type: 0
+      resourceName: Metal
+      amount: 30
+      cost: 0
   crew:
   - crewName: Steve
     speed: 0
@@ -83,15 +105,18 @@ MonoBehaviour:
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
+    cost: 200
   - crewName: John
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
+    cost: 110
   - crewName: Faith
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
+    cost: 300
