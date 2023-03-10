@@ -14,8 +14,22 @@ public class InventoryCrew {
     [SerializeField]
     private int cost;
 
+    [SerializeField]
+    private int amount;
+
     public int GetCost()
     {
         return cost;
+    }
+
+    public int GetAmount()
+    {
+        return amount;
+    }
+
+    public void ReduceAmount(int cost) 
+    {
+        amount -= cost;
+    
     }
 }

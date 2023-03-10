@@ -107,6 +107,7 @@ MonoBehaviour:
     crewImage: {fileID: 0}
     inUse: 0
     cost: 290
+    amount: 1
   - crewName: Hall
     speed: 0
     attack: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
     crewImage: {fileID: 0}
     inUse: 0
     cost: 300
+    amount: 1
   - crewName: Joe
     speed: 0
     attack: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
     crewImage: {fileID: 0}
     inUse: 0
     cost: 140
+    amount: 1
 --- !u!114 &945900969696319193
 MonoBehaviour:
   m_ObjectHideFlags: 0

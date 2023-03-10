@@ -72,10 +72,13 @@ public class CrewShopMenu : MonoBehaviour
        
 
         if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        { 
+        {
+            AudioManager.instance.Play("Menu Sound");
             item1Button.gameObject.SetActive(false);
             Pay(itemReference);
             shopManager.BuyCrew(itemReference);
+
+            
         }
 
 
@@ -90,6 +93,7 @@ public class CrewShopMenu : MonoBehaviour
 
         if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
         {
+            AudioManager.instance.Play("Menu Sound");
             item2Button.gameObject.SetActive(false);
             Pay(itemReference);
             shopManager.BuyCrew(itemReference);
@@ -106,6 +110,7 @@ public class CrewShopMenu : MonoBehaviour
 
         if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
         {
+            AudioManager.instance.Play("Menu Sound");
             item3Button.gameObject.SetActive(false);
             Pay(itemReference);
             shopManager.BuyCrew(itemReference);

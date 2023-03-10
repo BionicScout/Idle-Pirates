@@ -72,7 +72,7 @@ public class ShopManager : MonoBehaviour
     public void BuyCrew(int index)
     {
         Inventory.instance.AddCrew(shopInventory.crew[index - 1]);
-        //shopInventory.crew.RemoveAt(index - 1);
+        shopInventory.crew[index - 1].ReduceAmount(1);
 
     }
 

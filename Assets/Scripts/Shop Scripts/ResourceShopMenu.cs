@@ -24,7 +24,15 @@ public class ResourceShopMenu : MonoBehaviour
     [SerializeField]
     private List<int> itemCostNumbers = new List<int>();
 
+    [SerializeField]
+    private int itemReference;
 
+    [SerializeField]
+    private GameObject item1Button;
+    [SerializeField]
+    private GameObject item2Button;
+    [SerializeField]
+    private GameObject item3Button;
 
 
     // Start is called before the first frame update
