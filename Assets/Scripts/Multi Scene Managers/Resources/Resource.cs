@@ -34,6 +34,11 @@ public class Resource {
         return resourceName;
     }
 
+    public void AddName(string name)
+    {
+        resourceName = name;
+    }
+
     public int GetAmount() {
         return amount;
     }

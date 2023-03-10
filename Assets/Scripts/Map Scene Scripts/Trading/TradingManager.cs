@@ -67,7 +67,7 @@ public class TradingManager : MonoBehaviour {
                 obj.GetComponent<InventoryShipHolder>().ship = ship;
                 obj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
                 obj.transform.GetChild(0).transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { toBuySell(obj); });
-                obj.transform.GetChild(1).GetComponent<TMP_Text>().text = ship.shipName + "\nSpeed: " + ship.speed + "\nMax Cargo: " + ship.maxCargo;
+                obj.transform.GetChild(1).GetComponent<TMP_Text>().text = ship.GetShipName() + "\nSpeed: " + ship.speed + "\nMax Cargo: " + ship.maxCargo;
 
                 obj.transform.SetParent(availableShipUI.transform);
                 availableShips.Add(obj);
@@ -89,7 +89,7 @@ public class TradingManager : MonoBehaviour {
             if(ship.use == InventoryShip.USED_IN.trading) {
                 GameObject obj = Instantiate(tradeShipInfoPrefab);
                 obj.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
-                obj.transform.GetChild(1).GetComponent<TMP_Text>().text = ship.shipName + "\nTIME LEFT: #######\nPROFIT: #####";
+                obj.transform.GetChild(1).GetComponent<TMP_Text>().text = ship.GetShipName() + "\nTIME LEFT: #######\nPROFIT: #####";
 
                 obj.transform.SetParent(tradeShipUI.transform);
                 tradeShips.Add(obj);

@@ -6,7 +6,8 @@ using UnityEngine;
 public class InventoryShip {
     public enum USED_IN { combat, trading, none}
 
-    public string shipName;
+    [SerializeField]
+    private string shipName;
     public int speed;
     public int attack;
     public int health;
@@ -16,4 +17,33 @@ public class InventoryShip {
 
     //Materials Needed;
     public List<Resource> resourcesNeeded;
+
+    //Thought it should of had a constructor like resources script
+    //public InventoryShip(string name, int s, int a, int h, int mC, Sprite sI, List<Resource> r)
+    //{
+
+    //    shipName = name;
+    //    speed = s;
+    //    attack = a;
+    //    health = h;
+    //    maxCargo = mC;
+    //    shipImage = sI;
+
+    //    for (int i = 0; i < r.Count; i++)
+    //    {
+    //        resourcesNeeded[i].AddName(r[i].Name());
+    //        resourcesNeeded[i].Add(r[i]);
+    //    }
+
+
+    //}
+
+
+
+    public string GetShipName()
+    {
+        return shipName;
+    }
+
+
 }

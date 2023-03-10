@@ -6,11 +6,20 @@ using UnityEngine;
 public class ResourceShopMenu : MonoBehaviour
 {
 
-    public List<TextMeshProUGUI> itemTitles = new List<TextMeshProUGUI>();
-    public List<TextMeshProUGUI> itemAmountNumbertexts = new List<TextMeshProUGUI>();
-    public List<int> itemAmountNumbers = new List<int>();
-    public List<TextMeshProUGUI> itemCostNumbertexts = new List<TextMeshProUGUI>();
-    public List<int> itemCostNumbers = new List<int>();
+    [SerializeField]
+    private List<TextMeshProUGUI> itemTitles = new List<TextMeshProUGUI>();
+
+    [SerializeField]
+    private List<TextMeshProUGUI> itemAmountNumbertexts = new List<TextMeshProUGUI>();
+
+    [SerializeField]
+    private List<int> itemAmountNumbers = new List<int>();
+
+    [SerializeField]
+    private List<TextMeshProUGUI> itemCostNumbertexts = new List<TextMeshProUGUI>();
+
+    [SerializeField]
+    private List<int> itemCostNumbers = new List<int>();
 
 
 
@@ -56,12 +65,23 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void BuyOneItem()
+    public void BuyOneShipResourceItemOne()
     {
+
+
 
     }
 
-    public void BuyAllItems()
+
+    public void BuyOneShipResourceItemTwo()
+    {
+
+
+
+    }
+
+
+    public void BuyOneShipResourceItemThree()
     {
 
 

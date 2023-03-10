@@ -64,7 +64,7 @@ MonoBehaviour:
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 0
+    use: 2
     resourcesNeeded:
     - type: 1
       resourceName: Wood
@@ -80,7 +80,7 @@ MonoBehaviour:
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 0
+    use: 2
     resourcesNeeded:
     - type: 1
       resourceName: Wood
@@ -92,7 +92,7 @@ MonoBehaviour:
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 0
+    use: 2
     resourcesNeeded:
     - type: 0
       resourceName: Metal

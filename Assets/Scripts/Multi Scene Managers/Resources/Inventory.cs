@@ -57,5 +57,11 @@ public class Inventory : MonoBehaviour {
 
     }
 
+    public void RestockResources()
+    {
+
+
+    }
+
 
 }

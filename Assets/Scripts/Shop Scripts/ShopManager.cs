@@ -8,7 +8,10 @@ public class ShopManager : MonoBehaviour
     //public List<InventoryShip> shipsToBuy;
     //public List<InventoryCrew> crewToBuy;
 
-    public ResourceShopMenu shopMenu;
+    [SerializeField]
+    private ResourceShopMenu resourceShopMenu;
+    [SerializeField]
+    private ShipShopMenu shipShopMenu;
 
     //Maybe have a class for each shop?
 
@@ -44,7 +47,8 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shopMenu.SetValues(shopInventory);
+        resourceShopMenu.SetValues(shopInventory);
+        shipShopMenu.SetValues(shopInventory);
 
 
         //Set each shop to the stock
@@ -60,51 +64,8 @@ public class ShopManager : MonoBehaviour
         
     }
 
-    public void BuyOneShipResourceItemOne()
-    {
+    
 
-
-
-    }
-
-
-    public void BuyOneShipResourceItemTwo()
-    {
-
-
-
-    }
-
-
-    public void BuyOneShipResourceItemThree()
-    {
-
-
-
-    }
-
-    public void BuyShipItemOne()
-    {
-
-
-
-    }
-
-
-    public void BuyShipItemTwo()
-    {
-
-
-
-    }
-
-
-    public void BuyShipItemThree()
-    {
-
-
-
-    }
     public void BuyCrewItemOne()
     {
 
