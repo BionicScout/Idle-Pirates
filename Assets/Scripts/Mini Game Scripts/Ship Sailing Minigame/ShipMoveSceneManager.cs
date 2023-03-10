@@ -70,7 +70,7 @@ public class ShipMoveSceneManager : MonoBehaviour
             if (currentDistance >= neededDistance)
             {
                 int goldEarned = Mathf.FloorToInt((currentDistance - neededDistance) / (neededDistance * .1f));
-                Resource gold = new Resource(Resource.Type.Gold, "Gold", goldEarned);
+                Resource gold = new Resource(Resource.Type.Gold, "Gold", goldEarned, 0);
                 Inventory.instance.AddResource(gold);
 
                 SceneManager.LoadScene(winScene);

@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d1174d44cfa5f43926d3ba2f8c9028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources: []
+  resources:
+  - type: 0
+    resourceName: Gold
+    amount: 1000
   ships: []
   crew: []
