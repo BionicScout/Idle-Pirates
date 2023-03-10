@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ResourceShopMenu : MonoBehaviour
 {
+    [SerializeField]
+    private ShopManager shopManager;
+
 
     [SerializeField]
     private List<TextMeshProUGUI> itemTitles = new List<TextMeshProUGUI>();

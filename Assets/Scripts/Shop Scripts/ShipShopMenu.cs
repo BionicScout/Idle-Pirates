@@ -6,6 +6,10 @@ using UnityEngine;
 public class ShipShopMenu : MonoBehaviour
 {
     [SerializeField]
+    private ShopManager shopManager;
+
+
+    [SerializeField]
     private List<TextMeshProUGUI> itemTitles = new List<TextMeshProUGUI>();
 
 
@@ -19,6 +23,9 @@ public class ShipShopMenu : MonoBehaviour
 
     [SerializeField]
     private GameObject materialListParent;
+
+    [SerializeField]
+    private bool materialListOn = false;
 
     //[SerializeField]
     //private GameObject item1MaterialListButton;
@@ -55,8 +62,8 @@ public class ShipShopMenu : MonoBehaviour
     {
         //Set window to false
         AudioManager.instance.Play("Menu Sound");
-
-
+        itemMaterialListText.text = "";
+        materialListOn = false;
         materialListParent.SetActive(false);
     }
 
@@ -86,34 +93,43 @@ public class ShipShopMenu : MonoBehaviour
 
     public void Item1MaterialListButtonPressed()
     {
-        itemReference = 1;
+        if (materialListOn == false)
+        {
+            itemReference = 1;
 
-        AudioManager.instance.Play("Menu Sound");
-        materialListParent.SetActive(true);
+            AudioManager.instance.Play("Menu Sound");
+            materialListParent.SetActive(true);
+            materialListOn = true;
 
-
-        itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
-        
+            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+        }
 
 
     }
 
     public void Item2MaterialListButtonPressed()
     {
-        itemReference = 2;
-        AudioManager.instance.Play("Menu Sound");
-        materialListParent.SetActive(true);
 
-        itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+        if (materialListOn == false)
+        {
+            itemReference = 2;
+            AudioManager.instance.Play("Menu Sound");
+            materialListParent.SetActive(true);
+            materialListOn = true;
+            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+        }
     }
 
     public void Item3MaterialListButtonPressed()
     {
-        itemReference = 3;
-        AudioManager.instance.Play("Menu Sound");
-        materialListParent.SetActive(true);
-
-        itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+        if (materialListOn == false)
+        {
+            itemReference = 3;
+            AudioManager.instance.Play("Menu Sound");
+            materialListParent.SetActive(true);
+            materialListOn = true;
+            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+        }
 
     }
 
@@ -129,6 +145,9 @@ public class ShipShopMenu : MonoBehaviour
         {
             for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
             {
+                //itemMaterialTexts.Add(shopStock.ships[i].resourcesNeeded[j].Name()
+                //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                //    + "\n");
                 itemMaterialTexts[i] +=
                     shopStock.ships[i].resourcesNeeded[j].Name()
                     + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString() 
@@ -136,26 +155,6 @@ public class ShipShopMenu : MonoBehaviour
             }
         }
 
-        //for (int i = 0; i < item2MaterialTexts.Count; i++)
-        //{
-        //    for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
-        //    {
-        //        item2MaterialTexts[i] =
-        //            shopStock.ships[i].resourcesNeeded[j].Name()
-        //            + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString();
-        //    }
-        //}
-
-        //for (int i = 0; i < item3MaterialTexts.Count; i++)
-        //{
-
-        //    for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
-        //    {
-        //        item3MaterialTexts[i] =
-        //            shopStock.ships[i].resourcesNeeded[j].Name()
-        //            + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString();
-        //    }
-        //}
 
     }
 

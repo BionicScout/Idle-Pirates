@@ -12,16 +12,18 @@ public class ShopManager : MonoBehaviour
     private ResourceShopMenu resourceShopMenu;
     [SerializeField]
     private ShipShopMenu shipShopMenu;
+    [SerializeField]
+    private CrewShopMenu crewShopMenu;
 
     //Maybe have a class for each shop?
 
 
-    [SerializeField]
-    private GameObject item1Button;
-    [SerializeField] 
-    private GameObject item2Button;
-    [SerializeField] 
-    private GameObject item3Button;
+    //[SerializeField]
+    //private GameObject item1Button;
+    //[SerializeField] 
+    //private GameObject item2Button;
+    //[SerializeField] 
+    //private GameObject item3Button;
 
     [SerializeField]
     private Inventory shopInventory;
@@ -49,6 +51,7 @@ public class ShopManager : MonoBehaviour
     {
         resourceShopMenu.SetValues(shopInventory);
         shipShopMenu.SetValues(shopInventory);
+        crewShopMenu.SetValues(shopInventory);
 
 
         //Set each shop to the stock
@@ -66,7 +69,15 @@ public class ShopManager : MonoBehaviour
 
     
 
-    public void BuyCrewItemOne()
+    public void BuyCrew(int index)
+    {
+        Inventory.instance.AddCrew(shopInventory.crew[index - 1]);
+        //shopInventory.crew.RemoveAt(index - 1);
+
+    }
+
+
+    public void BuyShip()
     {
 
 
@@ -74,15 +85,7 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    public void BuyCrewItemTwo()
-    {
-
-
-
-    }
-
-
-    public void BuyCrewItemThree()
+    public void BuyResource()
     {
 
 
@@ -143,5 +146,7 @@ public class ShopManager : MonoBehaviour
         crewShopParentObject.SetActive(true);
 
     }
+
+    
 
 }

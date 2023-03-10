@@ -3023,9 +3023,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1591355110}
+        m_TargetAssemblyTypeName: CrewShopMenu, Assembly-CSharp
+        m_MethodName: BuyCrewItemTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5558,7 +5558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6179,6 +6179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5318f559367e31a4e973ae4ad7a75d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopManager: {fileID: 1208155185}
   itemTitles:
   - {fileID: 625442134}
   - {fileID: 492390425}
@@ -7288,9 +7289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceShopMenu: {fileID: 1033190406}
   shipShopMenu: {fileID: 1613154343}
-  item1Button: {fileID: 0}
-  item2Button: {fileID: 0}
-  item3Button: {fileID: 0}
+  crewShopMenu: {fileID: 1591355110}
   shopInventory: {fileID: 4142280452221198512, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
   shipBuyResourceTypes: 0
   shipTypes: 0
@@ -9033,25 +9032,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591355108}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5318f559367e31a4e973ae4ad7a75d0b, type: 3}
+  m_Script: {fileID: 11500000, guid: acb6bf3981ecb8c46886355749b6145e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopManager: {fileID: 1208155185}
   itemTitles:
   - {fileID: 1701104749}
   - {fileID: 1669233036}
   - {fileID: 207863376}
-  itemAmountNumbertexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  itemAmountNumbers: 000000000000000000000000
   itemCostNumbertexts:
   - {fileID: 1892858017}
   - {fileID: 1436918879}
   - {fileID: 1126964080}
   itemCostNumbers: 000000000000000000000000
+  goldResourceIndex: 0
+  itemReference: 0
+  item1Button: {fileID: 1929265641}
+  item2Button: {fileID: 448577463}
+  item3Button: {fileID: 1938112833}
 --- !u!1 &1591787550
 GameObject:
   m_ObjectHideFlags: 0
@@ -9550,12 +9550,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff8b97137d57f44588fb8f8b8a2e033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopManager: {fileID: 1208155185}
   itemTitles:
   - {fileID: 49559828}
   - {fileID: 1988834256}
   - {fileID: 407074471}
-  itemMaterialTexts: []
+  itemMaterialTexts:
+  - 
+  - 
+  - 
   materialListParent: {fileID: 89506056}
+  materialListOn: 0
   itemReference: 0
   itemMaterialListText: {fileID: 801129817}
 --- !u!1 &1656382463
@@ -11067,9 +11072,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1591355110}
+        m_TargetAssemblyTypeName: CrewShopMenu, Assembly-CSharp
+        m_MethodName: BuyCrewItemOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11201,9 +11206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1591355110}
+        m_TargetAssemblyTypeName: CrewShopMenu, Assembly-CSharp
+        m_MethodName: BuyCrewItemThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -10,9 +10,12 @@ public class Inventory : MonoBehaviour {
 
     void Awake() {
 
-        if(instance == null)
+        if (instance == null)
+        {
             instance = this;
-        else {
+        }
+        else
+        {
             Destroy(gameObject);
             return;
         }
@@ -47,7 +50,7 @@ public class Inventory : MonoBehaviour {
     }
 
 //Crew Managment
-    public void AddShip(InventoryCrew c) {
+    public void AddCrew(InventoryCrew c) {
         crew.Add(c);
     }
 
@@ -60,6 +63,12 @@ public class Inventory : MonoBehaviour {
     public void RestockResources()
     {
 
+
+    }
+
+    public void FindGoldIndexinInventory()
+    {
+        //Function to find gold in inventory
 
     }
 

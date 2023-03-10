@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4142280452221198527}
   - component: {fileID: 4142280452221198512}
+  - component: {fileID: 945900969696319193}
   m_Layer: 0
   m_Name: Shop Stock
   m_TagString: Untagged
@@ -99,24 +100,39 @@ MonoBehaviour:
       amount: 30
       cost: 0
   crew:
-  - crewName: Steve
+  - crewName: Dave
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
-    cost: 200
-  - crewName: John
-    speed: 0
-    attack: 0
-    health: 0
-    crewImage: {fileID: 0}
-    inUse: 0
-    cost: 110
-  - crewName: Faith
+    cost: 290
+  - crewName: Hall
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
     cost: 300
+  - crewName: Joe
+    speed: 0
+    attack: 0
+    health: 0
+    crewImage: {fileID: 0}
+    inUse: 0
+    cost: 140
+--- !u!114 &945900969696319193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142280452221198526}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5ebcaaf726dd143830ffb005494108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: []
+  ships: []
+  crew: []
