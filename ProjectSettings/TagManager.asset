@@ -8,6 +8,7 @@ TagManager:
   - Coconut
   - Obstacles
   - Background
+  - Button
   layers:
   - Default
   - TransparentFX

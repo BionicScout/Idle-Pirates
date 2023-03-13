@@ -2,8 +2,7 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
-
-
+using System;
 
 public class SaveStateManager : MonoBehaviour {
     //private DialogueManager dialogueManager;
@@ -49,15 +48,17 @@ public class SaveStateManager : MonoBehaviour {
             saveData.cityListforSave.Add(CityInbetweenManagementScript.staticCityList[i]);
         }
 
-    //Get data for time quieres 
-        //TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
+    //Get data for TimeActivityManager
+        TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
+        // saveTime = System.DateTime.Now;
 
     //Save Objects
         FileStream dataStream = new FileStream(filePath, FileMode.Create); //try to save data of scene
         BinaryFormatter converter = new BinaryFormatter();
 
         converter.Serialize(dataStream, saveData);
-        //converter.Serialize(dataStream, queryList);
+        converter.Serialize(dataStream, queryList);
+       // converter.Serialize(dataStream, saveTime);
 
 
         dataStream.Close();
@@ -75,7 +76,8 @@ public class SaveStateManager : MonoBehaviour {
             BinaryFormatter converter = new BinaryFormatter();
 
             GameData saveData = converter.Deserialize(dataStream) as GameData;
-            //TimeQueryList_Saveable queryList = converter.Deserialize(dataStream) as TimeQueryList_Saveable;
+            TimeQueryList_Saveable queryList = converter.Deserialize(dataStream) as TimeQueryList_Saveable;
+           // DateTime saveTime = converter.Deserialize(dataStream) as DateTime;
 
             //Load data into game
             CityInbetweenManagementScript.currentStaticCityNumber
@@ -86,7 +88,8 @@ public class SaveStateManager : MonoBehaviour {
             }
 
         //Load data for Time Queries
-            //queryList.load();
+            queryList.load();
+            //TimedActivityManager
 
             //Stop Loading
 

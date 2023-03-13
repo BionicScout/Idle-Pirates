@@ -27,15 +27,15 @@ public class Node : MonoBehaviour {
             GameObject queryManagerObj = TimedActivityManager.instance.GameObject();
             for(int i = 0; i < path.Count-1; i++) {
                 Debug.Log("Here");
-                TimeQuery newQuery = new TimeQuery("To " + path[i].nodeName, 0, (int)path[i].distanceFrom(path[i + 1]), query, path[i + 1], path[i]);
+                TimeQuery newQuery = new TimeQuery("To " + path[i].nodeName, 0, (int)path[i].distanceFrom(path[i + 1]) * 10, query, path[i + 1], path[i]);
                 TimedActivityManager.instance.addQuery(newQuery);
                 query = newQuery;
             }
 
             //TimedActivityManager.instance.addQuery(query);
-            query.activate();
-            MapShip.instance.timeQuery = query;
-            MapShip.instance.setLocs();
+            query.activate(System.DateTime.Now);
+            TimedActivityManager.instance.mapShip.timeQuery = query;
+            TimedActivityManager.instance.mapShip.setLocs();
         }
     }
 

@@ -11,52 +11,88 @@ public class TimeQueryList_Saveable {
 
     public TimeQueryList_Saveable(List<TimeQuery> qList) {
         queries = new List<TimeQuery_Saveable>();
-        shipQueries = new List<TimeQuery_Saveable>();
+        //shipQueries = new List<TimeQuery_Saveable>();
 
         //Save normal queries
         int i = 0;
         TimeQuery shipQuery = null;
         foreach(TimeQuery q in qList) {
-            if(q.shipQuery && q.active) {
-                shipQuery = q;
-            }
-            else if(!q.shipQuery) {
-                TimeQuery_Saveable saveableQuery = new TimeQuery_Saveable(q);
-                queries.Add(saveableQuery);
-                UnityEngine.Debug.Log(++i);
-            }
+            TimeQuery_Saveable saveableQuery = new TimeQuery_Saveable(q);
+            queries.Add(saveableQuery);
+            //if(q.shipQuery && q.active) {
+            //    shipQuery = q;
+            //}
+            //else if(!q.shipQuery) {
+            //    TimeQuery_Saveable saveableQuery = new TimeQuery_Saveable(q);
+            //    queries.Add(saveableQuery);
+            //    UnityEngine.Debug.Log(++i);
+            //}
         }
 
-    //Save ship queires
-        TimeQuery temp = shipQuery;
-        i = 0;
+    ////Save ship queires
+        //TimeQuery temp = shipQuery;
+        //i = 0;
 
-        while(temp != null) {
-            TimeQuery_Saveable saveableQuery = new TimeQuery_Saveable(temp);
-            shipQueries.Add(saveableQuery);
-            UnityEngine.Debug.Log(++i);
+        //while(temp != null) {
+        //    TimeQuery_Saveable saveableQuery = new TimeQuery_Saveable(temp);
+        //    shipQueries.Add(saveableQuery);
+        //    UnityEngine.Debug.Log(++i);
 
-            temp = temp.nextQuery;
-        }
+        //    temp = temp.nextQuery;
+        //}
     }
 
     public void load() {
+    //Get List of all queries
+        List<TimeQuery> timeQueries = new List<TimeQuery>();
+
         foreach(TimeQuery_Saveable q in queries) {
-                //TimeQuery_Saveable saveableQuery = new TimeQuery_Saveable(q);
-                //queries.Add(saveableQuery);
+            TimeQuery timeQ = new TimeQuery(q);
+            if(timeQ.active && DateTime.Compare(timeQ.startTime, System.DateTime.MinValue) != 0) {
+                timeQ.activate(timeQ.startTime);
+            }
+
+            timeQueries.Add(timeQ); 
         }
 
-    //Load ship queies
-        List<TimeQuery> loadShipQueries = new List<TimeQuery>();
-        TimeQuery nextQuery = null;
-
-        for(int i = shipQueries.Count - 1; i >= 0; i--) {
-            TimeQuery temp = new TimeQuery(shipQueries[i], nextQuery);
-            loadShipQueries.Add(temp);
-            //TimedActivityManager.instance.addQuery(temp);
-            nextQuery = temp;
+    //Get all queries with refrences
+        foreach(TimeQuery q in timeQueries) {                           //For every query
+            if(q.nextQueryName != null) {                               //That has a next query
+                for(int i = 0; i < timeQueries.Count; i++) {            //Look at each query
+                    if(q.nextQueryName == timeQueries[i].queryName) {   //And if the query matches the nextQueryName
+                        q.nextQuery = timeQueries[i];                   //Add as next query
+                        break;
+                    }
+                }
+            }
         }
 
-        TimedActivityManager.instance.Load(loadShipQueries);
+        //Check for to complete all active nodes and find current ship spot
+        string playerLastLoc = "City 16";
+
+        for(int i = 0; i < timeQueries.Count; i++) {
+            TimeQuery currentQuery = timeQueries[i];
+
+            if(currentQuery.active == false)
+                continue;
+
+            playerLastLoc = currentQuery.endName;
+
+            if(DateTime.Compare(currentQuery.finishTime, System.DateTime.Now) <= 0) { //If the query time is done
+                                                                                      //Remove Current Query from list
+                timeQueries.RemoveAt(i);
+                i--;
+
+                //UnityEngine.Debug.Log(currentQuery.queryName + " finished at : " + currentQuery.finishTime.ToString("F"));
+
+                //If there is a next query, activate it and reset search to beggining
+                if(currentQuery.nextQuery != null) {
+                    currentQuery.nextQuery.activate(currentQuery.finishTime);
+                    i = -1;
+                }
+            }
+        }
+
+        TimedActivityManager.instance.Load(timeQueries, playerLastLoc);
     }
 }

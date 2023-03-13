@@ -24,7 +24,7 @@ public class TravelPopUpScript : MonoBehaviour {
             cityScriptList[currentCity - 1].TraveltoCity();
         else {
             cityNode.end = true;
-            MapShip.instance.currentLocation.find = true;
+            TimedActivityManager.instance.mapShip.currentLocation.find = true;
         }
             
 
