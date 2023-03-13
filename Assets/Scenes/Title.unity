@@ -729,7 +729,8 @@ MonoBehaviour:
   mapSceneName: 
   combatSceneName: 
   coconutMiniGameSceneName: 
-  shipMiniGameSceneName: 
+  shipSailingMiniGameSceneName: 
+  shipCleaningMiniGameSceneName: 
   clickTimer: 0.5
   extrasWindow: {fileID: 0}
 --- !u!4 &492646734
@@ -802,6 +803,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coco char
       objectReference: {fileID: 0}
+    - target: {fileID: 7054543882740422094, guid: ce66e780b149c544bab9ef1fa666f7d9, type: 3}
+      propertyPath: reggin
+      value: 
+      objectReference: {fileID: 1872122818}
+    - target: {fileID: 7054543882740422094, guid: ce66e780b149c544bab9ef1fa666f7d9, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1872122819}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce66e780b149c544bab9ef1fa666f7d9, type: 3}
 --- !u!1001 &668539522
@@ -1764,8 +1773,18 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1872122818 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 73071276546907781, guid: ce66e780b149c544bab9ef1fa666f7d9, type: 3}
+  m_PrefabInstance: {fileID: 501595778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1872122819 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 73071276546907785, guid: ce66e780b149c544bab9ef1fa666f7d9, type: 3}
+  m_PrefabInstance: {fileID: 501595778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1936042799
 GameObject:
   m_ObjectHideFlags: 0
