@@ -1,19 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 
-public static class CityInbetweenManagementScript
-{
-    public static int currentStaticCityNumber;
+public static class CityInbetweenManagementScript {
+    public static string currentCity;
 
-    public static List<int> staticCityList = new List<int>();
+    public static List<string> citesThatHaveBeenRaided = new List<string>();
 
-    /*
-    public static void UpdateRaidedCity()
-    {
-
+    public static void newRaidedCity(string name) {
+        currentCity = name;
+        citesThatHaveBeenRaided.Add(name);
     }
-    */
-
 }

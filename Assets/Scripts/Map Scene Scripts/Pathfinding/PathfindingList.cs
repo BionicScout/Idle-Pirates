@@ -62,7 +62,7 @@ public class PathfindingList {
 
     public void printInfo() {
         for(int i = 0; i < distances.Count; i++) {
-            Debug.Log("(" + distances[i] + ", " + nodes[i] + ")");
+            //Debug.Log("(" + distances[i] + ", " + nodes[i] + ")");
         }
 
     }

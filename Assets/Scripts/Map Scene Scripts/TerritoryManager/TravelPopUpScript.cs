@@ -1,30 +1,37 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TravelPopUpScript : MonoBehaviour {
 
     [SerializeField]
-    private int currentCity = 0;
-
-    [SerializeField]
     private List<CityButtonScript> cityScriptList;
 
-    private void Update() {
+    string lastCityName;
 
+    public void activate(string cityName) {
+        gameObject.SetActive(true);
+        lastCityName = cityName;
     }
 
     public void YesButtonPressed() {
-        //Disactivates the pop-up
         this.gameObject.SetActive(false);
 
-        Node cityNode = cityScriptList[currentCity - 1].cityNode;
+        CityButtonScript cityButton = cityScriptList.Find(x => x.getObjectName() == lastCityName);
+        if(cityButton == null)
+            Debug.Log("NULL");
+        else
+            Debug.Log(lastCityName);
 
-        if(cityNode.start == true)
-            cityScriptList[currentCity - 1].TraveltoCity();
+        Node cityNode = cityButton.cityNode;
+
+        if(cityNode.start == true) {
+            cityButton.TraveltoCity();
+            Debug.Log("Start");
+        }
         else {
             cityNode.end = true;
             TimedActivityManager.instance.mapShip.currentLocation.find = true;
+            Debug.Log("End");
         }
             
 
@@ -42,23 +49,11 @@ public class TravelPopUpScript : MonoBehaviour {
 
         //resets the current city the player clicked on
         //currentCity = 0;
-
-
     }
 
     //When they press the no button, the pop-up is disactivated 
     //and resets the current city the player clicked on
     public void NoButtonPressed() {
         this.gameObject.SetActive(false);
-        currentCity = 0;
     }
-
-
-    //Sets the current city the player is trying to raid 
-    //based on which city object called this function
-    public void CityNumberUpdate(int cityNum) {
-
-        currentCity = cityNum;
-    }
-
 }

@@ -70,7 +70,7 @@ public class TimeQuery {
 
         timeInterval = finishTime - startTime;
 
-        Debug.Log(minutes + " " + seconds);
+        //Debug.Log(minutes + " " + seconds);
         Debug.Log(queryName + " will complete at " + finishTime.ToString("F"));
     }
 

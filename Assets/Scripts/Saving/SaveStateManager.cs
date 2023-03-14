@@ -41,12 +41,12 @@ public class SaveStateManager : MonoBehaviour {
 
     public void SaveGame(GameData saveData) {
     //Get data
-        saveData.currentCityNumberForSave =
-            CityInbetweenManagementScript.currentStaticCityNumber;
+        //saveData.currentCityNumberForSave =
+        //    CityInbetweenManagementScript.currentStaticCityNumber;
 
-        for(int i = 0; i < CityInbetweenManagementScript.staticCityList.Count; i++) {
-            saveData.cityListforSave.Add(CityInbetweenManagementScript.staticCityList[i]);
-        }
+        //for(int i = 0; i < CityInbetweenManagementScript.staticCityList.Count; i++) {
+        //    saveData.cityListforSave.Add(CityInbetweenManagementScript.staticCityList[i]);
+        //}
 
     //Get data for TimeActivityManager
         TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
@@ -80,12 +80,12 @@ public class SaveStateManager : MonoBehaviour {
            // DateTime saveTime = converter.Deserialize(dataStream) as DateTime;
 
             //Load data into game
-            CityInbetweenManagementScript.currentStaticCityNumber
-                = saveData.currentCityNumberForSave;
+            //CityInbetweenManagementScript.currentStaticCityNumber
+            //    = saveData.currentCityNumberForSave;
 
-            for(int i = 0; i < saveData.cityListforSave.Count; i++) {
-                CityInbetweenManagementScript.staticCityList.Add(saveData.cityListforSave[i]);
-            }
+            //for(int i = 0; i < saveData.cityListforSave.Count; i++) {
+            //    CityInbetweenManagementScript.staticCityList.Add(saveData.cityListforSave[i]);
+            //}
 
         //Load data for Time Queries
             queryList.load();

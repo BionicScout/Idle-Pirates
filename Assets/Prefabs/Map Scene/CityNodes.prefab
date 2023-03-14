@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   travelPopUp: {fileID: 0}
   currentTerritory: {fileID: 0}
-  cityNumber: 0
+  cityNumber: 1
   cityTaken: 0
   cityName: Not Delcared
   citySceneName: Not Delcared

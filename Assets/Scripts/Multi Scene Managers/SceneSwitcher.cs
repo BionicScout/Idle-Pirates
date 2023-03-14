@@ -17,6 +17,9 @@ public class SceneSwitcher : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+
+        currentScene = SceneManager.GetActiveScene().name;
+        Debug.Log(currentScene);
     }
 
     public void A_ExitButton() {
@@ -46,9 +49,6 @@ public class SceneSwitcher : MonoBehaviour {
         mapShip.timeQuery = TimedActivityManager.instance.getShipQuery();
         Pathfinding.refresh();
         TimedActivityManager.instance.refreshQuerries();
-    }
-
-    private void Update() {
-
+        mapShip.loadCurrentLocation();
     }
 }

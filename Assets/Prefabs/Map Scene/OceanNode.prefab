@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeName: 
-  start: 1
+  start: 0
   end: 0
   find: 0
   visted: 0
