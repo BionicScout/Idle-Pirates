@@ -13,13 +13,25 @@ public class ShipShopMenu : MonoBehaviour
     private List<TextMeshProUGUI> itemTitles = new List<TextMeshProUGUI>();
 
 
-    public List<string> itemMaterialTexts = new List<string>();
+    public List<string> allItemMaterialTexts = new List<string>();
 
-    //[SerializeField]
-    //private List<string> item2MaterialTexts = new List<string>();
+    [SerializeField]
+    private List<string> item1MaterialTexts = new List<string>();
 
-    //[SerializeField]
-    //private List<string> item3MaterialTexts = new List<string>();
+    [SerializeField]
+    private List<string> item2MaterialTexts = new List<string>();
+
+    [SerializeField]
+    private List<string> item3MaterialTexts = new List<string>();
+
+    [SerializeField]
+    private List<int> item1MaterialAmounts = new List<int>();
+
+    [SerializeField]
+    private List<int> item2MaterialAmounts = new List<int>();
+
+    [SerializeField]
+    private List<int> item3MaterialAmounts = new List<int>();
 
     [SerializeField]
     private GameObject materialListParent;
@@ -42,10 +54,13 @@ public class ShipShopMenu : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemMaterialListText;
 
+    //[SerializeField]
+    //private Inventory shopStock;
 
 
-   // Start is called before the first frame update
-   void Start()
+
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
@@ -56,6 +71,60 @@ public class ShipShopMenu : MonoBehaviour
         
     }
 
+    public void SetValues(Inventory shopStock)
+    {
+        for (int i = 0; i < itemTitles.Count; i++)
+        {
+            itemTitles[i].text = shopStock.ships[i].GetShipName();
+        }
+
+        for (int i = 0; i < allItemMaterialTexts.Count; i++)
+        {
+            for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
+            {
+                //string mats = shopStock.ships[i].resourcesNeeded[j].Name()
+                //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                //    + "\n";
+
+
+                //allItemMaterialTexts.Add(mats);
+
+
+                //Each item has a sentence of all of the materials
+                allItemMaterialTexts[i] +=
+                    shopStock.ships[i].resourcesNeeded[j].Name()
+                    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                    + "\n";
+            }
+        }
+
+
+
+        //for seperate ships
+        int k = 0;
+        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        {
+            item1MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item1MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
+
+        }
+        k++;
+        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        {
+            item2MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item2MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
+        }
+        k++;
+        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        {
+            item3MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item3MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
+        }
+
+    }
 
 
     public void MaterialListMinimizeButtonPressed()
@@ -69,7 +138,32 @@ public class ShipShopMenu : MonoBehaviour
 
     public void BuyShipItemOne()
     {
+        itemReference = 1;
 
+        List<string> inventoryMatList = new List<string>();
+
+        for(int x = 0; x < Inventory.instance.resources.Count; x++)
+        {
+
+        }
+
+        int i = 0;
+        Resource r = Inventory.instance.resources.Find(x
+            => x.Name() == item1MaterialTexts[i]);
+
+
+        //Make a list to check all of the materials needed to make ship in Inventory
+
+        ////Resource t = Inventory.instance.ships[2].resourcesNeeded.Name();
+
+        ////Inventory.instance.resources.Contains()
+        //if (r.GetAmount() >= 5 /*Shop Resources*/)
+        //{
+
+
+        //}
+
+        
 
 
     }
@@ -101,7 +195,7 @@ public class ShipShopMenu : MonoBehaviour
             materialListParent.SetActive(true);
             materialListOn = true;
 
-            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+            itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
         }
 
 
@@ -116,7 +210,7 @@ public class ShipShopMenu : MonoBehaviour
             AudioManager.instance.Play("Menu Sound");
             materialListParent.SetActive(true);
             materialListOn = true;
-            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+            itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
         }
     }
 
@@ -128,34 +222,11 @@ public class ShipShopMenu : MonoBehaviour
             AudioManager.instance.Play("Menu Sound");
             materialListParent.SetActive(true);
             materialListOn = true;
-            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+            itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
         }
 
     }
 
 
-    public void SetValues(Inventory shopStock)
-    {
-        for (int i = 0; i < itemTitles.Count; i++)
-        {
-            itemTitles[i].text = shopStock.ships[i].GetShipName();
-        }
-
-        for (int i = 0; i < itemMaterialTexts.Count; i++) 
-        {
-            for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
-            {
-                //itemMaterialTexts.Add(shopStock.ships[i].resourcesNeeded[j].Name()
-                //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
-                //    + "\n");
-                itemMaterialTexts[i] +=
-                    shopStock.ships[i].resourcesNeeded[j].Name()
-                    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString() 
-                    + "\n";
-            }
-        }
-
-
-    }
-
+   
 }
