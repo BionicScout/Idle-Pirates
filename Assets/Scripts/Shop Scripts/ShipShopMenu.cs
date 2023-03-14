@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -39,6 +40,17 @@ public class ShipShopMenu : MonoBehaviour
     [SerializeField]
     private bool materialListOn = false;
 
+
+
+    [SerializeField]
+    private GameObject item1Button;
+    [SerializeField]
+    private GameObject item2Button;
+    [SerializeField]
+    private GameObject item3Button;
+
+
+
     //[SerializeField]
     //private GameObject item1MaterialListButton;
 
@@ -55,8 +67,18 @@ public class ShipShopMenu : MonoBehaviour
     private TextMeshProUGUI itemMaterialListText;
 
     //[SerializeField]
-    //private Inventory shopStock;
+    //private Inventory shopInventory;
 
+
+
+    [SerializeField]
+    private List<int> shipMatRequirementChecks = new List<int>();
+
+    [SerializeField]
+    private List<int> shipAmountRequirementChecks = new List<int>();
+
+    [SerializeField]
+    private bool payCheck;
 
 
     // Start is called before the first frame update
@@ -107,7 +129,6 @@ public class ShipShopMenu : MonoBehaviour
             item1MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
             item1MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
 
-
         }
         k++;
         for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
@@ -115,12 +136,14 @@ public class ShipShopMenu : MonoBehaviour
             item2MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
             item2MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
 
+
         }
         k++;
         for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
         {
             item3MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
             item3MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
 
         }
 
@@ -140,30 +163,54 @@ public class ShipShopMenu : MonoBehaviour
     {
         itemReference = 1;
 
-        List<string> inventoryMatList = new List<string>();
 
-        for(int x = 0; x < Inventory.instance.resources.Count; x++)
+        for (int y = 0; y < item1MaterialTexts.Count; y++)
         {
+            for (int x = 0; x < Inventory.instance.resources.Count; x++)
+            {
+                if (Inventory.instance.
+                    resources[x].Name().Contains(item1MaterialTexts[y]) == true)
+                {
+                    shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
+                        resources[x].Name().Contains(item1MaterialTexts[y])));
+
+                    if (Inventory.instance.resources[x].GetAmount() >= item1MaterialAmounts[y])
+                    {
+                        //shipAmountRequirementChecks.Add(
+                        //    Inventory.instance.resources[x].GetAmount() - item1MaterialAmounts[y]);
+
+                        shipAmountRequirementChecks.Add(1);
+                    }
+                }
+            }
 
         }
 
-        int i = 0;
-        Resource r = Inventory.instance.resources.Find(x
-            => x.Name() == item1MaterialTexts[i]);
 
+        if (shipMatRequirementChecks.Count == item1MaterialTexts.Count &&
+            shipAmountRequirementChecks.Count == item1MaterialAmounts.Count)
+        {
+            AudioManager.instance.Play("Menu Sound");
+            item1Button.gameObject.SetActive(false);
+            Pay(itemReference);
+        }
+
+
+        //if shipMatRequirementChecks have 2 trues, check of they have the right amount
+
+
+
+
+        //shipMatRequirementChecks.Clear();
+
+        //Make a list of bools and if they are all true, then pay for the ship
 
         //Make a list to check all of the materials needed to make ship in Inventory
 
-        ////Resource t = Inventory.instance.ships[2].resourcesNeeded.Name();
 
-        ////Inventory.instance.resources.Contains()
-        //if (r.GetAmount() >= 5 /*Shop Resources*/)
-        //{
+        //Search the inventory if they have the materials for this item
+        //through the specific list 
 
-
-        //}
-
-        
 
 
     }
@@ -228,5 +275,13 @@ public class ShipShopMenu : MonoBehaviour
     }
 
 
-   
+
+    public void Pay(int index)
+    {
+
+
+    }
+
+
+
 }

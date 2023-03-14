@@ -3828,9 +3828,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: BuyShipItemOne
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8709,8 +8709,14 @@ MonoBehaviour:
   item3MaterialAmounts: 
   materialListParent: {fileID: 89506056}
   materialListOn: 0
+  item1Button: {fileID: 619236232}
+  item2Button: {fileID: 1426204162}
+  item3Button: {fileID: 1026344993}
   itemReference: 0
   itemMaterialListText: {fileID: 801129817}
+  shipMatRequirementChecks: 
+  shipAmountRequirementChecks: 
+  payCheck: 0
 --- !u!1 &1656382463
 GameObject:
   m_ObjectHideFlags: 0
