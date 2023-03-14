@@ -65,7 +65,7 @@ MonoBehaviour:
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 2
+    use: 1
     resourcesNeeded:
     - type: 1
       resourceName: Wood
@@ -81,7 +81,7 @@ MonoBehaviour:
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 2
+    use: 0
     resourcesNeeded:
     - type: 1
       resourceName: Wood
@@ -93,9 +93,9 @@ MonoBehaviour:
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 2
+    use: 1
     resourcesNeeded:
-    - type: 0
+    - type: 1
       resourceName: Metal
       amount: 30
       cost: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
     inUse: 0
     cost: 140
     amount: 1
+  tradeResourceTemplates: []
 --- !u!114 &945900969696319193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +140,4 @@ MonoBehaviour:
   resources: []
   ships: []
   crew: []
+  tradeResourceTemplates: []

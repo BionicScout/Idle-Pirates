@@ -69,7 +69,7 @@ EditorBuildSettings:
     path: Assets/Scenes/City Scenes/City 19 Scene.unity
     guid: deabcc5b9260ce847a8b2d3c323b295a
   - enabled: 1
-    path: Assets/Scenes/Shop Scenes/Shop Scene.unity
+    path: Assets/Scenes/Shop Scene.unity
     guid: 9235fa663c70bff4ab2df8e1a2a4a4ce
   - enabled: 1
     path: Assets/Scenes/Mini-Game Scenes/Combat/Combat.unity

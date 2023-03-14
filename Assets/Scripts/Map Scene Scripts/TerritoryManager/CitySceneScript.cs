@@ -7,6 +7,8 @@ public class CitySceneScript : MonoBehaviour {
     [SerializeField]
     private GameObject raidButton;
 
+    
+
     void Start() {
         if(CityInbetweenManagementScript.citesThatHaveBeenRaided.Contains(CityLastVistedInfo.instance.cityName)) {
             raidButton.SetActive(false);
@@ -21,5 +23,11 @@ public class CitySceneScript : MonoBehaviour {
 
     public void OnMapButtonPressed() {
         SceneSwitcher.instance.A_LoadScene("Map Scene");
+    }
+
+    public void OnShopButtonPressed() 
+    {
+        SceneSwitcher.instance.A_LoadScene("Shop Scene");
+
     }
 }
