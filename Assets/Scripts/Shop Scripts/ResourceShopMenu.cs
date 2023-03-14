@@ -78,7 +78,19 @@ public class ResourceShopMenu : MonoBehaviour
 
     public void BuyOneShipResourceItemOne()
     {
+        itemReference = 1;
 
+
+
+        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+        {
+            AudioManager.instance.Play("Menu Sound");
+            //item1Button.gameObject.SetActive(false);
+            Pay(itemReference);
+            shopManager.BuyResource(itemReference);
+            itemAmountNumbers[itemReference - 1] -= 1;
+
+        }
 
 
     }
@@ -86,7 +98,14 @@ public class ResourceShopMenu : MonoBehaviour
 
     public void BuyOneShipResourceItemTwo()
     {
+        itemReference = 2;
 
+
+
+        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+        {
+
+        }
 
 
     }
@@ -94,11 +113,22 @@ public class ResourceShopMenu : MonoBehaviour
 
     public void BuyOneShipResourceItemThree()
     {
+        itemReference = 3;
 
+
+
+        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+        {
+
+        }
 
 
     }
 
+    public void Pay(int index)
+    {
+        Inventory.instance.resources[0].SubtractAmount(itemCostNumbers[index - 1]);
 
+    }
 
 }
