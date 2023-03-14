@@ -76,7 +76,7 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void BuyOneShipResourceItemOne()
+    public void BuyShipResourceItemOne()
     {
         itemReference = 1;
 
@@ -85,7 +85,7 @@ public class ResourceShopMenu : MonoBehaviour
         if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
         {
             AudioManager.instance.Play("Menu Sound");
-            //item1Button.gameObject.SetActive(false);
+            item1Button.gameObject.SetActive(false);
             Pay(itemReference);
             shopManager.BuyResource(itemReference);
             itemAmountNumbers[itemReference - 1] -= 1;
@@ -96,7 +96,7 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void BuyOneShipResourceItemTwo()
+    public void BuyShipResourceItemTwo()
     {
         itemReference = 2;
 
@@ -104,14 +104,19 @@ public class ResourceShopMenu : MonoBehaviour
 
         if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
         {
+            AudioManager.instance.Play("Menu Sound");
+            item2Button.gameObject.SetActive(false);
 
+            Pay(itemReference);
+            shopManager.BuyResource(itemReference);
+            itemAmountNumbers[itemReference - 1] -= 1;
         }
 
 
     }
 
 
-    public void BuyOneShipResourceItemThree()
+    public void BuyShipResourceItemThree()
     {
         itemReference = 3;
 
@@ -119,7 +124,11 @@ public class ResourceShopMenu : MonoBehaviour
 
         if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
         {
-
+            AudioManager.instance.Play("Menu Sound");
+            item3Button.gameObject.SetActive(false);
+            Pay(itemReference);
+            shopManager.BuyResource(itemReference);
+            itemAmountNumbers[itemReference - 1] -= 1;
         }
 
 

@@ -48,15 +48,15 @@ MonoBehaviour:
   resources:
   - type: 1
     resourceName: Wood
-    amount: 10
+    amount: 20
     cost: 30
   - type: 1
     resourceName: Metal
-    amount: 5
+    amount: 25
     cost: 20
   - type: 1
     resourceName: Cloth
-    amount: 20
+    amount: 35
     cost: 30
   ships:
   - shipName: Evolution

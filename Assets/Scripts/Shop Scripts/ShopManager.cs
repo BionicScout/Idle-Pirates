@@ -87,19 +87,12 @@ public class ShopManager : MonoBehaviour
     public void BuyResource(int index)
     {
         Inventory.instance.AddResource(shopInventory.resources[index - 1]);
-        shopInventory.resources[index - 1].SubtractAmount(1);
+        //shopInventory.resources[index - 1].SubtractAmount(1);
 
 
     }
 
 
-    public void BuyAllResources(int index, int amount)
-    {
-        Inventory.instance.AddResource(shopInventory.resources[index - 1]);
-        shopInventory.crew[index - 1].ReduceAmount(amount);
-
-
-    }
 
     
 
