@@ -52,7 +52,7 @@ public class Resource {
         amount += newResource.GetAmount();
     }
 
-    public void SubtractToPay(int payment)
+    public void SubtractAmount(int payment)
     {
         amount -= payment;
     }

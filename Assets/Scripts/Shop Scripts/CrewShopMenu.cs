@@ -120,7 +120,7 @@ public class CrewShopMenu : MonoBehaviour
 
     public void Pay(int index)
     {
-        Inventory.instance.resources[0].SubtractToPay(itemCostNumbers[index - 1]);
+        Inventory.instance.resources[0].SubtractAmount(itemCostNumbers[index - 1]);
 
     }
 
