@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -109,5 +110,35 @@ public class TradingManager : MonoBehaviour {
         buySellMenu.SetActive(true);
 
         selectedShip = selectShipObj.GetComponent<InventoryShipHolder>().ship;
+    }
+
+    public void toBuy() {
+        populateBuyMenu();
+    }
+
+    public void populateBuyMenu() {
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
+            TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TMP_Text>();
+
+            int randomResoureID = Random.Range(0, Inventory.instance.tradeResourceTemplates.Count - 1);
+            MainResources resource = Inventory.instance.tradeResourceTemplates[randomResoureID];
+
+            int maxAdjust = Mathf.CeilToInt(resource.buyValue * 0.10f);
+            int adjust = Random.Range(-maxAdjust, maxAdjust);
+            int buyValue = resource.buyValue + adjust;
+
+            resourceIcon.sprite = resource.sprite;
+            numberText.text = buyValue.ToString();
+
+            Debug.Log(buyValue + " > " + (buyValue + (maxAdjust / 2)));
+
+            if(adjust > maxAdjust / 2)
+                numberText.color = Color.red;
+            else if(adjust < -maxAdjust / 2)
+                numberText.color = Color.green;
+            else
+                numberText.color = Color.yellow;
+        }
     }
 }

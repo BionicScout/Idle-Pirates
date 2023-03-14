@@ -8,6 +8,8 @@ public class Inventory : MonoBehaviour {
     public List<InventoryCrew> crew;
     public static Inventory instance;
 
+    public List<MainResources> tradeResourceTemplates;
+
     void Awake() {
 
         if (instance == null)
