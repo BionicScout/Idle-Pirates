@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TradingManager : MonoBehaviour {
+    [Header("Map Button")]
+    public GameObject tradeButton;
+    public GameObject exitButton;
+
     [Header("Available Ship Menu")]
     public GameObject availableShipScreen, availableShipUI, availableShipInfoPrefab;
     List<GameObject> availableShips;
@@ -18,6 +22,13 @@ public class TradingManager : MonoBehaviour {
     public InventoryShip selectedShip;
     public GameObject buySellMenu;
 
+    [Header("Buy/Sell Menus")]
+    public GameObject buyMenu;
+
+    enum BuyOrSell{ buying, selling, neither };
+    BuyOrSell buySellState = BuyOrSell.neither;
+
+
     void Start() {
         availableShips = new List<GameObject>();
         tradeShips = new List<GameObject>();
@@ -27,6 +38,8 @@ public class TradingManager : MonoBehaviour {
     public void openMenu() {
         refreshTradeShipList();
         tradeShipScreen.SetActive(true);
+        tradeButton.SetActive(false);
+
 
         AudioManager.instance.Play("Menu Sound");
     }
@@ -35,6 +48,10 @@ public class TradingManager : MonoBehaviour {
         tradeShipScreen.SetActive(false);
         buySellMenu.SetActive(false);
         selectedShip = null;
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.GetComponent<Button>().enabled = false;
+        }
 
         refreshAvailableList();
         availableShipScreen.SetActive(true);
@@ -54,6 +71,11 @@ public class TradingManager : MonoBehaviour {
     public void closeMenu() {
         availableShipScreen.SetActive(false);
         tradeShipScreen.SetActive(false);
+        tradeButton.SetActive(true);
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.GetComponent<Button>().enabled = true;
+        }
 
         AudioManager.instance.Play("Menu Sound");
     }
@@ -106,14 +128,34 @@ public class TradingManager : MonoBehaviour {
 
 //Selecting to Trade
     public void toBuySell(GameObject selectShipObj) {
-        availableShipScreen.SetActive(false);
-        buySellMenu.SetActive(true);
+        toBuySell();
 
         selectedShip = selectShipObj.GetComponent<InventoryShipHolder>().ship;
     }
 
-    public void toBuy() {
-        populateBuyMenu();
+    public void toBuySell() {
+        availableShipScreen.SetActive(false);
+        buySellMenu.SetActive(true);
+        exitButton.SetActive(false);
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(false); //Hide Pop up
+        }
+    }
+
+//Buying
+    public void toBuy(bool populateData) {
+        buySellMenu.SetActive(false);
+        exitButton.SetActive(true);
+        buyMenu.SetActive(false);
+
+        buySellState = BuyOrSell.buying;
+        if(populateData)
+            populateBuyMenu();
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(true); //Show Pop up
+        }
     }
 
     public void populateBuyMenu() {
@@ -131,8 +173,6 @@ public class TradingManager : MonoBehaviour {
             resourceIcon.sprite = resource.sprite;
             numberText.text = buyValue.ToString();
 
-            Debug.Log(buyValue + " > " + (buyValue + (maxAdjust / 2)));
-
             if(adjust > maxAdjust / 2)
                 numberText.color = Color.red;
             else if(adjust < -maxAdjust / 2)
@@ -140,5 +180,16 @@ public class TradingManager : MonoBehaviour {
             else
                 numberText.color = Color.yellow;
         }
+    }
+
+    public void selectCity(GameObject cityObject) {
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(false); //Hide Pop up
+        }
+
+        buyMenu.SetActive(true);
+        buyMenu.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = selectedShip.GetShipName() + "\nTIME: #######\nGain: #####\nLose: ######";
+
+        
     }
 }

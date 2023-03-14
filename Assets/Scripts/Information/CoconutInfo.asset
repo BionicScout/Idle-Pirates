@@ -15,4 +15,4 @@ MonoBehaviour:
   type: 2
   resourceName: Coconut
   buyValue: 40
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: af46938801458d74da1789e1edbc2ded, type: 3}

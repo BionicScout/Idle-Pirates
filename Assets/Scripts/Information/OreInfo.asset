@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: OreInfo
   m_EditorClassIdentifier: 
   type: 2
-  resourceName: Coconut
-  buyValue: 40
-  sprite: {fileID: 0}
+  resourceName: Ore
+  buyValue: 80
+  sprite: {fileID: 21300000, guid: 9716c1d79d44b794a8c71d0d83506652, type: 3}
