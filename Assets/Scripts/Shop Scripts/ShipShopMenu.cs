@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
-
 public class ShipShopMenu : MonoBehaviour
 {
     [SerializeField]
@@ -94,8 +93,29 @@ public class ShipShopMenu : MonoBehaviour
         
     }
 
+    public List<InventoryShip> GenerateShips() {
+       List<InventoryShip> listOfShips = new List<InventoryShip>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            //Pick Random ship for Inventory.instance.shipTemplates
+            //Turn template into InventoryShip
+
+            listOfShips[i].AddfromTemplate(Inventory.instance.shipTemplates[i]);
+            
+            
+        }
+
+        return listOfShips;
+    }
+
     public void SetValues(Inventory shopStock)
     {
+       // List<InventoryShip> generatedShips = GenerateShips();
+
+        shopStock.ships = GenerateShips();
+
+
         for (int i = 0; i < itemTitles.Count; i++)
         {
             itemTitles[i].text = shopStock.ships[i].GetShipName();

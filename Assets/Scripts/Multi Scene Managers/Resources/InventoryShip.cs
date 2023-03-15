@@ -19,25 +19,63 @@ public class InventoryShip {
     public List<Resource> resourcesNeeded;
 
     //Thought it should of had a constructor like resources script
-    //public InventoryShip(string name, int s, int a, int h, int mC, Sprite sI, List<Resource> r)
-    //{
+    public InventoryShip(MainShips ships
+        /*string name, int s, int a, int h, int mC, Sprite sI, List<Resource> r*/)
+    {
 
-    //    shipName = name;
-    //    speed = s;
-    //    attack = a;
-    //    health = h;
-    //    maxCargo = mC;
-    //    shipImage = sI;
+        shipName = ships.shipName;
+        speed = ships.speed;
+        attack = ships.attack;
+        health = ships.health;
+        maxCargo = ships.maxCargo;
+        shipImage = ships.shipImage;
 
-    //    for (int i = 0; i < r.Count; i++)
-    //    {
-    //        resourcesNeeded[i].AddName(r[i].Name());
-    //        resourcesNeeded[i].Add(r[i]);
-    //    }
+        for (int i = 0; i < ships.resourcesNeeded.Count; i++)
+        {
+            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].Name());
+            resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
+        }
 
 
-    //}
+    }
 
+    public InventoryShip(string name, int s, int a, int h, int mC, Sprite sI, List<Resource> r)
+    {
+
+        shipName = name;
+        speed = s;
+        attack = a;
+        health = h;
+        maxCargo = mC;
+        shipImage = sI;
+
+        for (int i = 0; i < r.Count; i++)
+        {
+            resourcesNeeded[i].AddName(r[i].Name());
+            resourcesNeeded[i].Add(r[i]);
+        }
+
+
+    }
+
+
+    public void AddfromTemplate(MainShips ships)
+    {
+        shipName = ships.shipName;
+        speed = ships.speed;
+        attack = ships.attack;
+        health = ships.health;
+        maxCargo = ships.maxCargo;
+        shipImage = ships.shipImage;
+
+        for (int i = 0; i < ships.resourcesNeeded.Count; i++)
+        {
+            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].Name());
+            resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
+        }
+
+
+    }
 
 
     public string GetShipName()

@@ -19,3 +19,8 @@ MonoBehaviour:
   maxCargo: 5
   shipImage: {fileID: 0}
   usedIn: 1
+  resourcesNeeded:
+  - type: 1
+    resourceName: Wood
+    amount: 20
+    cost: 0

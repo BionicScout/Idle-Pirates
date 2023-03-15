@@ -14,5 +14,7 @@ public class MainShips : ScriptableObject
 
     public InventoryShip.USED_IN usedIn;
 
+    public List<Resource> resourcesNeeded;
+
 
 }

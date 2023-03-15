@@ -48,5 +48,11 @@ MonoBehaviour:
   - type: 0
     resourceName: Gold
     amount: 1000
+    cost: 0
   ships: []
   crew: []
+  tradeResourceTemplates: []
+  shipTemplates:
+  - {fileID: 11400000, guid: 080725427a5f66348b7fdb5c30ed9695, type: 2}
+  - {fileID: 11400000, guid: 141f30e0a9a86d141932f779970723be, type: 2}
+  - {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}
