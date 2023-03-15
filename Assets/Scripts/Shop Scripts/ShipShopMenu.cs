@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,19 +14,42 @@ public class ShipShopMenu : MonoBehaviour
     private List<TextMeshProUGUI> itemTitles = new List<TextMeshProUGUI>();
 
 
-    public List<string> itemMaterialTexts = new List<string>();
+    public List<string> allItemMaterialTexts = new List<string>();
 
-    //[SerializeField]
-    //private List<string> item2MaterialTexts = new List<string>();
+    [SerializeField]
+    private List<string> item1MaterialTexts = new List<string>();
 
-    //[SerializeField]
-    //private List<string> item3MaterialTexts = new List<string>();
+    [SerializeField]
+    private List<string> item2MaterialTexts = new List<string>();
+
+    [SerializeField]
+    private List<string> item3MaterialTexts = new List<string>();
+
+    [SerializeField]
+    private List<int> item1MaterialAmounts = new List<int>();
+
+    [SerializeField]
+    private List<int> item2MaterialAmounts = new List<int>();
+
+    [SerializeField]
+    private List<int> item3MaterialAmounts = new List<int>();
 
     [SerializeField]
     private GameObject materialListParent;
 
     [SerializeField]
     private bool materialListOn = false;
+
+
+
+    [SerializeField]
+    private GameObject item1Button;
+    [SerializeField]
+    private GameObject item2Button;
+    [SerializeField]
+    private GameObject item3Button;
+
+
 
     //[SerializeField]
     //private GameObject item1MaterialListButton;
@@ -42,10 +66,23 @@ public class ShipShopMenu : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemMaterialListText;
 
+    //[SerializeField]
+    //private Inventory shopInventory;
 
 
-   // Start is called before the first frame update
-   void Start()
+
+    [SerializeField]
+    private List<int> shipMatRequirementChecks = new List<int>();
+
+    [SerializeField]
+    private List<int> shipAmountRequirementChecks = new List<int>();
+
+    [SerializeField]
+    private bool payCheck;
+
+
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
@@ -56,6 +93,61 @@ public class ShipShopMenu : MonoBehaviour
         
     }
 
+    public void SetValues(Inventory shopStock)
+    {
+        for (int i = 0; i < itemTitles.Count; i++)
+        {
+            itemTitles[i].text = shopStock.ships[i].GetShipName();
+        }
+
+        for (int i = 0; i < allItemMaterialTexts.Count; i++)
+        {
+            for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
+            {
+                //string mats = shopStock.ships[i].resourcesNeeded[j].Name()
+                //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                //    + "\n";
+
+
+                //allItemMaterialTexts.Add(mats);
+
+
+                //Each item has a sentence of all of the materials
+                allItemMaterialTexts[i] +=
+                    shopStock.ships[i].resourcesNeeded[j].Name()
+                    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                    + "\n";
+            }
+        }
+
+
+
+        //for seperate ships
+        int k = 0;
+        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        {
+            item1MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item1MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
+        }
+        k++;
+        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        {
+            item2MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item2MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
+
+        }
+        k++;
+        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        {
+            item3MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item3MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+
+
+        }
+
+    }
 
 
     public void MaterialListMinimizeButtonPressed()
@@ -69,6 +161,55 @@ public class ShipShopMenu : MonoBehaviour
 
     public void BuyShipItemOne()
     {
+        itemReference = 1;
+
+
+        for (int y = 0; y < item1MaterialTexts.Count; y++)
+        {
+            for (int x = 0; x < Inventory.instance.resources.Count; x++)
+            {
+                if (Inventory.instance.
+                    resources[x].Name().Contains(item1MaterialTexts[y]) == true)
+                {
+                    shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
+                        resources[x].Name().Contains(item1MaterialTexts[y])));
+
+                    if (Inventory.instance.resources[x].GetAmount() >= item1MaterialAmounts[y])
+                    {
+                        //shipAmountRequirementChecks.Add(
+                        //    Inventory.instance.resources[x].GetAmount() - item1MaterialAmounts[y]);
+
+                        shipAmountRequirementChecks.Add(1);
+                    }
+                }
+            }
+
+        }
+
+
+        if (shipMatRequirementChecks.Count == item1MaterialTexts.Count &&
+            shipAmountRequirementChecks.Count == item1MaterialAmounts.Count)
+        {
+            AudioManager.instance.Play("Menu Sound");
+            item1Button.gameObject.SetActive(false);
+            Pay(itemReference);
+        }
+
+
+        //if shipMatRequirementChecks have 2 trues, check of they have the right amount
+
+
+
+
+        //shipMatRequirementChecks.Clear();
+
+        //Make a list of bools and if they are all true, then pay for the ship
+
+        //Make a list to check all of the materials needed to make ship in Inventory
+
+
+        //Search the inventory if they have the materials for this item
+        //through the specific list 
 
 
 
@@ -101,7 +242,7 @@ public class ShipShopMenu : MonoBehaviour
             materialListParent.SetActive(true);
             materialListOn = true;
 
-            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+            itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
         }
 
 
@@ -116,7 +257,7 @@ public class ShipShopMenu : MonoBehaviour
             AudioManager.instance.Play("Menu Sound");
             materialListParent.SetActive(true);
             materialListOn = true;
-            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+            itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
         }
     }
 
@@ -128,34 +269,19 @@ public class ShipShopMenu : MonoBehaviour
             AudioManager.instance.Play("Menu Sound");
             materialListParent.SetActive(true);
             materialListOn = true;
-            itemMaterialListText.text += itemMaterialTexts[itemReference - 1];
+            itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
         }
 
     }
 
 
-    public void SetValues(Inventory shopStock)
+
+    public void Pay(int index)
     {
-        for (int i = 0; i < itemTitles.Count; i++)
-        {
-            itemTitles[i].text = shopStock.ships[i].GetShipName();
-        }
-
-        for (int i = 0; i < itemMaterialTexts.Count; i++) 
-        {
-            for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
-            {
-                //itemMaterialTexts.Add(shopStock.ships[i].resourcesNeeded[j].Name()
-                //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
-                //    + "\n");
-                itemMaterialTexts[i] +=
-                    shopStock.ships[i].resourcesNeeded[j].Name()
-                    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString() 
-                    + "\n";
-            }
-        }
 
 
     }
+
+
 
 }

@@ -19,7 +19,7 @@ public class SceneSwitcher : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         currentScene = SceneManager.GetActiveScene().name;
-        Debug.Log(currentScene);
+        //Debug.Log(currentScene);
     }
 
     public void A_ExitButton() {
