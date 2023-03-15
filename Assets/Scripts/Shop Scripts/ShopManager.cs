@@ -77,9 +77,10 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    public void BuyShip()
+    public void BuyShip(int index)
     {
 
+        Inventory.instance.AddShip(shopInventory.ships[index - 1]);
 
 
     }
