@@ -2742,7 +2742,6 @@ GameObject:
   m_Component:
   - component: {fileID: 423481480}
   - component: {fileID: 423481479}
-  - component: {fileID: 423481478}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2750,14 +2749,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &423481478
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423481477}
-  m_Enabled: 1
 --- !u!20 &423481479
 Camera:
   m_ObjectHideFlags: 0
@@ -8717,6 +8708,7 @@ MonoBehaviour:
   shipMatRequirementChecks: 
   shipAmountRequirementChecks: 
   payCheck: 0
+  shopItemLimit: 3
 --- !u!1 &1656382463
 GameObject:
   m_ObjectHideFlags: 0

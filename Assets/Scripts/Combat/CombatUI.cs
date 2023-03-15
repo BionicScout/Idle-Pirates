@@ -58,7 +58,7 @@ public class CombatUI : MonoBehaviour {
     public void updateShipUI(GameObject shipUI, CombatShip ship) {
     //Update Header
         shipUI.transform.GetChild(0).GetComponent<TMP_Text>().text =
-            "Name: " + ship.shipName + "\nHealth: " + ship.health + "/" + ship.maxHealth;
+            "GetName: " + ship.shipName + "\nHealth: " + ship.health + "/" + ship.maxHealth;
 
         //Update Health Bar
         //Update Image

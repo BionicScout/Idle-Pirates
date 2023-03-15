@@ -80,6 +80,9 @@ public class ShipShopMenu : MonoBehaviour
     [SerializeField]
     private bool payCheck;
 
+    [SerializeField]
+    private int shopItemLimit = 3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,16 +96,33 @@ public class ShipShopMenu : MonoBehaviour
         
     }
 
-    public List<InventoryShip> GenerateShips() {
+    public List<InventoryShip> GenerateShips() 
+    {
        List<InventoryShip> listOfShips = new List<InventoryShip>();
 
-        for (int i = 0; i < 3; i++)
+        for (int z = 0; z < shopItemLimit; z++)
         {
             //Pick Random ship for Inventory.instance.shipTemplates
             //Turn template into InventoryShip
 
-            listOfShips[i].AddfromTemplate(Inventory.instance.shipTemplates[i]);
-            
+            MainShips templateShip = Inventory.instance.shipTemplates[z];
+
+            //for (int j = 0; j < templateShip.resourcesNeeded.Count; j++)
+            //{
+            //    Debug.Log(templateShip.resourcesNeeded[j].GetName() 
+            //        + templateShip.resourcesNeeded[j].GetAmount());
+            //}
+            //Debug.Log(templateShip.name);
+
+            InventoryShip invShip = new InventoryShip(templateShip);
+
+
+            listOfShips.Add(invShip);
+
+            //listOfShips[i].AddfromTemplate(Inventory.instance.shipTemplates[i]);
+
+
+            templateShip.Delete();
             
         }
 
@@ -125,7 +145,7 @@ public class ShipShopMenu : MonoBehaviour
         {
             for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
             {
-                //string mats = shopStock.ships[i].resourcesNeeded[j].Name()
+                //string mats = shopStock.ships[i].resourcesNeeded[j].GetName()
                 //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
                 //    + "\n";
 
@@ -135,7 +155,7 @@ public class ShipShopMenu : MonoBehaviour
 
                 //Each item has a sentence of all of the materials
                 allItemMaterialTexts[i] +=
-                    shopStock.ships[i].resourcesNeeded[j].Name()
+                    shopStock.ships[i].resourcesNeeded[j].GetName()
                     + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
                     + "\n";
             }
@@ -147,14 +167,14 @@ public class ShipShopMenu : MonoBehaviour
         int k = 0;
         for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
         {
-            item1MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item1MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].GetName());
             item1MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
 
         }
         k++;
         for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
         {
-            item2MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item2MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].GetName());
             item2MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
 
 
@@ -162,7 +182,7 @@ public class ShipShopMenu : MonoBehaviour
         k++;
         for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
         {
-            item3MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].Name());
+            item3MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].GetName());
             item3MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
 
 
@@ -198,10 +218,10 @@ public class ShipShopMenu : MonoBehaviour
                 for (int x = 0; x < Inventory.instance.resources.Count; x++)
                 {
                     if (Inventory.instance.
-                        resources[x].Name().Contains(item1MaterialTexts[y]) == true)
+                        resources[x].GetName().Contains(item1MaterialTexts[y]) == true)
                     {
                         shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
-                            resources[x].Name().Contains(item1MaterialTexts[y])));
+                            resources[x].GetName().Contains(item1MaterialTexts[y])));
 
                         if (Inventory.instance.resources[x].GetAmount() >= item1MaterialAmounts[y])
                         {
@@ -266,10 +286,10 @@ public class ShipShopMenu : MonoBehaviour
                 for (int x = 0; x < Inventory.instance.resources.Count; x++)
                 {
                     if (Inventory.instance.
-                        resources[x].Name().Contains(item2MaterialTexts[y]) == true)
+                        resources[x].GetName().Contains(item2MaterialTexts[y]) == true)
                     {
                         shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
-                            resources[x].Name().Contains(item2MaterialTexts[y])));
+                            resources[x].GetName().Contains(item2MaterialTexts[y])));
 
                         if (Inventory.instance.resources[x].GetAmount() >= item2MaterialAmounts[y])
                         {
@@ -316,10 +336,10 @@ public class ShipShopMenu : MonoBehaviour
                 for (int x = 0; x < Inventory.instance.resources.Count; x++)
                 {
                     if (Inventory.instance.
-                        resources[x].Name().Contains(item3MaterialTexts[y]) == true)
+                        resources[x].GetName().Contains(item3MaterialTexts[y]) == true)
                     {
                         shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
-                            resources[x].Name().Contains(item3MaterialTexts[y])));
+                            resources[x].GetName().Contains(item3MaterialTexts[y])));
 
                         if (Inventory.instance.resources[x].GetAmount() >= item3MaterialAmounts[y])
                         {

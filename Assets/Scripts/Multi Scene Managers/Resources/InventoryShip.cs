@@ -19,8 +19,7 @@ public class InventoryShip {
     public List<Resource> resourcesNeeded;
 
     //Thought it should of had a constructor like resources script
-    public InventoryShip(MainShips ships
-        /*string name, int s, int a, int h, int mC, Sprite sI, List<Resource> r*/)
+    public InventoryShip(MainShips ships)
     {
 
         shipName = ships.shipName;
@@ -32,8 +31,19 @@ public class InventoryShip {
 
         for (int i = 0; i < ships.resourcesNeeded.Count; i++)
         {
-            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].Name());
-            resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
+            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetName());
+            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetAmount());
+            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetCost());
+            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetType());
+
+            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
+            resourcesNeeded[i].AddAmount(ships.resourcesNeeded[i].GetAmount());
+            resourcesNeeded[i].AddCost(ships.resourcesNeeded[i].GetCost());
+            resourcesNeeded[i].AddType(ships.resourcesNeeded[i].GetType());
+
+            //resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
+
+            //Error: For loop stops at one iteration
         }
 
 
@@ -51,7 +61,7 @@ public class InventoryShip {
 
         for (int i = 0; i < r.Count; i++)
         {
-            resourcesNeeded[i].AddName(r[i].Name());
+            resourcesNeeded[i].AddName(r[i].GetName());
             resourcesNeeded[i].Add(r[i]);
         }
 
@@ -70,7 +80,7 @@ public class InventoryShip {
 
         for (int i = 0; i < ships.resourcesNeeded.Count; i++)
         {
-            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].Name());
+            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
             resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
         }
 

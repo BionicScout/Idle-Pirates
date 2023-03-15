@@ -50,7 +50,7 @@ public class ResourceShopMenu : MonoBehaviour
     {
         for (int i = 0; i < itemTitles.Count; i++)
         {
-            itemTitles[i].text = shopStock.resources[i].Name();
+            itemTitles[i].text = shopStock.resources[i].GetName();
         }
 
         for (int i = 0; i < itemAmountNumbers.Count; i++)
