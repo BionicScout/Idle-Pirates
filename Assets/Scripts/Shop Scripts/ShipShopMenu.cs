@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 public class ShipShopMenu : MonoBehaviour
 {
@@ -105,13 +106,30 @@ public class ShipShopMenu : MonoBehaviour
             //Pick Random ship for Inventory.instance.shipTemplates
             //Turn template into InventoryShip
 
+            //Debug.Log(z + " + " + Inventory.instance.shipTemplates[z]);
+
+            //for (int x = 0; x < Inventory.instance.shipTemplates[z].resourcesNeeded.Count; x++)
+            //{
+            //    Debug.Log(z + " + " + 
+            //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetName());
+            //    Debug.Log(z + " + " + 
+            //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetAmount());
+            //    Debug.Log(z + " + " + 
+            //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetCost());
+            //    Debug.Log(z + " + " + 
+            //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetType());
+            //}
+
+            
+
             MainShips templateShip = Inventory.instance.shipTemplates[z];
 
-            //for (int j = 0; j < templateShip.resourcesNeeded.Count; j++)
-            //{
-            //    Debug.Log(templateShip.resourcesNeeded[j].GetName() 
-            //        + templateShip.resourcesNeeded[j].GetAmount());
-            //}
+            Debug.Log(templateShip.name);
+
+            //Debug.Log(templateShip.resourcesNeeded[z].GetName()
+            //       + " + " + templateShip.resourcesNeeded[z].GetAmount());
+
+            
             //Debug.Log(templateShip.name);
 
             InventoryShip invShip = new InventoryShip(templateShip);

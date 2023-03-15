@@ -31,10 +31,10 @@ public class InventoryShip {
 
         for (int i = 0; i < ships.resourcesNeeded.Count; i++)
         {
-            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetName());
-            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetAmount());
-            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetCost());
-            Debug.Log(i + " + " + ships.resourcesNeeded[i].GetType());
+            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetName());
+            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetAmount());
+            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetCost());
+            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetType());
 
             resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
             resourcesNeeded[i].AddAmount(ships.resourcesNeeded[i].GetAmount());
