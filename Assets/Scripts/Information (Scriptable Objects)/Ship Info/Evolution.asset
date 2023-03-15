@@ -17,8 +17,8 @@ MonoBehaviour:
   attack: 30
   health: 40
   maxCargo: 5
-  shipImage: {fileID: 0}
-  usedIn: 1
+  shipImage: {fileID: 21300000, guid: 682472a4a0cff4945852c308ef73d1cd, type: 3}
+  usedIn: 2
   resourcesNeeded:
   - type: 1
     resourceName: Wood
