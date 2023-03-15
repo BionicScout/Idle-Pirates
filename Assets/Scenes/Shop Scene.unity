@@ -5710,9 +5710,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: BuyShipItemThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7340,9 +7340,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846579329}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: MapButtonPressed
+      - m_Target: {fileID: 1613154343}
+        m_TargetAssemblyTypeName: ShipShopMenu, Assembly-CSharp
+        m_MethodName: BuyShipItemTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
