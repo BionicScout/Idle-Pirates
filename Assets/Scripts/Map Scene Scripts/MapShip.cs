@@ -79,5 +79,8 @@ public class MapShip : MonoBehaviour {
         percentDone = 1 - (float)(timeLeft_seconds / totalTime);
 
         ship.transform.position = Vector2.Lerp(start, end, percentDone);
+
+        if(UnityEngine.Random.Range(0, 10000)  < 5)
+            SceneSwitcher.instance.A_LoadScene(MinigameSelecter.getMinigame());
     }
 }
