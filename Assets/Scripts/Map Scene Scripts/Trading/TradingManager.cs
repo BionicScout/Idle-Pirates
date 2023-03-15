@@ -27,6 +27,7 @@ public class TradingManager : MonoBehaviour {
 
     enum BuyOrSell{ buying, selling, neither };
     BuyOrSell buySellState = BuyOrSell.neither;
+    public TimeQuery tradeQuery;
 
 
     void Start() {
@@ -187,9 +188,54 @@ public class TradingManager : MonoBehaviour {
             city.gameObject.transform.GetChild(0).gameObject.SetActive(false); //Hide Pop up
         }
 
-        buyMenu.SetActive(true);
-        buyMenu.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = selectedShip.GetShipName() + "\nTIME: #######\nGain: #####\nLose: ######";
+    //Get Time Queries
+        Node endNode = cityObject.GetComponent<Node>();
+        endNode.end = true;
+        endNode.tradingPath = true;
+        endNode.find = true;
 
-        
+        Sprite resourceSprite = cityObject.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>().sprite;
+        int amount = int.Parse(cityObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TMP_Text>().text);
+        Resource shipBuy = null;
+
+        foreach(MainResources r in Inventory.instance.tradeResourceTemplates) {
+            if(r.sprite == resourceSprite) {
+                shipBuy = new Resource(r.type, r.resourceName, 1, 0);
+                break;
+            }
+        }
+
+        Resource gold = new Resource(Resource.Type.Gold, "Gold", -amount, 1);
+
+        tradeQuery = endNode.getTradePath(shipBuy, gold);
+
+        //Calculate time
+        int totalSecond = 0;
+        TimeQuery tq = tradeQuery;
+
+        while(tq != null) {
+            totalSecond += tq.seconds + (tq.minutes * 60);
+            tq = tq.nextQuery;
+        }
+
+        int minutes = 0;
+
+        while(totalSecond >= 60) {
+            minutes++;
+            totalSecond -= 60;
+        }
+
+        buyMenu.SetActive(true);
+        buyMenu.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = selectedShip.GetShipName() + "\nTIME: " + minutes + ":" + totalSecond 
+            + "\nGain: #####\nLose: ######";
+    }
+
+    public void sendTrade() {
+        buyMenu.SetActive(false);
+
+        tradeQuery.activate(System.DateTime.Now);
+        //tradeQuery = null;
+
+        toTradeScreen();
     }
 }

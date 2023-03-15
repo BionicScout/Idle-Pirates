@@ -477,8 +477,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &29281931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1977,8 +1990,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &168872654
 GameObject:
   m_ObjectHideFlags: 0
@@ -7394,8 +7420,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &581700548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8350,8 +8389,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &632842940
 GameObject:
   m_ObjectHideFlags: 0
@@ -10281,8 +10333,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &745295837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11174,6 +11239,18 @@ MonoBehaviour:
     resourcesNeeded: []
   buySellMenu: {fileID: 99705150}
   buyMenu: {fileID: 439557135}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &839469854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8175171809121006801, guid: 87b7a8e6c997cb8469341034aa583008, type: 3}
@@ -11546,8 +11623,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &869565223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13147,8 +13237,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &934053262
 GameObject:
   m_ObjectHideFlags: 0
@@ -13518,8 +13621,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &945455871
 GameObject:
   m_ObjectHideFlags: 0
@@ -14204,8 +14320,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1007967515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14624,8 +14753,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &1026335884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14923,8 +15065,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &1033335080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15084,8 +15239,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1036344300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15139,8 +15307,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1037766843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15435,8 +15616,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1072988865
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17090,8 +17284,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1191881947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18532,8 +18739,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1252566668
 GameObject:
   m_ObjectHideFlags: 0
@@ -18701,8 +18921,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &1252617256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19383,8 +19616,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1280001270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20942,8 +21188,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1407114025
 GameObject:
   m_ObjectHideFlags: 0
@@ -21884,8 +22143,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &1431337588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22498,8 +22770,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1486500320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8175171809121006801, guid: 87b7a8e6c997cb8469341034aa583008, type: 3}
@@ -23726,8 +24011,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1566643095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25796,8 +26094,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1724877331
 GameObject:
   m_ObjectHideFlags: 0
@@ -26056,6 +26367,7 @@ MonoBehaviour:
     seconds: 0
     active: 0
     shipQuery: 0
+    tradeQuery: 0
     startNode: {fileID: 0}
     endNode: {fileID: 0}
     startName: 
@@ -26233,8 +26545,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1771233870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3076165697413466868, guid: 09539853ad0c3744d879b1bfbc74dee1, type: 3}
@@ -27467,8 +27792,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &1859194357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27667,8 +28005,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1863362259
 GameObject:
   m_ObjectHideFlags: 0
@@ -28803,7 +29154,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 837343638}
         m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
-        m_MethodName: toBuy
+        m_MethodName: sendTrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29628,8 +29979,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1 &1986891522
 GameObject:
   m_ObjectHideFlags: 0
@@ -30216,8 +30580,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!224 &2031021790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30531,8 +30908,21 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
+  tradeQuery:
+    queryName: 
+    minutes: 0
+    seconds: 0
+    active: 0
+    shipQuery: 0
+    tradeQuery: 0
+    startNode: {fileID: 0}
+    endNode: {fileID: 0}
+    startName: 
+    endName: 
+    nextQueryName: 
 --- !u!1001 &2041158379
 PrefabInstance:
   m_ObjectHideFlags: 0

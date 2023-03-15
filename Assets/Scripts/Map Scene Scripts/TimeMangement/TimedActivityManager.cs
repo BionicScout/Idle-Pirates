@@ -59,6 +59,10 @@ public class TimedActivityManager : MonoBehaviour {
 
                 //AudioManager.instance.Play("Moving");
 
+                if(timeQueries[i].tradeQuery) {
+                    timeQueries[i].addResourses();
+                }
+
                 //Check if Querry is Ship Queerry
                 if(timeQueries[i].shipQuery) {
                     mapShip.timeQuery = next;

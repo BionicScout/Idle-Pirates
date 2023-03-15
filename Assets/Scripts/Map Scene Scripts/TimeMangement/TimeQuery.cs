@@ -9,7 +9,7 @@ public class TimeQuery {
     public int seconds;
     public bool active;
 
-    public bool shipQuery = false;
+    public bool shipQuery = false, tradeQuery = false;
     public Node startNode, endNode;
     public string startName, endName;
 
@@ -20,13 +20,15 @@ public class TimeQuery {
     public string nextQueryName;
     public TimeQuery nextQuery;
 
+    Resource gainedResource, lostResource;
+
     public TimeQuery(string name, int min, int sec, TimeQuery query, Node start, Node end) {
         queryName = name;
         minutes = min;
         seconds = sec;
 
         nextQuery = query;
-        shipQuery = true;
+        //shipQuery = true;
         if(query == null)
             nextQueryName = null;
         else
@@ -57,6 +59,19 @@ public class TimeQuery {
         endName = saveQuery.endName;
 
         nextQueryName = saveQuery.nextQuery;
+    }
+
+    public void updateResources(Resource r1, Resource r2) {
+        gainedResource = r1;
+        lostResource = r2;
+    }
+
+    public void addResourses() {
+        if(gainedResource == null || lostResource == null)
+            return;
+
+        Inventory.instance.AddResource(gainedResource);
+        Inventory.instance.AddResource(lostResource);
     }
 
     public void activate(DateTime startAt) {
