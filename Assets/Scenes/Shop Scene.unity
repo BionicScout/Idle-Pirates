@@ -4460,6 +4460,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f64918ee6291064498e0ec0a77b7cbe, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d27362c830c9fac42b6e546c9e6a41c1, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b376ecf4efa7774aa2004e8e959aa39, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: tradeResourceTemplates.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8185,6 +8201,7 @@ MonoBehaviour:
   item1Button: {fileID: 1929265641}
   item2Button: {fileID: 448577463}
   item3Button: {fileID: 1938112833}
+  shopItemLimit: 3
 --- !u!1 &1591787550
 GameObject:
   m_ObjectHideFlags: 0

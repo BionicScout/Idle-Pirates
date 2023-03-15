@@ -34,12 +34,13 @@ public class InventoryShip {
             //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetName());
             //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetAmount());
             //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetCost());
-            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetType());
+            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetResourceType());
 
+            resourcesNeeded[i].AddType(ships.resourcesNeeded[i].GetResourceType());
             resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
             resourcesNeeded[i].AddAmount(ships.resourcesNeeded[i].GetAmount());
             resourcesNeeded[i].AddCost(ships.resourcesNeeded[i].GetCost());
-            resourcesNeeded[i].AddType(ships.resourcesNeeded[i].GetType());
+            
 
             //resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
 

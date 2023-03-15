@@ -10,6 +10,9 @@ public class Inventory : MonoBehaviour {
 
     public List<MainResources> tradeResourceTemplates;
     public List<MainShips> shipTemplates;
+    public List<MainCrewMembers> crewTemplates;
+
+
 
     void Awake() {
 

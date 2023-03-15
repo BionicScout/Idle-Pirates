@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4142280452221198527}
   - component: {fileID: 4142280452221198512}
-  - component: {fileID: 945900969696319193}
   m_Layer: 0
   m_Name: Shop Stock
   m_TagString: Untagged
@@ -125,19 +124,7 @@ MonoBehaviour:
     cost: 140
     amount: 1
   tradeResourceTemplates: []
---- !u!114 &945900969696319193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142280452221198526}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5ebcaaf726dd143830ffb005494108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resources: []
-  ships: []
-  crew: []
-  tradeResourceTemplates: []
+  shipTemplates:
+  - {fileID: 11400000, guid: 080725427a5f66348b7fdb5c30ed9695, type: 2}
+  - {fileID: 11400000, guid: 141f30e0a9a86d141932f779970723be, type: 2}
+  - {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}

@@ -10,6 +10,7 @@ public class MainCrewMembers : ScriptableObject
     public int speed;
     public int attack;
     public int health;
+    public int cost;
     public Sprite crewImage;
 
 

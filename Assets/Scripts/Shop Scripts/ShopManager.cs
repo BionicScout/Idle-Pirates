@@ -49,9 +49,10 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        crewShopMenu.SetValues(shopInventory);
         resourceShopMenu.SetValues(shopInventory);
         shipShopMenu.SetValues(shopInventory);
-        crewShopMenu.SetValues(shopInventory);
+        
 
 
         //Set each shop to the stock
@@ -72,7 +73,7 @@ public class ShopManager : MonoBehaviour
     public void BuyCrew(int index)
     {
         Inventory.instance.AddCrew(shopInventory.crew[index - 1]);
-        shopInventory.crew[index - 1].ReduceAmount(1);
+        //shopInventory.crew[index - 1].ReduceAmount(1);
 
     }
 

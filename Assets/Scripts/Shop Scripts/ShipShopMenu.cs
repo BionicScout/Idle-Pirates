@@ -117,14 +117,14 @@ public class ShipShopMenu : MonoBehaviour
             //    Debug.Log(z + " + " + 
             //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetCost());
             //    Debug.Log(z + " + " + 
-            //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetType());
+            //        Inventory.instance.shipTemplates[z].resourcesNeeded[x].GetResourceType());
             //}
 
             
 
-            MainShips templateShip = Inventory.instance.shipTemplates[z];
+            //MainShips templateShip = Inventory.instance.shipTemplates[z];
 
-            Debug.Log(templateShip.name);
+            //Debug.Log(templateShip.name);
 
             //Debug.Log(templateShip.resourcesNeeded[z].GetName()
             //       + " + " + templateShip.resourcesNeeded[z].GetAmount());
@@ -132,7 +132,7 @@ public class ShipShopMenu : MonoBehaviour
             
             //Debug.Log(templateShip.name);
 
-            InventoryShip invShip = new InventoryShip(templateShip);
+            InventoryShip invShip = new InventoryShip(Inventory.instance.shipTemplates[z]);
 
 
             listOfShips.Add(invShip);
@@ -140,7 +140,7 @@ public class ShipShopMenu : MonoBehaviour
             //listOfShips[i].AddfromTemplate(Inventory.instance.shipTemplates[i]);
 
 
-            templateShip.Delete();
+            //templateShip.Delete();
             
         }
 

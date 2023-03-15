@@ -16,4 +16,5 @@ MonoBehaviour:
   speed: 20
   attack: 15
   health: 35
+  cost: 300
   crewImage: {fileID: 0}

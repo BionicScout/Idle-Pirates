@@ -30,7 +30,8 @@ public class Resource {
         cost = c;
     }
 
-    public string GetName() {
+    public string GetName() 
+    {
         return resourceName;
     }
 
@@ -63,7 +64,7 @@ public class Resource {
         type = t;
     }
 
-    public Type GetType()
+    public Type GetResourceType()
     {
         return type;
     }
