@@ -30,6 +30,8 @@ public class CrewShopMenu : MonoBehaviour
     [SerializeField]
     private GameObject item3Button;
 
+    [SerializeField]
+    private int shopItemLimit = 3;
 
 
     // Start is called before the first frame update
@@ -44,8 +46,27 @@ public class CrewShopMenu : MonoBehaviour
         
     }
 
+    public List<InventoryCrew> GenerateCrew()
+    {
+        List<InventoryCrew> listOfCrew = new List<InventoryCrew>();
+
+        for (int z = 0; z < shopItemLimit; z++)
+        {
+            InventoryCrew invCrew = new InventoryCrew(Inventory.instance.crewTemplates[z]);
+
+
+            listOfCrew.Add(invCrew);
+        }
+
+        return listOfCrew;
+    }
+
+
     public void SetValues(Inventory shopStock)
     {
+        shopStock.crew = GenerateCrew();
+
+
         for (int i = 0; i < itemTitles.Count; i++)
         {
             
@@ -120,7 +141,7 @@ public class CrewShopMenu : MonoBehaviour
 
     public void Pay(int index)
     {
-        Inventory.instance.resources[0].SubtractToPay(itemCostNumbers[index - 1]);
+        Inventory.instance.resources[0].SubtractAmount(itemCostNumbers[index - 1]);
 
     }
 

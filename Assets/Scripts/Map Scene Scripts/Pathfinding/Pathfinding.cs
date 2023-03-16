@@ -57,6 +57,8 @@ public class Pathfinding : MonoBehaviour{
                 endNode = node;
         }
 
+        Debug.Log("Start Node: " + startNode.name);
+
     //(3-6) Find Shortest Path
         bool foundPath = false;
         Node currentNode = startNode;
@@ -102,7 +104,7 @@ public class Pathfinding : MonoBehaviour{
             currentNode.visted = true;
             unvisted.remove(currentNode);
 
-            Debug.Log("After Search");
+            //Debug.Log("After Search");
 
         //(5) If end node has been visted then alitrithum is done
             if(endNode.visted) {
@@ -114,7 +116,7 @@ public class Pathfinding : MonoBehaviour{
             currentNode = unvisted.getFirst();
         }
 
-        Debug.Log("Found");
+        //Debug.Log("Found");
 
     //Get Path
         Node tempNode = endNode;

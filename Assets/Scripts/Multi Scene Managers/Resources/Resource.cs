@@ -30,7 +30,8 @@ public class Resource {
         cost = c;
     }
 
-    public string Name() {
+    public string GetName() 
+    {
         return resourceName;
     }
 
@@ -39,8 +40,18 @@ public class Resource {
         resourceName = name;
     }
 
+    public void AddAmount(int a)
+    {
+        amount = a;
+    }
+
     public int GetAmount() {
         return amount;
+    }
+
+    public void AddCost(int c) 
+    {
+        cost = c;
     }
 
     public int GetCost()
@@ -48,11 +59,21 @@ public class Resource {
         return cost;
     }
 
+    public void AddType(Type t) 
+    {
+        type = t;
+    }
+
+    public Type GetResourceType()
+    {
+        return type;
+    }
+
     public void Add(Resource newResource) {
         amount += newResource.GetAmount();
     }
 
-    public void SubtractToPay(int payment)
+    public void SubtractAmount(int payment)
     {
         amount -= payment;
     }

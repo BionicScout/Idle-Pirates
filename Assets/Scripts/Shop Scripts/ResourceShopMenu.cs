@@ -50,7 +50,7 @@ public class ResourceShopMenu : MonoBehaviour
     {
         for (int i = 0; i < itemTitles.Count; i++)
         {
-            itemTitles[i].text = shopStock.resources[i].Name();
+            itemTitles[i].text = shopStock.resources[i].GetName();
         }
 
         for (int i = 0; i < itemAmountNumbers.Count; i++)
@@ -76,29 +76,68 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void BuyOneShipResourceItemOne()
+    public void BuyShipResourceItemOne()
     {
+        itemReference = 1;
 
+
+
+        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+        {
+            AudioManager.instance.Play("Menu Sound");
+            item1Button.gameObject.SetActive(false);
+            Pay(itemReference);
+            shopManager.BuyResource(itemReference);
+            itemAmountNumbers[itemReference - 1] -= 1;
+
+        }
 
 
     }
 
 
-    public void BuyOneShipResourceItemTwo()
+    public void BuyShipResourceItemTwo()
     {
+        itemReference = 2;
 
+
+
+        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+        {
+            AudioManager.instance.Play("Menu Sound");
+            item2Button.gameObject.SetActive(false);
+
+            Pay(itemReference);
+            shopManager.BuyResource(itemReference);
+            itemAmountNumbers[itemReference - 1] -= 1;
+        }
 
 
     }
 
 
-    public void BuyOneShipResourceItemThree()
+    public void BuyShipResourceItemThree()
     {
+        itemReference = 3;
 
+
+
+        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+        {
+            AudioManager.instance.Play("Menu Sound");
+            item3Button.gameObject.SetActive(false);
+            Pay(itemReference);
+            shopManager.BuyResource(itemReference);
+            itemAmountNumbers[itemReference - 1] -= 1;
+        }
 
 
     }
 
+    public void Pay(int index)
+    {
+        Inventory.instance.resources[0].SubtractAmount(itemCostNumbers[index - 1]);
 
+    }
 
 }

@@ -59,6 +59,10 @@ public class TimedActivityManager : MonoBehaviour {
 
                 //AudioManager.instance.Play("Moving");
 
+                if(timeQueries[i].tradeQuery) {
+                    timeQueries[i].addResourses();
+                }
+
                 //Check if Querry is Ship Queerry
                 if(timeQueries[i].shipQuery) {
                     mapShip.timeQuery = next;
@@ -67,6 +71,7 @@ public class TimedActivityManager : MonoBehaviour {
                         //If Ship has a next location and is in map scene
 
                         mapShip.updateLocation(timeQueries[i].endNode); //#1
+                        //Debug.Log();
 
                         if(next != null) {
                             mapShip.setLocs();

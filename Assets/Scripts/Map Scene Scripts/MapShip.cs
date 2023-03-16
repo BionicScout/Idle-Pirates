@@ -18,7 +18,26 @@ public class MapShip : MonoBehaviour {
         timeQuery = null;
         transform.position = currentLocation.gameObject.transform.position;
 
+        loadCurrentLocation();
+    }
+
+    public void loadCurrentLocation() {
+        if(CityLastVistedInfo.instance.cityName != null) {
+            Debug.Log(CityLastVistedInfo.instance.cityName);
+
+            foreach(Node n in Pathfinding.nodes) {
+                if(n.nodeName == CityLastVistedInfo.instance.cityName) {
+                    currentLocation = n;
+                    Debug.Log(currentLocation.name);
+                    break;
+                }
+            }
+        }
+
+        Debug.Log("Current City GetName: " + currentLocation.name);
+
         currentLocation.start = true;
+        transform.position = currentLocation.transform.position;
     }
 
     public void setLocs() {
@@ -34,6 +53,8 @@ public class MapShip : MonoBehaviour {
         currentLocation.start = false;
         currentLocation = node;
         currentLocation.start = true;
+        //Debug.Log("Current City GetName: " + currentLocation.name);
+        CityLastVistedInfo.instance.cityName = currentLocation.name;
     }
 
     void Update() {
@@ -58,5 +79,8 @@ public class MapShip : MonoBehaviour {
         percentDone = 1 - (float)(timeLeft_seconds / totalTime);
 
         ship.transform.position = Vector2.Lerp(start, end, percentDone);
+
+        if(UnityEngine.Random.Range(0, 10000)  < 5)
+            SceneSwitcher.instance.A_LoadScene(MinigameSelecter.getMinigame());
     }
 }

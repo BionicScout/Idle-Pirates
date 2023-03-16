@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8dac93b5b3625428497db19df80f93, type: 3}
+  m_Name: Evolution
+  m_EditorClassIdentifier: 
+  shipName: Evolution
+  speed: 20
+  attack: 30
+  health: 40
+  maxCargo: 5
+  shipImage: {fileID: 21300000, guid: 682472a4a0cff4945852c308ef73d1cd, type: 3}
+  usedIn: 2
+  resourcesNeeded:
+  - type: 1
+    resourceName: Wood
+    amount: 20
+    cost: 0

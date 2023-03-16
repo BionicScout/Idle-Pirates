@@ -1,15 +1,10 @@
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ControlManager : MonoBehaviour 
-{
-    public TMP_Text percentageText; //Temp Object
+public class ControlManager : MonoBehaviour {
+    public TMP_Text percentageText;
 
-    [SerializeField]
-    private int totalTerritories = 5;
     public int controlledTerritories = 0;
 
     [SerializeField]
@@ -17,32 +12,8 @@ public class ControlManager : MonoBehaviour
 
     public int percentage = 0;
 
-    //Would be used to change the percentage based on the cities
-    //[SerializeField]
-    //private List<GameObject> cityList;
-    //[SerializeField]
-    //private int totalCities = 5;
-    //public static int controlledCities = 0;
-
-    [SerializeField]
-    private string winningSceneName;
-
-    //public static ControlManager cm;
-
-
-    void Start()
-    {
-        //if (cm == null)
-        //    cm = this;
-
-        totalTerritories = territoryList.Count;
-        //Debug.Log(controlledTerritories);
-        
-    }
-
-    void Update() 
-    {
-        if (controlledTerritories == totalTerritories) {
+    void Update() {
+        if(controlledTerritories == territoryList.Count) {
             Win();
         }
         UpdateText();
@@ -50,20 +21,15 @@ public class ControlManager : MonoBehaviour
 
     void Win() {
         Debug.Log("WIN");
-        SceneManager.LoadScene(winningSceneName);
+        SceneSwitcher.instance.A_LoadScene("You Win");
     }
 
-    void UpdateText() 
-    {   //TEMP METHOD
-        percentage = (int)((controlledTerritories * 100f)/ totalTerritories);
-        //Debug.Log(controlledTerritories);
-        // Debug.Log(percent);
+    void UpdateText() {   
+        percentage = (int)((controlledTerritories * 100f) / territoryList.Count);
         percentageText.text = percentage.ToString() + "%";
     }
 
-    public void AddControlledTerritories()
-    {
+    public void AddControlledTerritories() {
         controlledTerritories += 1;
-        Debug.Log(controlledTerritories);
     }
 }

@@ -8,6 +8,12 @@ public class Inventory : MonoBehaviour {
     public List<InventoryCrew> crew;
     public static Inventory instance;
 
+    public List<MainResources> tradeResourceTemplates;
+    public List<MainShips> shipTemplates;
+    public List<MainCrewMembers> crewTemplates;
+
+
+
     void Awake() {
 
         if (instance == null)
@@ -25,7 +31,7 @@ public class Inventory : MonoBehaviour {
 
 //Resource Managment
     public void AddResource(Resource newResource) {
-        int index = FindResource(newResource.Name());
+        int index = FindResource(newResource.GetName());
 
         if(index >= 0) 
         { //If item exsits, combine the objects
@@ -38,7 +44,7 @@ public class Inventory : MonoBehaviour {
 
     int FindResource(string name) {
         for(int i = 0; i < resources.Count; i++)
-            if(resources[i].Name() == name)
+            if(resources[i].GetName() == name)
                 return i;
 
         return -1;
