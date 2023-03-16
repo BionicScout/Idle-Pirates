@@ -18,3 +18,4 @@ MonoBehaviour:
   health: 30
   cost: 140
   crewImage: {fileID: 0}
+  effectDescription: Buy Ship Resources are 10% cheaper

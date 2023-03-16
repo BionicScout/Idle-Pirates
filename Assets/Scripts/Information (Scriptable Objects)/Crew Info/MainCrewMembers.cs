@@ -12,6 +12,7 @@ public class MainCrewMembers : ScriptableObject
     public int health;
     public int cost;
     public Sprite crewImage;
-
+    [TextAreaAttribute]
+    public string effectDescription;
 
 }

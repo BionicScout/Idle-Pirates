@@ -18,3 +18,4 @@ MonoBehaviour:
   health: 25
   cost: 290
   crewImage: {fileID: 0}
+  effectDescription: 10% More Gold

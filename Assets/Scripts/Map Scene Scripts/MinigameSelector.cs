@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class MinigameSelecter {
     static string[] minigameScenes = { "Combat", "Ship Cleaning", "Coconut Mini Game Instructions", "Ship Mini Game Instructions" };
-    static int[] minigameWeights = { 3, 1, 1, 1};
+    static int[] minigameWeights = { 1, 1, 1, 1};
 
     public static string getMinigame() {
         int totalWeight = 0;

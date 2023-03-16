@@ -18,8 +18,8 @@ public class CombatShip : MonoBehaviour {
         maxHealth = health;
     }
 
-    public void setShip(string shipName) {
-        MainShips ship = Inventory.instance.shipTemplates.Find(x => x.shipName == shipName);
+    public void setShip(string newShipName) {
+        MainShips ship = Inventory.instance.shipTemplates.Find(x => x.shipName == newShipName);
 
         shipName = ship.shipName;
         speed = ship.speed;
@@ -28,6 +28,9 @@ public class CombatShip : MonoBehaviour {
         health = ship.health;
 
         shipImage = ship.shipImage;
+
+        Debug.Log(shipName);
+        Debug.Log(ship.shipName);
     }
 
     public void removeHP(int damage) {
@@ -37,5 +40,6 @@ public class CombatShip : MonoBehaviour {
             dead = true;
             //shipImage.SetActive(false);
         }
+        Debug.Log(shipName);
     }
 }

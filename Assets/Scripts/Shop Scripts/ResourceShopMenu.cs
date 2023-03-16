@@ -66,6 +66,9 @@ public class ResourceShopMenu : MonoBehaviour
         for (int i = 0; i < itemCostNumbers.Count; i++)
         {
             itemCostNumbers[i] = shopStock.resources[i].GetCost();
+
+            if(Inventory.instance.crew.Find(x => x.active).crewName == "Joe")
+                itemCostNumbers[i] -= Mathf.CeilToInt(shopStock.resources[i].GetCost() * .1f);
         }
 
         for (int i = 0; i < itemCostNumbertexts.Count; i++)

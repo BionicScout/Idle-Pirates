@@ -1107,7 +1107,7 @@ MonoBehaviour:
   timerText: {fileID: 1024504771}
   currentDistance: 0
   neededDistance: 2000
-  timerNumber: 45
+  timerNumber: 25
   timeInt: 0
   winScene: Mini Game Win Scene
   loseScene: Mini Game Lose Scene

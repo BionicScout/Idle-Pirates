@@ -573,7 +573,7 @@ MonoBehaviour:
   timerText: {fileID: 1107786232}
   gatheredNumber: 0
   neededNumber: 7
-  timerNumber: 60
+  timerNumber: 35
   timeInt: 0
   winScene: Mini Game Win Scene
   loseScene: Mini Game Lose Scene

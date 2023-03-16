@@ -73,15 +73,21 @@ public class Combat : MonoBehaviour {
         foreach(InventoryShip ship in Inventory.instance.ships) {
             if(ship.use == InventoryShip.USED_IN.combat) {
                 playerFleet.ships[i].setShip(ship.GetShipName());
-                Debug.Log(ship.GetShipName());
+                Debug.Log(playerFleet.ships[i].shipName);
                 i++;
             }
         }
+
+
+
+        Debug.Log(playerFleet.ships[0].shipName);
 
         gameState = GameState.PlayersTurn;
 
         playerShip = playerFleet.ships[SelectNewShip(playerFleet)];
         enemyShip = enemyFleet.ships[SelectNewShip(enemyFleet)];
+
+        UI.updateShipUI(UI.playerShipUI, playerShip);
 
         UI.clickToMoveText = true;
         PlayersTurn();
@@ -227,7 +233,7 @@ public class Combat : MonoBehaviour {
         int totalWeight = playerShip.speed + enemyShip.speed;
         float playerEscapeChance = (float)playerShip.speed / totalWeight;
 
-        if(Random.value >= playerEscapeChance) {
+        if(Random.value >= playerEscapeChance || Inventory.instance.crew.Find(x => x.active).crewName == "Hall") {
             Ran();
             UI.updateTextBox();
             Debug.Log("Got Away");

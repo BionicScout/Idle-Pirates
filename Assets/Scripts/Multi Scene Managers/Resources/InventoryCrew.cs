@@ -11,6 +11,8 @@ public class InventoryCrew {
     public Sprite crewImage;
     public bool inUse; //Used in determining if the crew member is being used as fleet managers
 
+    public bool active;
+
     [SerializeField]
     private int cost;
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -22,8 +20,7 @@ public class Resource {
     [SerializeField]
     private int cost;
 
-    public Resource(Type t, string name, int a, int c)
-    {
+    public Resource(Type t, string name, int a, int c) {
         type = t;
         resourceName = name;
         amount = a;
@@ -71,6 +68,9 @@ public class Resource {
 
     public void Add(Resource newResource) {
         amount += newResource.GetAmount();
+
+        if(Inventory.instance.crew.Find(x => x.active).crewName == "Dave")
+            amount += Mathf.CeilToInt(newResource.GetAmount() * .1f);
     }
 
     public void SubtractAmount(int payment)

@@ -80,7 +80,7 @@ public class ShopManager : MonoBehaviour
 
     public void BuyShip(int index)
     {
-
+        shopInventory.ships[index - 1].use = InventoryShip.USED_IN.none;
         Inventory.instance.AddShip(shopInventory.ships[index - 1]);
 
 

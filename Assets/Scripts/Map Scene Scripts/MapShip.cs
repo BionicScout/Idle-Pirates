@@ -59,10 +59,8 @@ public class MapShip : MonoBehaviour {
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Q)) {
-            List<string> list = MinigameSelecter.getMinigameList(3);
-
-            foreach(string str in list)
-                Debug.Log(str);
+            Resource r = new Resource(Resource.Type.Gold, "Gold", 1000, 1);
+            Inventory.instance.AddResource(r);
         }
 
         if(timeQuery == null) {
@@ -80,7 +78,7 @@ public class MapShip : MonoBehaviour {
 
         ship.transform.position = Vector2.Lerp(start, end, percentDone);
 
-        if(UnityEngine.Random.Range(0, 10000)  < 5)
+        if(UnityEngine.Random.Range(0, 30000)  < 5)
             SceneSwitcher.instance.A_LoadScene(MinigameSelecter.getMinigame());
     }
 }
