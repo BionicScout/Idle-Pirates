@@ -65,6 +65,19 @@ public class Combat : MonoBehaviour {
     public float textWaitSpeed = 3f;
 
     void Start() {
+        loadScene();
+    }
+
+    public void loadScene() {
+        int i = 0;
+        foreach(InventoryShip ship in Inventory.instance.ships) {
+            if(ship.use == InventoryShip.USED_IN.combat) {
+                playerFleet.ships[i].setShip(ship.GetShipName());
+                Debug.Log(ship.GetShipName());
+                i++;
+            }
+        }
+
         gameState = GameState.PlayersTurn;
 
         playerShip = playerFleet.ships[SelectNewShip(playerFleet)];

@@ -628,5 +628,6 @@ MonoBehaviour:
   start: 0
   end: 0
   find: 0
+  tradingPath: 0
   visted: 0
   previous: {fileID: 0}
