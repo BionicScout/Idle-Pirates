@@ -139,8 +139,8 @@ public class Combat : MonoBehaviour {
 
     /*
         This method allows the player to attack the enemy ship. The method does damage ot the enemy ship based off the player's ship's
-        attack and then checks if the enemy ship was deystroyed. If the ship was deystroyed, the next enemy ships comes out. If all 
-        ships were they deystroyed, the win State is called.
+        attack and then checks if the enemy ship was deystroyed. If the ship was deystroyed, the next enemy shipStock comes out. If all 
+        shipStock were they deystroyed, the win State is called.
     */
     void PlayerAttack() {
         gameState = GameState.PlayersAttack;
@@ -190,20 +190,20 @@ public class Combat : MonoBehaviour {
             possibleSwitches.Add(playerFleet.ships[i]);
         }
 
-        //If there are no ships to switch to
+        //If there are no shipStock to switch to
         if(possibleSwitches.Count == 0) {
-            UI.add("", "No other ships to switched to");
+            UI.add("", "No other shipStock to switched to");
             UI.updateTextBox();
             //yield return new WaitForSeconds(textWaitSpeed);
             PlayersTurn();
         }
 
-        //If other ships to switch to
+        //If other shipStock to switch to
         gameState = GameState.PlayerSwitch;
     }
 
     /*
-        Switches ships 
+        Switches shipStock 
         WORK IN PROGRESS
     */
     void PlayerSwitch(int selectedShip) {
@@ -227,7 +227,7 @@ public class Combat : MonoBehaviour {
 
     /*
         This mechanic allows the use to run away in combat. The players esacpe chance is based on the horizontalSpeed of the player's ship \
-        divided by the total horizontalSpeed of both ships currently out. If the 
+        divided by the total horizontalSpeed of both shipStock currently out. If the 
     */
     void PlayerRun() {
         int totalWeight = playerShip.speed + enemyShip.speed;

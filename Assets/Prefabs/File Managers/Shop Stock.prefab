@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4142280452221198527}
-  - component: {fileID: 4142280452221198512}
+  - component: {fileID: -1883901645130634271}
   m_Layer: 0
   m_Name: Shop Stock
   m_TagString: Untagged
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4142280452221198526}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 995.8076, y: 540.8859, z: -6.4160447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4142280452221198512
+--- !u!114 &-1883901645130634271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,90 +41,69 @@ MonoBehaviour:
   m_GameObject: {fileID: 4142280452221198526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d1174d44cfa5f43926d3ba2f8c9028, type: 3}
+  m_Script: {fileID: 11500000, guid: db5ebcaaf726dd143830ffb005494108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources:
-  - type: 1
-    resourceName: Wood
-    amount: 100
-    cost: 30
-  - type: 1
-    resourceName: Metal
-    amount: 50
-    cost: 20
-  - type: 1
-    resourceName: Cloth
-    amount: 115
-    cost: 30
-  ships:
-  - shipName: Evolution
-    speed: 0
-    attack: 0
-    health: 0
-    maxCargo: 0
-    shipImage: {fileID: 0}
-    use: 1
-    resourcesNeeded:
-    - type: 1
-      resourceName: Wood
-      amount: 15
-      cost: 0
-    - type: 1
-      resourceName: Metal
-      amount: 10
-      cost: 0
-  - shipName: Davey
+  resourceStock:
+  - type: 0
+    resourceName: 
+    amount: 0
+    cost: 0
+  - type: 0
+    resourceName: 
+    amount: 0
+    cost: 0
+  - type: 0
+    resourceName: 
+    amount: 0
+    cost: 0
+  shipStock:
+  - shipName: 
     speed: 0
     attack: 0
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 0
-    resourcesNeeded:
-    - type: 1
-      resourceName: Wood
-      amount: 20
-      cost: 0
-  - shipName: Speedster
+    resourcesNeeded: []
+  - shipName: 
     speed: 0
     attack: 0
     health: 0
     maxCargo: 0
     shipImage: {fileID: 0}
-    use: 1
-    resourcesNeeded:
-    - type: 1
-      resourceName: Metal
-      amount: 30
-      cost: 0
-  crew:
-  - crewName: Dave
+    use: 0
+    resourcesNeeded: []
+  - shipName: 
+    speed: 0
+    attack: 0
+    health: 0
+    maxCargo: 0
+    shipImage: {fileID: 0}
+    use: 0
+    resourcesNeeded: []
+  crewStock:
+  - crewName: 
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
-    cost: 290
-    amount: 1
-  - crewName: Hall
+    active: 0
+    cost: 0
+  - crewName: 
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
-    cost: 300
-    amount: 1
-  - crewName: Joe
+    active: 0
+    cost: 0
+  - crewName: 
     speed: 0
     attack: 0
     health: 0
     crewImage: {fileID: 0}
     inUse: 0
-    cost: 140
-    amount: 1
-  tradeResourceTemplates: []
-  shipTemplates:
-  - {fileID: 11400000, guid: 080725427a5f66348b7fdb5c30ed9695, type: 2}
-  - {fileID: 11400000, guid: 141f30e0a9a86d141932f779970723be, type: 2}
-  - {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}
+    active: 0
+    cost: 0

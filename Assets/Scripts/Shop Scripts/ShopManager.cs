@@ -26,7 +26,7 @@ public class ShopManager : MonoBehaviour
     //private GameObject item3Button;
 
     [SerializeField]
-    private Inventory shopInventory;
+    private ShopInventory shopInventory;
 
 
     [SerializeField]
@@ -72,24 +72,24 @@ public class ShopManager : MonoBehaviour
 
     public void BuyCrew(int index)
     {
-        Inventory.instance.AddCrew(shopInventory.crew[index - 1]);
-        //shopInventory.crew[index - 1].ReduceAmount(1);
+        Inventory.instance.AddCrew(shopInventory.crewStock[index - 1]);
+        //shopInventory.crewStock[index - 1].ReduceAmount(1);
 
     }
 
 
     public void BuyShip(int index)
     {
-        shopInventory.ships[index - 1].use = InventoryShip.USED_IN.none;
-        Inventory.instance.AddShip(shopInventory.ships[index - 1]);
+        shopInventory.shipStock[index - 1].use = InventoryShip.USED_IN.none;
+        Inventory.instance.AddShip(shopInventory.shipStock[index - 1]);
 
 
     }
 
     public void BuyResource(int index)
     {
-        Inventory.instance.AddResource(shopInventory.resources[index - 1]);
-        //shopInventory.resources[index - 1].SubtractAmount(1);
+        Inventory.instance.AddResource(shopInventory.resourceStock[index - 1]);
+        //shopInventory.resourceStock[index - 1].SubtractAmount(1);
 
 
     }

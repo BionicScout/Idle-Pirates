@@ -64,7 +64,7 @@ public class ShipAndCrewMenus : MonoBehaviour {
             }
         }
 
-    //Delete Old ships
+    //Delete Old shipStock
         foreach(GameObject obj in listOfAvaliableShips)
             Destroy(obj);
 

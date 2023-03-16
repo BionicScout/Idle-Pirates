@@ -9,7 +9,7 @@ public class InventoryCrew {
     public int attack;
     public int health;
     public Sprite crewImage;
-    public bool inUse; //Used in determining if the crew member is being used as fleet managers
+    public bool inUse; //Used in determining if the crewStock member is being used as fleet managers
 
     public bool active;
 

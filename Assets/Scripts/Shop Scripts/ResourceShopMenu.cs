@@ -35,6 +35,10 @@ public class ResourceShopMenu : MonoBehaviour
     private GameObject item3Button;
 
 
+    [SerializeField]
+    private int shopItemLimit = 3;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,16 +50,37 @@ public class ResourceShopMenu : MonoBehaviour
     {
         
     }
-    public void SetValues(Inventory shopStock)
+
+    public List<Resource> GenerateResources()
     {
+        List<Resource> listOfCrew = new List<Resource>();
+
+        for (int z = 0; z < shopItemLimit; z++)
+        {
+            Resource invCrew = new Resource(Inventory.instance.shipBuildResourceTemplates[z]);
+
+
+            listOfCrew.Add(invCrew);
+        }
+
+        return listOfCrew;
+    }
+
+
+    public void SetValues(ShopInventory shopStock)
+    {
+
+        shopStock.resourceStock = GenerateResources();
+
+
         for (int i = 0; i < itemTitles.Count; i++)
         {
-            itemTitles[i].text = shopStock.resources[i].GetName();
+            itemTitles[i].text = shopStock.resourceStock[i].GetName();
         }
 
         for (int i = 0; i < itemAmountNumbers.Count; i++)
         {
-            itemAmountNumbers[i] = shopStock.resources[i].GetAmount();
+            itemAmountNumbers[i] = shopStock.resourceStock[i].GetAmount();
         }
 
         for (int i = 0; i < itemAmountNumbertexts.Count; i++)
@@ -65,10 +90,10 @@ public class ResourceShopMenu : MonoBehaviour
 
         for (int i = 0; i < itemCostNumbers.Count; i++)
         {
-            itemCostNumbers[i] = shopStock.resources[i].GetCost();
+            itemCostNumbers[i] = shopStock.resourceStock[i].GetCost();
 
             if(Inventory.instance.crew.Find(x => x.active).crewName == "Joe")
-                itemCostNumbers[i] -= Mathf.CeilToInt(shopStock.resources[i].GetCost() * .1f);
+                itemCostNumbers[i] -= Mathf.CeilToInt(shopStock.resourceStock[i].GetCost() * .1f);
         }
 
         for (int i = 0; i < itemCostNumbertexts.Count; i++)

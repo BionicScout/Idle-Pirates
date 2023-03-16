@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour {
     public static Inventory instance;
 
     public List<MainResources> tradeResourceTemplates;
+    public List<MainResources> shipBuildResourceTemplates;
     public List<MainShips> shipTemplates;
     public List<MainCrewMembers> crewTemplates;
 

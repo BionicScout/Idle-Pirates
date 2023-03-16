@@ -62,20 +62,20 @@ public class CrewShopMenu : MonoBehaviour
     }
 
 
-    public void SetValues(Inventory shopStock)
+    public void SetValues(ShopInventory shopStock)
     {
-        shopStock.crew = GenerateCrew();
+        shopStock.crewStock = GenerateCrew();
 
 
         for (int i = 0; i < itemTitles.Count; i++)
         {
             
-            itemTitles[i].text = shopStock.crew[i].crewName;
+            itemTitles[i].text = shopStock.crewStock[i].crewName;
         }
 
         for (int i = 0; i < itemCostNumbers.Count; i++)
         {
-            itemCostNumbers[i] = shopStock.crew[i].GetCost();
+            itemCostNumbers[i] = shopStock.crewStock[i].GetCost();
         }
 
         for (int i = 0; i < itemCostNumbertexts.Count; i++)

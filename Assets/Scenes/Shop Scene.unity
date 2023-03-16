@@ -4460,8 +4460,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crew.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crewTemplates.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crew.Array.data[0].active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crew.Array.data[0].crewName
+      value: Hall
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crewTemplates.Array.data[0]
@@ -4491,6 +4503,22 @@ PrefabInstance:
       propertyPath: tradeResourceTemplates.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 32d184c94a2083f4d8d66f543d3943ad, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2456b38d13d88844f966fec86dea9af3, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4033bbcdac9494898f6c66be57633c, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b7cf7ed8d9ce2e41b5c306cae160781, type: 2}
     - target: {fileID: 7410352101125369334, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: m_Name
       value: Dont Destroy Inventory
@@ -5840,6 +5868,7 @@ MonoBehaviour:
   item1Button: {fileID: 2009413282}
   item2Button: {fileID: 95462606}
   item3Button: {fileID: 2049993858}
+  shopItemLimit: 3
 --- !u!1 &1103831746
 GameObject:
   m_ObjectHideFlags: 0
@@ -6814,7 +6843,7 @@ MonoBehaviour:
   resourceShopMenu: {fileID: 1033190406}
   shipShopMenu: {fileID: 1613154343}
   crewShopMenu: {fileID: 1591355110}
-  shopInventory: {fileID: 4142280452221198512, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+  shopInventory: {fileID: 1930829216}
   shipBuyResourceTypes: 0
   shipTypes: 0
   crewTypes: 0
@@ -7224,6 +7253,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368150143}
   m_CullTransparentMesh: 1
+--- !u!1001 &1372068905
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4142280452221198526, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_Name
+      value: Shop Stock
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 995.8076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 540.8859
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.4160447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142280452221198527, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
 --- !u!1 &1383233933
 GameObject:
   m_ObjectHideFlags: 0
@@ -10285,6 +10371,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929265641}
   m_CullTransparentMesh: 1
+--- !u!114 &1930829216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1883901645130634271, guid: 06f2db42fa24a4045b82fdef759f563f, type: 3}
+  m_PrefabInstance: {fileID: 1372068905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5ebcaaf726dd143830ffb005494108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1937320040
 GameObject:
   m_ObjectHideFlags: 0

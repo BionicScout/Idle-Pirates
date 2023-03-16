@@ -27,6 +27,14 @@ public class Resource {
         cost = c;
     }
 
+    public Resource(MainResources resource)
+    {
+        type = resource.type;
+        resourceName = resource.resourceName;
+        amount = Random.Range(1, 10);
+        cost = resource.buyValue;
+    }
+
     public string GetName() 
     {
         return resourceName;

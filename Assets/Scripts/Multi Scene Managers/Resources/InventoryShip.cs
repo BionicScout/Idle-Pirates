@@ -16,9 +16,9 @@ public class InventoryShip {
     public USED_IN use = USED_IN.none; //Used to determine if the ship can be used in diffent tasks
 
     //Materials Needed;
-    public List<Resource> resourcesNeeded;
+    public List<Resource> resourcesNeeded = new List<Resource>();
 
-    //Thought it should of had a constructor like resources script
+    //Thought it should of had a constructor like resourceStock script
     public InventoryShip(MainShips ships)
     {
 
@@ -31,20 +31,17 @@ public class InventoryShip {
 
         for (int i = 0; i < ships.resourcesNeeded.Count; i++)
         {
-            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetName());
-            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetAmount());
-            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetCost());
-            //Debug.Log(i + " + " + ships.resourcesNeeded[i].GetResourceType());
 
-            resourcesNeeded[i].AddType(ships.resourcesNeeded[i].GetResourceType());
-            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
-            resourcesNeeded[i].AddAmount(ships.resourcesNeeded[i].GetAmount());
-            resourcesNeeded[i].AddCost(ships.resourcesNeeded[i].GetCost());
-            
+            resourcesNeeded.Add(ships.resourcesNeeded[i]);
 
-            //resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
 
-            //Error: For loop stops at one iteration
+            Debug.Log(i + " + " + resourcesNeeded[i].GetName());
+            Debug.Log(i + " + " + resourcesNeeded[i].GetAmount());
+            Debug.Log(i + " + " + resourcesNeeded[i].GetCost());
+            Debug.Log(i + " + " + resourcesNeeded[i].GetResourceType());
+
+
+
         }
 
 

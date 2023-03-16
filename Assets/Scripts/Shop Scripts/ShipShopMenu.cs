@@ -103,6 +103,7 @@ public class ShipShopMenu : MonoBehaviour
 
         for (int z = 0; z < shopItemLimit; z++)
         {
+            /*
             //Pick Random ship for Inventory.instance.shipTemplates
             //Turn template into InventoryShip
 
@@ -132,6 +133,10 @@ public class ShipShopMenu : MonoBehaviour
             
             //Debug.Log(templateShip.name);
 
+
+
+            */
+
             InventoryShip invShip = new InventoryShip(Inventory.instance.shipTemplates[z]);
 
 
@@ -147,24 +152,24 @@ public class ShipShopMenu : MonoBehaviour
         return listOfShips;
     }
 
-    public void SetValues(Inventory shopStock)
+    public void SetValues(ShopInventory shopStock)
     {
-       // List<InventoryShip> generatedShips = GenerateShips();
+       
 
-        //shopStock.ships = GenerateShips();
+        shopStock.shipStock = GenerateShips();
 
 
         for (int i = 0; i < itemTitles.Count; i++)
         {
-            itemTitles[i].text = shopStock.ships[i].GetShipName();
+            itemTitles[i].text = shopStock.shipStock[i].GetShipName();
         }
 
         for (int i = 0; i < allItemMaterialTexts.Count; i++)
         {
-            for (int j = 0; j < shopStock.ships[i].resourcesNeeded.Count; j++)
+            for (int j = 0; j < shopStock.shipStock[i].resourcesNeeded.Count; j++)
             {
-                //string mats = shopStock.ships[i].resourcesNeeded[j].GetName()
-                //    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                //string mats = shopStock.shipStock[i].resourcesNeeded[j].GetName()
+                //    + ": " + shopStock.shipStock[i].resourcesNeeded[j].GetAmount().ToString()
                 //    + "\n";
 
 
@@ -173,35 +178,35 @@ public class ShipShopMenu : MonoBehaviour
 
                 //Each item has a sentence of all of the materials
                 allItemMaterialTexts[i] +=
-                    shopStock.ships[i].resourcesNeeded[j].GetName()
-                    + ": " + shopStock.ships[i].resourcesNeeded[j].GetAmount().ToString()
+                    shopStock.shipStock[i].resourcesNeeded[j].GetName()
+                    + ": " + shopStock.shipStock[i].resourcesNeeded[j].GetAmount().ToString()
                     + "\n";
             }
         }
 
 
 
-        //for seperate ships
+        //for seperate shipStock
         int k = 0;
-        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        for (int l = 0; l < shopStock.shipStock[k].resourcesNeeded.Count; l++)
         {
-            item1MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].GetName());
-            item1MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+            item1MaterialTexts.Add(shopStock.shipStock[k].resourcesNeeded[l].GetName());
+            item1MaterialAmounts.Add(shopStock.shipStock[k].resourcesNeeded[l].GetAmount());
 
         }
         k++;
-        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        for (int l = 0; l < shopStock.shipStock[k].resourcesNeeded.Count; l++)
         {
-            item2MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].GetName());
-            item2MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+            item2MaterialTexts.Add(shopStock.shipStock[k].resourcesNeeded[l].GetName());
+            item2MaterialAmounts.Add(shopStock.shipStock[k].resourcesNeeded[l].GetAmount());
 
 
         }
         k++;
-        for (int l = 0; l < shopStock.ships[k].resourcesNeeded.Count; l++)
+        for (int l = 0; l < shopStock.shipStock[k].resourcesNeeded.Count; l++)
         {
-            item3MaterialTexts.Add(shopStock.ships[k].resourcesNeeded[l].GetName());
-            item3MaterialAmounts.Add(shopStock.ships[k].resourcesNeeded[l].GetAmount());
+            item3MaterialTexts.Add(shopStock.shipStock[k].resourcesNeeded[l].GetName());
+            item3MaterialAmounts.Add(shopStock.shipStock[k].resourcesNeeded[l].GetAmount());
 
 
         }
@@ -227,7 +232,7 @@ public class ShipShopMenu : MonoBehaviour
 
             itemReference = 1;
 
-            //Get index of resources in inventory for payment progress
+            //Get index of resourceStock in inventory for payment progress
             //Make list for that
 
 
@@ -244,7 +249,7 @@ public class ShipShopMenu : MonoBehaviour
                         if (Inventory.instance.resources[x].GetAmount() >= item1MaterialAmounts[y])
                         {
                             //shipAmountRequirementChecks.Add(
-                            //    Inventory.instance.resources[x].GetAmount() - item1MaterialAmounts[y]);
+                            //    Inventory.instance.resourceStock[x].GetAmount() - item1MaterialAmounts[y]);
 
                             shipAmountRequirementChecks.Add(1);
                         }
@@ -312,7 +317,7 @@ public class ShipShopMenu : MonoBehaviour
                         if (Inventory.instance.resources[x].GetAmount() >= item2MaterialAmounts[y])
                         {
                             //shipAmountRequirementChecks.Add(
-                            //    Inventory.instance.resources[x].GetAmount() - item1MaterialAmounts[y]);
+                            //    Inventory.instance.resourceStock[x].GetAmount() - item1MaterialAmounts[y]);
 
                             shipAmountRequirementChecks.Add(1);
                         }
@@ -362,7 +367,7 @@ public class ShipShopMenu : MonoBehaviour
                         if (Inventory.instance.resources[x].GetAmount() >= item3MaterialAmounts[y])
                         {
                             //shipAmountRequirementChecks.Add(
-                            //    Inventory.instance.resources[x].GetAmount() - item1MaterialAmounts[y]);
+                            //    Inventory.instance.resourceStock[x].GetAmount() - item1MaterialAmounts[y]);
 
                             shipAmountRequirementChecks.Add(1);
                         }
