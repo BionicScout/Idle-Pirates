@@ -9,7 +9,7 @@ public class Resource {
     }
 
     [SerializeField]
-    private Type type;
+    public Type type;
 
     [SerializeField]
     private string resourceName;
