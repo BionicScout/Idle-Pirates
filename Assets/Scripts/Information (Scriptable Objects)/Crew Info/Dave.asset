@@ -17,5 +17,5 @@ MonoBehaviour:
   attack: 20
   health: 25
   cost: 290
-  crewImage: {fileID: 0}
+  crewImage: {fileID: 21300000, guid: fb06c65dc3c46544eb98a746d91818ae, type: 3}
   effectDescription: 10% More Gold

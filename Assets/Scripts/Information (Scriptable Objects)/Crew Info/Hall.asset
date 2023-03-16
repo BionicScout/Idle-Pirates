@@ -17,5 +17,5 @@ MonoBehaviour:
   attack: 15
   health: 35
   cost: 300
-  crewImage: {fileID: 0}
+  crewImage: {fileID: 21300000, guid: c4453220473ba104fbbbdfc775779277, type: 3}
   effectDescription: Always can Run away

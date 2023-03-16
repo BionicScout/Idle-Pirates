@@ -143,7 +143,7 @@ public class ShipAndCrewMenus : MonoBehaviour {
             }
         }
 
-        //activeCrew_UI.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = info.shipImage;
+        activeCrew_UI.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = info.crewImage;
         activeCrew_UI.transform.GetChild(1).GetComponent<TMP_Text>().text = info.crewName + "\nEffect: " + info.effectDescription;
     }
 
@@ -161,7 +161,7 @@ public class ShipAndCrewMenus : MonoBehaviour {
             GameObject infoBlock = Instantiate(availableCrewInfoPrefab);
             MainCrewMembers info = Inventory.instance.crewTemplates.Find(x => x.crewName == crew.crewName);
 
-            //infoBlock.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = info.crewImage;
+            infoBlock.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = info.crewImage;
             infoBlock.transform.GetChild(0).GetChild(0).GetComponent<Button>().onClick.AddListener(() => { selectNewCrew(infoBlock); });
             infoBlock.transform.GetChild(1).GetComponent<TMP_Text>().text = info.crewName + "\nEffect: " + info.effectDescription;
 
