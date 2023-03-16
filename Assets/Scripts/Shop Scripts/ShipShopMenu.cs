@@ -151,7 +151,7 @@ public class ShipShopMenu : MonoBehaviour
     {
        // List<InventoryShip> generatedShips = GenerateShips();
 
-        shopStock.ships = GenerateShips();
+        //shopStock.ships = GenerateShips();
 
 
         for (int i = 0; i < itemTitles.Count; i++)
