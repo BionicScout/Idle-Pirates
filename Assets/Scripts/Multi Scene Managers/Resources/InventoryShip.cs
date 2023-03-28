@@ -67,23 +67,23 @@ public class InventoryShip {
     }
 
 
-    public void AddfromTemplate(MainShips ships)
-    {
-        shipName = ships.shipName;
-        speed = ships.speed;
-        attack = ships.attack;
-        health = ships.health;
-        maxCargo = ships.maxCargo;
-        shipImage = ships.shipImage;
+    //public void AddfromTemplate(MainShips ships)
+    //{
+    //    shipName = ships.shipName;
+    //    speed = ships.speed;
+    //    attack = ships.attack;
+    //    health = ships.health;
+    //    maxCargo = ships.maxCargo;
+    //    shipImage = ships.shipImage;
 
-        for (int i = 0; i < ships.resourcesNeeded.Count; i++)
-        {
-            resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
-            resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
-        }
+    //    for (int i = 0; i < ships.resourcesNeeded.Count; i++)
+    //    {
+    //        resourcesNeeded[i].AddName(ships.resourcesNeeded[i].GetName());
+    //        resourcesNeeded[i].Add(ships.resourcesNeeded[i]);
+    //    }
 
 
-    }
+    //}
 
 
     public string GetShipName()

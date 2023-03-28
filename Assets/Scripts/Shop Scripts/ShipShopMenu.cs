@@ -106,7 +106,9 @@ public class ShipShopMenu : MonoBehaviour
             /*
             //Pick Random ship for Inventory.instance.shipTemplates
             //Turn template into InventoryShip
+            */
 
+            /*
             //Debug.Log(z + " + " + Inventory.instance.shipTemplates[z]);
 
             //for (int x = 0; x < Inventory.instance.shipTemplates[z].resourcesNeeded.Count; x++)
@@ -137,10 +139,45 @@ public class ShipShopMenu : MonoBehaviour
 
             */
 
-            InventoryShip invShip = new InventoryShip(Inventory.instance.shipTemplates[z]);
+
+            int randomPosition 
+                = UnityEngine.Random.Range(0, Inventory.instance.shipTemplates.Count);
 
 
-            listOfShips.Add(invShip);
+            
+
+
+            InventoryShip invShip 
+                = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
+
+
+            //Check to see if ship is already inside of the shopList
+            //for(int y = 0; y < listOfShips.Count; y++)
+            //{
+            //    //Check the name of ship to see if the name is in there
+
+            //    listOfShips.Find(invShip);
+
+
+            //}
+
+            while (listOfShips.Contains(invShip) == true)
+            {
+                randomPosition
+                = UnityEngine.Random.Range(0, Inventory.instance.shipTemplates.Count);
+
+                invShip
+                    = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
+
+            }
+
+            if(listOfShips.Contains(invShip) == false)
+            {
+                listOfShips.Add(invShip);
+            }
+
+
+            
 
             //listOfShips[i].AddfromTemplate(Inventory.instance.shipTemplates[i]);
 

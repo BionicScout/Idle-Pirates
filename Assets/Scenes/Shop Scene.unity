@@ -4468,6 +4468,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crew.Array.data[0].active
       value: 1
       objectReference: {fileID: 0}
@@ -4487,6 +4491,22 @@ PrefabInstance:
       propertyPath: crewTemplates.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 4b376ecf4efa7774aa2004e8e959aa39, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dd8329d3fe35bd545bb22ef8605f0b51, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3427ded20047fbb489c62a5098d52b7d, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 824ccbed1a73ee5489d826b9e5b572e1, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: tradeResourceTemplates.Array.size
       value: 3
