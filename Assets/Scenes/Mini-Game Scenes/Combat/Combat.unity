@@ -1371,7 +1371,7 @@ GameObject:
   - component: {fileID: 506933054}
   - component: {fileID: 506933053}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ShipName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 656577862}
   - component: {fileID: 656577861}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2002,13 +2002,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFleet: {fileID: 1693799290}
   enemyFleet: {fileID: 655171101}
-  gameState: 0
-  UI: {fileID: 721840188}
-  mapSceneName: Map Scene
+  updateTextTime: 2.8
+  textUI: {fileID: 1460444440}
+  attackButton: {fileID: 1315436890}
+  switchButton: {fileID: 1450866393}
+  runButton: {fileID: 1812345843}
+  playerShipUI: {fileID: 701125814}
+  enemyShipUI: {fileID: 1411285585}
   fleePopUp: {fileID: 1278203113}
   oneShip_swapPopUp: {fileID: 1964985123}
   twoShip_swapPopUp: {fileID: 332813528}
-  textWaitSpeed: 1
 --- !u!4 &721840187
 Transform:
   m_ObjectHideFlags: 0
@@ -2036,23 +2039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e9bac4f74b36e4291c6e5492c36207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerUI: {fileID: 1460444440}
-  textUI: {fileID: 1460444440}
-  clickToMoveText: 0
-  canUseButttons: 0
-  switched: 0
-  shipList:
-  - {fileID: 1826810895}
-  - {fileID: 2134184128}
-  - {fileID: 619456373}
-  - {fileID: 567626943}
-  - {fileID: 1853863796}
-  - {fileID: 319357287}
-  attackButton: {fileID: 1315436890}
-  switchButton: {fileID: 1450866393}
-  runButton: {fileID: 1812345843}
-  playerShipUI: {fileID: 701125814}
-  enemyShipUI: {fileID: 1411285585}
 --- !u!1 &848027683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3072,7 +3058,7 @@ GameObject:
   - component: {fileID: 1374242650}
   - component: {fileID: 1374242649}
   m_Layer: 5
-  m_Name: ShipImage
+  m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3830,7 +3816,7 @@ GameObject:
   - component: {fileID: 1534806527}
   - component: {fileID: 1534806526}
   m_Layer: 5
-  m_Name: 'Text (TMP) '
+  m_Name: ShipName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4303,7 +4289,7 @@ GameObject:
   - component: {fileID: 1788295553}
   - component: {fileID: 1788295552}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
