@@ -161,6 +161,7 @@ public class ShipShopMenu : MonoBehaviour
 
             //}
 
+
             while (listOfShips.Contains(invShip) == true)
             {
                 randomPosition
@@ -177,12 +178,6 @@ public class ShipShopMenu : MonoBehaviour
             }
 
 
-            
-
-            //listOfShips[i].AddfromTemplate(Inventory.instance.shipTemplates[i]);
-
-
-            //templateShip.Delete();
             
         }
 

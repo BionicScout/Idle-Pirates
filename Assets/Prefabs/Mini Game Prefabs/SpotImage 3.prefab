@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 710480219899502162}
   - component: {fileID: 1296077035879934320}
   m_Layer: 5
-  m_Name: SpotImage
+  m_Name: SpotImage 3
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 164.5144, y: 162.42493}
-  m_SizeDelta: {x: 100, y: 125}
+  m_SizeDelta: {x: 100, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3702405636244885851
 CanvasRenderer:
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1916267696, guid: 6c218ff509a8e7d4b8036e27c88a2889, type: 3}
+  m_Sprite: {fileID: 1883460049, guid: cf310ee629fcd0d41bd76fc87b64672a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

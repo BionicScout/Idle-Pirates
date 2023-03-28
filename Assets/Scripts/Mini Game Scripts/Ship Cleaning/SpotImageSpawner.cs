@@ -12,6 +12,9 @@ public class SpotImageSpawner : MonoBehaviour
     private GameObject imageToSpawn;
 
     [SerializeField]
+    private List<GameObject> spotsToSpawn = new List<GameObject>();
+
+    [SerializeField]
     private PolygonCollider2D polyCollider;
 
     [SerializeField]
@@ -34,7 +37,12 @@ public class SpotImageSpawner : MonoBehaviour
             Vector2 randomPoint = GetRandomPointInCollider();
             if (polyCollider.OverlapPoint(randomPoint))
             {
-                GameObject spawnedObject = Instantiate(imageToSpawn, randomPoint, Quaternion.identity);
+                int randomPosition = Random.Range(0, spotsToSpawn.Count);
+
+                GameObject spawnedObject 
+                    = Instantiate(spotsToSpawn[randomPosition], randomPoint, Quaternion.identity);
+
+                //GameObject spawnedObject = Instantiate(imageToSpawn, randomPoint, Quaternion.identity);
                 RectTransform rectTransform = spawnedObject.GetComponent<RectTransform>();
                 Vector3 canvasPosition = canvasCamera.WorldToScreenPoint(randomPoint);
                 rectTransform.anchoredPosition = (Vector2)canvasPosition - canvas.GetComponent<RectTransform>().sizeDelta / 2f;
@@ -42,7 +50,7 @@ public class SpotImageSpawner : MonoBehaviour
             }
         }
 
-
+        /*
         //for (int i = 0; i < 10; i++)
         //{
         //    GameObject imageInstance = Instantiate(imageToSpawn);
@@ -53,9 +61,9 @@ public class SpotImageSpawner : MonoBehaviour
         //    }
         //    imageInstance.transform.position = randomPosition;
         //}
+        */
 
-
-
+        /*
         //Old Method
         //Bounds bounds = polyCollider.bounds;
 
@@ -91,6 +99,9 @@ public class SpotImageSpawner : MonoBehaviour
         //        newImage.rectTransform.localPosition = localPoint;
         //    }
         //}
+        */
+
+
     }
 
 

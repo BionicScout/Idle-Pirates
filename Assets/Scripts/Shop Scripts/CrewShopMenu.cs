@@ -52,10 +52,29 @@ public class CrewShopMenu : MonoBehaviour
 
         for (int z = 0; z < shopItemLimit; z++)
         {
-            InventoryCrew invCrew = new InventoryCrew(Inventory.instance.crewTemplates[z]);
+            int randomPosition
+                = Random.Range(0, Inventory.instance.crewTemplates.Count);
+
+            InventoryCrew invCrew 
+                = new InventoryCrew(Inventory.instance.crewTemplates[randomPosition]);
 
 
-            listOfCrew.Add(invCrew);
+            while (listOfCrew.Contains(invCrew) == true)
+            {
+                randomPosition
+                = Random.Range(0, Inventory.instance.shipTemplates.Count);
+
+                invCrew
+                    = new InventoryCrew(Inventory.instance.crewTemplates[randomPosition]);
+
+            }
+
+            if (listOfCrew.Contains(invCrew) == false)
+            {
+                listOfCrew.Add(invCrew);
+            }
+
+
         }
 
         return listOfCrew;

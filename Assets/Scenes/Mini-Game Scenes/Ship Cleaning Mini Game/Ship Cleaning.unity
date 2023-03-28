@@ -531,7 +531,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 907f2e5e236c1c9428d677c6097a14c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9830b8ef1833f2149bf266360ccd3530, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -550,8 +550,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745114026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0, z: 0}
-  m_LocalScale: {x: 1.2126186, y: 1.2126186, z: 1.2126186}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0}
+  m_LocalScale: {x: 1.7914015, y: 1.7914015, z: 1.7914015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -574,7 +574,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.36, y: 11.52}
+    oldSize: {x: 10, y: 5.62}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -582,15 +582,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 4.2110763, y: -1.4245799}
-      - {x: 7.7840147, y: 0.39039505}
-      - {x: 3.1095526, y: 0.2046183}
-      - {x: 1.9469103, y: 1.7391382}
-      - {x: -1.0417308, y: 2.356872}
-      - {x: -5.5181766, y: 1.1578643}
-      - {x: -6.061547, y: 0.3353927}
-      - {x: -5.909241, y: -0.96853685}
-      - {x: 4.066823, y: -2.1050754}
+    - - {x: 2.0076032, y: 0.71737087}
+      - {x: 2.6591196, y: 1.2831548}
+      - {x: 3.0700207, y: 2.2554674}
+      - {x: 2.776632, y: 2.400789}
+      - {x: -4.813853, y: 2.413666}
+      - {x: -4.0219646, y: 0.19816464}
+      - {x: -3.4810102, y: 0.6267931}
 --- !u!114 &745114031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,9 +603,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1302790980}
   imageToSpawn: {fileID: 3702405636244885847, guid: a1ef40427251e2a4eafddcb58564ad8c, type: 3}
+  spotsToSpawn:
+  - {fileID: 3702405636244885847, guid: a1ef40427251e2a4eafddcb58564ad8c, type: 3}
+  - {fileID: 3702405636244885847, guid: 8a73964a9ab4bb740ae68db4d5f9179e, type: 3}
+  - {fileID: 3702405636244885847, guid: b8d24ccc58911f54ba65bf087daf46d8, type: 3}
+  - {fileID: 3702405636244885847, guid: 6434bef4629ef374e973a1f70014eda6, type: 3}
   polyCollider: {fileID: 0}
   canvasCamera: {fileID: 1593665101}
-  numberOfSpots: 25
+  numberOfSpots: 20
 --- !u!1 &1302790977
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +847,7 @@ MonoBehaviour:
   winScene: Mini Game Win Scene
   loseScene: Mini Game Lose Scene
   spotSpawner: {fileID: 745114031}
-  timeMultipler: 1.5
+  timeMultipler: 0.9
 --- !u!1 &1479227619
 GameObject:
   m_ObjectHideFlags: 0
