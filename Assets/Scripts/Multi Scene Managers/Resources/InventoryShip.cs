@@ -60,7 +60,7 @@ public class InventoryShip {
         for (int i = 0; i < r.Count; i++)
         {
             resourcesNeeded[i].AddName(r[i].GetName());
-            resourcesNeeded[i].Add(r[i]);
+            resourcesNeeded[i].AddNewResource(r[i]);
         }
 
 

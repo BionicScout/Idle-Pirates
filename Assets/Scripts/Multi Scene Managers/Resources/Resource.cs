@@ -31,7 +31,7 @@ public class Resource {
     {
         type = resource.type;
         resourceName = resource.resourceName;
-        amount = Random.Range(1, 10);
+        amount = Random.Range(50, 100);
         cost = resource.buyValue;
     }
 
@@ -74,7 +74,7 @@ public class Resource {
         return type;
     }
 
-    public void Add(Resource newResource) {
+    public void AddNewResource(Resource newResource) {
         amount += newResource.GetAmount();
 
         if(Inventory.instance.crew.Find(x => x.active).crewName == "Dave")

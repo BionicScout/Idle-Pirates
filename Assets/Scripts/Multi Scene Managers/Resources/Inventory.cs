@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour {
 
         if(index >= 0) 
         { //If item exsits, combine the objects
-            resources[index].Add(newResource);
+            resources[index].AddNewResource(newResource);
             return;
         }
 

@@ -76,7 +76,10 @@ public class ShipShopMenu : MonoBehaviour
     private List<int> shipMatRequirementChecks = new List<int>();
 
     [SerializeField]
-    private List<int> shipAmountRequirementChecks = new List<int>();
+    private List<int> shipMatAmountRequirementChecks = new List<int>();
+
+    [SerializeField]
+    private List<int> shipMatIndex = new List<int>();
 
     [SerializeField]
     private bool payCheck;
@@ -85,17 +88,6 @@ public class ShipShopMenu : MonoBehaviour
     private int shopItemLimit = 3;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public List<InventoryShip> GenerateShips() 
     {
@@ -259,8 +251,9 @@ public class ShipShopMenu : MonoBehaviour
     {
         if (materialListOn == false)
         {
-            shipAmountRequirementChecks.Clear();
+            shipMatAmountRequirementChecks.Clear();
             shipMatRequirementChecks.Clear();
+            shipMatIndex.Clear();
 
             itemReference = 1;
 
@@ -278,12 +271,15 @@ public class ShipShopMenu : MonoBehaviour
                         shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
                             resources[x].GetName().Contains(item1MaterialTexts[y])));
 
+                        shipMatIndex.Add(x);
+
+
                         if (Inventory.instance.resources[x].GetAmount() >= item1MaterialAmounts[y])
                         {
                             //shipAmountRequirementChecks.Add(
                             //    Inventory.instance.resourceStock[x].GetAmount() - item1MaterialAmounts[y]);
 
-                            shipAmountRequirementChecks.Add(1);
+                            shipMatAmountRequirementChecks.Add(1);
                         }
                     }
                 }
@@ -292,21 +288,25 @@ public class ShipShopMenu : MonoBehaviour
 
 
             if (shipMatRequirementChecks.Count == item1MaterialTexts.Count &&
-                shipAmountRequirementChecks.Count == item1MaterialAmounts.Count)
+                shipMatAmountRequirementChecks.Count == item1MaterialAmounts.Count)
             {
                 AudioManager.instance.Play("Menu Sound");
                 item1Button.gameObject.SetActive(false);
 
                 for (int i = 0; i < item1MaterialAmounts.Count; i++)
                 {
-                    Inventory.instance.resources[i + 1].SubtractAmount(item1MaterialAmounts[i]);
+                    //Maybe make a list of integers containing the indexes 
+                    //of each material needed
+
+                    Inventory.instance.resources[shipMatIndex[i]]
+                        .SubtractAmount(item1MaterialAmounts[i]);
                 }
 
                 shopManager.BuyShip(itemReference);
 
             }
 
-
+            /*
             //if shipMatRequirementChecks have 2 trues, check of they have the right amount
 
 
@@ -322,7 +322,7 @@ public class ShipShopMenu : MonoBehaviour
             //Search the inventory if they have the materials for this item
             //through the specific list 
 
-
+            */
         }
     }
 
@@ -332,7 +332,8 @@ public class ShipShopMenu : MonoBehaviour
         if (materialListOn == false)
         {
             shipMatRequirementChecks.Clear();
-            shipAmountRequirementChecks.Clear();
+            shipMatAmountRequirementChecks.Clear();
+            shipMatIndex.Clear();
 
             itemReference = 2;
 
@@ -346,12 +347,14 @@ public class ShipShopMenu : MonoBehaviour
                         shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
                             resources[x].GetName().Contains(item2MaterialTexts[y])));
 
+                        shipMatIndex.Add(x);
+
                         if (Inventory.instance.resources[x].GetAmount() >= item2MaterialAmounts[y])
                         {
                             //shipAmountRequirementChecks.Add(
                             //    Inventory.instance.resourceStock[x].GetAmount() - item1MaterialAmounts[y]);
 
-                            shipAmountRequirementChecks.Add(1);
+                            shipMatAmountRequirementChecks.Add(1);
                         }
                     }
                 }
@@ -360,14 +363,15 @@ public class ShipShopMenu : MonoBehaviour
 
 
             if (shipMatRequirementChecks.Count == item2MaterialTexts.Count &&
-                shipAmountRequirementChecks.Count == item2MaterialAmounts.Count)
+                shipMatAmountRequirementChecks.Count == item2MaterialAmounts.Count)
             {
                 AudioManager.instance.Play("Menu Sound");
                 item2Button.gameObject.SetActive(false);
 
                 for (int i = 0; i < item2MaterialAmounts.Count; i++)
                 {
-                    Inventory.instance.resources[i + 1].SubtractAmount(item2MaterialAmounts[i]);
+                    Inventory.instance.resources[shipMatIndex[i]]
+                        .SubtractAmount(item2MaterialAmounts[i]);
                 }
 
                 shopManager.BuyShip(itemReference);
@@ -382,7 +386,8 @@ public class ShipShopMenu : MonoBehaviour
         if (materialListOn == false)
         {
             shipMatRequirementChecks.Clear();
-            shipAmountRequirementChecks.Clear();
+            shipMatAmountRequirementChecks.Clear();
+            shipMatIndex.Clear();
 
             itemReference = 3;
 
@@ -396,12 +401,14 @@ public class ShipShopMenu : MonoBehaviour
                         shipMatRequirementChecks.Add(Convert.ToInt32(Inventory.instance.
                             resources[x].GetName().Contains(item3MaterialTexts[y])));
 
+                        shipMatIndex.Add(x);
+
                         if (Inventory.instance.resources[x].GetAmount() >= item3MaterialAmounts[y])
                         {
                             //shipAmountRequirementChecks.Add(
                             //    Inventory.instance.resourceStock[x].GetAmount() - item1MaterialAmounts[y]);
 
-                            shipAmountRequirementChecks.Add(1);
+                            shipMatAmountRequirementChecks.Add(1);
                         }
                     }
                 }
@@ -410,14 +417,15 @@ public class ShipShopMenu : MonoBehaviour
 
 
             if (shipMatRequirementChecks.Count == item3MaterialTexts.Count &&
-                shipAmountRequirementChecks.Count == item3MaterialAmounts.Count)
+                shipMatAmountRequirementChecks.Count == item3MaterialAmounts.Count)
             {
                 AudioManager.instance.Play("Menu Sound");
                 item3Button.gameObject.SetActive(false);
 
                 for (int i = 0; i < item3MaterialAmounts.Count; i++)
                 {
-                    Inventory.instance.resources[i + 1].SubtractAmount(item3MaterialAmounts[i]);
+                    Inventory.instance.resources[shipMatIndex[i]]
+                        .SubtractAmount(item3MaterialAmounts[i]);
                 }
 
                 shopManager.BuyShip(itemReference);

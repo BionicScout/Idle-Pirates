@@ -53,17 +53,17 @@ public class ResourceShopMenu : MonoBehaviour
 
     public List<Resource> GenerateResources()
     {
-        List<Resource> listOfCrew = new List<Resource>();
+        List<Resource> listOfResources = new List<Resource>();
 
         for (int z = 0; z < shopItemLimit; z++)
         {
-            Resource invCrew = new Resource(Inventory.instance.shipBuildResourceTemplates[z]);
+            Resource invResource = new Resource(Inventory.instance.shipBuildResourceTemplates[z]);
 
 
-            listOfCrew.Add(invCrew);
+            listOfResources.Add(invResource);
         }
 
-        return listOfCrew;
+        return listOfResources;
     }
 
 
