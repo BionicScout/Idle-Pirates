@@ -18,7 +18,7 @@ MonoBehaviour:
   health: 35
   maxCargo: 0
   shipImage: {fileID: 21300000, guid: 208ba0363fa85194b987b0a1d16786da, type: 3}
-  usedIn: 2
+  usedIn: 1
   resourcesNeeded:
   - type: 1
     resourceName: Metal

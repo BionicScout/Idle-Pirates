@@ -13,6 +13,9 @@ public class Inventory : MonoBehaviour {
     public List<MainShips> shipTemplates;
     public List<MainCrewMembers> crewTemplates;
 
+    //Maybe have a reference to the index for Gold resource
+    //public int goldIndexReference
+
 
 
     void Awake() {
