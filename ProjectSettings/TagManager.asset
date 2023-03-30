@@ -9,6 +9,7 @@ TagManager:
   - Obstacles
   - Background
   - Button
+  - Coco catcher
   layers:
   - Default
   - TransparentFX
