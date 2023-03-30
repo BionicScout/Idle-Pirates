@@ -7,11 +7,6 @@ using UnityEngine.Rendering;
 
 public enum GameState {
     PlayersTurn,
-    PlayersAttack,
-    //PlayersCheckSwitch,
-    PlayerSwitch,
-    PlayersRun,
-
     EnemysTurn,
 
     Win,
@@ -21,14 +16,14 @@ public enum GameState {
 
 public class Combat : MonoBehaviour {
     [Header("Combat Info")]
-    public CombatFleet playerFleet;
-    public CombatFleet enemyFleet;
-    CombatShip playerShip, enemyShip;
-    int playerShip_index, enemyShip_index;
+    public CombatGroup playerGroup;
+    public CombatGroup enemyGroup;
+    Combatant playerCombatant, enemyCombatant;
+    int playerCombatant_index, enemyCombatant_index;
 
     GameState gameState;
 
-    List<CombatShip> possibleSwitches = new List<CombatShip>();
+    List<Combatant> possibleSwitches = new List<Combatant>();
 
     [Header("Main UI")]
     [Range(0.1f, 10)]
@@ -39,38 +34,41 @@ public class Combat : MonoBehaviour {
     string mapSceneName = "Map Scene";
 
     //Ship Display UI
-    public GameObject playerShipUI, enemyShipUI;
+    public GameObject playerUI, enemyUI;
 
     [Header("UI Windows")]
     public GameObject fleePopUp;
-    public GameObject oneShip_swapPopUp;
-    public GameObject twoShip_swapPopUp;
+    public GameObject oneCombatant_swapPopUp;
+    public GameObject twoCombatant_swapPopUp;
 
     private void Start() {
         int i = 0;
         foreach(InventoryShip ship in Inventory.instance.ships) {
             if(ship.use == InventoryShip.USED_IN.combat) {
-                playerFleet.ships[i].setShip(ship.GetShipName());
-                Debug.Log(playerFleet.ships[i].shipName);
+                playerGroup.ships[i].setCombatant(ship.GetShipName(), true);
+                Debug.Log(playerGroup.ships[i].combatantName);
                 i++;
             }
         }
 
+        for(i = 0; i < 3; i++) {
+            int rand = Mathf.FloorToInt(Random.Range(0, Inventory.instance.shipTemplates.Count - 0.0000000001f));
+            enemyGroup.ships[i].setCombatant(Inventory.instance.shipTemplates[rand]);
+        }
 
 
-        Debug.Log(playerFleet.ships[0].shipName);
 
-        playerShip = playerFleet.ships[SelectNewShip(playerFleet)];
-        enemyShip = enemyFleet.ships[SelectNewShip(enemyFleet)];
+        playerCombatant = playerGroup.ships[SelectNewCombatant(playerGroup)];
+        enemyCombatant = enemyGroup.ships[SelectNewCombatant(enemyGroup)];
 
-        updateShipUI(playerShipUI, playerShip);
-        updateShipUI(enemyShipUI, enemyShip);
+        updateCombatantUI(playerUI, playerCombatant);
+        updateCombatantUI(enemyUI, enemyCombatant);
 
         //UI.clickToMoveText = true;
         PlayersTurn();
     }
 
-    int SelectNewShip(CombatFleet fleet) {
+    int SelectNewCombatant(CombatGroup fleet) {
         for(int i = 0; i < fleet.ships.Count; i++) {
             if(!fleet.ships[i].dead) {
                 return i;
@@ -131,39 +129,37 @@ public class Combat : MonoBehaviour {
         disableButton(switchButton);
         disableButton(runButton);
 
-        gameState = GameState.PlayersAttack;
-
         //Attack Enemy Ship
-        enemyShip.removeHP(playerShip.attack);
+        enemyCombatant.removeHP(playerCombatant.attack);
 
-        updateShipUI(enemyShipUI, enemyShip);
-        updateTextBox(enemyShip.shipName + " HP: " + enemyShip.health + "/" + enemyShip.maxHealth);
+        updateCombatantUI(enemyUI, enemyCombatant);
+        updateTextBox(enemyCombatant.combatantName + " HP: " + enemyCombatant.health + "/" + enemyCombatant.maxHealth);
         yield return new WaitForSeconds(updateTextTime);
 
         //If Enemy Ship was destroyed
-        if(enemyShip.health <= 0) {
-            enemyFleet.ships[enemyShip_index].dead = true;
+        if(enemyCombatant.health <= 0) {
+            enemyGroup.ships[enemyCombatant_index].dead = true;
 
-            updateTextBox(enemyShip.shipName + " Destroyed");
+            updateTextBox(enemyCombatant.combatantName + " Destroyed");
             yield return new WaitForSeconds(updateTextTime);
 
             //If enemy fleet was deystroyed
-            enemyShip_index = SelectNewShip(enemyFleet);
-            if(enemyShip_index == -1) { //If no ship can be selected
+            enemyCombatant_index = SelectNewCombatant(enemyGroup);
+            if(enemyCombatant_index == -1) { //If no ship can be selected
                 StartCoroutine(Win());
             }
             else {
 
                 //Switch to other enemy ship
-                enemyShip = enemyFleet.ships[enemyShip_index];
+                enemyCombatant = enemyGroup.ships[enemyCombatant_index];
 
-                updateShipUI(enemyShipUI, enemyShip);
-                updateTextBox(enemyShip.shipName + " has come to fight");
+                updateCombatantUI(enemyUI, enemyCombatant);
+                updateTextBox(enemyCombatant.combatantName + " has come to fight");
                 yield return new WaitForSeconds(updateTextTime);
             }
         }
 
-        if(enemyShip_index != -1)
+        if(enemyCombatant_index != -1)
             StartCoroutine(EnemysTurn());
 
     }
@@ -171,22 +167,22 @@ public class Combat : MonoBehaviour {
 
     IEnumerator PlayerCheckSwitch() {
         //Get List of Ships to switched to 
-        possibleSwitches = new List<CombatShip>();
+        possibleSwitches = new List<Combatant>();
 
-        for(int i = 0; i < playerFleet.ships.Count; i++) {
-            if(playerFleet.ships[i] == playerShip)
+        for(int i = 0; i < playerGroup.ships.Count; i++) {
+            if(playerGroup.ships[i] == playerCombatant)
                 continue;
-            if(playerFleet.ships[i].dead)
+            if(playerGroup.ships[i].dead)
                 continue;
 
-            possibleSwitches.Add(playerFleet.ships[i]);
+            possibleSwitches.Add(playerGroup.ships[i]);
         }
 
         //If there are no shipStock to switch to
         if(possibleSwitches.Count == 0) {
             disableButton(switchButton);
 
-            updateShipUI(enemyShipUI, enemyShip);
+            updateCombatantUI(enemyUI, enemyCombatant);
             updateTextBox("No other shipStock to switched to");
             yield return new WaitForSeconds(updateTextTime);
         }
@@ -201,16 +197,16 @@ public class Combat : MonoBehaviour {
     IEnumerator PlayerSwitch(int selectedShip) {
         disableButton(switchButton);
 
-        playerFleet.ships[playerShip_index] = playerShip;
-        playerShip = possibleSwitches[selectedShip];
+        playerGroup.ships[playerCombatant_index] = playerCombatant;
+        playerCombatant = possibleSwitches[selectedShip];
 
-        updateShipUI(playerShipUI, playerShip);
-        updateTextBox("Switched to " + playerShip.shipName);
+        updateCombatantUI(playerUI, playerCombatant);
+        updateTextBox("Switched to " + playerCombatant.combatantName);
         yield return new WaitForSeconds(updateTextTime);
 
-        for(int i = 0; i < playerFleet.ships.Count; i++) {
-            if(playerFleet.ships[i] == playerShip) {
-                playerShip_index = i;
+        for(int i = 0; i < playerGroup.ships.Count; i++) {
+            if(playerGroup.ships[i] == playerCombatant) {
+                playerCombatant_index = i;
                 break;
             }
         }
@@ -223,8 +219,8 @@ public class Combat : MonoBehaviour {
     divided by the total horizontalSpeed of both shipStock currently out. If the 
     */
     IEnumerator PlayerRun() {
-        int totalWeight = playerShip.speed + enemyShip.speed;
-        float playerEscapeChance = (float)playerShip.speed / totalWeight;
+        int totalWeight = playerCombatant.speed + enemyCombatant.speed;
+        float playerEscapeChance = (float)playerCombatant.speed / totalWeight;
 
         if(Random.value <= playerEscapeChance || Inventory.instance.crew.Find(x => x.active).crewName == "Hall") {
             StartCoroutine(Ran());
@@ -245,34 +241,34 @@ public class Combat : MonoBehaviour {
         updateTextBox("Enemy Attack");
         yield return new WaitForSeconds(updateTextTime);
 
-    //Enemy Attack
-        playerShip.removeHP(enemyShip.attack);
+        //Enemy Attack
+        playerCombatant.removeHP(enemyCombatant.attack);
 
-        updateShipUI(playerShipUI, playerShip);
-        updateTextBox(playerShip.shipName + " HP: " + playerShip.health + "/" + playerShip.maxHealth);
+        updateCombatantUI(playerUI, playerCombatant);
+        updateTextBox(playerCombatant.combatantName + " HP: " + playerCombatant.health + "/" + playerCombatant.maxHealth);
         yield return new WaitForSeconds(updateTextTime);
 
         //If Player ship was deystroyed
-        if(playerShip.health <= 0) {
-            playerFleet.ships[playerShip_index].dead = true;
+        if(playerCombatant.health <= 0) {
+            playerGroup.ships[playerCombatant_index].dead = true;
 
-            updateTextBox(playerShip.shipName + " Destroyed");
+            updateTextBox(playerCombatant.combatantName + " Destroyed");
             yield return new WaitForSeconds(updateTextTime);
 
-            playerShip_index = SelectNewShip(playerFleet);
-            if(playerShip_index == -1) { //If no ship can be selected
+            playerCombatant_index = SelectNewCombatant(playerGroup);
+            if(playerCombatant_index == -1) { //If no ship can be selected
                 StartCoroutine(Lose());
             }
             else {
-                playerShip = playerFleet.ships[playerShip_index];
+                playerCombatant = playerGroup.ships[playerCombatant_index];
 
-                updateShipUI(playerShipUI, playerShip);
-                updateTextBox(playerShip.shipName + " has come to fight");
+                updateCombatantUI(playerUI, playerCombatant);
+                updateTextBox(playerCombatant.combatantName + " has come to fight");
                 yield return new WaitForSeconds(updateTextTime);
             }
         }
 
-        if(playerShip_index != -1) {
+        if(playerCombatant_index != -1) {
             enableButton(switchButton);
             PlayersTurn();
         }
@@ -281,14 +277,14 @@ public class Combat : MonoBehaviour {
     /***************************************************************************************************************************************
             MAIN UI
     ***************************************************************************************************************************************/
-    public void updateShipUI(GameObject shipUI, CombatShip ship) {
+    public void updateCombatantUI(GameObject shipUI, Combatant ship) {
         //Update Header
         shipUI.transform.GetChild(0).GetComponent<TMP_Text>().text =
-            "Name: " + ship.shipName + "\nHealth: " + ship.health + "/" + ship.maxHealth;
+            "Name: " + ship.combatantName + "\nHealth: " + ship.health + "/" + ship.maxHealth;
 
         //Update Health Bar
         //Update Image
-        shipUI.transform.GetChild(2).GetComponent<Image>().sprite = ship.shipImage;
+        shipUI.transform.GetChild(2).GetComponent<Image>().sprite = ship.combatantImage;
     }
 
     public void updateTextBox(string str) {
@@ -330,19 +326,19 @@ public class Combat : MonoBehaviour {
         //Switch Art Imagies and Pull up display
 
         if(possibleSwitches.Count == 1) {
-            oneShip_swapPopUp.transform.GetChild(2).GetComponent<Image>().sprite = possibleSwitches[0].shipImage;
-            oneShip_swapPopUp.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = possibleSwitches[0].shipName;
+            oneCombatant_swapPopUp.transform.GetChild(2).GetComponent<Image>().sprite = possibleSwitches[0].combatantImage;
+            oneCombatant_swapPopUp.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = possibleSwitches[0].combatantName;
 
-            oneShip_swapPopUp.SetActive(true);
+            oneCombatant_swapPopUp.SetActive(true);
         }
         else if(possibleSwitches.Count == 2) {
-            twoShip_swapPopUp.transform.GetChild(2).GetComponent<Image>().sprite = possibleSwitches[0].shipImage;
-            twoShip_swapPopUp.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = possibleSwitches[0].shipName;
+            twoCombatant_swapPopUp.transform.GetChild(2).GetComponent<Image>().sprite = possibleSwitches[0].combatantImage;
+            twoCombatant_swapPopUp.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = possibleSwitches[0].combatantName;
 
-            twoShip_swapPopUp.transform.GetChild(3).GetComponent<Image>().sprite = possibleSwitches[1].shipImage;
-            twoShip_swapPopUp.transform.GetChild(3).GetChild(0).GetComponent<TMP_Text>().text = possibleSwitches[1].shipName;
+            twoCombatant_swapPopUp.transform.GetChild(3).GetComponent<Image>().sprite = possibleSwitches[1].combatantImage;
+            twoCombatant_swapPopUp.transform.GetChild(3).GetChild(0).GetComponent<TMP_Text>().text = possibleSwitches[1].combatantName;
 
-            twoShip_swapPopUp.SetActive(true);
+            twoCombatant_swapPopUp.SetActive(true);
         }
     }
 
@@ -359,18 +355,18 @@ public class Combat : MonoBehaviour {
     ***************************************************************************************************************************************/
     public void Ship1_ButtonPressed() {
         StartCoroutine(PlayerSwitch(0));
-        oneShip_swapPopUp.SetActive(false);
-        twoShip_swapPopUp.SetActive(false);
+        oneCombatant_swapPopUp.SetActive(false);
+        twoCombatant_swapPopUp.SetActive(false);
     }
 
     public void Ship2_ButtonPressed() {
         StartCoroutine(PlayerSwitch(1));
-        twoShip_swapPopUp.SetActive(false);
+        twoCombatant_swapPopUp.SetActive(false);
     }
 
     public void BackButtonPressed() {
-        oneShip_swapPopUp.SetActive(false);
-        twoShip_swapPopUp.SetActive(false);
+        oneCombatant_swapPopUp.SetActive(false);
+        twoCombatant_swapPopUp.SetActive(false);
     }
 
     public void YesFleeButtonPressed() {
