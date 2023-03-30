@@ -8,6 +8,11 @@ public class BackgroundSpawnerScript : MonoBehaviour
     [SerializeField]
     private GameObject backgroundPrefab;
 
+    //Have a speed variable for the backgrounds to reference
+
+    //make function for background to increase and decrease speed 
+    //when palyer hits a speed boost panel
+
     //[SerializeField]
     //private float spawnTime = 10f;
 
