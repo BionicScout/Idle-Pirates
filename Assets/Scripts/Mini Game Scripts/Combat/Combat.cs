@@ -87,6 +87,8 @@ public class Combat : MonoBehaviour {
         updateTextBox("Win!");
         yield return new WaitForSeconds(updateTextTime);
 
+        AudioManager.instance.Play("Combat Win");
+
         SceneSwitcher.instance.A_LoadScene(mapSceneName);
     }
 
@@ -96,6 +98,8 @@ public class Combat : MonoBehaviour {
         updateTextBox("Ran!");
         yield return new WaitForSeconds(updateTextTime);
 
+        AudioManager.instance.Play("Combat Ran");
+
         SceneSwitcher.instance.A_LoadScene(mapSceneName);
     }
 
@@ -104,6 +108,8 @@ public class Combat : MonoBehaviour {
 
         updateTextBox("Lose!");
         yield return new WaitForSeconds(updateTextTime);
+
+        AudioManager.instance.Play("Combat Lose");
 
         SceneSwitcher.instance.A_LoadScene(mapSceneName);
     }
@@ -117,6 +123,8 @@ public class Combat : MonoBehaviour {
 
         updateTextBox("Player's Action");
         gameState = GameState.PlayersTurn;
+
+        AudioManager.instance.Play("Combat Player's Turn");
     }
 
     /*
@@ -132,6 +140,8 @@ public class Combat : MonoBehaviour {
         //Attack Enemy Ship
         enemyCombatant.removeHP(playerCombatant.attack);
 
+        AudioManager.instance.Play("Combat Attack");
+
         updateCombatantUI(enemyUI, enemyCombatant);
         updateTextBox(enemyCombatant.combatantName + " HP: " + enemyCombatant.health + "/" + enemyCombatant.maxHealth);
         yield return new WaitForSeconds(updateTextTime);
@@ -139,6 +149,8 @@ public class Combat : MonoBehaviour {
         //If Enemy Ship was destroyed
         if(enemyCombatant.health <= 0) {
             enemyGroup.ships[enemyCombatant_index].dead = true;
+
+            AudioManager.instance.Play("Combat Sink");
 
             updateTextBox(enemyCombatant.combatantName + " Destroyed");
             yield return new WaitForSeconds(updateTextTime);
@@ -152,6 +164,8 @@ public class Combat : MonoBehaviour {
 
                 //Switch to other enemy ship
                 enemyCombatant = enemyGroup.ships[enemyCombatant_index];
+
+                AudioManager.instance.Play("Combat Swapped Ships");
 
                 updateCombatantUI(enemyUI, enemyCombatant);
                 updateTextBox(enemyCombatant.combatantName + " has come to fight");
@@ -182,6 +196,8 @@ public class Combat : MonoBehaviour {
         if(possibleSwitches.Count == 0) {
             disableButton(switchButton);
 
+            AudioManager.instance.Play("Error");
+
             updateCombatantUI(enemyUI, enemyCombatant);
             updateTextBox("No other shipStock to switched to");
             yield return new WaitForSeconds(updateTextTime);
@@ -199,6 +215,8 @@ public class Combat : MonoBehaviour {
 
         playerGroup.ships[playerCombatant_index] = playerCombatant;
         playerCombatant = possibleSwitches[selectedShip];
+
+        AudioManager.instance.Play("Combat Swapped Ships");
 
         updateCombatantUI(playerUI, playerCombatant);
         updateTextBox("Switched to " + playerCombatant.combatantName);
@@ -244,6 +262,8 @@ public class Combat : MonoBehaviour {
         //Enemy Attack
         playerCombatant.removeHP(enemyCombatant.attack);
 
+        AudioManager.instance.Play("Combat Attack");
+
         updateCombatantUI(playerUI, playerCombatant);
         updateTextBox(playerCombatant.combatantName + " HP: " + playerCombatant.health + "/" + playerCombatant.maxHealth);
         yield return new WaitForSeconds(updateTextTime);
@@ -251,6 +271,8 @@ public class Combat : MonoBehaviour {
         //If Player ship was deystroyed
         if(playerCombatant.health <= 0) {
             playerGroup.ships[playerCombatant_index].dead = true;
+
+            AudioManager.instance.Play("Combat Sink");
 
             updateTextBox(playerCombatant.combatantName + " Destroyed");
             yield return new WaitForSeconds(updateTextTime);
@@ -261,6 +283,8 @@ public class Combat : MonoBehaviour {
             }
             else {
                 playerCombatant = playerGroup.ships[playerCombatant_index];
+
+                AudioManager.instance.Play("Combat Swapped Ships");
 
                 updateCombatantUI(playerUI, playerCombatant);
                 updateTextBox(playerCombatant.combatantName + " has come to fight");
@@ -310,6 +334,8 @@ public class Combat : MonoBehaviour {
             return;
         }
 
+        AudioManager.instance.Play("Button Pressed");
+
         StartCoroutine(PlayerAttack());
     }
 
@@ -317,6 +343,8 @@ public class Combat : MonoBehaviour {
         if(gameState != GameState.PlayersTurn) {
             return;
         }
+
+        AudioManager.instance.Play("Button Pressed");
 
         StartCoroutine(PlayerCheckSwitch());
 
@@ -347,6 +375,8 @@ public class Combat : MonoBehaviour {
             return;
         }
 
+        AudioManager.instance.Play("Button Pressed");
+
         fleePopUp.SetActive(true);
     }
 
@@ -357,25 +387,32 @@ public class Combat : MonoBehaviour {
         StartCoroutine(PlayerSwitch(0));
         oneCombatant_swapPopUp.SetActive(false);
         twoCombatant_swapPopUp.SetActive(false);
+        AudioManager.instance.Play("Button Pressed");
     }
 
     public void Ship2_ButtonPressed() {
         StartCoroutine(PlayerSwitch(1));
         twoCombatant_swapPopUp.SetActive(false);
+        AudioManager.instance.Play("Button Pressed");
     }
 
     public void BackButtonPressed() {
         oneCombatant_swapPopUp.SetActive(false);
         twoCombatant_swapPopUp.SetActive(false);
+        AudioManager.instance.Play("Button Pressed");
     }
 
     public void YesFleeButtonPressed() {
         fleePopUp.SetActive(false);
+
+        AudioManager.instance.Play("Button Pressed");
 
         StartCoroutine(PlayerRun());
     }
 
     public void NoFleeButtonPressed() {
         fleePopUp.SetActive(false);
+
+        AudioManager.instance.Play("Button Pressed");
     }
 }
