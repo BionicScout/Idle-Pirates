@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public enum GameState {
     PlayersTurn,
@@ -24,6 +25,8 @@ public class Combat : MonoBehaviour {
     GameState gameState;
 
     List<Combatant> possibleSwitches = new List<Combatant>();
+    [Range(0f, 1f)]
+    public float dodgeChance = 0.1f;
 
     [Header("Main UI")]
     [Range(0.1f, 10)]
@@ -68,6 +71,10 @@ public class Combat : MonoBehaviour {
         PlayersTurn();
     }
 
+    /***************************************************************************************************************************************
+            OTHER METHODS
+    ***************************************************************************************************************************************/
+
     int SelectNewCombatant(CombatGroup fleet) {
         for(int i = 0; i < fleet.ships.Count; i++) {
             if(!fleet.ships[i].dead) {
@@ -76,6 +83,11 @@ public class Combat : MonoBehaviour {
         }
 
         return -1;
+    }
+
+    public int randomizeDamage(int baseDamage) {
+        int adjust = Mathf.CeilToInt(baseDamage * 0.1f);
+        return Random.Range(baseDamage - adjust, baseDamage + adjust) + Random.Range(-1, 1);
     }
 
     /***************************************************************************************************************************************
@@ -137,39 +149,52 @@ public class Combat : MonoBehaviour {
         disableButton(switchButton);
         disableButton(runButton);
 
-        //Attack Enemy Ship
-        enemyCombatant.removeHP(playerCombatant.attack);
+        //Dodge
+        if(Random.value < dodgeChance) {
+            updateTextBox(enemyCombatant.combatantName + " dodge the attack");
+            yield return new WaitForSeconds(updateTextTime);
+        }
+        //Attack
+        else {
 
-        AudioManager.instance.Play("Combat Attack");
+            //Attack Enemy Ship
+            int damage = randomizeDamage(playerCombatant.attack);
+            enemyCombatant.removeHP(damage);
 
-        updateCombatantUI(enemyUI, enemyCombatant);
-        updateTextBox(enemyCombatant.combatantName + " HP: " + enemyCombatant.health + "/" + enemyCombatant.maxHealth);
-        yield return new WaitForSeconds(updateTextTime);
+            AudioManager.instance.Play("Combat Attack");
 
-        //If Enemy Ship was destroyed
-        if(enemyCombatant.health <= 0) {
-            enemyGroup.ships[enemyCombatant_index].dead = true;
-
-            AudioManager.instance.Play("Combat Sink");
-
-            updateTextBox(enemyCombatant.combatantName + " Destroyed");
+            updateCombatantUI(enemyUI, enemyCombatant);
+            updateTextBox(playerCombatant.combatantName + " delt " + damage + " to " + enemyCombatant.combatantName);
             yield return new WaitForSeconds(updateTextTime);
 
-            //If enemy fleet was deystroyed
-            enemyCombatant_index = SelectNewCombatant(enemyGroup);
-            if(enemyCombatant_index == -1) { //If no ship can be selected
-                StartCoroutine(Win());
-            }
-            else {
+            updateTextBox(enemyCombatant.combatantName + " HP: " + enemyCombatant.health + "/" + enemyCombatant.maxHealth);
+            yield return new WaitForSeconds(updateTextTime);
 
-                //Switch to other enemy ship
-                enemyCombatant = enemyGroup.ships[enemyCombatant_index];
+            //If Enemy Ship was destroyed
+            if(enemyCombatant.health <= 0) {
+                enemyGroup.ships[enemyCombatant_index].dead = true;
 
-                AudioManager.instance.Play("Combat Swapped Ships");
+                AudioManager.instance.Play("Combat Sink");
 
-                updateCombatantUI(enemyUI, enemyCombatant);
-                updateTextBox(enemyCombatant.combatantName + " has come to fight");
+                updateTextBox(enemyCombatant.combatantName + " Destroyed");
                 yield return new WaitForSeconds(updateTextTime);
+
+                //If enemy fleet was deystroyed
+                enemyCombatant_index = SelectNewCombatant(enemyGroup);
+                if(enemyCombatant_index == -1) { //If no ship can be selected
+                    StartCoroutine(Win());
+                }
+                else {
+
+                    //Switch to other enemy ship
+                    enemyCombatant = enemyGroup.ships[enemyCombatant_index];
+
+                    AudioManager.instance.Play("Combat Swapped Ships");
+
+                    updateCombatantUI(enemyUI, enemyCombatant);
+                    updateTextBox(enemyCombatant.combatantName + " has come to fight");
+                    yield return new WaitForSeconds(updateTextTime);
+                }
             }
         }
 
@@ -259,36 +284,48 @@ public class Combat : MonoBehaviour {
         updateTextBox("Enemy Attack");
         yield return new WaitForSeconds(updateTextTime);
 
-        //Enemy Attack
-        playerCombatant.removeHP(enemyCombatant.attack);
+        //Dodge
+        if(Random.value < dodgeChance) {
+            updateTextBox(enemyCombatant.combatantName + " dodge the attack");
+            yield return new WaitForSeconds(updateTextTime);
+        }
+        else {
 
-        AudioManager.instance.Play("Combat Attack");
+            //Enemy Attack
+            int damage = randomizeDamage(enemyCombatant.attack);
+            playerCombatant.removeHP(damage);
 
-        updateCombatantUI(playerUI, playerCombatant);
-        updateTextBox(playerCombatant.combatantName + " HP: " + playerCombatant.health + "/" + playerCombatant.maxHealth);
-        yield return new WaitForSeconds(updateTextTime);
+            AudioManager.instance.Play("Combat Attack");
 
-        //If Player ship was deystroyed
-        if(playerCombatant.health <= 0) {
-            playerGroup.ships[playerCombatant_index].dead = true;
-
-            AudioManager.instance.Play("Combat Sink");
-
-            updateTextBox(playerCombatant.combatantName + " Destroyed");
+            updateCombatantUI(playerUI, playerCombatant);
+            updateTextBox(enemyCombatant.combatantName + " delt " + damage + " to " + playerCombatant.combatantName);
             yield return new WaitForSeconds(updateTextTime);
 
-            playerCombatant_index = SelectNewCombatant(playerGroup);
-            if(playerCombatant_index == -1) { //If no ship can be selected
-                StartCoroutine(Lose());
-            }
-            else {
-                playerCombatant = playerGroup.ships[playerCombatant_index];
+            updateCombatantUI(playerUI, playerCombatant);
+            yield return new WaitForSeconds(updateTextTime);
 
-                AudioManager.instance.Play("Combat Swapped Ships");
+            //If Player ship was deystroyed
+            if(playerCombatant.health <= 0) {
+                playerGroup.ships[playerCombatant_index].dead = true;
 
-                updateCombatantUI(playerUI, playerCombatant);
-                updateTextBox(playerCombatant.combatantName + " has come to fight");
+                AudioManager.instance.Play("Combat Sink");
+
+                updateTextBox(playerCombatant.combatantName + " Destroyed");
                 yield return new WaitForSeconds(updateTextTime);
+
+                playerCombatant_index = SelectNewCombatant(playerGroup);
+                if(playerCombatant_index == -1) { //If no ship can be selected
+                    StartCoroutine(Lose());
+                }
+                else {
+                    playerCombatant = playerGroup.ships[playerCombatant_index];
+
+                    AudioManager.instance.Play("Combat Swapped Ships");
+
+                    updateCombatantUI(playerUI, playerCombatant);
+                    updateTextBox(playerCombatant.combatantName + " has come to fight");
+                    yield return new WaitForSeconds(updateTextTime);
+                }
             }
         }
 
