@@ -15,8 +15,15 @@ public class MiniGameShipMovement : MonoBehaviour
     public static bool gotHit = false;
 
     [SerializeField]
+    public static bool boostedUp = false;
+
+    [SerializeField]
     [Range(0, 5)]
-    private float timer;
+    private float stopTimer;
+
+    [SerializeField]
+    [Range(0, 5)]
+    private float boostTimer;
 
 
     // Start is called before the first frame update
@@ -49,17 +56,33 @@ public class MiniGameShipMovement : MonoBehaviour
             gotHit = true;
             rigbody.velocity = new Vector2(0, 0);
             Destroy(other.gameObject);
-            StartCoroutine(HitTimer(timer));
+            StartCoroutine(HitTime(stopTimer));
+        }
+        if (other.gameObject.CompareTag("Booster"))
+        {
+            boostedUp = true;
+            //rigbody.velocity = new Vector2(0, 0);
+            Destroy(other.gameObject);
+
+
+
+            StartCoroutine(BoostTime(stopTimer));
         }
     }
 
     
 
 
-    IEnumerator HitTimer(float duration)
+    IEnumerator HitTime(float duration)
     {
         yield return new WaitForSeconds(duration);
         gotHit = false;
+    }
+
+    IEnumerator BoostTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        boostedUp = false;
     }
 
     //When player collides with rock, lock movement
