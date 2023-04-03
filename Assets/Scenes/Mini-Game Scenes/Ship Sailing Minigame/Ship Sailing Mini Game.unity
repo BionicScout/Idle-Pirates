@@ -1048,6 +1048,7 @@ MonoBehaviour:
   neededDistanceText: {fileID: 987469995}
   timerText: {fileID: 1024504771}
   currentDistance: 0
+  distanceBooster: 2
   neededDistance: 2000
   timerNumber: 45
   timeInt: 0
@@ -1626,7 +1627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigbody: {fileID: 1936339402}
   speed: 10
-  timer: 3
+  stopTimer: 2
+  boostTimer: 3
 --- !u!1 &1984800001
 GameObject:
   m_ObjectHideFlags: 0
