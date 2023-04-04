@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547330110850821231}
   - component: {fileID: 547330110850821224}
+  - component: {fileID: 8417177553525240339}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -47,16 +48,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 547330110850821231}
-  spawnSetSec: 1
   minWarningSec: 2
   maxWarningSec: 3
   coconutPrefab: {fileID: 185022967357013874, guid: 70c86de17ab8d7d4abddf71896ee77d7, type: 3}
   warningSprite: {fileID: 547330112114831423}
   startPoint: {fileID: 0}
   endPoint: {fileID: 0}
-  spawnEverySeconds: 0
   warningEverySeconds: 0
   spawnEverySetSeconds: 0
+--- !u!61 &8417177553525240339
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547330110850821225}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006834209, y: 0.020502567}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9157845, y: 1.1503525}
+  m_EdgeRadius: 0
 --- !u!1 &547330111110148889
 GameObject:
   m_ObjectHideFlags: 0
