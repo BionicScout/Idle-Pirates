@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static InventoryShip;
 
 [CreateAssetMenu(fileName = "shipInfo", menuName = "Ship")]
 public class MainShips : ScriptableObject
@@ -14,6 +15,7 @@ public class MainShips : ScriptableObject
     public Sprite shipImage;
 
     public InventoryShip.USED_IN usedIn;
+    public COMBAT_TYPE combatType;
 
     public List<Resource> resourcesNeeded;
 
@@ -28,8 +30,5 @@ public class MainShips : ScriptableObject
         
 
         resourcesNeeded = new List<Resource>();
-
     }
-
-
 }

@@ -56,6 +56,7 @@ public class Combat : MonoBehaviour {
 
         for(i = 0; i < 3; i++) {
             int rand = Mathf.FloorToInt(Random.Range(0, Inventory.instance.shipTemplates.Count - 0.0000000001f));
+            Debug.Log(rand);
             enemyGroup.ships[i].setCombatant(Inventory.instance.shipTemplates[rand]);
         }
 
@@ -130,9 +131,6 @@ public class Combat : MonoBehaviour {
             PLAYER TURN ACTIONS
     ***************************************************************************************************************************************/
     void PlayersTurn() {
-        enableButton(attackButton);
-        enableButton(runButton);
-
         updateTextBox("Player's Action");
         gameState = GameState.PlayersTurn;
 
@@ -331,7 +329,11 @@ public class Combat : MonoBehaviour {
 
         if(playerCombatant_index != -1) {
             enableButton(switchButton);
+            enableButton(attackButton);
+            enableButton(runButton);
             PlayersTurn();
+
+            Debug.Log("Test 2");
         }
     }
 

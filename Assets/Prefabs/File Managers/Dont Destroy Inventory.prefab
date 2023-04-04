@@ -52,7 +52,16 @@ MonoBehaviour:
   ships: []
   crew: []
   tradeResourceTemplates: []
+  shipBuildResourceTemplates: []
   shipTemplates:
+  - {fileID: 11400000, guid: 3427ded20047fbb489c62a5098d52b7d, type: 2}
+  - {fileID: 11400000, guid: f912c4b8b7e3bb14ca174ad1c5baf8d2, type: 2}
+  - {fileID: 11400000, guid: 824ccbed1a73ee5489d826b9e5b572e1, type: 2}
+  - {fileID: 11400000, guid: dd8329d3fe35bd545bb22ef8605f0b51, type: 2}
   - {fileID: 11400000, guid: 080725427a5f66348b7fdb5c30ed9695, type: 2}
   - {fileID: 11400000, guid: 141f30e0a9a86d141932f779970723be, type: 2}
+  - {fileID: 11400000, guid: c294e8cdd696ede449153744f7bed6c0, type: 2}
+  - {fileID: 11400000, guid: 764dff2e3ea07384e8f93e961930e78e, type: 2}
+  - {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
   - {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}
+  crewTemplates: []
