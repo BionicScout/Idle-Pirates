@@ -10,22 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b8dac93b5b3625428497db19df80f93, type: 3}
-  m_Name: Chaser
+  m_Name: Jackdaw
   m_EditorClassIdentifier: 
-  shipName: Chaser
+  shipName: Jackdaw
   speed: 30
-  attack: 15
-  health: 25
+  attack: 40
+  health: 30
   maxCargo: 0
-  shipImage: {fileID: 21300000, guid: 4e817923f2662754aa5f47b4a3f6d25f, type: 3}
+  shipImage: {fileID: 21300000, guid: d5ba03791332d5e4b8470c8bbc952cb7, type: 3}
   usedIn: 2
-  combatType: 2
-  resourcesNeeded:
-  - type: 1
-    resourceName: Wood
-    amount: 25
-    cost: 0
-  - type: 1
-    resourceName: Cloth
-    amount: 15
-    cost: 0
+  combatType: 1
+  resourcesNeeded: []
