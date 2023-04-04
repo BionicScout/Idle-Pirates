@@ -16,6 +16,12 @@ public class CoconutSceneManager : MonoBehaviour
     private TextMeshProUGUI timerText;
 
     [SerializeField]
+    private GameObject spawnerPrefab;
+
+    [SerializeField]
+    private Transform spawnerTransformRef;
+
+    [SerializeField]
     private int gatheredNumber = 0;
 
     [SerializeField]
@@ -25,7 +31,16 @@ public class CoconutSceneManager : MonoBehaviour
     private float timerNumber = 30f;
 
     [SerializeField]
+    private float currentTime = 30f;
+
+    [SerializeField]
     private int timeInt = 0;
+
+    [SerializeField]
+    private int checkpointInt = 0;
+
+    //[SerializeField]
+    //private int checkpointInt2 = 0;
 
     [SerializeField]
     private string winScene;
@@ -33,15 +48,36 @@ public class CoconutSceneManager : MonoBehaviour
     [SerializeField]
     private string loseScene;
 
+    [SerializeField]
+    [Range(0, 1)]
+    private float timeCheckpoint = 0.5f;
+
+    //[SerializeField]
+    //private float timeCheckpoint2 = 0.3f;
+
+    [SerializeField]
+    private bool checkpointHit = false;
+
+    //[SerializeField]
+    //private bool checkpoint2Hit = false;
 
 
-   // Start is called before the first frame update
-   void Start()
+
+
+
+    // Start is called before the first frame update
+    void Start()
     {
+        currentTime = timerNumber;
+
         gatheredText.text = gatheredNumber.ToString();
         neededText.text = neededNumber.ToString();
-        timerText.text = timerNumber.ToString();
-        timeInt = (int)timerNumber;
+        timerText.text = currentTime.ToString();
+        timeInt = (int)currentTime;
+
+        checkpointInt = (int)(timerNumber * timeCheckpoint);
+        //checkpointInt2 = (int)(timerNumber * timeCheckpoint2);
+
 
 
     }
@@ -49,14 +85,37 @@ public class CoconutSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerNumber -= Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
-        timeInt = (int)timerNumber;
+        timeInt = (int)currentTime;
 
         timerText.text = timeInt.ToString();
 
+        //boolean
 
-        if(timerNumber <= 0) 
+        if ((int)currentTime == checkpointInt && checkpointHit == false)
+        {
+
+            GameObject another = Instantiate(spawnerPrefab, 
+                spawnerTransformRef.position, 
+                spawnerTransformRef.rotation);
+
+            
+            //Add another Spawner
+
+            checkpointHit = true;
+
+        }
+
+
+        //if (timeInt == checkpointInt2 && checkpoint2Hit == false)
+        //{
+        //    //Decrease spawn time
+        //    checkpoint2Hit = true;
+        //}
+
+
+        if (currentTime <= 0) 
         {
             if(gatheredNumber >= neededNumber)
             {

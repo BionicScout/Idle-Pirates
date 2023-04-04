@@ -8,10 +8,11 @@ public class BackgroundSpawnerScript : MonoBehaviour
     [SerializeField]
     private GameObject backgroundPrefab;
 
+    /*
     //Have a speed variable for the backgrounds to reference
 
     //make function for background to increase and decrease speed 
-    //when palyer hits a speed boost panel
+    //when player hits a speed boost panel
 
     //[SerializeField]
     //private float spawnTime = 10f;
@@ -21,21 +22,24 @@ public class BackgroundSpawnerScript : MonoBehaviour
 
     //[SerializeField]
     //private float spawnCountOffset = 1.43f;
+    */
 
 
     // Start is called before the first frame update
     void Start()
     {
+        /*
         //spawnTime = 
             //-(backgroundPrefab.GetComponent<BackgroundMovement>().speed) * spawnCountOffset; 
 
         //Spawn();
-
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         //if (MiniGameShipMovement.gotHit == false)
         //{
         //    if (timer < spawnTime)
@@ -50,6 +54,7 @@ public class BackgroundSpawnerScript : MonoBehaviour
 
         //    }
         //}
+        */
     }
 
     private void Spawn()

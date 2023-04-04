@@ -7,9 +7,10 @@ public class CoconutSpawner : MonoBehaviour
     [SerializeField]
     private Transform spawnPosition;
 
-    [SerializeField]
-    private float spawnSetSec = 2;
-    private float minSpawnSec = 2, maxSpawnSec = 4;
+    //[SerializeField]
+    //private float spawnSetSec = 2;
+    //[SerializeField]
+    //private float minSpawnSec = 2, maxSpawnSec = 4;
     [SerializeField]
     private float minWarningSec = 1, maxWarningSec = 2;
 
@@ -24,10 +25,12 @@ public class CoconutSpawner : MonoBehaviour
 
     private float maxXPosition, minXPosition;
 
-    [SerializeField]
-    private float spawnEverySeconds;
+    //[SerializeField]
+    //private float spawnEverySeconds;
     [SerializeField]
     private float warningEverySeconds;
+
+
     [SerializeField]
     private float spawnEverySetSeconds;
 
@@ -40,8 +43,18 @@ public class CoconutSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        spawnPosition = this.transform;
+
+        startPoint = GameObject.FindWithTag("StartPoint").transform;
+
+        endPoint = GameObject.FindWithTag("EndPoint").transform;
+
+
         RandomizeSpawnSeconds();
         RandomizeSpawnPosition();
+
+
+
 
         minXPosition = startPoint.position.x;
         maxXPosition = endPoint.position.x;
@@ -90,9 +103,9 @@ public class CoconutSpawner : MonoBehaviour
     void RandomizeSpawnSeconds()
     {
         warningEverySeconds = Random.Range(minWarningSec, maxWarningSec);
-        spawnEverySeconds = Random.Range(minSpawnSec, maxSpawnSec);
+        //spawnEverySeconds = Random.Range(minSpawnSec, maxSpawnSec);
 
-        spawnEverySetSeconds = spawnSetSec;
+        //spawnEverySetSeconds = spawnSetSec;
 
 
     }

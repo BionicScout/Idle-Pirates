@@ -11,6 +11,8 @@ TagManager:
   - Button
   - Coco catcher
   - Booster
+  - StartPoint
+  - EndPoint
   layers:
   - Default
   - TransparentFX
