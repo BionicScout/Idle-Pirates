@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3613409908250420565}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Background
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 5566555368130280383}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,6 +366,7 @@ MonoBehaviour:
   - {fileID: 2155376225918342373, guid: b27634d4284843144b54de8bbb401b40, type: 3}
   - {fileID: 5764840329335003857, guid: 38fdcaa4bcf8a9840b638ced09951364, type: 3}
   - {fileID: 4843930949546732333, guid: 9358c98e76040f1429ae93e4c5bbace4, type: 3}
+  - {fileID: 256658493552245971, guid: 4ca854fbcfc4576469617e5e318e9c48, type: 3}
   maxSpawnItems: 5
   numOfSpawnItems: 0
 --- !u!61 &5383547829182080161
@@ -427,7 +428,7 @@ GameObject:
   - component: {fileID: 517327484607466300}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,7 +486,7 @@ GameObject:
   - component: {fileID: 8164975240791189398}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -95,7 +95,7 @@ public class ShipMoveSceneManager : MonoBehaviour
             currentDistance = (currentDistance + 1);
             gatheredDistanceText.text = currentDistance.ToString();
         }
-        else
+        if (MiniGameShipMovement.boostedUp == true)
         {
             currentDistance = (currentDistance + distanceBooster);
             gatheredDistanceText.text = currentDistance.ToString();

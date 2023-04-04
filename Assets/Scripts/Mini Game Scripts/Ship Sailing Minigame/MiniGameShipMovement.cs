@@ -58,6 +58,7 @@ public class MiniGameShipMovement : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(HitTime(stopTimer));
         }
+
         if (other.gameObject.CompareTag("Booster"))
         {
             boostedUp = true;
