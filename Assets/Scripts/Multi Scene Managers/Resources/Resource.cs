@@ -77,8 +77,10 @@ public class Resource {
     public void AddNewResource(Resource newResource) {
         amount += newResource.GetAmount();
 
-        if(Inventory.instance.crew.Find(x => x.active).crewName == "Dave")
+        if (Inventory.instance.crew.Find(x => x.active).crewName == "Dave")
+        {
             amount += Mathf.CeilToInt(newResource.GetAmount() * .1f);
+        }
     }
 
     public void SubtractAmount(int payment)

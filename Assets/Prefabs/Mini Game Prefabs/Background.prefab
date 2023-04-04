@@ -350,6 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: -4
+  speedBoost: 2
   disappearTime: 0
   disappearMultiplier: 2
   timer: 0
@@ -364,6 +365,7 @@ MonoBehaviour:
   obstaclePrefabList:
   - {fileID: 2155376225918342373, guid: b27634d4284843144b54de8bbb401b40, type: 3}
   - {fileID: 5764840329335003857, guid: 38fdcaa4bcf8a9840b638ced09951364, type: 3}
+  - {fileID: 4843930949546732333, guid: 9358c98e76040f1429ae93e4c5bbace4, type: 3}
   maxSpawnItems: 5
   numOfSpawnItems: 0
 --- !u!61 &5383547829182080161

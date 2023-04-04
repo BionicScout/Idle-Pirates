@@ -22,6 +22,10 @@ public class BackgroundMovement : MonoBehaviour
     [SerializeField]
     private float speed = -3f;
 
+    [SerializeField]
+    [Range(0, 5)]
+    private float speedBoost = 2f;
+
     //[SerializeField]
     //private float length;
 
@@ -147,6 +151,15 @@ public class BackgroundMovement : MonoBehaviour
         if (MiniGameShipMovement.gotHit == true)
         {
             rb.velocity = new Vector2(0, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, speed);
+        }
+
+        if (MiniGameShipMovement.boostedUp == true)
+        {
+            rb.velocity = new Vector2(0, speed * 2);
         }
         else
         {

@@ -22,6 +22,11 @@ public class ShipMoveSceneManager : MonoBehaviour
     [SerializeField]
     private float currentDistance = 0;
 
+
+    [SerializeField]
+    [Range(0, 5)]
+    private float distanceBooster = 2;
+
     [SerializeField]
     private int neededDistance = 0;
 
@@ -85,8 +90,18 @@ public class ShipMoveSceneManager : MonoBehaviour
 
     public void DistanceUpdate()
     {
-        currentDistance = (currentDistance + 1);
-        gatheredDistanceText.text = currentDistance.ToString();
+        if(MiniGameShipMovement.boostedUp == false)
+        {
+            currentDistance = (currentDistance + 1);
+            gatheredDistanceText.text = currentDistance.ToString();
+        }
+        else
+        {
+            currentDistance = (currentDistance + distanceBooster);
+            gatheredDistanceText.text = currentDistance.ToString();
+        }
+
+        
     }
 
 
