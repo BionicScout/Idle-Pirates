@@ -59,16 +59,25 @@ public class MiniGameShipMovement : MonoBehaviour
             StartCoroutine(HitTime(stopTimer));
         }
 
-        if (other.gameObject.CompareTag("Booster"))
+        if (other.gameObject.CompareTag("Booster") && boostedUp == false)
         {
             boostedUp = true;
             //rigbody.velocity = new Vector2(0, 0);
             Destroy(other.gameObject);
 
-
-
             StartCoroutine(BoostTime(stopTimer));
         }
+
+        if (other.gameObject.CompareTag("Booster") && boostedUp == true)
+        {
+            
+            //rigbody.velocity = new Vector2(0, 0);
+            Destroy(other.gameObject);
+            //StopCoroutine(BoostTime(stopTimer));
+            StopAllCoroutines();
+            StartCoroutine(BoostTime(stopTimer));
+        }
+        //StopCoroutine
     }
 
     
@@ -85,6 +94,8 @@ public class MiniGameShipMovement : MonoBehaviour
         yield return new WaitForSeconds(duration);
         boostedUp = false;
     }
+
+
 
     //When player collides with rock, lock movement
 

@@ -159,7 +159,7 @@ public class BackgroundMovement : MonoBehaviour
 
         if (MiniGameShipMovement.boostedUp == true && MiniGameShipMovement.gotHit == false)
         {
-            rb.velocity = new Vector2(0, speed * 2);
+            rb.velocity = new Vector2(0, speed * speedBoost);
         }
         //else
         //{
