@@ -945,57 +945,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319132334}
   m_CullTransparentMesh: 1
---- !u!1 &319357286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 319357288}
-  - component: {fileID: 319357287}
-  m_Layer: 0
-  m_Name: Enemy Ship 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &319357287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319357286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5d2e75dc3f3bb4b9be2537487a0f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipName: Ship 3
-  speed: 3
-  attack: 5
-  health: 10
-  maxHealth: 10
-  dead: 0
-  shipImage: {fileID: 21300000, guid: 9d765c3026721e94a8789da8a2450878, type: 3}
---- !u!4 &319357288
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319357286}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 709, y: 53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 655171102}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332813528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1578,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515322980}
   m_CullTransparentMesh: 1
---- !u!1 &567626941
+--- !u!1 &540001989
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1637,105 +1586,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 567626942}
-  - component: {fileID: 567626943}
+  - component: {fileID: 540001990}
+  - component: {fileID: 540001991}
   m_Layer: 0
-  m_Name: Enemy Ship 1
+  m_Name: Temp Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &567626942
+--- !u!4 &540001990
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567626941}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 709, y: 53, z: 0}
+  m_GameObject: {fileID: 540001989}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -590, y: 41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655171102}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &567626943
+--- !u!114 &540001991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567626941}
+  m_GameObject: {fileID: 540001989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5d2e75dc3f3bb4b9be2537487a0f1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 30a7c511add434446999ba2324c00266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipName: Ship 1
-  speed: 1
-  attack: 10
-  health: 20
-  maxHealth: 20
+  combatantName: TEMP
+  speed: 0
+  attack: 0
+  health: 1
+  maxHealth: 1
   dead: 0
-  shipImage: {fileID: 21300000, guid: 49b0f2cb488ae494c852db5d73ce0b5a, type: 3}
---- !u!1 &619456372
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 619456374}
-  - component: {fileID: 619456373}
-  m_Layer: 0
-  m_Name: 'Fast Ship '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &619456373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619456372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5d2e75dc3f3bb4b9be2537487a0f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipName: Fast
-  speed: 5
-  attack: 2
-  health: 5
-  maxHealth: 5
-  dead: 0
-  shipImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
---- !u!224 &619456374
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619456372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1693799287}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -590, y: 41}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
 --- !u!1 &655171097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 655171102}
-  - component: {fileID: 655171101}
+  - component: {fileID: 655171103}
   m_Layer: 0
   m_Name: Enemy Fleet
   m_TagString: Untagged
@@ -1753,22 +1646,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &655171101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655171097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd41aaead7578a94db4940aae31a6135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ships:
-  - {fileID: 567626943}
-  - {fileID: 1853863796}
-  - {fileID: 319357287}
 --- !u!4 &655171102
 Transform:
   m_ObjectHideFlags: 0
@@ -1781,12 +1658,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 319357288}
-  - {fileID: 1853863795}
-  - {fileID: 567626942}
+  - {fileID: 540001990}
+  - {fileID: 1630151295}
+  - {fileID: 962523442}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &655171103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655171097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1c25bc1efc4c94d96ba752badd5667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ships:
+  - {fileID: 540001991}
+  - {fileID: 1630151296}
+  - {fileID: 962523441}
 --- !u!1 &656577859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +1873,6 @@ GameObject:
   m_Component:
   - component: {fileID: 721840187}
   - component: {fileID: 721840186}
-  - component: {fileID: 721840188}
   m_Layer: 0
   m_Name: Combat Manager
   m_TagString: Untagged
@@ -2000,18 +1892,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a1b92bf099aef438369107c474aee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFleet: {fileID: 1693799290}
-  enemyFleet: {fileID: 655171101}
+  playerGroup: {fileID: 1693799288}
+  enemyGroup: {fileID: 655171103}
   updateTextTime: 2.8
   textUI: {fileID: 1460444440}
   attackButton: {fileID: 1315436890}
   switchButton: {fileID: 1450866393}
   runButton: {fileID: 1812345843}
-  playerShipUI: {fileID: 701125814}
-  enemyShipUI: {fileID: 1411285585}
+  playerUI: {fileID: 701125814}
+  enemyUI: {fileID: 1411285585}
   fleePopUp: {fileID: 1278203113}
-  oneShip_swapPopUp: {fileID: 1964985123}
-  twoShip_swapPopUp: {fileID: 332813528}
+  oneCombatant_swapPopUp: {fileID: 1964985123}
+  twoCombatant_swapPopUp: {fileID: 332813528}
 --- !u!4 &721840187
 Transform:
   m_ObjectHideFlags: 0
@@ -2027,18 +1919,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &721840188
+--- !u!1 &754771251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754771252}
+  - component: {fileID: 754771253}
+  m_Layer: 0
+  m_Name: Temp Player 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754771252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754771251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -590, y: 41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693799287}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754771253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721840185}
+  m_GameObject: {fileID: 754771251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e9bac4f74b36e4291c6e5492c36207, type: 3}
+  m_Script: {fileID: 11500000, guid: 30a7c511add434446999ba2324c00266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatantName: TEMP
+  speed: 0
+  attack: 0
+  health: 1
+  maxHealth: 1
+  dead: 0
+  combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
 --- !u!1 &848027683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2380,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &962523440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 962523442}
+  - component: {fileID: 962523441}
+  m_Layer: 0
+  m_Name: Temp Enemy 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &962523441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962523440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a7c511add434446999ba2324c00266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatantName: TEMP
+  speed: 0
+  attack: 0
+  health: 1
+  maxHealth: 1
+  dead: 0
+  combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
+--- !u!4 &962523442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962523440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -590, y: 41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 655171102}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002974862
 GameObject:
@@ -4131,6 +4113,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597692098}
   m_CullTransparentMesh: 1
+--- !u!1 &1630151294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630151295}
+  - component: {fileID: 1630151296}
+  m_Layer: 0
+  m_Name: Temp Enemy 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1630151295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630151294}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -590, y: 41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 655171102}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630151296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630151294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a7c511add434446999ba2324c00266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatantName: TEMP
+  speed: 0
+  attack: 0
+  health: 1
+  maxHealth: 1
+  dead: 0
+  combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
+--- !u!1 &1650810686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650810688}
+  - component: {fileID: 1650810687}
+  m_Layer: 0
+  m_Name: Temp Player 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1650810687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650810686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a7c511add434446999ba2324c00266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatantName: TEMP
+  speed: 0
+  attack: 0
+  health: 1
+  maxHealth: 1
+  dead: 0
+  combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
+--- !u!4 &1650810688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650810686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -590, y: 41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693799287}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1655696835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,7 +4300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693799287}
-  - component: {fileID: 1693799290}
+  - component: {fileID: 1693799288}
   m_Layer: 0
   m_Name: Player Fleet
   m_TagString: Untagged
@@ -4237,12 +4321,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1826810894}
-  - {fileID: 2134184127}
-  - {fileID: 619456374}
+  - {fileID: 754771252}
+  - {fileID: 1650810688}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1693799290
+--- !u!114 &1693799288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4251,13 +4335,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1693799285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd41aaead7578a94db4940aae31a6135, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c1c25bc1efc4c94d96ba752badd5667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ships:
   - {fileID: 1826810895}
-  - {fileID: 2134184128}
-  - {fileID: 619456373}
+  - {fileID: 754771253}
+  - {fileID: 1650810687}
 --- !u!1 &1764659495
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,7 +4774,7 @@ GameObject:
   - component: {fileID: 1826810894}
   - component: {fileID: 1826810895}
   m_Layer: 0
-  m_Name: Heavy Ship
+  m_Name: Temp Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4720,67 +4804,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826810893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5d2e75dc3f3bb4b9be2537487a0f1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 30a7c511add434446999ba2324c00266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipName: Heavy
-  speed: 1
-  attack: 10
-  health: 20
-  maxHealth: 20
+  combatantName: TEMP
+  speed: 0
+  attack: 0
+  health: 1
+  maxHealth: 1
   dead: 0
-  shipImage: {fileID: 21300000, guid: d5ba03791332d5e4b8470c8bbc952cb7, type: 3}
---- !u!1 &1853863794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1853863795}
-  - component: {fileID: 1853863796}
-  m_Layer: 0
-  m_Name: Enemy Ship 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1853863795
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853863794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 709, y: 53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 655171102}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1853863796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853863794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5d2e75dc3f3bb4b9be2537487a0f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipName: Ship 2
-  speed: 5
-  attack: 2
-  health: 5
-  maxHealth: 5
-  dead: 0
-  shipImage: {fileID: 21300000, guid: 682472a4a0cff4945852c308ef73d1cd, type: 3}
+  combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
 --- !u!1 &1900628928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5307,57 +5340,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039004374}
   m_CullTransparentMesh: 1
---- !u!1 &2134184126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2134184127}
-  - component: {fileID: 2134184128}
-  m_Layer: 0
-  m_Name: 'Normal Ship '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2134184127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134184126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -590, y: 41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1693799287}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2134184128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134184126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5d2e75dc3f3bb4b9be2537487a0f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipName: Normal
-  speed: 3
-  attack: 5
-  health: 10
-  maxHealth: 10
-  dead: 0
-  shipImage: {fileID: 21300000, guid: 9b934f6d9f1d9694ca932291d3f43e75, type: 3}
 --- !u!1 &2145759779
 GameObject:
   m_ObjectHideFlags: 0

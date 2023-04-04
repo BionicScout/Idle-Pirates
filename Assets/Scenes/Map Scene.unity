@@ -4428,7 +4428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crewTemplates.Array.size
-      value: 3
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crew.Array.data[0].active
@@ -4530,6 +4534,38 @@ PrefabInstance:
       propertyPath: crewTemplates.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 8f64918ee6291064498e0ec0a77b7cbe, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ac409e12a9400d42a70587830152b17, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: c2654b41c25fdef4ca37a55855b9f51b, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 422b080d802922f40b621d0f9c99a1b7, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 249de1e4af9e5cd4e8dc85bd1f0b368b, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3427ded20047fbb489c62a5098d52b7d, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 824ccbed1a73ee5489d826b9e5b572e1, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: dd8329d3fe35bd545bb22ef8605f0b51, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resourceTemplates.Array.size
       value: 3
@@ -4694,6 +4730,22 @@ PrefabInstance:
       propertyPath: tradeResourceTemplates.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 43a787075d5865844b973723ae91402d, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2456b38d13d88844f966fec86dea9af3, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4033bbcdac9494898f6c66be57633c, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b7cf7ed8d9ce2e41b5c306cae160781, type: 2}
     - target: {fileID: 7410352101125369334, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: m_Name
       value: Dont Destroy Inventory
@@ -27255,7 +27307,7 @@ GameObject:
   - component: {fileID: 1473312694}
   - component: {fileID: 1473312693}
   m_Layer: 0
-  m_Name: Inventory Ui Manager
+  m_Name: Inventory UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -67,6 +67,69 @@ MonoBehaviour:
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
+  - name: Button Pressed
+    clip: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
+    volume: 0.215
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Error
+    clip: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
+    volume: 0.215
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Win
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Ran
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Lose
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Player's Turn
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Attack
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Sink
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Combat Swapped Ships
+    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
 --- !u!81 &6132140936311794976
 AudioListener:
   m_ObjectHideFlags: 0
