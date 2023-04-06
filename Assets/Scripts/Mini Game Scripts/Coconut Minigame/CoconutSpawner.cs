@@ -35,7 +35,9 @@ public class CoconutSpawner : MonoBehaviour
     private float spawnEverySetSeconds;
 
     //For checking how many seconds have passed.
+    [SerializeField]
     float secPassed = 0;
+    [SerializeField]
     float secWarningPassed = 0;
 
 

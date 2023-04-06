@@ -143,7 +143,7 @@ public class ShipShopMenu : MonoBehaviour
                 = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
 
 
-            //Check to see if ship is already inside of the shopList
+            
             //for(int y = 0; y < listOfShips.Count; y++)
             //{
             //    //Check the name of ship to see if the name is in there
@@ -153,7 +153,7 @@ public class ShipShopMenu : MonoBehaviour
 
             //}
 
-
+            //Check to see if ship is already inside of the shopList
             while (listOfShips.Contains(invShip) == true)
             {
                 randomPosition
@@ -164,13 +164,14 @@ public class ShipShopMenu : MonoBehaviour
 
             }
 
-            if(listOfShips.Contains(invShip) == false)
-            {
-                listOfShips.Add(invShip);
-            }
+            //if(listOfShips.Contains(invShip) == false)
+            //{
+            //    listOfShips.Add(invShip);
+            //}
+
+            listOfShips.Add(invShip);
 
 
-            
         }
 
         return listOfShips;

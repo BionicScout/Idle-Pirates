@@ -48,14 +48,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 547330110850821231}
-  minWarningSec: 2
-  maxWarningSec: 3
+  minWarningSec: 0.75
+  maxWarningSec: 2
   coconutPrefab: {fileID: 185022967357013874, guid: 70c86de17ab8d7d4abddf71896ee77d7, type: 3}
   warningSprite: {fileID: 547330112114831423}
   startPoint: {fileID: 0}
   endPoint: {fileID: 0}
-  warningEverySeconds: 0
-  spawnEverySetSeconds: 0
+  warningEverySeconds: 1.5
+  spawnEverySetSeconds: 0.5
+  secPassed: 0
+  secWarningPassed: 0
 --- !u!61 &8417177553525240339
 BoxCollider2D:
   m_ObjectHideFlags: 0
