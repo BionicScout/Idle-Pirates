@@ -1975,6 +1975,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   dead: 0
+  type: 0
   combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
   attacks: []
 --- !u!1 &582792802
@@ -2471,7 +2472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -480, y: 150}
+  m_AnchoredPosition: {x: -480, y: 64}
   m_SizeDelta: {x: -960, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &701125817
@@ -2590,6 +2591,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   dead: 0
+  type: 0
   combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
   attacks: []
 --- !u!1 &800715985
@@ -3131,7 +3133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e2bfe49d9cb22534291d1c09083da4c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93031efd2a8ef3942872f4066226fd78, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3309,6 +3311,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   dead: 0
+  type: 0
   combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
   attacks: []
 --- !u!4 &962523442
@@ -4633,7 +4636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 480, y: 150}
+  m_AnchoredPosition: {x: 480, y: 64}
   m_SizeDelta: {x: -960, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1411285588
@@ -5814,6 +5817,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   dead: 0
+  type: 0
   combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
   attacks: []
 --- !u!1 &1650810686
@@ -5851,6 +5855,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   dead: 0
+  type: 0
   combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
   attacks: []
 --- !u!4 &1650810688
@@ -6736,6 +6741,7 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   dead: 0
+  type: 0
   combatantImage: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
   attacks: []
 --- !u!1 &1856429383
