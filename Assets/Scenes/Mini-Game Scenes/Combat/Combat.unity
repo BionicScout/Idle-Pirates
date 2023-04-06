@@ -1894,6 +1894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGroup: {fileID: 1693799288}
   enemyGroup: {fileID: 655171103}
+  dodgeChance: 0.1
   updateTextTime: 2.8
   textUI: {fileID: 1460444440}
   attackButton: {fileID: 1315436890}
@@ -2238,9 +2239,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 81e071bb35d2f884eaa9fe427d860492, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2bfe49d9cb22534291d1c09083da4c2, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

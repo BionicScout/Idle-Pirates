@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 243327625717377325}
   - component: {fileID: 7302598117955353645}
   - component: {fileID: 2741735401034771803}
+  - component: {fileID: 8480533719139779427}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Obstacles
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256658493552245971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.1746597, y: 14.327976, z: 0}
+  m_LocalPosition: {x: -1.2562227, y: 15.009826, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42,9 +43,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256658493552245971}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -54,7 +55,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &2741735401034771803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +71,22 @@ MonoBehaviour:
   rb: {fileID: 0}
   speed: 7
   wallSpeed: 4
+--- !u!58 &8480533719139779427
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256658493552245971}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7712381408574247564
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3811689721452610793}
   - component: {fileID: 1545580275211993154}
-  - component: {fileID: 797746929487541537}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Obstacles
@@ -155,19 +171,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &797746929487541537
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712381408574247564}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5

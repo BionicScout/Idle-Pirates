@@ -638,7 +638,7 @@ MonoBehaviour:
   checkpointInt: 0
   winScene: Mini Game Win Scene
   loseScene: Mini Game Lose Scene
-  timeCheckpoint: 0.5
+  timeCheckpoint: 0.6
   checkpointHit: 0
 --- !u!4 &451607873
 Transform:

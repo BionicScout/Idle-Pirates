@@ -4396,7 +4396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.size
@@ -4432,7 +4432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.size
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crew.Array.data[0].active
@@ -4523,6 +4523,10 @@ PrefabInstance:
       value: Joe
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crew.Array.data[3].crewName
+      value: Joe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crewTemplates.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: d27362c830c9fac42b6e546c9e6a41c1, type: 2}
@@ -4553,19 +4557,27 @@ PrefabInstance:
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 3427ded20047fbb489c62a5098d52b7d, type: 2}
+      objectReference: {fileID: 11400000, guid: dd8329d3fe35bd545bb22ef8605f0b51, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 824ccbed1a73ee5489d826b9e5b572e1, type: 2}
+      objectReference: {fileID: 11400000, guid: 080725427a5f66348b7fdb5c30ed9695, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: dd8329d3fe35bd545bb22ef8605f0b51, type: 2}
+      objectReference: {fileID: 11400000, guid: 141f30e0a9a86d141932f779970723be, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
+      objectReference: {fileID: 11400000, guid: c294e8cdd696ede449153744f7bed6c0, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 764dff2e3ea07384e8f93e961930e78e, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resourceTemplates.Array.size
       value: 3
@@ -4632,7 +4644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.data[3].shipName
-      value: Evolution
+      value: Speedster
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.data[4].shipName
@@ -8111,6 +8123,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &475658676
 MonoBehaviour:
@@ -14376,6 +14389,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
   buySellMenu: {fileID: 99705150}
   buyMenu: {fileID: 439557135}
@@ -16277,6 +16291,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &921897969
 MonoBehaviour:
@@ -18885,6 +18900,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &1029796065
 MonoBehaviour:
@@ -18985,6 +19001,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &1031175711
 MonoBehaviour:
@@ -21822,6 +21839,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &1218751705
 MonoBehaviour:
@@ -29755,6 +29773,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &1612744035
 MonoBehaviour:
@@ -39755,6 +39774,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!114 &4207832753671473465
 MonoBehaviour:
@@ -39776,6 +39796,7 @@ MonoBehaviour:
     maxCargo: 0
     shipImage: {fileID: 0}
     use: 2
+    combatType: 0
     resourcesNeeded: []
 --- !u!1001 &6132140936386885047
 PrefabInstance:

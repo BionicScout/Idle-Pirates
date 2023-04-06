@@ -13,6 +13,8 @@ TagManager:
   - Booster
   - StartPoint
   - EndPoint
+  - Collider
+  - Spawner
   layers:
   - Default
   - TransparentFX

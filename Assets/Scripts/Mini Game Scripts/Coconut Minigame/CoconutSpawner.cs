@@ -116,4 +116,17 @@ public class CoconutSpawner : MonoBehaviour
             Random.Range(minXPosition, maxXPosition),
             spawnPosition.position.y, spawnPosition.position.z);
     }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Spawner"))
+        {
+            RandomizeSpawnPosition();
+        }
+    }
+
+
+
 }
