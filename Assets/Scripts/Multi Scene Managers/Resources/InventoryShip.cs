@@ -16,6 +16,7 @@ public class InventoryShip {
     public Sprite shipImage;
     public USED_IN use = USED_IN.none; //Used to determine if the ship can be used in diffent tasks
     public COMBAT_TYPE combatType = COMBAT_TYPE.normal;
+    public List<Attacks> attacks = new List<Attacks>();
 
     //Materials Needed;
     public List<Resource> resourcesNeeded = new List<Resource>();
@@ -30,6 +31,7 @@ public class InventoryShip {
         health = ships.health;
         maxCargo = ships.maxCargo;
         shipImage = ships.shipImage;
+        combatType = ships.combatType;
 
         for (int i = 0; i < ships.resourcesNeeded.Count; i++)
         {
@@ -44,6 +46,13 @@ public class InventoryShip {
 
 
 
+        }
+
+    //Add Attacks
+        foreach(Attacks a in ships.attacks) {
+
+            Debug.Log(a.attackName);
+            attacks.Add(a);
         }
 
 

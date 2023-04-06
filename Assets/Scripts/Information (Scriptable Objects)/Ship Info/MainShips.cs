@@ -18,6 +18,7 @@ public class MainShips : ScriptableObject
     public COMBAT_TYPE combatType;
 
     public List<Resource> resourcesNeeded;
+    public List<Attacks> attacks;
 
 
     public void Delete()

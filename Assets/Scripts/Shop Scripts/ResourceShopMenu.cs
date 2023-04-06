@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ResourceShopMenu : MonoBehaviour
-{
+public class ResourceShopMenu : MonoBehaviour {
     [SerializeField]
     private ShopManager shopManager;
 
@@ -38,25 +37,10 @@ public class ResourceShopMenu : MonoBehaviour
     [SerializeField]
     private int shopItemLimit = 3;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public List<Resource> GenerateResources()
-    {
+    public List<Resource> GenerateResources() {
         List<Resource> listOfResources = new List<Resource>();
 
-        for (int z = 0; z < shopItemLimit; z++)
-        {
+        for(int z = 0; z < shopItemLimit; z++) {
             Resource invResource = new Resource(Inventory.instance.shipBuildResourceTemplates[z]);
 
 
@@ -67,51 +51,43 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void SetValues(ShopInventory shopStock)
-    {
+    public void SetValues(ShopInventory shopStock) {
 
         shopStock.resourceStock = GenerateResources();
 
 
-        for (int i = 0; i < itemTitles.Count; i++)
-        {
+        for(int i = 0; i < itemTitles.Count; i++) {
             itemTitles[i].text = shopStock.resourceStock[i].GetName();
         }
 
-        for (int i = 0; i < itemAmountNumbers.Count; i++)
-        {
+        for(int i = 0; i < itemAmountNumbers.Count; i++) {
             itemAmountNumbers[i] = shopStock.resourceStock[i].GetAmount();
         }
 
-        for (int i = 0; i < itemAmountNumbertexts.Count; i++)
-        {
+        for(int i = 0; i < itemAmountNumbertexts.Count; i++) {
             itemAmountNumbertexts[i].text = itemAmountNumbers[i].ToString();
         }
 
-        for (int i = 0; i < itemCostNumbers.Count; i++)
-        {
+        for(int i = 0; i < itemCostNumbers.Count; i++) {
             itemCostNumbers[i] = shopStock.resourceStock[i].GetCost();
 
             if(Inventory.instance.crew.Find(x => x.active).crewName == "Joe")
                 itemCostNumbers[i] -= Mathf.CeilToInt(shopStock.resourceStock[i].GetCost() * .1f);
         }
 
-        for (int i = 0; i < itemCostNumbertexts.Count; i++)
-        {
+        for(int i = 0; i < itemCostNumbertexts.Count; i++) {
             itemCostNumbertexts[i].text = itemCostNumbers[i].ToString();
         }
 
     }
 
 
-    public void BuyShipResourceItemOne()
-    {
+    public void BuyShipResourceItemOne() {
         itemReference = 1;
 
 
 
-        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        {
+        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) {
             AudioManager.instance.Play("Menu Sound");
             item1Button.gameObject.SetActive(false);
             Pay(itemReference);
@@ -124,14 +100,12 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void BuyShipResourceItemTwo()
-    {
+    public void BuyShipResourceItemTwo() {
         itemReference = 2;
 
 
 
-        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        {
+        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) {
             AudioManager.instance.Play("Menu Sound");
             item2Button.gameObject.SetActive(false);
 
@@ -144,14 +118,12 @@ public class ResourceShopMenu : MonoBehaviour
     }
 
 
-    public void BuyShipResourceItemThree()
-    {
+    public void BuyShipResourceItemThree() {
         itemReference = 3;
 
 
 
-        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        {
+        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) {
             AudioManager.instance.Play("Menu Sound");
             item3Button.gameObject.SetActive(false);
             Pay(itemReference);
@@ -162,8 +134,7 @@ public class ResourceShopMenu : MonoBehaviour
 
     }
 
-    public void Pay(int index)
-    {
+    public void Pay(int index) {
         Inventory.instance.resources[0].SubtractAmount(itemCostNumbers[index - 1]);
 
     }

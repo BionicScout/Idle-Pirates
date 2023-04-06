@@ -16,7 +16,7 @@ MonoBehaviour:
   speed: 20
   attack: 30
   health: 40
-  maxCargo: 5
+  maxCargo: 129
   shipImage: {fileID: 21300000, guid: 6640f7cfec9662e439d03cecc22daeac, type: 3}
   usedIn: 2
   combatType: 0
@@ -25,3 +25,9 @@ MonoBehaviour:
     resourceName: Wood
     amount: 20
     cost: 0
+  attacks:
+  - {fileID: 11400000, guid: 60353305e644fdb4da1f35bed76845ae, type: 2}
+  - {fileID: 11400000, guid: 122422250e876f2478793e273ee73929, type: 2}
+  - {fileID: 11400000, guid: 599ac01a368271343a633c065fdfc9f2, type: 2}
+  - {fileID: 11400000, guid: c81dd79cd3efba142b95dc14d02e401b, type: 2}
+  - {fileID: 11400000, guid: fb0dcab95e4e89249962b01d678d0f9b, type: 2}

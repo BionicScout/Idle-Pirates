@@ -15,7 +15,7 @@ MonoBehaviour:
   shipName: Crosser
   speed: 15
   attack: 20
-  health: 35
+  health: 200
   maxCargo: 3
   shipImage: {fileID: 21300000, guid: e8407db42f99c7941a15c4df621c595a, type: 3}
   usedIn: 2
@@ -29,3 +29,9 @@ MonoBehaviour:
     resourceName: Wood
     amount: 20
     cost: 0
+  attacks:
+  - {fileID: 11400000, guid: 60353305e644fdb4da1f35bed76845ae, type: 2}
+  - {fileID: 11400000, guid: 122422250e876f2478793e273ee73929, type: 2}
+  - {fileID: 11400000, guid: 24fe3798805466a4f916cdaf0b6eeb32, type: 2}
+  - {fileID: 11400000, guid: 6754a764fae12e145bf418d2ec5c9933, type: 2}
+  - {fileID: 11400000, guid: 068695ad4b8a6854facc66965e4efc62, type: 2}

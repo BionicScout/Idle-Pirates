@@ -43,12 +43,13 @@ public class Combat : MonoBehaviour {
     public GameObject fleePopUp;
     public GameObject oneCombatant_swapPopUp;
     public GameObject twoCombatant_swapPopUp;
+    public GameObject attackPanel;
 
     private void Start() {
         int i = 0;
         foreach(InventoryShip ship in Inventory.instance.ships) {
             if(ship.use == InventoryShip.USED_IN.combat) {
-                playerGroup.ships[i].setCombatant(ship.GetShipName(), true);
+                playerGroup.ships[i].setCombatant(ship.GetShipName(), true, ship.attacks);
                 Debug.Log(playerGroup.ships[i].combatantName);
                 i++;
             }
@@ -89,6 +90,37 @@ public class Combat : MonoBehaviour {
     public int randomizeDamage(int baseDamage) {
         int adjust = Mathf.CeilToInt(baseDamage * 0.1f);
         return Random.Range(baseDamage - adjust, baseDamage + adjust) + Random.Range(-1, 1);
+    }
+
+    public int damageTypeEffect(int damage, InventoryShip.COMBAT_TYPE shipType, Attacks.TYPE attType) {
+        float percent = 1;
+
+        if(shipType == InventoryShip.COMBAT_TYPE.frigate) {
+            if(attType == Attacks.TYPE.CREW) { //Effective
+                percent += .25f;
+            }
+            else if(attType == Attacks.TYPE.HULL) { //Not Effective
+                percent -= .25f;
+            }
+        }
+        else if(shipType == InventoryShip.COMBAT_TYPE.brig) {
+            if(attType == Attacks.TYPE.SAIL) { //Effective
+                percent += .25f;
+            }
+            else if(attType == Attacks.TYPE.CREW) { //Not Effective
+                percent -= .25f;
+            }
+        }
+        else if(shipType == InventoryShip.COMBAT_TYPE.schooner) {
+            if(attType == Attacks.TYPE.HULL) { //Effective
+                percent += .25f;
+            }
+            else if(attType == Attacks.TYPE.SAIL) { //Not Effective
+                percent -= .25f;
+            }
+        }
+
+        return Mathf.RoundToInt(damage * percent);
     }
 
     /***************************************************************************************************************************************
@@ -142,7 +174,7 @@ public class Combat : MonoBehaviour {
     attack and then checks if the enemy ship was deystroyed. If the ship was deystroyed, the next enemy shipStock comes out. If all 
     shipStock were they deystroyed, the win State is called.
 */
-    IEnumerator PlayerAttack() {
+    IEnumerator PlayerAttack(string attackName) {
         disableButton(attackButton);
         disableButton(switchButton);
         disableButton(runButton);
@@ -154,15 +186,24 @@ public class Combat : MonoBehaviour {
         }
         //Attack
         else {
+            //Get Attack
+            Attacks attack = playerCombatant.attacks.Find(x => x.attackName == attackName);
 
             //Attack Enemy Ship
-            int damage = randomizeDamage(playerCombatant.attack);
-            enemyCombatant.removeHP(damage);
+            int damage = randomizeDamage(attack.baseDamage);
+            int effectDamage = damageTypeEffect(damage, enemyCombatant.type, attack.type);
+            enemyCombatant.removeHP(effectDamage);
+
+            string extraStr = "";
+            if(damage < effectDamage)
+                extraStr = "\nIt was super effective";
+            else if(damage > effectDamage)
+                extraStr = "\nIt was not effective";
 
             AudioManager.instance.Play("Combat Attack");
 
             updateCombatantUI(enemyUI, enemyCombatant);
-            updateTextBox(playerCombatant.combatantName + " delt " + damage + " to " + enemyCombatant.combatantName);
+            updateTextBox(playerCombatant.combatantName + " delt " + effectDamage + " " + attack.type.ToString() + " damage to " + enemyCombatant.combatantName + extraStr);
             yield return new WaitForSeconds(updateTextTime);
 
             updateTextBox(enemyCombatant.combatantName + " HP: " + enemyCombatant.health + "/" + enemyCombatant.maxHealth);
@@ -288,15 +329,24 @@ public class Combat : MonoBehaviour {
             yield return new WaitForSeconds(updateTextTime);
         }
         else {
+            //Get Attack
+            Attacks attack = enemyCombatant.attacks[Random.Range(0, enemyCombatant.attacks.Count)];
 
             //Enemy Attack
-            int damage = randomizeDamage(enemyCombatant.attack);
-            playerCombatant.removeHP(damage);
+            int damage = randomizeDamage(attack.baseDamage);
+            int effectDamage = damageTypeEffect(damage, playerCombatant.type, attack.type);
+            playerCombatant.removeHP(effectDamage);
 
             AudioManager.instance.Play("Combat Attack");
 
+            string extraStr = "";
+            if(damage < effectDamage)
+                extraStr = "\nIt was super effective";
+            else if(damage > effectDamage)
+                extraStr = "\nIt was not effective";
+
             updateCombatantUI(playerUI, playerCombatant);
-            updateTextBox(enemyCombatant.combatantName + " delt " + damage + " to " + playerCombatant.combatantName);
+            updateTextBox(enemyCombatant.combatantName + " delt " + effectDamage + " " + attack.type.ToString() + " damage to " + playerCombatant.combatantName + extraStr);
             yield return new WaitForSeconds(updateTextTime);
 
             updateCombatantUI(playerUI, playerCombatant);
@@ -375,7 +425,14 @@ public class Combat : MonoBehaviour {
 
         AudioManager.instance.Play("Button Pressed");
 
-        StartCoroutine(PlayerAttack());
+        for(int i = 0; i < playerCombatant.attacks.Count; i++) {
+            Transform button = attackPanel.transform.GetChild(i + 1);
+            button.GetChild(0).GetComponent<TMP_Text>().text = playerCombatant.attacks[i].attackName;
+            button.GetChild(1).GetComponent<TMP_Text>().text = playerCombatant.attacks[i].type.ToString();
+            button.GetChild(2).GetComponent<TMP_Text>().text = "Dam: " + playerCombatant.attacks[i].baseDamage;
+        }
+
+        attackPanel.SetActive(!attackPanel.activeInHierarchy);
     }
 
     public void OnSwapButtonPressed() {
@@ -422,6 +479,12 @@ public class Combat : MonoBehaviour {
     /***************************************************************************************************************************************
             WINDOWS UI
     ***************************************************************************************************************************************/
+    public void attackButtons(TMP_Text text) {
+        string attackName = text.text;
+        attackPanel.SetActive(false);
+        StartCoroutine(PlayerAttack(attackName));
+    }
+
     public void Ship1_ButtonPressed() {
         StartCoroutine(PlayerSwitch(0));
         oneCombatant_swapPopUp.SetActive(false);

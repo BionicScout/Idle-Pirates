@@ -7,6 +7,7 @@ public class SceneSwitcher : MonoBehaviour {
     public static SceneSwitcher instance;
 
     public static string currentScene;
+    bool firstMapLoad = true;
 
     void Awake() {
         if(instance == null)
@@ -28,7 +29,6 @@ public class SceneSwitcher : MonoBehaviour {
 
     public void A_LoadScene(string sceneName) {
     //Switch Scene
-        currentScene = sceneName;
         SceneManager.LoadScene(sceneName);
 
     //Map Scene Extra Set Up
@@ -39,6 +39,8 @@ public class SceneSwitcher : MonoBehaviour {
         else if(sceneName != "Map Scene") {
             Pathfinding.clear();
         }
+
+
     }
 
     IEnumerator MapSceneRefresh() {
@@ -50,5 +52,14 @@ public class SceneSwitcher : MonoBehaviour {
         Pathfinding.refresh();
         TimedActivityManager.instance.refreshQuerries();
         mapShip.loadCurrentLocation();
+
+    //This just load testing ships
+        if(firstMapLoad) {
+            firstMapLoad = false;
+            
+            foreach(MainShips template in Inventory.instance.shipTemplates) {
+                Inventory.instance.AddShip(new InventoryShip(template));
+            }
+        }
     }
 }

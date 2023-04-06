@@ -15,7 +15,7 @@ MonoBehaviour:
   shipName: Speedster
   speed: 20
   attack: 25
-  health: 35
+  health: 142
   maxCargo: 0
   shipImage: {fileID: 21300000, guid: fd7261828119e2c4392f1976ed036c53, type: 3}
   usedIn: 2
@@ -25,3 +25,8 @@ MonoBehaviour:
     resourceName: Metal
     amount: 15
     cost: 0
+  attacks:
+  - {fileID: 11400000, guid: 60353305e644fdb4da1f35bed76845ae, type: 2}
+  - {fileID: 11400000, guid: ab14c46e6e07cc34193d96eec3b290f1, type: 2}
+  - {fileID: 11400000, guid: 75d0cdf8948ec9b479deec67273b0b42, type: 2}
+  - {fileID: 11400000, guid: 0a790956e8a07994da4e72f998ed1bba, type: 2}
