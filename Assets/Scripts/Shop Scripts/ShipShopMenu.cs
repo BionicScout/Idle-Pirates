@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
@@ -89,9 +90,25 @@ public class ShipShopMenu : MonoBehaviour
 
 
 
+    //Inventory.instance.shipTemplates.ToList();
+        
+    //Random.Range(0, length - 1)
+
+    //queue.add(Random index )
+    //    tempList.Remove(index)
+
+
+
     public List<InventoryShip> GenerateShips() 
     {
-       List<InventoryShip> listOfShips = new List<InventoryShip>();
+        List<InventoryShip> listOfShips = new List<InventoryShip>();
+
+        List<MainShips> shipInventory = Inventory.instance.shipTemplates.ToList();
+
+        //for (int z = 0; z < shopItemLimit; z++)
+        //{
+        //    shipInventory.Add(Inventory.instance.shipTemplates[z]);
+        //}
 
         for (int z = 0; z < shopItemLimit; z++)
         {
@@ -132,18 +149,23 @@ public class ShipShopMenu : MonoBehaviour
             */
 
 
-            int randomPosition 
-                = UnityEngine.Random.Range(0, Inventory.instance.shipTemplates.Count);
+            //int randomPosition 
+            //    = UnityEngine.Random.Range(0, Inventory.instance.shipTemplates.Count);
 
 
-            
+            int randomPosition
+                = UnityEngine.Random.Range(0, shipInventory.Count - 1);
 
 
-            InventoryShip invShip 
-                = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
+            //InventoryShip invShip 
+            //    = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
 
+            InventoryShip invShip
+                = new InventoryShip(shipInventory[randomPosition]);
 
-            
+           
+
+            /*
             //for(int y = 0; y < listOfShips.Count; y++)
             //{
             //    //Check the name of ship to see if the name is in there
@@ -154,23 +176,25 @@ public class ShipShopMenu : MonoBehaviour
             //}
 
             //Check to see if ship is already inside of the shopList
-            while (listOfShips.Contains(invShip) == true)
-            {
-                randomPosition
-                = UnityEngine.Random.Range(0, Inventory.instance.shipTemplates.Count);
+            //while (listOfShips.Contains(invShip) == true)
+            //{
+            //    randomPosition
+            //    = UnityEngine.Random.Range(0, Inventory.instance.shipTemplates.Count);
 
-                invShip
-                    = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
+            //    invShip
+            //        = new InventoryShip(Inventory.instance.shipTemplates[randomPosition]);
 
-            }
+            //}
 
             //if(listOfShips.Contains(invShip) == false)
             //{
             //    listOfShips.Add(invShip);
             //}
+            */
+
 
             listOfShips.Add(invShip);
-
+            shipInventory.Remove(shipInventory[randomPosition]);
 
         }
 

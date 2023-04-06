@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -50,31 +51,35 @@ public class CrewShopMenu : MonoBehaviour
     {
         List<InventoryCrew> listOfCrew = new List<InventoryCrew>();
 
+        List<MainCrewMembers> crewInventory = Inventory.instance.crewTemplates.ToList();
+
         for (int z = 0; z < shopItemLimit; z++)
         {
             int randomPosition
-                = Random.Range(0, Inventory.instance.crewTemplates.Count);
+                = Random.Range(0, crewInventory.Count - 1);
 
             InventoryCrew invCrew 
-                = new InventoryCrew(Inventory.instance.crewTemplates[randomPosition]);
+                = new InventoryCrew(crewInventory[randomPosition]);
 
+            /*
+            //while (listOfCrew.Contains(invCrew) == true)
+            //{
+            //    randomPosition
+            //    = Random.Range(0, Inventory.instance.shipTemplates.Count);
 
-            while (listOfCrew.Contains(invCrew) == true)
-            {
-                randomPosition
-                = Random.Range(0, Inventory.instance.shipTemplates.Count);
+            //    invCrew
+            //        = new InventoryCrew(Inventory.instance.crewTemplates[randomPosition]);
 
-                invCrew
-                    = new InventoryCrew(Inventory.instance.crewTemplates[randomPosition]);
+            //}
 
-            }
+            //if (listOfCrew.Contains(invCrew) == false)
+            //{
+            //    listOfCrew.Add(invCrew);
+            //}
+            */
 
-            if (listOfCrew.Contains(invCrew) == false)
-            {
-                listOfCrew.Add(invCrew);
-            }
-
-
+            listOfCrew.Add(invCrew);
+            crewInventory.Remove(crewInventory[randomPosition]);
         }
 
         return listOfCrew;

@@ -4469,7 +4469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.size
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crew.Array.data[0].active
@@ -4514,15 +4514,27 @@ PrefabInstance:
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 3427ded20047fbb489c62a5098d52b7d, type: 2}
+      objectReference: {fileID: 11400000, guid: 080725427a5f66348b7fdb5c30ed9695, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
+      objectReference: {fileID: 11400000, guid: 141f30e0a9a86d141932f779970723be, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipTemplates.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 824ccbed1a73ee5489d826b9e5b572e1, type: 2}
+      objectReference: {fileID: 11400000, guid: c294e8cdd696ede449153744f7bed6c0, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 764dff2e3ea07384e8f93e961930e78e, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipTemplates.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: tradeResourceTemplates.Array.size
       value: 3
@@ -8845,7 +8857,8 @@ MonoBehaviour:
   itemReference: 0
   itemMaterialListText: {fileID: 801129817}
   shipMatRequirementChecks: 
-  shipAmountRequirementChecks: 
+  shipMatAmountRequirementChecks: 
+  shipMatIndex: 
   payCheck: 0
   shopItemLimit: 3
 --- !u!1 &1656382463
