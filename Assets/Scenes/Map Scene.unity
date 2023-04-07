@@ -4396,7 +4396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.size
@@ -8124,6 +8124,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &475658676
 MonoBehaviour:
@@ -14390,6 +14391,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
   buySellMenu: {fileID: 99705150}
   buyMenu: {fileID: 439557135}
@@ -16292,6 +16294,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &921897969
 MonoBehaviour:
@@ -18901,6 +18904,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &1029796065
 MonoBehaviour:
@@ -19002,6 +19006,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &1031175711
 MonoBehaviour:
@@ -21840,6 +21845,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &1218751705
 MonoBehaviour:
@@ -29774,6 +29780,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &1612744035
 MonoBehaviour:
@@ -39775,6 +39782,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!114 &4207832753671473465
 MonoBehaviour:
@@ -39797,6 +39805,7 @@ MonoBehaviour:
     shipImage: {fileID: 0}
     use: 2
     combatType: 0
+    attacks: []
     resourcesNeeded: []
 --- !u!1001 &6132140936386885047
 PrefabInstance:

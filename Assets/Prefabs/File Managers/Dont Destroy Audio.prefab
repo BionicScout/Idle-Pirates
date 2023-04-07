@@ -68,14 +68,14 @@ MonoBehaviour:
     soundTrack: 0
     source: {fileID: 0}
   - name: Button Pressed
-    clip: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
+    clip: {fileID: 8300000, guid: 7db167391a7c4ab4196e5805641af804, type: 3}
     volume: 0.215
     pitch: 1
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
   - name: Error
-    clip: {fileID: 8300000, guid: d6b69bc685c087e4186b34e011cfdf92, type: 3}
+    clip: {fileID: 8300000, guid: 165d60e7fbf650141a10036273242adc, type: 3}
     volume: 0.215
     pitch: 1
     loop: 0
@@ -89,42 +89,42 @@ MonoBehaviour:
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Ran
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: b064d4234a8b28f4c871e563ddcdce03, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Lose
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: aad04107af4bd7547a4fdfc30c834ce7, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Player's Turn
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: 088ffcaf5151b684eb175ca0d5b33258, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Attack
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: d703db759de61584787b26dbff258dad, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Sink
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: 0806d2c4932860544bdd2b917868bb13, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Swapped Ships
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: acf6004488652ef4ca493cd1f0b5324b, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
