@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class MinigameSelecter {
-    static string[] minigameScenes = { "Combat", "Ship Cleaning", "Coconut Mini Game Instructions", "Ship Mini Game Instructions" };
+    static string[] minigameScenes = { "Combat", "Ship Cleaning Game Instructions", "Coconut Mini Game Instructions", "Ship Mini Game Instructions" };
     static int[] minigameWeights = { 1, 1, 1, 1};
 
     public static string getMinigame() {
