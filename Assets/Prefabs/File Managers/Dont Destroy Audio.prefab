@@ -54,7 +54,7 @@ MonoBehaviour:
     soundTrack: 1
     source: {fileID: 0}
   - name: Moving
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: 47f99f99bb9719e4bb4f680eb98821af, type: 3}
     volume: 0.155
     pitch: 1
     loop: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     soundTrack: 0
     source: {fileID: 0}
   - name: Combat Win
-    clip: {fileID: 8300000, guid: 620dad4bb8e4b98429963b3bbe39c191, type: 3}
+    clip: {fileID: 8300000, guid: b6b426dc8b5c41f4aa872596e3a51aa0, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
@@ -125,6 +125,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Combat Swapped Ships
     clip: {fileID: 8300000, guid: acf6004488652ef4ca493cd1f0b5324b, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Purchase Sound
+    clip: {fileID: 8300000, guid: a463276ee83c0ec45b1a145708d58b05, type: 3}
     volume: 0.239
     pitch: 1
     loop: 0
