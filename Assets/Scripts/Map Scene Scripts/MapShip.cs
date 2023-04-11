@@ -53,7 +53,7 @@ public class MapShip : MonoBehaviour {
         currentLocation.start = false;
         currentLocation = node;
         currentLocation.start = true;
-        //Debug.Log("Current City GetName: " + currentLocation.name);
+        Debug.Log("************************Current City GetName: " + currentLocation.name);
         CityLastVistedInfo.instance.cityName = currentLocation.name;
     }
 

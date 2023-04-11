@@ -67,11 +67,12 @@ public class TimedActivityManager : MonoBehaviour {
                 if(timeQueries[i].shipQuery) {
                     mapShip.timeQuery = next;
 
+                    Debug.Log(SceneSwitcher.currentScene + "*****************************");
                     if(SceneSwitcher.currentScene == "Map Scene") {
                         //If Ship has a next location and is in map scene
 
                         mapShip.updateLocation(timeQueries[i].endNode); //#1
-                        //Debug.Log();
+                        Debug.Log("*****************************************************************");
 
                         if(next != null) {
                             mapShip.setLocs();
