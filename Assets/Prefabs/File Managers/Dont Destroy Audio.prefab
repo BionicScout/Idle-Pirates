@@ -130,6 +130,13 @@ MonoBehaviour:
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
+  - name: Purchase Sound
+    clip: {fileID: 8300000, guid: a463276ee83c0ec45b1a145708d58b05, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
 --- !u!81 &6132140936311794976
 AudioListener:
   m_ObjectHideFlags: 0

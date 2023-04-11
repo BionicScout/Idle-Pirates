@@ -87,15 +87,19 @@ public class ResourceShopMenu : MonoBehaviour {
 
 
 
-        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) {
-            AudioManager.instance.Play("Menu Sound");
+        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) 
+        {
+            AudioManager.instance.Play("Purchase Sound");
             item1Button.gameObject.SetActive(false);
             Pay(itemReference);
             shopManager.BuyResource(itemReference);
             itemAmountNumbers[itemReference - 1] -= 1;
 
         }
-
+        else
+        {
+            AudioManager.instance.Play("Error");
+        }
 
     }
 
@@ -105,15 +109,19 @@ public class ResourceShopMenu : MonoBehaviour {
 
 
 
-        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) {
-            AudioManager.instance.Play("Menu Sound");
+        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) 
+        {
+            AudioManager.instance.Play("Purchase Sound");
             item2Button.gameObject.SetActive(false);
 
             Pay(itemReference);
             shopManager.BuyResource(itemReference);
             itemAmountNumbers[itemReference - 1] -= 1;
         }
-
+        else
+        {
+            AudioManager.instance.Play("Error");
+        }
 
     }
 
@@ -123,12 +131,17 @@ public class ResourceShopMenu : MonoBehaviour {
 
 
 
-        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) {
-            AudioManager.instance.Play("Menu Sound");
+        if(Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1]) 
+        {
+            AudioManager.instance.Play("Purchase Sound");
             item3Button.gameObject.SetActive(false);
             Pay(itemReference);
             shopManager.BuyResource(itemReference);
             itemAmountNumbers[itemReference - 1] -= 1;
+        }
+        else
+        {
+            AudioManager.instance.Play("Error");
         }
 
 

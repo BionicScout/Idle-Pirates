@@ -13,7 +13,10 @@ public class TravelPopUpScript : MonoBehaviour {
         lastCityName = cityName;
     }
 
-    public void YesButtonPressed() {
+    public void YesButtonPressed() 
+    {
+
+        AudioManager.instance.Play("Menu Sound");
         this.gameObject.SetActive(false);
 
         CityButtonScript cityButton = cityScriptList.Find(x => x.getObjectName() == lastCityName);
@@ -53,7 +56,9 @@ public class TravelPopUpScript : MonoBehaviour {
 
     //When they press the no button, the pop-up is disactivated 
     //and resets the current city the player clicked on
-    public void NoButtonPressed() {
+    public void NoButtonPressed() 
+    {
+        AudioManager.instance.Play("Menu Sound");
         this.gameObject.SetActive(false);
     }
 }
