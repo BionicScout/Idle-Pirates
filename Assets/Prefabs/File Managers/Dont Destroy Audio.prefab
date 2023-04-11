@@ -137,6 +137,27 @@ MonoBehaviour:
     loop: 0
     soundTrack: 0
     source: {fileID: 0}
+  - name: Coconut Fall
+    clip: {fileID: 8300000, guid: b63799bc2ffb87c408685b41a3c286ef, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Coconut Catch
+    clip: {fileID: 8300000, guid: 84cf2b6b630bdbd4591d511192885022, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
+  - name: Spot Clean
+    clip: {fileID: 8300000, guid: abc3b5a589412fa4983a187a7b5bd3f0, type: 3}
+    volume: 0.239
+    pitch: 1
+    loop: 0
+    soundTrack: 0
+    source: {fileID: 0}
 --- !u!81 &6132140936311794976
 AudioListener:
   m_ObjectHideFlags: 0

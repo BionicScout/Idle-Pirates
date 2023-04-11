@@ -11,6 +11,7 @@ public class CoconutScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.instance.Play("Coconut Fall");
         StartCoroutine(ItemTimer(timeTillDespawn));
     }
 
