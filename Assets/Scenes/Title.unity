@@ -1126,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dont Destroy Scene Switcher
       objectReference: {fileID: 0}
+    - target: {fileID: 4839078002743955749, guid: 90e72828ea054b64a8774ba105160504, type: 3}
+      propertyPath: cityName
+      value: Red City 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e72828ea054b64a8774ba105160504, type: 3}
 --- !u!1 &840360770
