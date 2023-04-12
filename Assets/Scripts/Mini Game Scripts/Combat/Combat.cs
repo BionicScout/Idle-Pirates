@@ -66,8 +66,8 @@ public class Combat : MonoBehaviour {
         playerCombatant = playerGroup.ships[SelectNewCombatant(playerGroup)];
         enemyCombatant = enemyGroup.ships[SelectNewCombatant(enemyGroup)];
 
-        updateCombatantUI(playerUI, playerCombatant);
-        updateCombatantUI(enemyUI, enemyCombatant);
+        updateCombatantUI(playerUI, playerCombatant, playerGroup);
+        updateCombatantUI(enemyUI, enemyCombatant, enemyGroup);
 
         //UI.clickToMoveText = true;
         PlayersTurn();
@@ -202,7 +202,7 @@ public class Combat : MonoBehaviour {
 
             AudioManager.instance.Play("Combat Attack");
 
-            updateCombatantUI(enemyUI, enemyCombatant);
+            updateCombatantUI(enemyUI, enemyCombatant, enemyGroup);
             updateTextBox(playerCombatant.combatantName + " delt " + effectDamage + " " + attack.type.ToString() + " damage to " + enemyCombatant.combatantName + extraStr);
             yield return new WaitForSeconds(updateTextTime);
 
@@ -230,7 +230,7 @@ public class Combat : MonoBehaviour {
 
                     AudioManager.instance.Play("Combat Swapped Ships");
 
-                    updateCombatantUI(enemyUI, enemyCombatant);
+                    updateCombatantUI(enemyUI, enemyCombatant, enemyGroup);
                     updateTextBox(enemyCombatant.combatantName + " has come to fight");
                     yield return new WaitForSeconds(updateTextTime);
                 }
@@ -262,7 +262,7 @@ public class Combat : MonoBehaviour {
 
             AudioManager.instance.Play("Error");
 
-            updateCombatantUI(enemyUI, enemyCombatant);
+            updateCombatantUI(enemyUI, enemyCombatant, enemyGroup);
             updateTextBox("No other shipStock to switched to");
             yield return new WaitForSeconds(updateTextTime);
         }
@@ -282,7 +282,7 @@ public class Combat : MonoBehaviour {
 
         AudioManager.instance.Play("Combat Swapped Ships");
 
-        updateCombatantUI(playerUI, playerCombatant);
+        updateCombatantUI(playerUI, playerCombatant, playerGroup);
         updateTextBox("Switched to " + playerCombatant.combatantName);
         yield return new WaitForSeconds(updateTextTime);
 
@@ -345,11 +345,11 @@ public class Combat : MonoBehaviour {
             else if(damage > effectDamage)
                 extraStr = "\nIt was not effective";
 
-            updateCombatantUI(playerUI, playerCombatant);
+            updateCombatantUI(playerUI, playerCombatant, playerGroup);
             updateTextBox(enemyCombatant.combatantName + " delt " + effectDamage + " " + attack.type.ToString() + " damage to " + playerCombatant.combatantName + extraStr);
             yield return new WaitForSeconds(updateTextTime);
 
-            updateCombatantUI(playerUI, playerCombatant);
+            updateCombatantUI(playerUI, playerCombatant, playerGroup);
             yield return new WaitForSeconds(updateTextTime);
 
             //If Player ship was deystroyed
@@ -370,7 +370,7 @@ public class Combat : MonoBehaviour {
 
                     AudioManager.instance.Play("Combat Swapped Ships");
 
-                    updateCombatantUI(playerUI, playerCombatant);
+                    updateCombatantUI(playerUI, playerCombatant, playerGroup);
                     updateTextBox(playerCombatant.combatantName + " has come to fight");
                     yield return new WaitForSeconds(updateTextTime);
                 }
@@ -390,12 +390,16 @@ public class Combat : MonoBehaviour {
     /***************************************************************************************************************************************
             MAIN UI
     ***************************************************************************************************************************************/
-    public void updateCombatantUI(GameObject shipUI, Combatant ship) {
+    public void updateCombatantUI(GameObject shipUI, Combatant ship, CombatGroup fleet) {
         //Update Header
         shipUI.transform.GetChild(0).GetComponent<TMP_Text>().text =
             "Name: " + ship.combatantName + "\nHealth: " + ship.health + "/" + ship.maxHealth;
 
         //Update Health Bar
+        float percent = ((float)ship.health) / ship.maxHealth;
+        Vector3 pos = shipUI.transform.GetChild(1).GetChild(0).GetChild(0).localPosition;
+        shipUI.transform.GetChild(1).GetChild(0).GetChild(0).localPosition = new Vector3(Mathf.Lerp(fleet.emptyPos, fleet.fullPos, percent), pos.y, pos.z); ; 
+
         //Update Image
         shipUI.transform.GetChild(2).GetComponent<Image>().sprite = ship.combatantImage;
     }
