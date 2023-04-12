@@ -1126,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dont Destroy Scene Switcher
       objectReference: {fileID: 0}
+    - target: {fileID: 4839078002743955749, guid: 90e72828ea054b64a8774ba105160504, type: 3}
+      propertyPath: cityName
+      value: Red City 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e72828ea054b64a8774ba105160504, type: 3}
 --- !u!1 &840360770
@@ -2574,7 +2578,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[0].amount
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[1].amount

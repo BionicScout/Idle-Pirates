@@ -34,11 +34,14 @@ public class CityButtonScript : MonoBehaviour {
     //to the raid pop-up script
     public void OnCityButtonPressed() {
         //If the Ship is moving from locations, don't allow to click ona new city
-        if(MapShip.done == false)
+        if (MapShip.done == false)
+        {
+            AudioManager.instance.Play("Error");
             return;
-
+        }
         //activates the pop-up
         travelPopUp.GetComponent<TravelPopUpScript>().activate(gameObject.name);
+        AudioManager.instance.Play("Menu Sound");
     }
 
 

@@ -47,12 +47,18 @@ MonoBehaviour:
   resources:
   - type: 0
     resourceName: Gold
-    amount: 1000
+    amount: 100
     cost: 0
   ships: []
   crew: []
-  tradeResourceTemplates: []
-  shipBuildResourceTemplates: []
+  tradeResourceTemplates:
+  - {fileID: 11400000, guid: 32d184c94a2083f4d8d66f543d3943ad, type: 2}
+  - {fileID: 11400000, guid: 43a787075d5865844b973723ae91402d, type: 2}
+  - {fileID: 11400000, guid: 69dcf5fa854f983429808c4857e4965b, type: 2}
+  shipBuildResourceTemplates:
+  - {fileID: 11400000, guid: 3b7cf7ed8d9ce2e41b5c306cae160781, type: 2}
+  - {fileID: 11400000, guid: 2456b38d13d88844f966fec86dea9af3, type: 2}
+  - {fileID: 11400000, guid: ee4033bbcdac9494898f6c66be57633c, type: 2}
   shipTemplates:
   - {fileID: 11400000, guid: 3427ded20047fbb489c62a5098d52b7d, type: 2}
   - {fileID: 11400000, guid: f912c4b8b7e3bb14ca174ad1c5baf8d2, type: 2}
@@ -64,4 +70,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 764dff2e3ea07384e8f93e961930e78e, type: 2}
   - {fileID: 11400000, guid: 792c1316b5d3bd24bbca8f12fc381b16, type: 2}
   - {fileID: 11400000, guid: f0285f2ca1c0ba143b440031a1312c3b, type: 2}
-  crewTemplates: []
+  crewTemplates:
+  - {fileID: 11400000, guid: 2ac409e12a9400d42a70587830152b17, type: 2}
+  - {fileID: 11400000, guid: d27362c830c9fac42b6e546c9e6a41c1, type: 2}
+  - {fileID: 11400000, guid: c2654b41c25fdef4ca37a55855b9f51b, type: 2}
+  - {fileID: 11400000, guid: 4b376ecf4efa7774aa2004e8e959aa39, type: 2}
+  - {fileID: 11400000, guid: 422b080d802922f40b621d0f9c99a1b7, type: 2}
+  - {fileID: 11400000, guid: 8f64918ee6291064498e0ec0a77b7cbe, type: 2}
+  - {fileID: 11400000, guid: 249de1e4af9e5cd4e8dc85bd1f0b368b, type: 2}

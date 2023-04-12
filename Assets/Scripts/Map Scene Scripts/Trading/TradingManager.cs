@@ -10,11 +10,15 @@ public class TradingManager : MonoBehaviour {
     public GameObject exitButton;
 
     [Header("Available Ship Menu")]
-    public GameObject availableShipScreen, availableShipUI, availableShipInfoPrefab;
+    public GameObject availableShipScreen;
+    public GameObject availableShipUI;
+    public GameObject availableShipInfoPrefab;
     List<GameObject> availableShips;
 
     [Header("Trade Ship Menu")]
-    public GameObject tradeShipScreen, tradeShipUI, tradeShipInfoPrefab;
+    public GameObject tradeShipScreen;
+    public GameObject tradeShipUI;
+    public GameObject tradeShipInfoPrefab;
     List<GameObject> tradeShips;
 
     [Header("Select Ship")]

@@ -55,6 +55,11 @@ public class SpotScript : MonoBehaviour
 
         this.GetComponent<Image>().color = newAlpha;
 
+        if(this.GetComponent<Image>().color.a == 0)
+        {
+            AudioManager.instance.Play("Spot Clean");
+        }
+
     }
 
 }

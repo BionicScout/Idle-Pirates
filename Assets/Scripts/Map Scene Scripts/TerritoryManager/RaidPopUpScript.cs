@@ -4,7 +4,10 @@ public class RaidPopUpScript : MonoBehaviour {
     [SerializeField]
     private string mapSceneName;
 
-    public void YesButtonPressed() {
+    public void YesButtonPressed() 
+    {
+        AudioManager.instance.Play("Menu Sound");
+
         gameObject.SetActive(false);
 
         CityInbetweenManagementScript.newRaidedCity(CityLastVistedInfo.instance.cityName);
@@ -14,7 +17,10 @@ public class RaidPopUpScript : MonoBehaviour {
 
     //When they press the no button, the pop-up is disactivated 
     //and resets the current city the player clicked on
-    public void NoButtonPressed() {
+    public void NoButtonPressed() 
+    {
+        AudioManager.instance.Play("Menu Sound");
+
         gameObject.SetActive(false);
         //CityLastVistedInfo.instance.cityName = null;
     }

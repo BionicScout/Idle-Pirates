@@ -311,11 +311,11 @@ public class ShipShopMenu : MonoBehaviour
 
             }
 
-
+            //If they match the requirements
             if (shipMatRequirementChecks.Count == item1MaterialTexts.Count &&
                 shipMatAmountRequirementChecks.Count == item1MaterialAmounts.Count)
             {
-                AudioManager.instance.Play("Menu Sound");
+                AudioManager.instance.Play("Purchase Sound");
                 item1Button.gameObject.SetActive(false);
 
                 for (int i = 0; i < item1MaterialAmounts.Count; i++)
@@ -330,7 +330,10 @@ public class ShipShopMenu : MonoBehaviour
                 shopManager.BuyShip(itemReference);
 
             }
-
+            else
+            {
+                AudioManager.instance.Play("Error");
+            }
             /*
             //if shipMatRequirementChecks have 2 trues, check of they have the right amount
 
@@ -386,11 +389,11 @@ public class ShipShopMenu : MonoBehaviour
 
             }
 
-
+            //If they match the requirements
             if (shipMatRequirementChecks.Count == item2MaterialTexts.Count &&
                 shipMatAmountRequirementChecks.Count == item2MaterialAmounts.Count)
             {
-                AudioManager.instance.Play("Menu Sound");
+                AudioManager.instance.Play("Purchase Sound");
                 item2Button.gameObject.SetActive(false);
 
                 for (int i = 0; i < item2MaterialAmounts.Count; i++)
@@ -401,6 +404,10 @@ public class ShipShopMenu : MonoBehaviour
 
                 shopManager.BuyShip(itemReference);
 
+            }
+            else
+            {
+                AudioManager.instance.Play("Error");
             }
         }
     }
@@ -440,11 +447,11 @@ public class ShipShopMenu : MonoBehaviour
 
             }
 
-
+            //If they match the requirements
             if (shipMatRequirementChecks.Count == item3MaterialTexts.Count &&
                 shipMatAmountRequirementChecks.Count == item3MaterialAmounts.Count)
             {
-                AudioManager.instance.Play("Menu Sound");
+                AudioManager.instance.Play("Purchase Sound");
                 item3Button.gameObject.SetActive(false);
 
                 for (int i = 0; i < item3MaterialAmounts.Count; i++)
@@ -456,7 +463,11 @@ public class ShipShopMenu : MonoBehaviour
                 shopManager.BuyShip(itemReference);
 
             }
-
+            //else, play the error sound
+            else
+            {
+                AudioManager.instance.Play("Error");
+            }
         }
     }
 

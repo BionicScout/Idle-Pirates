@@ -40,7 +40,7 @@ public class SceneSwitcher : MonoBehaviour {
             Pathfinding.clear();
         }
 
-
+        currentScene = sceneName;
     }
 
     IEnumerator MapSceneRefresh() {

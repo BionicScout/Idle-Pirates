@@ -53,6 +53,7 @@ public class MiniGameShipMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacles"))
         {
+            AudioManager.instance.Play("Combat Attack");
             gotHit = true;
             rigbody.velocity = new Vector2(0, 0);
             Destroy(other.gameObject);
@@ -61,6 +62,7 @@ public class MiniGameShipMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Booster") && boostedUp == false)
         {
+            AudioManager.instance.Play("Moving");
             boostedUp = true;
             //rigbody.velocity = new Vector2(0, 0);
             Destroy(other.gameObject);
@@ -70,7 +72,7 @@ public class MiniGameShipMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Booster") && boostedUp == true)
         {
-            
+            AudioManager.instance.Play("Moving");
             //rigbody.velocity = new Vector2(0, 0);
             Destroy(other.gameObject);
             //StopCoroutine(BoostTime(stopTimer));

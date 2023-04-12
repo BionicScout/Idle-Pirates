@@ -24,6 +24,7 @@ public class BoxScript : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
+            AudioManager.instance.Play("Coconut Catch");
             Destroy(collision.gameObject);
             coconutSceneManager.CoconutGatheredUpdate();
 
