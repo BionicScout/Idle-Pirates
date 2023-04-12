@@ -1,0 +1,905 @@
+fileFormatVersion: 2
+guid: 537f40363b64d6d449b39fa52b4e6d45
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 480
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81214887720d0d84f8d14ae2ded14adc
+      internalID: 1286695425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 480
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9765f6c17539dbe419d2367041f90b1b
+      internalID: -26539893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1380
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c982671e1f8a31a4685060399396c2b7
+      internalID: -2142811702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1415
+        width: 19
+        height: 6
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0655366292ffdf449b1299b36ed859f
+      internalID: -538212647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1320
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511918051a7b32e41a535d619870d340
+      internalID: 676900500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1358
+        width: 8
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48502d3013ccbc84487a401606fc5407
+      internalID: 592573153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f18e799a9116354480c6b838d19c2bb
+      internalID: -999994914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9c86989916dda40ac4693586bfb85f
+      internalID: 1765883242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1236
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e48cf9f6b4a11429eb0490807e0b74
+      internalID: -1389706331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1140
+        width: 480
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737c3d933b8430a42af9225c5b5d89d6
+      internalID: -864378553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e00b40859fe07642859c7115b5d7fc3
+      internalID: 1065695079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1115
+        width: 15
+        height: 6
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9fcb5018fcb734b9f536de04fe6aea
+      internalID: -824094432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1020
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3e063a6ce7ef9499215450aadfefd9
+      internalID: 1364913775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1058
+        width: 8
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1c986a5b1d8ab4d82ebf241b002a78
+      internalID: 1178401796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 556f27758ca559f4a9068a2f456feea9
+      internalID: -761200121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 480
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454421791ce809445af1e340e3d7986e
+      internalID: 1025506218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c83812596b74634094fc1c73e073008
+      internalID: 1995951578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_17
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 875
+        width: 16
+        height: 6
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf29b98788df074290d8eb8ceae0243
+      internalID: -1375411979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 780
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd72a1bc8add69c44a3368a13ac8ecb8
+      internalID: -1135008388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 818
+        width: 8
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94752735ac034a24bb7644482cf05da7
+      internalID: -804709910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 480
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12a9a3ee39823e4189403ae4fafe0ef
+      internalID: -752563620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9beaacec73e3652408e4b8bbaba92861
+      internalID: -1101239144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_22
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 695
+        width: 19
+        height: 6
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b24a72b980375d419d377ebb3ebee82
+      internalID: 1475370179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bac98eb9e752c48b76b961bc6360a3
+      internalID: -1746854557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 638
+        width: 8
+        height: 4
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b74596dd417376428a6dca1345dc87f
+      internalID: 292193555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe5035cf57bbf348a7c317483f6ca1b
+      internalID: -1050241302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 480
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9238d78503692a49939ec024e5f2236
+      internalID: 1854616504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 480
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a53987c3a2aff240acd6b636807c1b3
+      internalID: -1276412237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 480
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e9812177d3afa94cab3a6e2bfdd70d0
+      internalID: 2008743915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 480
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55bd11b7ca1392e449c957e4433e76a9
+      internalID: -1331550115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 480
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4b0486731651746ad0bc8e5f5b97ee
+      internalID: -1610363861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 480
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74bdabad5061ba54c8bbe987705a0e02
+      internalID: -1065097083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 480
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc752304028671449ea320bce2cd161
+      internalID: -742989048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 480
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6512d31442dfd504e8deabb0ecf8f8ff
+      internalID: 17359682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shipfront revampanimation-Sheet1_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0973e925337da42ba6844088344be0
+      internalID: 704125883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Shipfront revampanimation-Sheet1_33: 17359682
+      Shipfront revampanimation-Sheet1_21: -1101239144
+      Shipfront revampanimation-Sheet1_3: -538212647
+      Shipfront revampanimation-Sheet1_30: -1610363861
+      Shipfront revampanimation-Sheet1_9: -864378553
+      Shipfront revampanimation-Sheet1_1: -26539893
+      Shipfront revampanimation-Sheet1_7: 1765883242
+      Shipfront revampanimation-Sheet1_31: -1065097083
+      Shipfront revampanimation-Sheet1_25: -1050241302
+      Shipfront revampanimation-Sheet1_5: 592573153
+      Shipfront revampanimation-Sheet1_17: -1375411979
+      Shipfront revampanimation-Sheet1_23: -1746854557
+      Shipfront revampanimation-Sheet1_22: 1475370179
+      Shipfront revampanimation-Sheet1_32: -742989048
+      Shipfront revampanimation-Sheet1_28: 2008743915
+      Shipfront revampanimation-Sheet1_34: 704125883
+      Shipfront revampanimation-Sheet1_0: 1286695425
+      Shipfront revampanimation-Sheet1_20: -752563620
+      Shipfront revampanimation-Sheet1_29: -1331550115
+      Shipfront revampanimation-Sheet1_6: -999994914
+      Shipfront revampanimation-Sheet1_15: 1025506218
+      Shipfront revampanimation-Sheet1_14: -761200121
+      Shipfront revampanimation-Sheet1_12: 1364913775
+      Shipfront revampanimation-Sheet1_4: 676900500
+      Shipfront revampanimation-Sheet1_8: -1389706331
+      Shipfront revampanimation-Sheet1_13: 1178401796
+      Shipfront revampanimation-Sheet1_24: 292193555
+      Shipfront revampanimation-Sheet1_27: -1276412237
+      Shipfront revampanimation-Sheet1_18: -1135008388
+      Shipfront revampanimation-Sheet1_11: -824094432
+      Shipfront revampanimation-Sheet1_2: -2142811702
+      Shipfront revampanimation-Sheet1_10: 1065695079
+      Shipfront revampanimation-Sheet1_19: -804709910
+      Shipfront revampanimation-Sheet1_26: 1854616504
+      Shipfront revampanimation-Sheet1_16: 1995951578
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
