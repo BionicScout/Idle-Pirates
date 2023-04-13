@@ -3554,6 +3554,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].use
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crewTemplates.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -3587,6 +3591,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.data[5].speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].speed
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
@@ -3635,6 +3643,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.data[5].health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].attack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].health
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
@@ -3794,6 +3810,14 @@ PrefabInstance:
       value: Trading Ship 3
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].maxCargo
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].shipName
+      value: Trading Ship 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.data[0].shipImage
       value: 
       objectReference: {fileID: 21300000, guid: 4dbb577e69f886040ad23cccd613a175, type: 3}
@@ -3815,6 +3839,10 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: ships.Array.data[5].shipImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[6].shipImage
       value: 
       objectReference: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
@@ -3886,6 +3914,30 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[0].attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[1].attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[2].attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[3].attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[4].attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[5].attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: shipBuildResourceTemplates.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 2456b38d13d88844f966fec86dea9af3, type: 2}
@@ -3897,6 +3949,30 @@ PrefabInstance:
       propertyPath: shipBuildResourceTemplates.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 3b7cf7ed8d9ce2e41b5c306cae160781, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[0].attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb0dcab95e4e89249962b01d678d0f9b, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[1].attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60353305e644fdb4da1f35bed76845ae, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[2].attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6754a764fae12e145bf418d2ec5c9933, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[3].attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a790956e8a07994da4e72f998ed1bba, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[4].attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c81dd79cd3efba142b95dc14d02e401b, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: ships.Array.data[5].attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 122422250e876f2478793e273ee73929, type: 2}
     - target: {fileID: 7410352101125369334, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: m_Name
       value: Dont Destroy Inventory
