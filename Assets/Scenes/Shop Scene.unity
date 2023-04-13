@@ -4476,8 +4476,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crew.Array.data[1].active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crew.Array.data[0].crewName
       value: Hall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crew.Array.data[1].crewName
+      value: Joe
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: crewTemplates.Array.data[0]
