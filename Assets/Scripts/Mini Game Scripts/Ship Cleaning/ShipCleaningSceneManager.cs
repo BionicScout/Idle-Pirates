@@ -67,6 +67,8 @@ public class ShipCleaningSceneManager : MonoBehaviour
 
         if(cleanedNumber >= neededNumber)
         {
+
+
             SceneManager.LoadScene(winScene);
         }
 
