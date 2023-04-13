@@ -121,7 +121,7 @@ public class CoconutSceneManager : MonoBehaviour
             {
                 int coconutsGained = gatheredNumber - neededNumber;
                 Resource coconuts = 
-                    new Resource(Resource.Type.Trade, "Coconuts", coconutsGained, 0);
+                    new Resource(Resource.Type.Trade, "Coconut", coconutsGained, 0);
                 Inventory.instance.AddResource(coconuts);
 
                 SceneManager.LoadScene(winScene);
