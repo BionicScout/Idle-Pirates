@@ -67,7 +67,7 @@ public class ShipCleaningSceneManager : MonoBehaviour
 
         if(cleanedNumber >= neededNumber)
         {
-
+            Random.Range(0, Inventory.instance.shipBuildResourceTemplates.Count - 1);
 
             SceneManager.LoadScene(winScene);
         }
