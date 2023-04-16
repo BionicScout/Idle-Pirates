@@ -11,10 +11,13 @@ public class MapSceneUI : MonoBehaviour {
     [Header("Fleet UI")]
     public GameObject fleetBaseMenu;
     public GameObject availableCombatShips;
+    public GameObject crewMenu;
 
+    public Sprite blankAssest; 
     public GameObject prefabCombatShip;
     List<GameObject> combatShips = new List<GameObject>();
     List<GameObject> availableCombatShipList = new List<GameObject>();
+
 
     [Header("Trade UI")]
     public GameObject tradeOverview;
@@ -69,7 +72,8 @@ public class MapSceneUI : MonoBehaviour {
             combatShips.Remove(obj);
             Destroy(obj);
         }
-        
+
+        short currentCombatShips = 0;
         foreach(InventoryShip ship in Inventory.instance.ships) {
             if(ship.use == InventoryShip.USED_IN.combat) {
                 GameObject obj = Instantiate(prefabCombatShip);
@@ -81,7 +85,22 @@ public class MapSceneUI : MonoBehaviour {
 
                 obj.transform.SetParent(fleetBaseMenu.transform.GetChild(2).GetChild(0));
                 combatShips.Add(obj);
+
+                currentCombatShips++;
             }
+        }
+
+        for(int i = currentCombatShips; i < 3; i++) {
+            GameObject obj = Instantiate(prefabCombatShip);
+            obj.transform.GetChild(0).GetComponent<Image>().sprite = blankAssest;
+            obj.transform.GetChild(1).GetComponent<TMP_Text>().text = "No Ship Selected\nClick to Select a Ship";
+
+            obj.GetComponent<Button>().onClick.AddListener(() => { B_AvailableCombatShips(blankAssest, null, null); });
+
+            obj.transform.SetParent(fleetBaseMenu.transform.GetChild(2).GetChild(0));
+            combatShips.Add(obj);
+
+            currentCombatShips++;
         }
     }
 
@@ -94,6 +113,11 @@ public class MapSceneUI : MonoBehaviour {
 
         currentShip.GetChild(0).GetComponent<Image>().sprite = shipImage;
         currentShip.GetChild(1).GetComponent<TMP_Text>().text = shipInfo;
+
+        if(oldShipName == null)
+            availableCombatShips.transform.GetChild(2).GetChild(2).gameObject.SetActive(true);
+        else
+            availableCombatShips.transform.GetChild(2).GetChild(2).gameObject.SetActive(false);
 
         listAvailableCombatShips(oldShipName);
     }
@@ -121,8 +145,10 @@ public class MapSceneUI : MonoBehaviour {
     }
 
     public void B_SelectedCombatShip(string oldShipName, string newShipName) {
-        Debug.Log("Old: " + oldShipName + "\nNew: " + newShipName);
-        Inventory.instance.ships.Find(x => (x.GetShipName() == oldShipName && x.use == InventoryShip.USED_IN.combat)).use = InventoryShip.USED_IN.none;
+        if(oldShipName != null)
+            Inventory.instance.ships.Find(x => (x.GetShipName() == oldShipName && x.use == InventoryShip.USED_IN.combat)).use = InventoryShip.USED_IN.none;
+
+
         Inventory.instance.ships.Find(x => (x.GetShipName() == newShipName && x.use == InventoryShip.USED_IN.none)).use = InventoryShip.USED_IN.combat;
 
 
