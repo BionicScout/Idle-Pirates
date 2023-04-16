@@ -228,9 +228,9 @@ public class TradingManager : MonoBehaviour {
             totalSecond -= 60;
         }
 
-        buyMenu.SetActive(true);
-        buyMenu.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = selectedShip.GetShipName() + "\nTIME: " + minutes + ":" + totalSecond 
-            + "\nGain: #####\nLose: ######";
+        //buyMenu.SetActive(true);
+        //buyMenu.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>().text = selectedShip.GetShipName() + "\nTIME: " + minutes + ":" + totalSecond 
+        //    + "\nGain: #####\nLose: ######";
     }
 
     public void sendTrade() {
