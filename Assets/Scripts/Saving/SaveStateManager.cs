@@ -42,11 +42,13 @@ public class SaveStateManager : MonoBehaviour {
     public void SaveGame(GameData saveData) {
     //Get data
         //saveData.currentCityNumberForSave =
-        //    CityInbetweenManagementScript.currentStaticCityNumber;
+        //CityInbetweenManagementScript.currentStaticCityNumber;
 
         //for(int i = 0; i < CityInbetweenManagementScript.staticCityList.Count; i++) {
         //    saveData.cityListforSave.Add(CityInbetweenManagementScript.staticCityList[i]);
         //}
+
+
 
     //Get data for TimeActivityManager
         TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);

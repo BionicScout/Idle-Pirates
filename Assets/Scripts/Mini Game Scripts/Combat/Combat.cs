@@ -174,7 +174,8 @@ public class Combat : MonoBehaviour {
     attack and then checks if the enemy ship was deystroyed. If the ship was deystroyed, the next enemy shipStock comes out. If all 
     shipStock were they deystroyed, the win State is called.
 */
-    IEnumerator PlayerAttack(string attackName) {
+    IEnumerator PlayerAttack(string attackName) 
+    {
         disableButton(attackButton);
         disableButton(switchButton);
         disableButton(runButton);
@@ -185,7 +186,8 @@ public class Combat : MonoBehaviour {
             yield return new WaitForSeconds(updateTextTime);
         }
         //Attack
-        else {
+        else 
+        {
             //Get Attack
             Attacks attack = playerCombatant.attacks.Find(x => x.attackName == attackName);
 
@@ -304,10 +306,13 @@ public class Combat : MonoBehaviour {
         int totalWeight = playerCombatant.speed + enemyCombatant.speed;
         float playerEscapeChance = (float)playerCombatant.speed / totalWeight;
 
-        if(Random.value <= playerEscapeChance || Inventory.instance.crew.Find(x => x.active).crewName == "Hall") {
+        if(Random.value <= playerEscapeChance 
+            || Inventory.instance.crew.Find(x => x.active).crewName == "Hall") 
+        {
             StartCoroutine(Ran());
         }
-        else {
+        else 
+        {
             updateTextBox("Failed to Run");
             yield return new WaitForSeconds(updateTextTime);
 
