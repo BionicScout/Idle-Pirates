@@ -8,6 +8,14 @@ public class MapSceneUI : MonoBehaviour {
     [Header("Base UI")]
     public GameObject baseUI;
 
+    [Header("Fleet UI")]
+    public GameObject fleetBaseMenu;
+    public GameObject availableCombatShips;
+
+    public GameObject prefabCombatShip;
+    List<GameObject> combatShips = new List<GameObject>();
+    List<GameObject> availableCombatShipList = new List<GameObject>();
+
     [Header("Trade UI")]
     public GameObject tradeOverview;
     public GameObject tradeResources;
@@ -39,6 +47,10 @@ public class MapSceneUI : MonoBehaviour {
 
     public void B_FleetButton() {
         baseUI.SetActive(false);
+        fleetBaseMenu.SetActive(true);
+        availableCombatShips.SetActive(false);
+
+        refreshCombatShips();
     }
 
     public void B_TradingButton() {
@@ -50,6 +62,74 @@ public class MapSceneUI : MonoBehaviour {
         FLEET UI 
     **************************************************************************************************************************/
 
+//Base Menu
+    public void refreshCombatShips() {
+        for(int i = combatShips.Count - 1; i >= 0; i--) {
+            GameObject obj = combatShips[i];
+            combatShips.Remove(obj);
+            Destroy(obj);
+        }
+        
+        foreach(InventoryShip ship in Inventory.instance.ships) {
+            if(ship.use == InventoryShip.USED_IN.combat) {
+                GameObject obj = Instantiate(prefabCombatShip);
+                obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
+                string shipInfo = ship.GetShipName() + "\n" + ship.combatType + "\nSpeed: " + ship.speed;
+                obj.transform.GetChild(1).GetComponent<TMP_Text>().text = shipInfo;
+
+                obj.GetComponent<Button>().onClick.AddListener(() => { B_AvailableCombatShips(ship.shipImage, shipInfo, ship.GetShipName()); });
+
+                obj.transform.SetParent(fleetBaseMenu.transform.GetChild(2).GetChild(0));
+                combatShips.Add(obj);
+            }
+        }
+    }
+
+//Available Combat Ships
+    public void B_AvailableCombatShips(Sprite shipImage, string shipInfo, string oldShipName) {
+        fleetBaseMenu.SetActive(false);
+        availableCombatShips.SetActive(true);
+
+        Transform currentShip = availableCombatShips.transform.GetChild(2).GetChild(1);
+
+        currentShip.GetChild(0).GetComponent<Image>().sprite = shipImage;
+        currentShip.GetChild(1).GetComponent<TMP_Text>().text = shipInfo;
+
+        listAvailableCombatShips(oldShipName);
+    }
+
+    public void listAvailableCombatShips(string oldShipName) {
+        for(int i = availableCombatShipList.Count - 1; i >= 0; i--) {
+            GameObject obj = availableCombatShipList[i];
+            availableCombatShipList.Remove(obj);
+            Destroy(obj);
+        }
+
+        foreach(InventoryShip ship in Inventory.instance.ships) {
+            if(ship.use == InventoryShip.USED_IN.none) {
+                GameObject obj = Instantiate(prefabCombatShip);
+                obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
+                string shipInfo = ship.GetShipName() + "\n" + ship.combatType + "\nSpeed: " + ship.speed;
+                obj.transform.GetChild(1).GetComponent<TMP_Text>().text = shipInfo;
+
+                obj.GetComponent<Button>().onClick.AddListener(() => { B_SelectedCombatShip(oldShipName, ship.GetShipName()); });
+
+                obj.transform.SetParent(availableCombatShips.transform.GetChild(3).GetChild(0));
+                availableCombatShipList.Add(obj);
+            }
+        }
+    }
+
+    public void B_SelectedCombatShip(string oldShipName, string newShipName) {
+        Debug.Log("Old: " + oldShipName + "\nNew: " + newShipName);
+        Inventory.instance.ships.Find(x => (x.GetShipName() == oldShipName && x.use == InventoryShip.USED_IN.combat)).use = InventoryShip.USED_IN.none;
+        Inventory.instance.ships.Find(x => (x.GetShipName() == newShipName && x.use == InventoryShip.USED_IN.none)).use = InventoryShip.USED_IN.combat;
+
+
+
+
+        B_FleetButton();
+    }
 
     /**************************************************************************************************************************
         TRADE UI 
@@ -90,8 +170,6 @@ public class MapSceneUI : MonoBehaviour {
             buySellButtons.transform.GetChild(2).gameObject.SetActive(false);
         }
     }
-
-
 
     public void B_Close_TradeMenu() {
         baseUI.SetActive(true);
@@ -155,8 +233,6 @@ public class MapSceneUI : MonoBehaviour {
     public void B_AvailableTradeShip() {
         resourceBarUI.SetActive(false);
         availableTradeShip.SetActive(true);
-
-
     }
 
     /**************************************************************************************************************************
