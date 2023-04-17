@@ -67,6 +67,33 @@ public class ShipCleaningSceneManager : MonoBehaviour
 
         if(cleanedNumber >= neededNumber)
         {
+            int resourceNumber = 
+                Random.Range(0, Inventory.instance.shipBuildResourceTemplates.Count - 1);
+
+            int resourceGained =
+                Random.Range(0, neededNumber);
+
+            if (resourceNumber == 0)
+            {
+                Resource metal =
+                    new Resource(Resource.Type.Ship_Build, "Metal", resourceGained, 0);
+                Inventory.instance.AddResource(metal);
+            }
+
+            if (resourceNumber == 1)
+            {
+                Resource wood =
+                     new Resource(Resource.Type.Ship_Build, "Wood", resourceGained, 0);
+                Inventory.instance.AddResource(wood);
+            }
+
+            if (resourceNumber == 2)
+            {
+                Resource cloth =
+                    new Resource(Resource.Type.Ship_Build, "Cloth", resourceGained, 0);
+                Inventory.instance.AddResource(cloth);
+            }
+
             SceneManager.LoadScene(winScene);
         }
 

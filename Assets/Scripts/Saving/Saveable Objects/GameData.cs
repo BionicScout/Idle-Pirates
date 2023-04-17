@@ -8,4 +8,7 @@ public class GameData {
 
     public List<int> cityListforSave = new List<int>();
 
+
+    public Inventory inventoryToSave;
+
 }

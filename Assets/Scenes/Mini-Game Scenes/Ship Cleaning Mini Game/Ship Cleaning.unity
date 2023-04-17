@@ -1559,6 +1559,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2456b38d13d88844f966fec86dea9af3, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4033bbcdac9494898f6c66be57633c, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: shipBuildResourceTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b7cf7ed8d9ce2e41b5c306cae160781, type: 2}
     - target: {fileID: 7410352101125369334, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: m_Name
       value: Dont Destroy Inventory

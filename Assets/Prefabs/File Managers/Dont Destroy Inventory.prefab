@@ -47,7 +47,7 @@ MonoBehaviour:
   resources:
   - type: 0
     resourceName: Gold
-    amount: 100
+    amount: 500
     cost: 0
   ships: []
   crew: []

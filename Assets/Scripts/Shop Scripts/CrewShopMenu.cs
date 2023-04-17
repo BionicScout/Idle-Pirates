@@ -47,6 +47,26 @@ public class CrewShopMenu : MonoBehaviour
         
     }
 
+    void GetRidOfDupeCrew()
+    {
+        for(int x = 0; x < Inventory.instance.crew.Count; x++) 
+        {
+            InventoryCrew tempCrew = Inventory.instance.crew[x];
+
+            for (int y = 0; y < Inventory.instance.crewTemplates.Count; y++)
+            {
+                if (Inventory.instance.crewTemplates[y].crewName.Contains(tempCrew.crewName))
+                {
+                    Inventory.instance.crewTemplates.RemoveAt(y);
+
+                }
+            }
+
+            //if there are less than 3 crew templates in inventory,
+            //get rid of other buttons
+        }
+    }
+
     public List<InventoryCrew> GenerateCrew()
     {
         List<InventoryCrew> listOfCrew = new List<InventoryCrew>();
@@ -88,6 +108,12 @@ public class CrewShopMenu : MonoBehaviour
 
     public void SetValues(ShopInventory shopStock)
     {
+        //Check if they have the crew member
+        //Make function that goes through inventory and gets rid of template
+        //that corresponds to inventory
+
+        GetRidOfDupeCrew();
+
         shopStock.crewStock = GenerateCrew();
 
 
