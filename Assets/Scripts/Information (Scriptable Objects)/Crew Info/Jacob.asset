@@ -17,5 +17,5 @@ MonoBehaviour:
   attack: 15
   health: 35
   cost: 200
-  crewImage: {fileID: 0}
-  effectDescription: 
+  crewImage: {fileID: 21300000, guid: aefebbf966b543e4f84edcced8fcd7b6, type: 3}
+  effectDescription: ???

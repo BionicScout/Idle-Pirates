@@ -16,8 +16,8 @@ MonoBehaviour:
   speed: 20
   attack: 25
   health: 142
-  maxCargo: 0
-  shipImage: {fileID: 21300000, guid: fd7261828119e2c4392f1976ed036c53, type: 3}
+  maxCargo: 20
+  shipImage: {fileID: 21300000, guid: 24ee72f21ad93594c97a36835c257044, type: 3}
   usedIn: 2
   combatType: 2
   resourcesNeeded:

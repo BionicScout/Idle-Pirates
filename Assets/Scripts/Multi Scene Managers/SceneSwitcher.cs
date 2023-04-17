@@ -60,6 +60,9 @@ public class SceneSwitcher : MonoBehaviour {
             foreach(MainShips template in Inventory.instance.shipTemplates) {
                 Inventory.instance.AddShip(new InventoryShip(template));
             }
+            foreach(MainCrewMembers template in Inventory.instance.crewTemplates) {
+                Inventory.instance.AddCrew(new InventoryCrew(template));
+            }
         }
     }
 }

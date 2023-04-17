@@ -58,8 +58,8 @@ public class SaveStateManager : MonoBehaviour {
         FileStream dataStream = new FileStream(filePath, FileMode.Create); //try to save data of scene
         BinaryFormatter converter = new BinaryFormatter();
 
-        converter.Serialize(dataStream, saveData);
-        converter.Serialize(dataStream, queryList);
+        //converter.Serialize(dataStream, saveData);
+        //converter.Serialize(dataStream, queryList);
        // converter.Serialize(dataStream, saveTime);
 
 
