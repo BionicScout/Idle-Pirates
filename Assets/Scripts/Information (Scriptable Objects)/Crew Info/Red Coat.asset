@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d6fdfcdf84f14a47ad2e070dbabe1f3, type: 3}
-  m_Name: Grey
+  m_Name: Red Coat
   m_EditorClassIdentifier: 
-  crewName: Grey
-  speed: 20
-  attack: 35
-  health: 30
-  cost: 150
-  crewImage: {fileID: 21300000, guid: 3f492fd9cc3f12a4a9559de5c9b349eb, type: 3}
-  effectDescription: All Ships gain a 12% Attack Boost
+  crewName: Red Coat
+  speed: 0
+  attack: 0
+  health: 0
+  cost: 0
+  crewImage: {fileID: 21300000, guid: 915903d5336e37943bbfbad3cc59ba65, type: 3}
+  effectDescription: ???

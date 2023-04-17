@@ -15,8 +15,10 @@ public class MapSceneUI : MonoBehaviour {
 
     public Sprite blankAssest; 
     public GameObject prefabCombatShip;
+    public GameObject prefabCrew;
     List<GameObject> combatShips = new List<GameObject>();
     List<GameObject> availableCombatShipList = new List<GameObject>();
+    List<GameObject> crewList = new List<GameObject>();
 
 
     [Header("Trade UI")]
@@ -52,13 +54,22 @@ public class MapSceneUI : MonoBehaviour {
         baseUI.SetActive(false);
         fleetBaseMenu.SetActive(true);
         availableCombatShips.SetActive(false);
+        crewMenu.SetActive(false);
 
         refreshCombatShips();
+        refreshActiveCrew();
     }
 
     public void B_TradingButton() {
         baseUI.SetActive(false);
         tradeOverview.SetActive(true);
+    }
+
+    public void B_ExitButton() {
+        baseUI.SetActive(true);
+        tradeOverview.SetActive(false);
+        fleetBaseMenu.SetActive(false);
+        availableCombatShips.SetActive(false);
     }
 
     /**************************************************************************************************************************
@@ -101,6 +112,24 @@ public class MapSceneUI : MonoBehaviour {
             combatShips.Add(obj);
 
             currentCombatShips++;
+        }
+    }
+
+    public void refreshActiveCrew() {
+        Transform obj = fleetBaseMenu.transform.GetChild(5);
+        InventoryCrew crew = Inventory.instance.crew.Find(x => x.active == true);
+
+        if(crew == null) {
+            obj.GetChild(0).gameObject.SetActive(false);
+            obj.GetChild(1).gameObject.SetActive(true);
+        }
+        else {
+            obj.GetChild(0).gameObject.SetActive(true);
+            obj.GetChild(1).gameObject.SetActive(false);
+
+            obj.GetChild(0).GetChild(0).GetComponent<Image>().sprite = crew.crewImage;
+            obj.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text =
+                crew.crewName + "\n" + Inventory.instance.crewTemplates.Find(x => x.crewName == crew.crewName).effectDescription;
         }
     }
 
@@ -157,6 +186,39 @@ public class MapSceneUI : MonoBehaviour {
         B_FleetButton();
     }
 
+//Crew
+    public void B_CrewMenu(bool oneActive) {
+        fleetBaseMenu.SetActive(false);
+        crewMenu.SetActive(true);
+
+        for(int i = crewList.Count - 1; i >= 0; i--) {
+            GameObject obj = crewList[i];
+            crewList.Remove(obj);
+            Destroy(obj);
+        }
+
+        foreach(InventoryCrew crew in Inventory.instance.crew) {
+            GameObject obj = Instantiate(prefabCrew);
+            obj.transform.GetChild(0).GetComponent<Image>().sprite = crew.crewImage;
+            obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
+                crew.crewName + "\n" + Inventory.instance.crewTemplates.Find(x => x.crewName == crew.crewName).effectDescription;
+
+            obj.GetComponent<Button>().onClick.AddListener(() => { B_SelectCrew(crew.crewName, oneActive); });
+
+            obj.transform.SetParent(crewMenu.transform.GetChild(2).GetChild(0));
+            crewList.Add(obj);
+        }
+    }
+
+    public void B_SelectCrew(string crewMemberName, bool oneActive) {
+        if(oneActive)
+            Inventory.instance.crew.Find(x => x.active == true).active = false;
+
+        Inventory.instance.crew.Find(x => x.crewName == crewMemberName).active = true;
+
+        B_FleetButton();
+    }
+
     /**************************************************************************************************************************
         TRADE UI 
     **************************************************************************************************************************/
@@ -195,11 +257,6 @@ public class MapSceneUI : MonoBehaviour {
             buySellButtons.transform.GetChild(1).gameObject.SetActive(false);
             buySellButtons.transform.GetChild(2).gameObject.SetActive(false);
         }
-    }
-
-    public void B_Close_TradeMenu() {
-        baseUI.SetActive(true);
-        tradeOverview.SetActive(false);
     }
 
 //Buying and Selling
