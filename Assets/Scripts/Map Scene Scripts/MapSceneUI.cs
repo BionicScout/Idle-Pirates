@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class MapSceneUI : MonoBehaviour {
@@ -33,7 +34,24 @@ public class MapSceneUI : MonoBehaviour {
     public GameObject availableTradeShipScrollWheel;
 
     public GameObject prefabActiveTradeShips;
+    public GameObject prefabAvailableTradeShip;
     List<ActiveTradeShip> tradeShipList = new List<ActiveTradeShip>();
+    List<GameObject> availableTradeShipList = new List<GameObject>();
+    Trade currentTradeDeal;
+    int maxCargo;
+
+    public struct Trade{
+        public Resource buyResource, costResource;
+        public int gain, cost;
+
+        public void Set(Resource bR, Resource cR, int g, int c) {
+            buyResource = bR;
+            costResource = cR;
+            gain = g;
+            cost = c;
+        }
+    }
+
 
     /**************************************************************************************************************************
         BASE UI 
@@ -56,6 +74,10 @@ public class MapSceneUI : MonoBehaviour {
         availableCombatShips.SetActive(false);
         crewMenu.SetActive(false);
 
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.GetComponent<Button>().enabled = false;
+        }
+
         refreshCombatShips();
         refreshActiveCrew();
     }
@@ -63,6 +85,10 @@ public class MapSceneUI : MonoBehaviour {
     public void B_TradingButton() {
         baseUI.SetActive(false);
         tradeOverview.SetActive(true);
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.GetComponent<Button>().enabled = false;
+        }
     }
 
     public void B_ExitButton() {
@@ -70,6 +96,10 @@ public class MapSceneUI : MonoBehaviour {
         tradeOverview.SetActive(false);
         fleetBaseMenu.SetActive(false);
         availableCombatShips.SetActive(false);
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.GetComponent<Button>().enabled = true;
+        }
     }
 
     /**************************************************************************************************************************
@@ -290,6 +320,18 @@ public class MapSceneUI : MonoBehaviour {
                 numberText.color = Color.green;
             else
                 numberText.color = Color.yellow;
+
+            GameObject tradePopUp = city.gameObject.transform.GetChild(0).gameObject;
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+            Trade tradeDeal = new Trade();
+            Resource gainTemplate = Inventory.instance.resources.Find(x => x.GetName() == resource.resourceName);
+            gainTemplate = new Resource(gainTemplate.type, gainTemplate.GetName(), 0, gainTemplate.GetCost());
+            Resource costTemplate = Inventory.instance.resources.Find(x => x.GetName() == "Gold");
+            costTemplate = new Resource(costTemplate.type, costTemplate.GetName(), 0, costTemplate.GetCost());
+            
+            tradeDeal.Set(gainTemplate, costTemplate, 1, buyValue); 
+            tradePopUp.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { B_AvailableTradeShip(tradeDeal); });
         }
     }
 
@@ -299,12 +341,6 @@ public class MapSceneUI : MonoBehaviour {
 
 
         populateBuyMenu();
-
-        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
-            GameObject tradePopUp = city.gameObject.transform.GetChild(0).gameObject;
-            city.gameObject.transform.GetChild(0).gameObject.SetActive(true); //Show Pop up
-            tradePopUp.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { B_AvailableTradeShip(); });
-        }
     }
 
     public void B_Sell() {
@@ -312,10 +348,53 @@ public class MapSceneUI : MonoBehaviour {
     }
 
     //Available Trade Ships
+    public void refreshAvailableTradeShips() {
+        for(int i = availableTradeShipList.Count - 1; i >= 0; i--) {
+            GameObject obj = availableTradeShipList[i];
+            availableTradeShipList.Remove(obj);
+            Destroy(obj);
+        }
 
-    public void B_AvailableTradeShip() {
+        int tradeAmount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
+        foreach(InventoryShip ship in Inventory.instance.ships) {
+            int cost = currentTradeDeal.cost * Mathf.Min(ship.maxCargo, tradeAmount);
+
+            GameObject obj = Instantiate(prefabAvailableTradeShip);
+            obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
+            obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
+                "Time: ##:##" + "\nGain: " + Mathf.Min(ship.maxCargo, tradeAmount) + " " + currentTradeDeal.buyResource.GetName() +
+                "\nCost: " + cost + " " + currentTradeDeal.costResource.GetName();
+
+            //obj.GetComponent<Button>().onClick.AddListener(() => { B_SelectCrew(crew.crewName, oneActive); });
+
+            obj.transform.SetParent(availableTradeShip.transform.GetChild(2).GetChild(0));
+            availableTradeShipList.Add(obj);
+        }
+    }
+
+    public void B_AvailableTradeShip(Trade newDeal) {
         resourceBarUI.SetActive(false);
         availableTradeShip.SetActive(true);
+
+        currentTradeDeal = newDeal;
+
+        I_ClampText();
+    }
+
+    public void I_ClampText() {
+        maxCargo = 0;
+
+        foreach(InventoryShip ship in Inventory.instance.ships) {
+            if(ship.maxCargo > maxCargo)
+                maxCargo = ship.maxCargo;
+        }
+
+        int amount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
+        availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text = Mathf.Clamp(amount, 0, maxCargo).ToString();
+
+        availableTradeShip.transform.GetChild(5).GetChild(2).GetComponent<TMP_Text>().text = maxCargo.ToString();
+
+        refreshAvailableTradeShips();
     }
 
     /**************************************************************************************************************************
