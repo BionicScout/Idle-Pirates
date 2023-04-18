@@ -82,8 +82,8 @@ public class ShipMoveSceneManager : MonoBehaviour
                 if (Inventory.instance.crew.Find(x => x.active).crewName == "Dave")
                 {
                     float goldPercentage = .1f;
-                    int goldBoost = goldEarned * (int)goldPercentage;
-                    int totalGoldEarned = goldEarned + goldBoost;
+                    float goldBoost = goldEarned * goldPercentage;
+                    int totalGoldEarned = goldEarned + (int)goldBoost;
 
                     Resource gold =
                         new Resource(Resource.Type.Gold, "Gold", totalGoldEarned, 0);

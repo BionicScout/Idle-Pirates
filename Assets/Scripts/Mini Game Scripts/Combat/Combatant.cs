@@ -23,12 +23,37 @@ public class Combatant : MonoBehaviour {
     }
 
     public void setCombatant(string newName, bool isShip, List<Attacks> loadAttacks) {
-        if(isShip) {
+        if(isShip) 
+        {
             MainShips ship = Inventory.instance.shipTemplates.Find(x => x.shipName == newName);
 
             combatantName = ship.shipName;
+            //if Anthony is active
+
             speed = ship.speed;
+
+            if (Inventory.instance.crew.Find(x => x.active).crewName == "Anthony")
+            {
+                float speedPercentage = .12f;
+                float speedBoost = speed * speedPercentage;
+                int totalSpeed = speed + (int)speedBoost;
+
+                speed = totalSpeed;
+            }
+
+                //if grey is active
+
             attack = ship.attack;
+
+            if (Inventory.instance.crew.Find(x => x.active).crewName == "Grey")
+            {
+                float attackPercentage = .12f;
+                float attackBoost = attack * attackPercentage;
+                int totalAttack = attack + (int)attackBoost;
+
+                attack = totalAttack;
+            }
+
             maxHealth = ship.health;
             health = ship.health;
 
