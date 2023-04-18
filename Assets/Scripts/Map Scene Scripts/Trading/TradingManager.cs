@@ -38,7 +38,7 @@ public class TradingManager : MonoBehaviour {
         tradeShips = new List<GameObject>();
     }
 
-//Main Trade Menus Button Interactions
+    //Main Trade Menus Button Interactions
     public void openMenu() {
         refreshTradeShipList();
         tradeShipScreen.SetActive(true);
@@ -84,7 +84,7 @@ public class TradingManager : MonoBehaviour {
         AudioManager.instance.Play("Menu Sound");
     }
 
-//Available Ship Functions
+    //Available Ship Functions
     public void refreshAvailableList() {
         deleteAvailableList();
 
@@ -108,7 +108,7 @@ public class TradingManager : MonoBehaviour {
         }
     }
 
-//Trade Ship Functions
+    //Trade Ship Functions
     public void refreshTradeShipList() {
         deleteTradeShipList();
 
@@ -130,7 +130,7 @@ public class TradingManager : MonoBehaviour {
         }
     }
 
-//Selecting to Trade
+    //Selecting to Trade
     public void toBuySell(GameObject selectShipObj) {
         toBuySell();
 
@@ -147,7 +147,7 @@ public class TradingManager : MonoBehaviour {
         }
     }
 
-//Buying
+    //Buying
     public void toBuy(bool populateData) {
         buySellMenu.SetActive(false);
         exitButton.SetActive(true);
@@ -191,7 +191,7 @@ public class TradingManager : MonoBehaviour {
             city.gameObject.transform.GetChild(0).gameObject.SetActive(false); //Hide Pop up
         }
 
-    //Get Time Queries
+        //Get Time Queries
         Node endNode = cityObject.GetComponent<Node>();
         endNode.end = true;
         endNode.tradingPath = true;

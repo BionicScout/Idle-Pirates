@@ -1,8 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class MapSceneUI : MonoBehaviour {
@@ -40,15 +40,20 @@ public class MapSceneUI : MonoBehaviour {
     Trade currentTradeDeal;
     int maxCargo;
 
+    TradeDeal deal = null;
+    public List<TimeQuery> path = new List<TimeQuery>();
+
     public struct Trade{
         public Resource buyResource, costResource;
         public int gain, cost;
+        public CityButtonScript city;
 
-        public void Set(Resource bR, Resource cR, int g, int c) {
+        public void Set(Resource bR, Resource cR, int g, int c, CityButtonScript cit) {
             buyResource = bR;
             costResource = cR;
             gain = g;
             cost = c;
+            city = cit;
         }
     }
 
@@ -304,11 +309,11 @@ public class MapSceneUI : MonoBehaviour {
             Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
             TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TMP_Text>();
 
-            int randomResoureID = Random.Range(0, Inventory.instance.tradeResourceTemplates.Count - 1);
+            int randomResoureID = UnityEngine.Random.Range(0, Inventory.instance.tradeResourceTemplates.Count - 1);
             MainResources resource = Inventory.instance.tradeResourceTemplates[randomResoureID];
 
             int maxAdjust = Mathf.CeilToInt(resource.buyValue * 0.10f);
-            int adjust = Random.Range(-maxAdjust, maxAdjust);
+            int adjust = UnityEngine.Random.Range(-maxAdjust, maxAdjust);
             int buyValue = resource.buyValue + adjust;
 
             resourceIcon.sprite = resource.sprite;
@@ -326,11 +331,11 @@ public class MapSceneUI : MonoBehaviour {
 
             Trade tradeDeal = new Trade();
             Resource gainTemplate = Inventory.instance.resources.Find(x => x.GetName() == resource.resourceName);
-            gainTemplate = new Resource(gainTemplate.type, gainTemplate.GetName(), 0, gainTemplate.GetCost());
+            gainTemplate = new Resource(gainTemplate.type, gainTemplate.GetName(), 500, gainTemplate.GetCost());
             Resource costTemplate = Inventory.instance.resources.Find(x => x.GetName() == "Gold");
-            costTemplate = new Resource(costTemplate.type, costTemplate.GetName(), 0, costTemplate.GetCost());
+            costTemplate = new Resource(costTemplate.type, costTemplate.GetName(), -500, costTemplate.GetCost());
             
-            tradeDeal.Set(gainTemplate, costTemplate, 1, buyValue); 
+            tradeDeal.Set(gainTemplate, costTemplate, 1, buyValue, city); 
             tradePopUp.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { B_AvailableTradeShip(tradeDeal); });
         }
     }
@@ -349,6 +354,15 @@ public class MapSceneUI : MonoBehaviour {
 
     //Available Trade Ships
     public void refreshAvailableTradeShips() {
+        int totalTime = 0;
+        foreach(TimeQuery query in path) {
+            totalTime += query.seconds;
+        }
+        Debug.Log(totalTime);
+
+
+
+
         for(int i = availableTradeShipList.Count - 1; i >= 0; i--) {
             GameObject obj = availableTradeShipList[i];
             availableTradeShipList.Remove(obj);
@@ -362,7 +376,7 @@ public class MapSceneUI : MonoBehaviour {
             GameObject obj = Instantiate(prefabAvailableTradeShip);
             obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
             obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
-                "Time: ##:##" + "\nGain: " + Mathf.Min(ship.maxCargo, tradeAmount) + " " + currentTradeDeal.buyResource.GetName() +
+                "Time: " + totalTime + "\nGain: " + Mathf.Min(ship.maxCargo, tradeAmount) + " " + currentTradeDeal.buyResource.GetName() +
                 "\nCost: " + cost + " " + currentTradeDeal.costResource.GetName();
 
             //obj.GetComponent<Button>().onClick.AddListener(() => { B_SelectCrew(crew.crewName, oneActive); });
@@ -377,6 +391,11 @@ public class MapSceneUI : MonoBehaviour {
         availableTradeShip.SetActive(true);
 
         currentTradeDeal = newDeal;
+        deal = new TradeDeal(newDeal.buyResource, newDeal.costResource, null, System.DateTime.Now, new System.DateTime(2023, 4, 19));
+
+        path = Pathfinding.nodes.Find(x => x.start).getTradePath(currentTradeDeal.city);
+        path[path.Count - 1].activate(DateTime.Now);
+        deal.queries = path;
 
         I_ClampText();
     }
@@ -405,5 +424,20 @@ public class MapSceneUI : MonoBehaviour {
         updateTradeResources();
         updateResourceBarUI();
         updateAvailableTradeShips();
+
+        if(deal != null) {
+            for(int i = deal.queries.Count-1; i >= 0; i--) {
+                if(deal.queries[i].active && DateTime.Compare(deal.queries[i].finishTime, DateTime.Now) <= 0) {
+                    deal.queries.RemoveAt(i);
+                }
+            }
+
+            if(deal.queries.Count == 0) {
+                Inventory.instance.AddResource(deal.gainedResource);
+                Inventory.instance.AddResource(deal.lostResource);
+
+                deal = null;
+            }
+        }
     }
 }

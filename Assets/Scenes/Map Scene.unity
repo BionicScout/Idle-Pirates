@@ -21335,6 +21335,7 @@ MonoBehaviour:
   availableTradeShipScrollWheel: {fileID: 853022992}
   prefabActiveTradeShips: {fileID: 131018008618664183, guid: 40b6a957cf9db1e4eaf997dc5486d014, type: 3}
   prefabAvailableTradeShip: {fileID: 6179347474291569317, guid: 04b20ff805540bb4889b04ed50fa0d56, type: 3}
+  path: []
 --- !u!1001 &1359964747
 PrefabInstance:
   m_ObjectHideFlags: 0
