@@ -68,6 +68,40 @@ public class Node : MonoBehaviour {
         return query;
     }
 
+    public List<TimeQuery> getTradePath(CityButtonScript endCity){
+        find = false;
+        tradingPath = false;
+
+
+
+        Node startNode = Pathfinding.nodes.Find(x => x.start);
+        endCity.GetComponent<Node>().end = true;
+
+        Pathfinding.refresh();
+        List<Node> path = Pathfinding.DijkstraSearch();
+
+        startNode.start = true;
+
+
+
+        TimeQuery query = null;
+        GameObject queryManagerObj = TimedActivityManager.instance.GameObject();
+        List<TimeQuery> queryList = new List<TimeQuery>();
+
+        for(int i = 0; i < path.Count - 1; i++) {
+            TimeQuery newQuery = new TimeQuery("To " + path[i].nodeName, 0, (int)path[i].distanceFrom(path[i + 1]), query, path[i + 1], path[i]);
+            newQuery.tradeQuery = true;
+            TimedActivityManager.instance.addQuery(newQuery);
+            queryList.Add(newQuery);
+
+            query = newQuery;
+        }
+
+        //TimedActivityManager.instance.addQuery(query);
+        //query.activate(System.DateTime.Now);
+        return queryList;
+    }
+
     public void addEdge(Edge edge) {
         if(nodeName != edge.node1.nodeName) {
             neighboorNodes.add(edge.distance, edge.node1);
