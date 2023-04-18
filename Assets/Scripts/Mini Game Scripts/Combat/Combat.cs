@@ -45,21 +45,37 @@ public class Combat : MonoBehaviour {
     public GameObject twoCombatant_swapPopUp;
     public GameObject attackPanel;
 
-    private void Start() {
+    private void Start() 
+    {
         int i = 0;
-        foreach(InventoryShip ship in Inventory.instance.ships) {
-            if(ship.use == InventoryShip.USED_IN.combat) {
+
+        if (Inventory.instance.crew.Find(x => x.active).crewName == "Jacob")
+        {
+            //Check to see if dodge chance is connected to both player and enemy
+            dodgeChance *= 2;
+        
+        }
+
+            //For players
+        foreach (InventoryShip ship in Inventory.instance.ships) 
+        {
+            if(ship.use == InventoryShip.USED_IN.combat) 
+            {
                 playerGroup.ships[i].setCombatant(ship.GetShipName(), true, ship.attacks);
                 Debug.Log(playerGroup.ships[i].combatantName);
                 i++;
             }
         }
 
-        for(i = 0; i < 3; i++) {
+        //For enemies
+        for(i = 0; i < 3; i++) 
+        {
             int rand = Mathf.FloorToInt(Random.Range(0, Inventory.instance.shipTemplates.Count - 0.0000000001f));
             Debug.Log(rand);
             enemyGroup.ships[i].setCombatant(Inventory.instance.shipTemplates[rand]);
         }
+
+
 
 
 
