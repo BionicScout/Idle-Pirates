@@ -8,6 +8,7 @@ public class GameData {
 
     public List<string> raidedCityListforSave = new List<string>();
 
+    public string timeSaved;
 
     public Inventory inventoryToSave;
 

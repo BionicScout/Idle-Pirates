@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Swivel Guns
   type: 2
-  baseDamage: 15
+  baseDamage: 9

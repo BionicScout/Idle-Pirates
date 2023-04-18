@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Bundle Shot
   type: 1
-  baseDamage: 40
+  baseDamage: 30

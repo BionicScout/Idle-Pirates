@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+
 using UnityEngine.SceneManagement;
 using System;
 
@@ -54,6 +55,9 @@ public class SaveStateManager : MonoBehaviour {
 
         saveData.inventoryToSave = Inventory.instance;
 
+        saveData.timeSaved =
+            System.DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy  hh:mm tt");
+
 
         //Get data for TimeActivityManager
         TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
@@ -97,6 +101,8 @@ public class SaveStateManager : MonoBehaviour {
             }
 
             Inventory.instance = saveData.inventoryToSave;
+
+            //Loading the time saved
 
 
             //Load data for Time Queries

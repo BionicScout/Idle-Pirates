@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Round Shot
   type: 3
-  baseDamage: 20
+  baseDamage: 30
