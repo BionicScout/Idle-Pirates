@@ -2781,7 +2781,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[0].amount
-      value: 500
+      value: 9000
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[1].amount

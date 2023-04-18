@@ -39,18 +39,23 @@ public class SaveStateManager : MonoBehaviour {
 
     //}
 
-    public void SaveGame(GameData saveData) {
-    //Get data
-        //saveData.currentCityNumberForSave =
-        //CityInbetweenManagementScript.currentStaticCityNumber;
+    public void SaveGame(GameData saveData) 
+    {
+        //Get data
 
-        //for(int i = 0; i < CityInbetweenManagementScript.staticCityList.Count; i++) {
-        //    saveData.cityListforSave.Add(CityInbetweenManagementScript.staticCityList[i]);
-        //}
+        saveData.currentCitytoSave =
+        CityInbetweenManagementScript.currentCity;
+
+        for (int i = 0; i < CityInbetweenManagementScript.citesThatHaveBeenRaided.Count; i++)
+        {
+            saveData.raidedCityListforSave.Add
+                (CityInbetweenManagementScript.citesThatHaveBeenRaided[i]);
+        }
+
+        saveData.inventoryToSave = Inventory.instance;
 
 
-
-    //Get data for TimeActivityManager
+        //Get data for TimeActivityManager
         TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
         // saveTime = System.DateTime.Now;
 
@@ -79,17 +84,22 @@ public class SaveStateManager : MonoBehaviour {
 
             GameData saveData = converter.Deserialize(dataStream) as GameData;
             TimeQueryList_Saveable queryList = converter.Deserialize(dataStream) as TimeQueryList_Saveable;
-           // DateTime saveTime = converter.Deserialize(dataStream) as DateTime;
+            // DateTime saveTime = converter.Deserialize(dataStream) as DateTime;
 
             //Load data into game
-            //CityInbetweenManagementScript.currentStaticCityNumber
-            //    = saveData.currentCityNumberForSave;
+            CityInbetweenManagementScript.currentCity
+                = saveData.currentCitytoSave;
 
-            //for(int i = 0; i < saveData.cityListforSave.Count; i++) {
-            //    CityInbetweenManagementScript.staticCityList.Add(saveData.cityListforSave[i]);
-            //}
+            for (int i = 0; i < saveData.raidedCityListforSave.Count; i++)
+            {
+                CityInbetweenManagementScript.citesThatHaveBeenRaided.Add
+                    (saveData.raidedCityListforSave[i]);
+            }
 
-        //Load data for Time Queries
+            Inventory.instance = saveData.inventoryToSave;
+
+
+            //Load data for Time Queries
             queryList.load();
             //TimedActivityManager
 

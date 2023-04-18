@@ -26,7 +26,11 @@ public class Combat : MonoBehaviour {
 
     List<Combatant> possibleSwitches = new List<Combatant>();
     [Range(0f, 1f)]
-    public float dodgeChance = 0.1f;
+    //public float dodgeChance = 0.1f;
+    public float playerDodgeChance = 0.1f;
+    [Range(0f, 1f)]
+    public float enemyDodgeChance = 0.1f;
+
 
     [Header("Main UI")]
     [Range(0.1f, 10)]
@@ -52,7 +56,7 @@ public class Combat : MonoBehaviour {
         if (Inventory.instance.crew.Find(x => x.active).crewName == "Jacob")
         {
             //Check to see if dodge chance is connected to both player and enemy
-            dodgeChance *= 2;
+            playerDodgeChance *= 2;
         
         }
 
@@ -197,7 +201,7 @@ public class Combat : MonoBehaviour {
         disableButton(runButton);
 
         //Dodge
-        if(Random.value < dodgeChance) {
+        if(Random.value < enemyDodgeChance) {
             updateTextBox(enemyCombatant.combatantName + " dodge the attack");
             yield return new WaitForSeconds(updateTextTime);
         }
@@ -345,8 +349,9 @@ public class Combat : MonoBehaviour {
         yield return new WaitForSeconds(updateTextTime);
 
         //Dodge
-        if(Random.value < dodgeChance) {
-            updateTextBox(enemyCombatant.combatantName + " dodge the attack");
+        if(Random.value < playerDodgeChance) 
+        {
+            updateTextBox(playerCombatant.combatantName + " dodge the attack");
             yield return new WaitForSeconds(updateTextTime);
         }
         else {

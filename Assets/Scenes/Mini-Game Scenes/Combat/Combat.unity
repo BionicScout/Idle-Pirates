@@ -2659,7 +2659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGroup: {fileID: 1693799288}
   enemyGroup: {fileID: 655171103}
-  dodgeChance: 0.1
+  playerDodgeChance: 0.1
+  enemyDodgeChance: 0.1
   updateTextTime: 2.8
   textUI: {fileID: 1460444440}
   attackButton: {fileID: 1315436890}

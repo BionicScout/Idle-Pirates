@@ -28,37 +28,53 @@ public class Combatant : MonoBehaviour {
             MainShips ship = Inventory.instance.shipTemplates.Find(x => x.shipName == newName);
 
             combatantName = ship.shipName;
-            //if Anthony is active
-
             speed = ship.speed;
+            attack = ship.attack;
+            maxHealth = ship.health;
+            health = ship.health;
+            combatantImage = ship.shipImage;
+            type = ship.combatType;
 
+            //if Anthony is active
             if (Inventory.instance.crew.Find(x => x.active).crewName == "Anthony")
             {
-                float speedPercentage = .12f;
-                float speedBoost = speed * speedPercentage;
+                float speedBoostPercentage = .12f;
+                float speedBoost = speed * speedBoostPercentage;
                 int totalSpeed = speed + (int)speedBoost;
 
                 speed = totalSpeed;
             }
 
-                //if grey is active
-
-            attack = ship.attack;
-
+            //if grey is active
             if (Inventory.instance.crew.Find(x => x.active).crewName == "Grey")
             {
-                float attackPercentage = .12f;
-                float attackBoost = attack * attackPercentage;
+                float attackBoostPercentage = .12f;
+                float attackBoost = attack * attackBoostPercentage;
                 int totalAttack = attack + (int)attackBoost;
 
                 attack = totalAttack;
             }
 
-            maxHealth = ship.health;
-            health = ship.health;
+            if (Inventory.instance.crew.Find(x => x.active).crewName == "Red Coat")
+            {
+                float redCoatBoostPercentage = .2f;
 
-            combatantImage = ship.shipImage;
-            type = ship.combatType;
+                float attackBoost = attack * redCoatBoostPercentage;
+                int totalAttack = attack + (int)attackBoost;
+                attack = totalAttack;
+
+
+                float speedBoost = speed * redCoatBoostPercentage;
+                int totalSpeed = speed + (int)speedBoost;
+                speed = totalSpeed;
+
+
+                float healthBoost = maxHealth * redCoatBoostPercentage;
+                int totalHealth = maxHealth + (int)speedBoost;
+                maxHealth = totalHealth;
+                health = totalHealth;
+            }
+
         }
 
 

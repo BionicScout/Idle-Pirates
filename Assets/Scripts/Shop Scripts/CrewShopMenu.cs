@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class CrewShopMenu : MonoBehaviour
 {
+    //Dummy Crew Member Object
+    [SerializeField]
+    private MainCrewMembers dummyCrew;
+
     [SerializeField]
     private ShopManager shopManager;
 
@@ -71,7 +75,20 @@ public class CrewShopMenu : MonoBehaviour
     {
         List<InventoryCrew> listOfCrew = new List<InventoryCrew>();
 
+
+        //Important for saving inventory 
         List<MainCrewMembers> crewInventory = Inventory.instance.crewTemplates.ToList();
+
+
+        //Maybe if there are less than 3 crew members in inventory,
+        //create dummy objects in list
+        while (crewInventory.Count < 3)
+        {
+            crewInventory.Add(dummyCrew);
+            //InventoryCrew invCrew
+               //= new InventoryCrew(dummyCrew);
+            //crewInventory.Add(invCrew);
+        }
 
         for (int z = 0; z < shopItemLimit; z++)
         {
@@ -101,6 +118,23 @@ public class CrewShopMenu : MonoBehaviour
             listOfCrew.Add(invCrew);
             crewInventory.Remove(crewInventory[randomPosition]);
         }
+
+        //Maybe if there are less than 3 crew members in inventory,
+        //create dummy objects in list
+
+        //while (listOfCrew.Count < 3)
+        //{
+
+        //    InventoryCrew invCrew
+        //        = new InventoryCrew(dummyCrew);
+        //    listOfCrew.Add(invCrew);
+        //}
+
+        //if(listOfCrew.Count < 3)
+        //{
+            
+
+        //}
 
         return listOfCrew;
     }
@@ -140,22 +174,28 @@ public class CrewShopMenu : MonoBehaviour
     {
         itemReference = 1;
 
-       
-
-        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        {
-            AudioManager.instance.Play("Purchase Sound");
-            item1Button.gameObject.SetActive(false);
-            Pay(itemReference);
-            shopManager.BuyCrew(itemReference);
-
-            
-        }
-        else
+        if (itemTitles[itemReference - 1].text == "Scam")
         {
             AudioManager.instance.Play("Error");
         }
 
+        else
+        {
+
+            if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+            {
+                AudioManager.instance.Play("Purchase Sound");
+                item1Button.gameObject.SetActive(false);
+                Pay(itemReference);
+                shopManager.BuyCrew(itemReference);
+
+
+            }
+            else
+            {
+                AudioManager.instance.Play("Error");
+            }
+        }
     }
 
 
@@ -163,18 +203,25 @@ public class CrewShopMenu : MonoBehaviour
     {
         itemReference = 2;
 
-        
-
-        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        {
-            AudioManager.instance.Play("Purchase Sound");
-            item2Button.gameObject.SetActive(false);
-            Pay(itemReference);
-            shopManager.BuyCrew(itemReference);
-        }
-        else
+        if (itemTitles[itemReference - 1].text == "Scam")
         {
             AudioManager.instance.Play("Error");
+        }
+
+        else
+        {
+
+            if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+            {
+                AudioManager.instance.Play("Purchase Sound");
+                item2Button.gameObject.SetActive(false);
+                Pay(itemReference);
+                shopManager.BuyCrew(itemReference);
+            }
+            else
+            {
+                AudioManager.instance.Play("Error");
+            }
         }
     }
 
@@ -183,20 +230,26 @@ public class CrewShopMenu : MonoBehaviour
     {
         itemReference = 3;
 
-        
-
-        if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
-        {
-            AudioManager.instance.Play("Purchase Sound");
-            item3Button.gameObject.SetActive(false);
-            Pay(itemReference);
-            shopManager.BuyCrew(itemReference);
-        }
-        else
+        if (itemTitles[itemReference - 1].text == "Scam")
         {
             AudioManager.instance.Play("Error");
         }
 
+        else
+        {
+
+            if (Inventory.instance.resources[0].GetAmount() >= itemCostNumbers[itemReference - 1])
+            {
+                AudioManager.instance.Play("Purchase Sound");
+                item3Button.gameObject.SetActive(false);
+                Pay(itemReference);
+                shopManager.BuyCrew(itemReference);
+            }
+            else
+            {
+                AudioManager.instance.Play("Error");
+            }
+        }
     }
 
     public void Pay(int index)

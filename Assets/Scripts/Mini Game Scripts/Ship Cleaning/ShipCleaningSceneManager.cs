@@ -73,6 +73,18 @@ public class ShipCleaningSceneManager : MonoBehaviour
             int resourceGained =
                 Random.Range(0, neededNumber);
 
+
+            //if Pete is active
+            if (Inventory.instance.crew.Find(x => x.active).crewName == "Pete")
+            {
+                float resourceBoostPercentage = .15f;
+                float resourceBoost = resourceGained * resourceBoostPercentage;
+                int totalResourceGained = resourceGained + (int)resourceBoost;
+
+                resourceGained = totalResourceGained;
+            }
+
+
             if (resourceNumber == 0)
             {
                 Resource metal =

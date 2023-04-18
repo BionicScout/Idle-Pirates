@@ -8328,6 +8328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb6bf3981ecb8c46886355749b6145e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dummyCrew: {fileID: 11400000, guid: 40b12ff434ebeae44bcfbf91d320d3a6, type: 2}
   shopManager: {fileID: 1208155185}
   itemTitles:
   - {fileID: 1701104749}

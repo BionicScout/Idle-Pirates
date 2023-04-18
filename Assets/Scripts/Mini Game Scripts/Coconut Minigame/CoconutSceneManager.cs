@@ -120,6 +120,16 @@ public class CoconutSceneManager : MonoBehaviour
             if(gatheredNumber >= neededNumber)
             {
                 int coconutsGained = gatheredNumber - neededNumber;
+
+                if (Inventory.instance.crew.Find(x => x.active).crewName == "Pete")
+                {
+                    float resourceBoostPercentage = .15f;
+                    float resourceBoost = coconutsGained * resourceBoostPercentage;
+                    int totalResourceGained = coconutsGained + (int)resourceBoost;
+
+                    coconutsGained = totalResourceGained;
+                }
+
                 Resource coconuts = 
                     new Resource(Resource.Type.Trade, "Coconut", coconutsGained, 0);
                 Inventory.instance.AddResource(coconuts);

@@ -4,9 +4,9 @@ using UnityEngine;
 
 [System.Serializable]
 public class GameData {
-    public int currentCityNumberForSave;
+    public string currentCitytoSave;
 
-    public List<int> cityListforSave = new List<int>();
+    public List<string> raidedCityListforSave = new List<string>();
 
 
     public Inventory inventoryToSave;
