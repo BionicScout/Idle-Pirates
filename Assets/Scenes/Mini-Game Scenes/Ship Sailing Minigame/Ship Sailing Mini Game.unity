@@ -1164,7 +1164,7 @@ MonoBehaviour:
   currentDistance: 0
   distanceBooster: 2
   neededDistance: 2000
-  timerNumber: 45
+  timerNumber: 30
   timeInt: 0
   winScene: Mini Game Win Scene
   loseScene: Mini Game Lose Scene
