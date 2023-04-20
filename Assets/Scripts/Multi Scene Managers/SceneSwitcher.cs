@@ -60,9 +60,9 @@ public class SceneSwitcher : MonoBehaviour {
 
             for(int i = 0; i < 3; i++)
             {
-                MainShips template = Inventory.instance.shipTemplates[i];
-                Inventory.instance.AddShip(new InventoryShip(template));
-
+                InventoryShip ship = new InventoryShip(Inventory.instance.shipTemplates[Random.Range(0, Inventory.instance.shipTemplates.Count - 1)]);
+                ship.use = InventoryShip.USED_IN.combat;
+                Inventory.instance.AddShip(ship);
             }
 
             //foreach (MainShips template in Inventory.instance.shipTemplates)
@@ -72,7 +72,9 @@ public class SceneSwitcher : MonoBehaviour {
             //}
             foreach (MainCrewMembers template in Inventory.instance.crewTemplates)
             {
-                Inventory.instance.AddCrew(new InventoryCrew(template));
+                InventoryCrew crew = new InventoryCrew(template);
+                crew.active = true;
+                Inventory.instance.AddCrew(crew);
                 break;
             }
         }
