@@ -34,6 +34,7 @@ public class SceneSwitcher : MonoBehaviour {
     //Map Scene Extra Set Up
         if(sceneName == "Map Scene") {
             //Debug.Log("Map Scene");
+            
             StartCoroutine(MapSceneRefresh());
         }
         else if(sceneName != "Map Scene") {
