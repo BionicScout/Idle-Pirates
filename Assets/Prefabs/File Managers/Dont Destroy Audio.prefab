@@ -46,13 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main Music
-    clip: {fileID: 8300000, guid: 82e8c0ec8d61a9c4bbb8892907534ede, type: 3}
-    volume: 0.614
-    pitch: 1
-    loop: 0
-    soundTrack: 1
-    source: {fileID: 0}
   - name: Moving
     clip: {fileID: 8300000, guid: 47f99f99bb9719e4bb4f680eb98821af, type: 3}
     volume: 0.155
@@ -157,6 +150,111 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     soundTrack: 0
+    source: {fileID: 0}
+  - name: Ashes
+    clip: {fileID: 8300000, guid: 533a23c418a36904fa6047f77ee6ffd3, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Barge Ballad
+    clip: {fileID: 8300000, guid: ac72152cb53187543a5b69623120543a, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Christmas at Sea
+    clip: {fileID: 8300000, guid: 662b224a3282e424090f837b725b62e2, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Drunken Sailor
+    clip: {fileID: 8300000, guid: 2a17d8453575a04419de28334205fce6, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Haul Away Joe
+    clip: {fileID: 8300000, guid: eaf781be492ccb14fba1ac28b6da2e6d, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Here's a Health To the Company
+    clip: {fileID: 8300000, guid: 37662c0971d1bf1458dead5c8b15e4e5, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Hoist Up The Thing
+    clip: {fileID: 8300000, guid: 724ae62c090c1934b92f72fe69237665, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Moby Duck
+    clip: {fileID: 8300000, guid: 1ec5d0d7e2144c04c818086d9f45fcfc, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Oak & Ash & Thorn
+    clip: {fileID: 8300000, guid: 149f23c0ef7a00249942aec729a98c8a, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Randy Dandy
+    clip: {fileID: 8300000, guid: 4d7d76f2d4a74d5449c05927f0b82f1e, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Retirement Song
+    clip: {fileID: 8300000, guid: 1d0eb8fdc599f374fb2b6c5a499387ed, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Round The Cape
+    clip: {fileID: 8300000, guid: 08bf8ecedb9d0294abdf3072804e04da, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Santiana
+    clip: {fileID: 8300000, guid: 5cba33d66da55bc49bb1fd39581ba22e, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: The Captains Daughter
+    clip: {fileID: 8300000, guid: b079756a43f2f4d468c6be252f429d17, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
+    source: {fileID: 0}
+  - name: Wellerman
+    clip: {fileID: 8300000, guid: b2a6e598045b90c40b258e5939323bae, type: 3}
+    volume: 0.614
+    pitch: 1
+    loop: 0
+    soundTrack: 1
     source: {fileID: 0}
 --- !u!81 &6132140936311794976
 AudioListener:
