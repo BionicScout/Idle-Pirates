@@ -53,15 +53,27 @@ public class SceneSwitcher : MonoBehaviour {
         TimedActivityManager.instance.refreshQuerries();
         mapShip.loadCurrentLocation();
 
-    //This just load testing ships
-        if(firstMapLoad) {
+        //This just load testing ships and crew
+        if (firstMapLoad)
+        {
             firstMapLoad = false;
-            
-            foreach(MainShips template in Inventory.instance.shipTemplates) {
+
+            for(int i = 0; i < 3; i++)
+            {
+                MainShips template = Inventory.instance.shipTemplates[i];
                 Inventory.instance.AddShip(new InventoryShip(template));
+
             }
-            foreach(MainCrewMembers template in Inventory.instance.crewTemplates) {
+
+            //foreach (MainShips template in Inventory.instance.shipTemplates)
+            //{
+            //    Inventory.instance.AddShip(new InventoryShip(template));
+            //    break;
+            //}
+            foreach (MainCrewMembers template in Inventory.instance.crewTemplates)
+            {
                 Inventory.instance.AddCrew(new InventoryCrew(template));
+                break;
             }
         }
     }
