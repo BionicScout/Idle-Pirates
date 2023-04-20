@@ -12,4 +12,6 @@ public class GameData {
 
     public Inventory inventoryToSave;
 
+    public bool firstMapLoadToSave = true;
+
 }

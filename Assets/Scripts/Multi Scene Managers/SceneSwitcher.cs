@@ -7,7 +7,7 @@ public class SceneSwitcher : MonoBehaviour {
     public static SceneSwitcher instance;
 
     public static string currentScene;
-    bool firstMapLoad = true;
+    public static bool firstMapLoad = true;
 
     void Awake() {
         if(instance == null)

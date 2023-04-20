@@ -58,6 +58,8 @@ public class SaveStateManager : MonoBehaviour {
         saveData.timeSaved =
             System.DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy  hh:mm tt");
 
+        saveData.firstMapLoadToSave = SceneSwitcher.firstMapLoad;
+
 
         //Get data for TimeActivityManager
         TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
@@ -102,6 +104,9 @@ public class SaveStateManager : MonoBehaviour {
 
             Inventory.instance = saveData.inventoryToSave;
 
+            SceneSwitcher.firstMapLoad = saveData.firstMapLoadToSave;
+           
+
             //Loading the time saved
 
 
@@ -111,7 +116,7 @@ public class SaveStateManager : MonoBehaviour {
 
             //Stop Loading
 
-            SceneSwitcher.instance.A_LoadScene(menuSceneName);
+            SceneSwitcher.instance.A_LoadScene("Map Scene");
 
             dataStream.Close();
             return saveData;
@@ -130,6 +135,7 @@ public class SaveStateManager : MonoBehaviour {
     public GameData DeleteData() {
         GameData saveData = new GameData();
         SaveGame(saveData);
+        saveData.firstMapLoadToSave = true;
         return saveData;
     }
 

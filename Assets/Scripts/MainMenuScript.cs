@@ -135,6 +135,7 @@ public class MainMenuScript : MonoBehaviour {
 
         SaveStateManager.instance.DeleteData();
 
+
         SceneSwitcher.instance.A_LoadScene("Map Scene");
     }
 
