@@ -159,8 +159,17 @@ public class MapSceneUI : MonoBehaviour {
             obj.GetChild(1).gameObject.SetActive(false);
 
             obj.GetChild(0).GetChild(0).GetComponent<Image>().sprite = crew.crewImage;
+
+            //Contains a problem because the template is getting removed
             obj.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text =
-                crew.crewName + "\n" + Inventory.instance.crewTemplates.Find(x => x.crewName == crew.crewName).effectDescription;
+                crew.crewName + "\n" +
+                Inventory.instance.crewTemplates.Find
+                (x => x.crewName == crew.crewName).effectDescription;
+
+            //obj.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text =
+            //    crew.crewName + "\n" +
+            //    Inventory.instance.crew.Find
+            //    (x => x.crewName == crew.crewName).effectText;
         }
     }
 

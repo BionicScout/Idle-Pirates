@@ -15,7 +15,7 @@ public class Resource {
     private string resourceName;
 
     [SerializeField]
-    private int amount;
+    public int amount;
 
     [SerializeField]
     private int cost;

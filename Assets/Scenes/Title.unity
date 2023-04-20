@@ -2781,11 +2781,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5aebf33357150784c8f78f9a3f983c5b, type: 3}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[0].amount
-      value: 9000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[1].amount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resourceTemplates.Array.data[0]
@@ -2803,6 +2807,38 @@ PrefabInstance:
       propertyPath: tradeResourceTemplates.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ac409e12a9400d42a70587830152b17, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d27362c830c9fac42b6e546c9e6a41c1, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c2654b41c25fdef4ca37a55855b9f51b, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b376ecf4efa7774aa2004e8e959aa39, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 422b080d802922f40b621d0f9c99a1b7, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f64918ee6291064498e0ec0a77b7cbe, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 249de1e4af9e5cd4e8dc85bd1f0b368b, type: 2}
+    - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
+      propertyPath: crewTemplatesForShop.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: abad0ef88979a4b46bacefdb2cfa4d5d, type: 2}
     - target: {fileID: 7410352101125369333, guid: bf5c0d32b5f19b7488f81aac45788d45, type: 3}
       propertyPath: resources.Array.data[0].resourceName
       value: Gold

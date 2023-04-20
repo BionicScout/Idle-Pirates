@@ -13,6 +13,8 @@ public class InventoryCrew {
 
     public bool active;
 
+    public string effectText;
+
     [SerializeField]
     private int cost;
 
@@ -44,6 +46,7 @@ public class InventoryCrew {
         health = crew.health;
         crewImage = crew.crewImage;
         cost = crew.cost;
+        effectText = crew.effectDescription;
         
 
     }

@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour {
     public List<MainShips> shipTemplates;
     public List<MainCrewMembers> crewTemplates;
 
+    public List<MainCrewMembers> crewTemplatesForShop;
+
     //Maybe have a reference to the index for Gold resource
     //public int goldIndexReference
 

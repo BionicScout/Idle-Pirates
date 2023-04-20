@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 [System.Serializable]
-public class GameData {
+public class GameData 
+{
     public string currentCitytoSave;
 
-    public List<string> raidedCityListforSave = new List<string>();
+    public string[] raidedCityListforSave;
 
     public string timeSaved;
 
-    public Inventory inventoryToSave;
+    
+
+    public Resource[] resourcesFromSave;
+    public string[] shipNamesToSave;
+    public string[] crewNamesToSave;
 
     public bool firstMapLoadToSave = true;
+
+
 
 }
