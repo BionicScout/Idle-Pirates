@@ -5,6 +5,7 @@ public class CityLastVistedInfo : MonoBehaviour {
 
     public bool cityTaken = false;
     public string cityName = null;
+    public bool raidTriggered = false;
 
     void Start() {
         if(instance == null)

@@ -10,9 +10,10 @@ public class RaidPopUpScript : MonoBehaviour {
 
         gameObject.SetActive(false);
 
-        CityInbetweenManagementScript.newRaidedCity(CityLastVistedInfo.instance.cityName);
+        //CityInbetweenManagementScript.newRaidedCity(CityLastVistedInfo.instance.cityName);
 
-        SceneSwitcher.instance.A_LoadScene(mapSceneName);
+        CityLastVistedInfo.instance.raidTriggered = true;
+        SceneSwitcher.instance.A_LoadScene("Combat");
     }
 
     //When they press the no button, the pop-up is disactivated 
