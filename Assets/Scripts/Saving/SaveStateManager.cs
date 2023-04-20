@@ -56,11 +56,12 @@ public class SaveStateManager : MonoBehaviour {
                 (CityInbetweenManagementScript.citesThatHaveBeenRaided[i]);
         }
 
-        saveData.resourcesFromSave = new Resource[Inventory.instance.resources.Count];
+        saveData.resourcesToSave = new Resource[Inventory.instance.resources.Count];
 
         for (int i = 0; i < Inventory.instance.resources.Count; i++)
         {
-            saveData.resourcesFromSave[i] = (Inventory.instance.resources[i]);
+            saveData.resourcesToSave[i] = (Inventory.instance.resources[i]);
+            saveData.resourcesToSave[i].amount = (Inventory.instance.resources[i].amount);
         }
 
         saveData.crewNamesToSave = new string[Inventory.instance.crew.Count];
@@ -68,16 +69,33 @@ public class SaveStateManager : MonoBehaviour {
         for (int i = 0; i < Inventory.instance.crew.Count; i++)
         {
             saveData.crewNamesToSave[i] = (Inventory.instance.crew[i].crewName);
+            if(Inventory.instance.crew[i].active == true)
+            {
+                saveData.lastCrewActiveIndex = i;
+            }
         }
 
         saveData.shipNamesToSave = new string[Inventory.instance.ships.Count];
+        saveData.lastShipsinCombatIndexes = new int[3];
 
+        int x = 0;
         for (int i = 0; i < Inventory.instance.ships.Count; i++)
         {
+            
             saveData.shipNamesToSave[i] = (Inventory.instance.ships[i].GetShipName());
+
+            if (Inventory.instance.ships[i].use == InventoryShip.USED_IN.combat)
+            {
+                saveData.lastShipsinCombatIndexes[x] = i;
+                x++;
+            }
         }
 
-
+        //Need to save amount for resources
+        //for (int i = 0; i < Inventory.instance.resources.Count; i++)
+        //{
+        //    saveData.resourceAmountsToSave[i] = (Inventory.instance.resources[i].amount);
+        //}
 
         saveData.timeSaved =
             System.DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy  hh:mm tt");
@@ -86,11 +104,13 @@ public class SaveStateManager : MonoBehaviour {
 
 
         //Get data for TimeActivityManager
-        TimeQueryList_Saveable queryList = new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
+        TimeQueryList_Saveable queryList = 
+            new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
         // saveTime = System.DateTime.Now;
 
     //Save Objects
-        FileStream dataStream = new FileStream(filePath, FileMode.Create); //try to save data of scene
+        FileStream dataStream = new FileStream(filePath, FileMode.Create); 
+        //try to save data of scene
         BinaryFormatter converter = new BinaryFormatter();
 
         converter.Serialize(dataStream, saveData);
@@ -122,15 +142,22 @@ public class SaveStateManager : MonoBehaviour {
 
             for (int i = 0; i < saveData.raidedCityListforSave.Length; i++)
             {
-                CityInbetweenManagementScript.citesThatHaveBeenRaided.Add
+                CityInbetweenManagementScript.citesThatHaveBeenRaided[i] =
                     (saveData.raidedCityListforSave[i]);
             }
 
-            for (int i = 0; i < saveData.resourcesFromSave.Length; i++)
+            for (int i = 0; i < saveData.resourcesToSave.Length; i++)
             {
-                Inventory.instance.resources.Add
-                    (saveData.resourcesFromSave[i]);
+                Inventory.instance.resources[i] =
+                    (saveData.resourcesToSave[i]);
+                Inventory.instance.resources[i].amount =
+                    saveData.resourcesToSave[i].amount;
             }
+
+            //for (int i = 0; i < saveData.resourceAmountsToSave.Length; i++)
+            //{
+            //    Inventory.instance.resources[i].amount = saveData.resourceAmountsToSave[i];
+            //}
 
             for (int i = 0; i < saveData.crewNamesToSave.Length; i++)
             {
@@ -138,17 +165,33 @@ public class SaveStateManager : MonoBehaviour {
                 //search template for crew Name
                 //Inventory.instance.crewTemplates.Add
 
-                MainCrewMembers crew = Inventory.instance.crewTemplates.Find(x => x.name == saveData.crewNamesToSave[i]);
+                MainCrewMembers crew = Inventory.instance.crewTemplates.Find(x => x.name
+                == saveData.crewNamesToSave[i]);
 
 
                 Inventory.instance.crew.Add(new InventoryCrew(crew));
             }
+            if (Inventory.instance.crew.Count != 0)
+            {
+                Inventory.instance.crew[saveData.lastCrewActiveIndex].active = true;
+            }
 
             for (int i = 0; i < saveData.shipNamesToSave.Length; i++)
             {
-                MainShips ship = Inventory.instance.shipTemplates.Find(x => x.name == saveData.shipNamesToSave[i]);
+                MainShips ship = Inventory.instance.shipTemplates.Find(x => x.name 
+                == saveData.shipNamesToSave[i]);
 
                 Inventory.instance.ships.Add(new InventoryShip(ship));
+
+                
+            }
+            for (int i = 0; i < saveData.lastShipsinCombatIndexes.Length; i++)
+            {
+
+                Inventory.instance.ships[saveData.lastShipsinCombatIndexes[i]].use
+                    = InventoryShip.USED_IN.combat;
+
+
             }
 
 
@@ -185,21 +228,25 @@ public class SaveStateManager : MonoBehaviour {
     {
         GameData saveData = new GameData();
         SaveGame(saveData);
-        saveData.firstMapLoadToSave = true;
 
+        Debug.Log("Save Data:" + saveData.currentCitytoSave);
+        Debug.Log("Save Data:" + saveData.firstMapLoadToSave);
+
+
+        saveData.firstMapLoadToSave = true;
+        Debug.Log(saveData.firstMapLoadToSave);
 
         Inventory.instance.crew.Clear();
         Inventory.instance.ships.Clear();
 
-        int goldStartingAmount = Inventory.instance.resources[0].amount;
+        int startingGold = Inventory.instance.startingGoldAmount;
 
-        for (int i = 0; i < Inventory.instance.resources.Count; i++)
+        for (int i = 1; i < Inventory.instance.resources.Count; i++)
         {
-            Inventory.instance.resources[i].SubtractAmount
-                (Inventory.instance.resources[i].amount);
+            Inventory.instance.resources[i].amount = 0;
         }
 
-        Inventory.instance.resources[0].amount = goldStartingAmount;
+        Inventory.instance.resources[0].amount = startingGold;
 
        
     }

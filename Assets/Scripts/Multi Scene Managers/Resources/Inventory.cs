@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour 
+{
+    public int startingGoldAmount;
     public List<Resource> resources;
     public List<InventoryShip> ships;
     public List<InventoryCrew> crew;
@@ -15,6 +17,8 @@ public class Inventory : MonoBehaviour {
 
     public List<MainCrewMembers> crewTemplatesForShop;
 
+    
+
     //Maybe have a reference to the index for Gold resource
     //public int goldIndexReference
 
@@ -25,6 +29,7 @@ public class Inventory : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
+            startingGoldAmount = Inventory.instance.resources[0].amount;
         }
         else
         {

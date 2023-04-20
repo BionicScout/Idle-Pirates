@@ -40,6 +40,12 @@ public class SceneSwitcher : MonoBehaviour {
             Pathfinding.clear();
         }
 
+        if (sceneName == "Title")
+        {
+            //Delete items in inventory except for templates
+            TitleSceneReset();
+        }
+
         currentScene = sceneName;
     }
 
@@ -88,4 +94,22 @@ public class SceneSwitcher : MonoBehaviour {
 
         }
     }
+
+
+    void TitleSceneReset()
+    {
+        for (int i = 1; i < Inventory.instance.resources.Count; i++)
+        {
+            Inventory.instance.resources[i].amount = 0;
+        }
+        Inventory.instance.crew.Clear();
+        Inventory.instance.ships.Clear();
+
+        firstMapLoad = true;
+
+        //Inventory.instance.resources.Clear();
+
+    }
+
+
 }
