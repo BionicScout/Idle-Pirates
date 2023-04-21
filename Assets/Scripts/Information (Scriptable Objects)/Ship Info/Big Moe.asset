@@ -15,7 +15,7 @@ MonoBehaviour:
   shipName: Big Moe
   speed: 20
   attack: 30
-  health: 200
+  health: 150
   maxCargo: 15
   shipImage: {fileID: 21300000, guid: c0305551fe1da454aacdc54d386f6fc0, type: 3}
   usedIn: 2
