@@ -65,7 +65,8 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Make a function for showing and updating the respurces you have
+        //Base that on the MapSceneUI Function UpdateResources
     }
 
     
