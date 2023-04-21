@@ -15,6 +15,9 @@ public class FishMovementScript : MonoBehaviour
 
     private Vector2 localScale;
 
+    [SerializeField]
+    private SpriteRenderer sprite;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,17 @@ public class FishMovementScript : MonoBehaviour
 
         this.transform.localPosition += 
             new Vector3(speed, 0, 0) * Time.deltaTime;
+
+
+        //for flipping fish
+        //if(this.transform.localPosition.x < 0)
+        //{
+        //    sprite.flipX = true;
+        //}
+        //else if(this.transform.localPosition.x > 0)
+        //{
+        //    sprite.flipX = false;
+        //}
 
     }
 
