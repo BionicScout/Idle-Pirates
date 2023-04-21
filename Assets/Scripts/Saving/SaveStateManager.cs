@@ -229,9 +229,12 @@ public class SaveStateManager : MonoBehaviour {
         GameData saveData = new GameData();
         SaveGame(saveData);
 
-        Debug.Log("Save Data:" + saveData.currentCitytoSave);
-        Debug.Log("Save Data:" + saveData.firstMapLoadToSave);
+        //Debug.Log("Save Data:" + saveData.currentCitytoSave);
+        //Debug.Log("Save Data:" + saveData.firstMapLoadToSave);
 
+        CityInbetweenManagementScript.currentCity = "";
+
+        CityInbetweenManagementScript.citesThatHaveBeenRaided.Clear();
 
         saveData.firstMapLoadToSave = true;
         Debug.Log(saveData.firstMapLoadToSave);
