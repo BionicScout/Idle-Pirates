@@ -90,7 +90,7 @@ public class PauseMenu : MonoBehaviour {
 
         yield return new WaitForSecondsRealtime(duration);   //Wait
         Time.timeScale = 1f;
-        SceneManager.LoadScene(Menu);
+        SceneSwitcher.instance.A_LoadScene("Title");
 
     }
 }

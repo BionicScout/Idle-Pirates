@@ -7,6 +7,8 @@ public class GameMaster : MonoBehaviour {
 
     public void OnSaveButtonClick() {
         SaveStateManager.instance.SaveGame(saveData);
+        
+        //save when going to map
 
         //_gameStateManager?.SaveGame();
     }

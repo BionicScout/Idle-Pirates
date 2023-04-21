@@ -1,7 +1,9 @@
+using Mono.Cecil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,34 +31,27 @@ public class MapSceneUI : MonoBehaviour {
     public GameObject buySellButtons;
 
     public GameObject resourceBarUI;
+    public float refeshTradeTime = 5;
+    float timeSinceTradeTime = 0;
 
     public GameObject availableTradeShip;
     public GameObject availableTradeShipScrollWheel;
 
     public GameObject prefabActiveTradeShips;
     public GameObject prefabAvailableTradeShip;
-    List<ActiveTradeShip> tradeShipList = new List<ActiveTradeShip>();
+    List<GameObject> tradeShipList = new List<GameObject>();
     List<GameObject> availableTradeShipList = new List<GameObject>();
-    Trade currentTradeDeal;
+
     int maxCargo;
+    bool isBuy;
 
-    TradeDeal deal = null;
-    public List<TimeQuery> path = new List<TimeQuery>();
+    List<TimeQuery> path = new List<TimeQuery>();
+    TradeDeal potentialDeal = null;
+    CityButtonScript selectedCity = null;
 
-    public struct Trade{
-        public Resource buyResource, costResource;
-        public int gain, cost;
-        public CityButtonScript city;
-
-        public void Set(Resource bR, Resource cR, int g, int c, CityButtonScript cit) {
-            buyResource = bR;
-            costResource = cR;
-            gain = g;
-            cost = c;
-            city = cit;
-        }
+    void Start() {
+        populateBuyMenu();
     }
-
 
     /**************************************************************************************************************************
         BASE UI 
@@ -90,6 +85,7 @@ public class MapSceneUI : MonoBehaviour {
     public void B_TradingButton() {
         baseUI.SetActive(false);
         tradeOverview.SetActive(true);
+        availableTradeShip.SetActive(false);
 
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
             city.gameObject.GetComponent<Button>().enabled = false;
@@ -163,8 +159,17 @@ public class MapSceneUI : MonoBehaviour {
             obj.GetChild(1).gameObject.SetActive(false);
 
             obj.GetChild(0).GetChild(0).GetComponent<Image>().sprite = crew.crewImage;
+
+            //Contains a problem because the template is getting removed
             obj.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text =
-                crew.crewName + "\n" + Inventory.instance.crewTemplates.Find(x => x.crewName == crew.crewName).effectDescription;
+                crew.crewName + "\n" +
+                Inventory.instance.crewTemplates.Find
+                (x => x.crewName == crew.crewName).effectDescription;
+
+            //obj.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text =
+            //    crew.crewName + "\n" +
+            //    Inventory.instance.crew.Find
+            //    (x => x.crewName == crew.crewName).effectText;
         }
     }
 
@@ -269,13 +274,32 @@ public class MapSceneUI : MonoBehaviour {
         }
     }
 
-    public void addNewTrade() {
-        GameObject obj = Instantiate(prefabActiveTradeShips);
-        ActiveTradeShip script = obj.GetComponent<ActiveTradeShip>();
+    public void updateActiveTradeShips() {
+        for(int i = tradeShipList.Count - 1; i >= 0; i--) {
+            GameObject obj = tradeShipList[i];
+            tradeShipList.Remove(obj);
+            Destroy(obj);
+        }
 
-        obj.transform.SetParent(activeShipScrollWheel.transform);
-        //obj.GetComponent<RectTransform>().sizeDelta = new Vector2(-143.5365f, 0);
-        tradeShipList.Add(script);
+
+
+
+        Transform parent = tradeOverview.transform.GetChild(4).GetChild(1).GetChild(0);
+        List<TradeDeal> deals = TimedActivityManager.instance.tradeDeals;
+
+
+        for(int i = 0; i < deals.Count; i++) {
+            GameObject obj = Instantiate(prefabActiveTradeShips);
+            obj.transform.GetChild(0).GetComponent<Image>().sprite = deals[i].shipInUse.shipImage;
+            obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
+                "Time: " + Mathf.CeilToInt(deals[i].totalTime - deals[i].passedTime) + "" +
+                "\nGain: " + deals[i].gainedResource.GetAmount() + " " + deals[i].gainedResource.GetName();
+
+            obj.transform.SetParent(parent);
+            tradeShipList.Add(obj);
+        }
+
+
     }
 
     public void updateAvailableTradeShips() {
@@ -309,7 +333,7 @@ public class MapSceneUI : MonoBehaviour {
             Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
             TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TMP_Text>();
 
-            int randomResoureID = UnityEngine.Random.Range(0, Inventory.instance.tradeResourceTemplates.Count - 1);
+            int randomResoureID = Mathf.Clamp(UnityEngine.Random.Range(0, Inventory.instance.tradeResourceTemplates.Count), 0, 2);
             MainResources resource = Inventory.instance.tradeResourceTemplates[randomResoureID];
 
             int maxAdjust = Mathf.CeilToInt(resource.buyValue * 0.10f);
@@ -327,16 +351,18 @@ public class MapSceneUI : MonoBehaviour {
                 numberText.color = Color.yellow;
 
             GameObject tradePopUp = city.gameObject.transform.GetChild(0).gameObject;
-            city.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            tradePopUp.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { 
+                B_AvailableTradeShip(city, resource.resourceName, buyValue); 
+            });
+        }
+    }
 
-            Trade tradeDeal = new Trade();
-            Resource gainTemplate = Inventory.instance.resources.Find(x => x.GetName() == resource.resourceName);
-            gainTemplate = new Resource(gainTemplate.type, gainTemplate.GetName(), 500, gainTemplate.GetCost());
-            Resource costTemplate = Inventory.instance.resources.Find(x => x.GetName() == "Gold");
-            costTemplate = new Resource(costTemplate.type, costTemplate.GetName(), -500, costTemplate.GetCost());
-            
-            tradeDeal.Set(gainTemplate, costTemplate, 1, buyValue, city); 
-            tradePopUp.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => { B_AvailableTradeShip(tradeDeal); });
+    public void B_BackToOverview() {
+        tradeOverview.SetActive(true);
+        resourceBarUI.SetActive(false);
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
@@ -344,12 +370,22 @@ public class MapSceneUI : MonoBehaviour {
         tradeOverview.SetActive(false);
         resourceBarUI.SetActive(true);
 
+        isBuy = true;
 
-        populateBuyMenu();
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public void B_Sell() {
+        tradeOverview.SetActive(false);
+        resourceBarUI.SetActive(true);
 
+        isBuy = false;
+
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     //Available Trade Ships
@@ -358,9 +394,6 @@ public class MapSceneUI : MonoBehaviour {
         foreach(TimeQuery query in path) {
             totalTime += query.seconds;
         }
-        Debug.Log(totalTime);
-
-
 
 
         for(int i = availableTradeShipList.Count - 1; i >= 0; i--) {
@@ -369,35 +402,95 @@ public class MapSceneUI : MonoBehaviour {
             Destroy(obj);
         }
 
-        int tradeAmount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
-        foreach(InventoryShip ship in Inventory.instance.ships) {
-            int cost = currentTradeDeal.cost * Mathf.Min(ship.maxCargo, tradeAmount);
+        if(isBuy) {
+            int tradeAmount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
+            foreach(InventoryShip ship in Inventory.instance.ships) {
+                if(ship.use == InventoryShip.USED_IN.none) {
+                    int cost = potentialDeal.lostResource.GetAmount() * Mathf.Min(ship.maxCargo, tradeAmount);
 
-            GameObject obj = Instantiate(prefabAvailableTradeShip);
-            obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
-            obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
-                "Time: " + totalTime + "\nGain: " + Mathf.Min(ship.maxCargo, tradeAmount) + " " + currentTradeDeal.buyResource.GetName() +
-                "\nCost: " + cost + " " + currentTradeDeal.costResource.GetName();
+                    GameObject obj = Instantiate(prefabAvailableTradeShip);
+                    obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
+                    obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
+                        "Time: " + totalTime + "\nGain: " + Mathf.Min(ship.maxCargo, tradeAmount) + " " + potentialDeal.gainedResource.GetName() +
+                        "\nCost: " + cost + " " + potentialDeal.lostResource.GetName();
 
-            //obj.GetComponent<Button>().onClick.AddListener(() => { B_SelectCrew(crew.crewName, oneActive); });
+                    obj.GetComponent<Button>().onClick.AddListener(() => { B_CreateDeal(ship, selectedCity); });
 
-            obj.transform.SetParent(availableTradeShip.transform.GetChild(2).GetChild(0));
-            availableTradeShipList.Add(obj);
+                    obj.transform.SetParent(availableTradeShip.transform.GetChild(2).GetChild(0));
+                    availableTradeShipList.Add(obj);
+                }
+            }
+        }
+        else { // is Sell
+            int tradeAmount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
+            foreach(InventoryShip ship in Inventory.instance.ships) {
+                if(ship.use == InventoryShip.USED_IN.none) {
+                    int gain = potentialDeal.gainedResource.GetAmount() * Mathf.Min(ship.maxCargo, tradeAmount);
+
+                    GameObject obj = Instantiate(prefabAvailableTradeShip);
+                    obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
+                    obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
+                        "Time: " + totalTime + "\nGain: " + gain + " " + potentialDeal.gainedResource.GetName() +
+                        "\nCost: " + -Mathf.Min(ship.maxCargo, tradeAmount) + " " + potentialDeal.lostResource.GetName();
+
+                    obj.GetComponent<Button>().onClick.AddListener(() => { B_CreateDeal(ship, selectedCity); });
+
+                    obj.transform.SetParent(availableTradeShip.transform.GetChild(2).GetChild(0));
+                    availableTradeShipList.Add(obj);
+                }
+            }
         }
     }
 
-    public void B_AvailableTradeShip(Trade newDeal) {
+    public void B_AvailableTradeShip(CityButtonScript city, string resourceName, int buyValue) {
         resourceBarUI.SetActive(false);
         availableTradeShip.SetActive(true);
 
-        currentTradeDeal = newDeal;
-        deal = new TradeDeal(newDeal.buyResource, newDeal.costResource, null, System.DateTime.Now, new System.DateTime(2023, 4, 19));
+        Resource tradeResource = Inventory.instance.resources.Find(x => x.GetName() == resourceName);
+        tradeResource = new Resource(tradeResource.type, tradeResource.GetName(), 1, tradeResource.GetCost());
+        Resource goldTemplate = Inventory.instance.resources.Find(x => x.GetName() == "Gold");
+        goldTemplate = new Resource(goldTemplate.type, goldTemplate.GetName(), buyValue, goldTemplate.GetCost());
 
-        path = Pathfinding.nodes.Find(x => x.start).getTradePath(currentTradeDeal.city);
-        path[path.Count - 1].activate(DateTime.Now);
-        deal.queries = path;
+        if(isBuy) {
+            potentialDeal = new TradeDeal(tradeResource, goldTemplate);
+        }
+        else { //is sell
+            potentialDeal = new TradeDeal(goldTemplate, tradeResource);
+        }
+
+        selectedCity = city;
+        path = Pathfinding.nodes.Find(x => x.start).getTradePath(city);
 
         I_ClampText();
+    }
+
+    public void B_CreateDeal(InventoryShip ship, CityButtonScript city) {
+        int tradeAmount = Mathf.Min(ship.maxCargo, int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text));
+
+        Resource temp = potentialDeal.gainedResource;
+        Resource gained = new Resource(temp.type, temp.GetName(), temp.GetAmount() * tradeAmount, temp.GetCost());
+
+        temp = potentialDeal.lostResource;
+        Resource lost = new Resource(temp.type, temp.GetName(), -temp.GetAmount() * tradeAmount, temp.GetCost());
+
+        ship.use = InventoryShip.USED_IN.trading;
+
+        TradeDeal deal = new TradeDeal(gained, lost, ship, Pathfinding.nodes.Find(x => x.start).getTradePath(city));
+
+        deal.activate();
+        TimedActivityManager.instance.tradeDeals.Add(deal);
+
+        B_TradingButton();
+        foreach(CityButtonScript c in FindObjectsOfType<CityButtonScript>()) {
+            c.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    public void B_AvailableShipExit() {
+        B_TradingButton();
+        foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            city.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     public void I_ClampText() {
@@ -424,20 +517,12 @@ public class MapSceneUI : MonoBehaviour {
         updateTradeResources();
         updateResourceBarUI();
         updateAvailableTradeShips();
+        updateActiveTradeShips();
 
-        if(deal != null) {
-            for(int i = deal.queries.Count-1; i >= 0; i--) {
-                if(deal.queries[i].active && DateTime.Compare(deal.queries[i].finishTime, DateTime.Now) <= 0) {
-                    deal.queries.RemoveAt(i);
-                }
-            }
-
-            if(deal.queries.Count == 0) {
-                Inventory.instance.AddResource(deal.gainedResource);
-                Inventory.instance.AddResource(deal.lostResource);
-
-                deal = null;
-            }
+        timeSinceTradeTime += Time.deltaTime;
+        if(timeSinceTradeTime >= refeshTradeTime && !resourceBarUI.activeInHierarchy) {
+            populateBuyMenu();
+            timeSinceTradeTime = 0;
         }
     }
 }

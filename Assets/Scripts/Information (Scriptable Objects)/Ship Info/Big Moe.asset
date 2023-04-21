@@ -15,12 +15,20 @@ MonoBehaviour:
   shipName: Big Moe
   speed: 20
   attack: 30
-  health: 200
+  health: 150
   maxCargo: 15
   shipImage: {fileID: 21300000, guid: c0305551fe1da454aacdc54d386f6fc0, type: 3}
   usedIn: 2
   combatType: 0
-  resourcesNeeded: []
+  resourcesNeeded:
+  - type: 1
+    resourceName: Metal
+    amount: 35
+    cost: 0
+  - type: 1
+    resourceName: Wood
+    amount: 20
+    cost: 0
   attacks:
   - {fileID: 11400000, guid: 60353305e644fdb4da1f35bed76845ae, type: 2}
   - {fileID: 11400000, guid: 122422250e876f2478793e273ee73929, type: 2}

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Buffers.Text;
 
 public class ShopManager : MonoBehaviour
 {
@@ -45,6 +47,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private GameObject crewShopParentObject;
 
+    [SerializeField]
+    private List<TextMeshProUGUI> resourceNameTexts;
+
+    [SerializeField]
+    private List<TextMeshProUGUI> resourceAmountTexts;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,10 +73,38 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Make a function for showing and updating the respurces you have
+        //Base that on the MapSceneUI Function UpdateResources
+        UpdateInventoryUIForShop();
+
     }
 
     
+    private void UpdateInventoryUIForShop()
+    {
+        string[] resourceNames = new string[resourceNameTexts.Count];
+        //Transform resourceHeader = baseUI.transform.GetChild(0);
+
+        for (int i = 0; i < resourceNameTexts.Count; i++)
+        {
+            resourceNames[i] = resourceNameTexts[i].text.ToString();
+        }
+
+        for (int i = 0; i < resourceNames.Length; i++)
+        {
+            Resource r = Inventory.instance.resources.Find(x => x.GetName() == resourceNames[i]);
+            //resourceHeader.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text
+            //= r.GetAmount().ToString("n0");
+            resourceAmountTexts[i].text = r.GetAmount().ToString();
+        }
+
+
+        //for (int i = 0; i < resourceNames.Length; i++)
+        //{ 
+        //    if()
+        //}
+     }
+
 
     public void BuyCrew(int index)
     {

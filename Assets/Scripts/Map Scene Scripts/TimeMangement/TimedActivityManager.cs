@@ -14,6 +14,8 @@ public class TimedActivityManager : MonoBehaviour {
     public MapShip mapShip;
     public DateTime lastTimeOn;
 
+    public List<TradeDeal> tradeDeals = new List<TradeDeal>();
+
     void Awake() {
         if(instance == null)
             instance = this;
@@ -84,6 +86,15 @@ public class TimedActivityManager : MonoBehaviour {
 
             //Remove Querry From list
                 timeQueries.RemoveAt(i);
+                i--;
+            }
+        }
+
+        for(int i = 0; i < tradeDeals.Count; i++) {
+            tradeDeals[i].Update();
+
+            if(tradeDeals[i].queries.Count == 0) {
+                tradeDeals.RemoveAt(i);
                 i--;
             }
         }

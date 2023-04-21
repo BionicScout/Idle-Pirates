@@ -57,11 +57,11 @@ public class CrewShopMenu : MonoBehaviour
         {
             InventoryCrew tempCrew = Inventory.instance.crew[x];
 
-            for (int y = 0; y < Inventory.instance.crewTemplates.Count; y++)
+            for (int y = 0; y < Inventory.instance.crewTemplatesForShop.Count; y++)
             {
-                if (Inventory.instance.crewTemplates[y].crewName.Contains(tempCrew.crewName))
+                if (Inventory.instance.crewTemplatesForShop[y].crewName.Contains(tempCrew.crewName))
                 {
-                    Inventory.instance.crewTemplates.RemoveAt(y);
+                    Inventory.instance.crewTemplatesForShop.RemoveAt(y);
 
                 }
             }
@@ -77,7 +77,7 @@ public class CrewShopMenu : MonoBehaviour
 
 
         //Important for saving inventory 
-        List<MainCrewMembers> crewInventory = Inventory.instance.crewTemplates.ToList();
+        List<MainCrewMembers> crewInventory = Inventory.instance.crewTemplatesForShop.ToList();
 
 
         //Maybe if there are less than 3 crew members in inventory,

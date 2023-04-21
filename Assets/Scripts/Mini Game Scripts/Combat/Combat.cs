@@ -154,6 +154,11 @@ public class Combat : MonoBehaviour {
 
         AudioManager.instance.Play("Combat Win");
 
+        if(CityLastVistedInfo.instance.raidTriggered)
+            CityInbetweenManagementScript.newRaidedCity(CityLastVistedInfo.instance.cityName);
+
+        CityLastVistedInfo.instance.raidTriggered = false;
+
         SceneSwitcher.instance.A_LoadScene(mapSceneName);
     }
 
@@ -165,6 +170,8 @@ public class Combat : MonoBehaviour {
 
         AudioManager.instance.Play("Combat Ran");
 
+        CityLastVistedInfo.instance.raidTriggered = false;
+
         SceneSwitcher.instance.A_LoadScene(mapSceneName);
     }
 
@@ -175,6 +182,8 @@ public class Combat : MonoBehaviour {
         yield return new WaitForSeconds(updateTextTime);
 
         AudioManager.instance.Play("Combat Lose");
+
+        CityLastVistedInfo.instance.raidTriggered = false;
 
         SceneSwitcher.instance.A_LoadScene(mapSceneName);
     }

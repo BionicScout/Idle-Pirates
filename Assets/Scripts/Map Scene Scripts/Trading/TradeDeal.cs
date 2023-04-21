@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [Serializable]
@@ -8,15 +9,45 @@ public class TradeDeal {
     public Resource gainedResource;
     public Resource lostResource;
     public InventoryShip shipInUse;
-    public DateTime startTime;
-    public DateTime finsihTime;
     public List<TimeQuery> queries;
+    public int totalTime;
+    public float passedTime;
 
-    public TradeDeal(Resource buyResource, Resource costResource, InventoryShip ship, DateTime start, DateTime end) {
+    public TradeDeal(Resource buyResource, Resource costResource) {
+        gainedResource = buyResource;
+        lostResource = costResource;
+    }
+
+    public TradeDeal(Resource buyResource, Resource costResource, InventoryShip ship, List<TimeQuery> q) {
         gainedResource = buyResource;
         lostResource = costResource;
         shipInUse = ship;
-        startTime = start;
-        finsihTime = end;
+        queries = q;
+    }
+
+    public void activate() {
+        totalTime = 0;
+        foreach(TimeQuery query in queries) {
+            totalTime += query.seconds;
+        }
+
+        queries[queries.Count - 1].activate(DateTime.Now);
+        Inventory.instance.AddResource(lostResource);
+        passedTime = 0;
+    }
+
+    public void Update() {
+        for(int i = queries.Count - 1; i >= 0; i--) {
+            if(queries[i].active && DateTime.Compare(queries[i].finishTime, DateTime.Now) <= 0) {
+                queries.RemoveAt(i);
+            }
+        }
+
+        if(queries.Count == 0) {
+            Inventory.instance.AddResource(gainedResource);
+            //Inventory.instance.AddResource(lostResource);
+        }
+
+        passedTime += Time.deltaTime;
     }
 }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Evolution
   speed: 20
-  attack: 30
-  health: 40
+  attack: 60
+  health: 60
   maxCargo: 5
   shipImage: {fileID: 21300000, guid: 253ce81603ae209408fea291a2027947, type: 3}
   usedIn: 2

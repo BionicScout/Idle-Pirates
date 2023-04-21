@@ -39,10 +39,10 @@ public class InventoryShip {
             resourcesNeeded.Add(ships.resourcesNeeded[i]);
 
 
-            Debug.Log(i + " + " + resourcesNeeded[i].GetName());
-            Debug.Log(i + " + " + resourcesNeeded[i].GetAmount());
-            Debug.Log(i + " + " + resourcesNeeded[i].GetCost());
-            Debug.Log(i + " + " + resourcesNeeded[i].GetResourceType());
+            //Debug.Log(i + " + " + resourcesNeeded[i].GetName());
+            //Debug.Log(i + " + " + resourcesNeeded[i].GetAmount());
+            //Debug.Log(i + " + " + resourcesNeeded[i].GetCost());
+            //Debug.Log(i + " + " + resourcesNeeded[i].GetResourceType());
 
 
 
@@ -51,7 +51,7 @@ public class InventoryShip {
     //Add Attacks
         foreach(Attacks a in ships.attacks) {
 
-            Debug.Log(a.attackName);
+            //Debug.Log(a.attackName);
             attacks.Add(a);
         }
 
