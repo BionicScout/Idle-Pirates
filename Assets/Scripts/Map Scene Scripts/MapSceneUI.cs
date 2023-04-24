@@ -99,7 +99,8 @@ public class MapSceneUI : MonoBehaviour {
         availableCombatShips.SetActive(false);
 
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
-            city.gameObject.GetComponent<Button>().enabled = true;
+            //if(!city.gameObject.GetComponent<Node>().start)
+                city.gameObject.GetComponent<Button>().enabled = true;
         }
     }
 
@@ -330,8 +331,11 @@ public class MapSceneUI : MonoBehaviour {
 
     public void populateBuyMenu() {
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
-            Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
-            TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TMP_Text>();
+            //if(city.transform.GetComponent<Node>().start)
+            //    continue;
+
+            Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
+            TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(4).GetComponent<TMP_Text>();
 
             int randomResoureID = Mathf.Clamp(UnityEngine.Random.Range(0, Inventory.instance.tradeResourceTemplates.Count), 0, 2);
             MainResources resource = Inventory.instance.tradeResourceTemplates[randomResoureID];
@@ -497,14 +501,15 @@ public class MapSceneUI : MonoBehaviour {
         maxCargo = 0;
 
         foreach(InventoryShip ship in Inventory.instance.ships) {
-            if(ship.maxCargo > maxCargo)
+            if(ship.maxCargo > maxCargo && ship.use == InventoryShip.USED_IN.none)
                 maxCargo = ship.maxCargo;
         }
 
         int amount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
         availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text = Mathf.Clamp(amount, 0, maxCargo).ToString();
 
-        availableTradeShip.transform.GetChild(5).GetChild(2).GetComponent<TMP_Text>().text = maxCargo.ToString();
+        availableTradeShip.transform.GetChild(5).GetChild(2).GetComponent<TMP_Text>().text = 
+            "Max Cargo of one of these ships is: " + maxCargo.ToString() + ".\nHow much do you want to Trade";
 
         refreshAvailableTradeShips();
     }

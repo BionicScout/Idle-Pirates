@@ -46,6 +46,8 @@ public class TradeDeal {
         if(queries.Count == 0) {
             Inventory.instance.AddResource(gainedResource);
             //Inventory.instance.AddResource(lostResource);
+
+            shipInUse.use = InventoryShip.USED_IN.none;
         }
 
         passedTime += Time.deltaTime;
