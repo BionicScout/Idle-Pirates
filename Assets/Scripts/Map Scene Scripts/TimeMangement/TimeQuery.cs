@@ -20,7 +20,7 @@ public class TimeQuery {
     public string nextQueryName;
     public TimeQuery nextQuery;
 
-    Resource gainedResource, lostResource;
+    public Resource gainedResource, lostResource;
 
     public TimeQuery(string name, int min, int sec, TimeQuery query, Node start, Node end) {
         queryName = name;
@@ -59,6 +59,26 @@ public class TimeQuery {
         endName = saveQuery.endName;
 
         nextQueryName = saveQuery.nextQuery;
+    }
+
+    public TimeQuery(SavaData_TimeQuery q) {
+        queryName = q.queryName;
+        minutes = q.seconds / 60;
+        seconds = q.seconds % 60;
+        active = q.active;
+
+        shipQuery = q.shipQuery;
+        tradeQuery = q.shipQuery;
+        //ON LOAD OF MAP SCENE GET NODES
+        startName = q.startName;
+        endName = q.endName;
+
+        startTime = DateTime.FromBinary(q.startTime);
+        finishTime = DateTime.FromBinary(q.finishTime);
+        timeInterval = finishTime - startTime;
+
+        nextQueryName = q.nextQueryName;
+        //ON LOAD OF ALL QUERYS, GET NEXT QUERY
     }
 
     public void updateResources(Resource r1, Resource r2) {

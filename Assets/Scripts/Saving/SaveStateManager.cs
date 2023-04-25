@@ -21,7 +21,6 @@ public class SaveStateManager : MonoBehaviour {
     private void Awake() {
         filePath = Application.persistentDataPath + "/save.data";
 
-
         // Check there are no other copies of this class in the scene
         if(instance == null) {
             instance = this;
@@ -40,37 +39,32 @@ public class SaveStateManager : MonoBehaviour {
 
     //}
 
-    public void SaveGame(GameData saveData) 
-    {
-        //Get data
-
+    public void SaveGame(GameData saveData) {
+    //Save Raided Cities
         saveData.currentCitytoSave =
         CityInbetweenManagementScript.currentCity;
 
         saveData.raidedCityListforSave =
             new string[CityInbetweenManagementScript.citesThatHaveBeenRaided.Count];
 
-        for (int i = 0; i < CityInbetweenManagementScript.citesThatHaveBeenRaided.Count; i++)
-        {
-            saveData.raidedCityListforSave[i] = 
+        for(int i = 0; i < CityInbetweenManagementScript.citesThatHaveBeenRaided.Count; i++) {
+            saveData.raidedCityListforSave[i] =
                 (CityInbetweenManagementScript.citesThatHaveBeenRaided[i]);
         }
 
         saveData.resourcesToSave = new Resource[Inventory.instance.resources.Count];
 
-        for (int i = 0; i < Inventory.instance.resources.Count; i++)
-        {
+    //Save Inventory
+        for(int i = 0; i < Inventory.instance.resources.Count; i++) {
             saveData.resourcesToSave[i] = (Inventory.instance.resources[i]);
             saveData.resourcesToSave[i].amount = (Inventory.instance.resources[i].amount);
         }
 
         saveData.crewNamesToSave = new string[Inventory.instance.crew.Count];
 
-        for (int i = 0; i < Inventory.instance.crew.Count; i++)
-        {
+        for(int i = 0; i < Inventory.instance.crew.Count; i++) {
             saveData.crewNamesToSave[i] = (Inventory.instance.crew[i].crewName);
-            if(Inventory.instance.crew[i].active == true)
-            {
+            if(Inventory.instance.crew[i].active == true) {
                 saveData.lastCrewActiveIndex = i;
             }
         }
@@ -79,13 +73,11 @@ public class SaveStateManager : MonoBehaviour {
         saveData.lastShipsinCombatIndexes = new int[3];
 
         int x = 0;
-        for (int i = 0; i < Inventory.instance.ships.Count; i++)
-        {
-            
+        for(int i = 0; i < Inventory.instance.ships.Count; i++) {
+
             saveData.shipNamesToSave[i] = (Inventory.instance.ships[i].GetShipName());
 
-            if (Inventory.instance.ships[i].use == InventoryShip.USED_IN.combat)
-            {
+            if(Inventory.instance.ships[i].use == InventoryShip.USED_IN.combat) {
                 saveData.lastShipsinCombatIndexes[x] = i;
                 x++;
             }
@@ -97,6 +89,10 @@ public class SaveStateManager : MonoBehaviour {
         //    saveData.resourceAmountsToSave[i] = (Inventory.instance.resources[i].amount);
         //}
 
+    //Save TimedActivityManager and All Trade Deals
+        
+
+    //Last Time Saved
         saveData.timeSaved =
             System.DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy  hh:mm tt");
 
@@ -104,12 +100,12 @@ public class SaveStateManager : MonoBehaviour {
 
 
         //Get data for TimeActivityManager
-        TimeQueryList_Saveable queryList = 
+        TimeQueryList_Saveable queryList =
             new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
         // saveTime = System.DateTime.Now;
 
-    //Save Objects
-        FileStream dataStream = new FileStream(filePath, FileMode.Create); 
+        //Save Objects
+        FileStream dataStream = new FileStream(filePath, FileMode.Create);
         //try to save data of scene
         BinaryFormatter converter = new BinaryFormatter();
 
@@ -128,7 +124,7 @@ public class SaveStateManager : MonoBehaviour {
 
         //Check if File Exists before loading game
         if(File.Exists(filePath)) {
-        //Load Data from File
+            //Load Data from File
             FileStream dataStream = new FileStream(filePath, FileMode.Open);
             BinaryFormatter converter = new BinaryFormatter();
 
@@ -140,14 +136,12 @@ public class SaveStateManager : MonoBehaviour {
             CityInbetweenManagementScript.currentCity
                 = saveData.currentCitytoSave;
 
-            for (int i = 0; i < saveData.raidedCityListforSave.Length; i++)
-            {
+            for(int i = 0; i < saveData.raidedCityListforSave.Length; i++) {
                 CityInbetweenManagementScript.citesThatHaveBeenRaided[i] =
                     (saveData.raidedCityListforSave[i]);
             }
 
-            for (int i = 0; i < saveData.resourcesToSave.Length; i++)
-            {
+            for(int i = 0; i < saveData.resourcesToSave.Length; i++) {
                 Inventory.instance.resources[i] =
                     (saveData.resourcesToSave[i]);
                 Inventory.instance.resources[i].amount =
@@ -159,8 +153,7 @@ public class SaveStateManager : MonoBehaviour {
             //    Inventory.instance.resources[i].amount = saveData.resourceAmountsToSave[i];
             //}
 
-            for (int i = 0; i < saveData.crewNamesToSave.Length; i++)
-            {
+            for(int i = 0; i < saveData.crewNamesToSave.Length; i++) {
 
                 //search template for crew Name
                 //Inventory.instance.crewTemplates.Add
@@ -171,22 +164,19 @@ public class SaveStateManager : MonoBehaviour {
 
                 Inventory.instance.crew.Add(new InventoryCrew(crew));
             }
-            if (Inventory.instance.crew.Count != 0)
-            {
+            if(Inventory.instance.crew.Count != 0) {
                 Inventory.instance.crew[saveData.lastCrewActiveIndex].active = true;
             }
 
-            for (int i = 0; i < saveData.shipNamesToSave.Length; i++)
-            {
-                MainShips ship = Inventory.instance.shipTemplates.Find(x => x.name 
+            for(int i = 0; i < saveData.shipNamesToSave.Length; i++) {
+                MainShips ship = Inventory.instance.shipTemplates.Find(x => x.name
                 == saveData.shipNamesToSave[i]);
 
                 Inventory.instance.ships.Add(new InventoryShip(ship));
 
-                
+
             }
-            for (int i = 0; i < saveData.lastShipsinCombatIndexes.Length; i++)
-            {
+            for(int i = 0; i < saveData.lastShipsinCombatIndexes.Length; i++) {
 
                 Inventory.instance.ships[saveData.lastShipsinCombatIndexes[i]].use
                     = InventoryShip.USED_IN.combat;
@@ -198,7 +188,7 @@ public class SaveStateManager : MonoBehaviour {
             //Inventory.instance = saveData.inventoryToSave;
 
             SceneSwitcher.firstMapLoad = saveData.firstMapLoadToSave;
-           
+
 
             //Loading the time saved
 
@@ -224,8 +214,7 @@ public class SaveStateManager : MonoBehaviour {
     }
 
 
-    public void DeleteData()
-    {
+    public void DeleteData() {
         GameData saveData = new GameData();
         SaveGame(saveData);
 
@@ -244,14 +233,13 @@ public class SaveStateManager : MonoBehaviour {
 
         int startingGold = Inventory.instance.startingGoldAmount;
 
-        for (int i = 1; i < Inventory.instance.resources.Count; i++)
-        {
+        for(int i = 1; i < Inventory.instance.resources.Count; i++) {
             Inventory.instance.resources[i].amount = 0;
         }
 
         Inventory.instance.resources[0].amount = startingGold;
 
-       
+
     }
 
 

@@ -35,6 +35,29 @@ public class Resource {
         cost = resource.buyValue;
     }
 
+    public Resource(SaveData_Resource r) {
+        switch(r.type) {
+            case 1:
+                type = Type.Gold;
+                break;
+
+            case 2:
+                type = Type.Ship_Build;
+                break;
+
+            case 3:
+                type = Type.Trade;
+                break;
+
+            default:
+                break;
+        }
+
+        resourceName = r.resourceName;
+        amount = r.amount;
+        cost = r.cost;
+    }
+
     public string GetName() 
     {
         return resourceName;

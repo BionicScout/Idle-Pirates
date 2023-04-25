@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using UnityEngine;
 
 /*
@@ -13,6 +13,7 @@ public class TimedActivityManager : MonoBehaviour {
     public static TimedActivityManager instance;
     public MapShip mapShip;
     public DateTime lastTimeOn;
+    string lastCityStoppedAt;
 
     public List<TradeDeal> tradeDeals = new List<TradeDeal>();
 
@@ -82,6 +83,9 @@ public class TimedActivityManager : MonoBehaviour {
                             AudioManager.instance.Play("Moving");
                         }
                     }
+                    else {
+                        lastCityStoppedAt = timeQueries[i].endName;
+                    }
                 }
 
             //Remove Querry From list
@@ -97,6 +101,13 @@ public class TimedActivityManager : MonoBehaviour {
                 tradeDeals.RemoveAt(i);
                 i--;
             }
+        }
+
+        if(lastCityStoppedAt != null && SceneSwitcher.currentScene == "Map Scene") {
+
+            Node lastNode = FindObjectsOfType<Node>().ToList().Find(x => x.nodeName == lastCityStoppedAt);
+            mapShip.updateLocation(lastNode); 
+            lastCityStoppedAt = null;
         }
     }
 
