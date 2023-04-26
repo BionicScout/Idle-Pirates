@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour {
     Sound currentTrack;
 
     public static AudioManager instance;
+    public bool fade;
+    public int fadeTime = 2;
+    float fadeTimer = 0;
 
     void Awake() {
 
@@ -38,7 +41,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Start() {
-		currentSoundTrack = 0;
+        currentSoundTrack = UnityEngine.Random.Range(0, soundTrackIndexes.Count-1);
 		currentTrack = sounds[soundTrackIndexes[currentSoundTrack]];
 		Play(currentTrack.name);
     }
@@ -58,6 +61,32 @@ public class AudioManager : MonoBehaviour {
 			currentTrack = sounds[soundTrackIndexes[currentSoundTrack]];
 			Play(currentTrack.name);
 		}
+
+        if(fade) {
+            fadeTimer += Time.deltaTime;
+
+            if(fadeTimer > fadeTime) {
+                fade = false;
+                fadeTimer = 0;
+                sounds[currentSoundTrack].source.Stop();
+
+
+                currentSoundTrack++;
+
+                if(currentSoundTrack >= soundTrackIndexes.Count) {
+                    currentSoundTrack = 0;
+                }
+
+                currentTrack = sounds[soundTrackIndexes[currentSoundTrack]];
+                Play(currentTrack.name);
+            }
+            else {
+                AudioSource s = sounds[soundTrackIndexes[currentSoundTrack]].source;
+                s.volume = sounds[soundTrackIndexes[currentSoundTrack]].volume * ((fadeTime-fadeTimer) / fadeTime);
+                Debug.Log(s.volume);
+            }
+
+        }
 	}
 
     public void Play (string name) {

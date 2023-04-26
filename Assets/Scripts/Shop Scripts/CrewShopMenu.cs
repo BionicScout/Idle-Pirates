@@ -39,6 +39,16 @@ public class CrewShopMenu : MonoBehaviour
     private int shopItemLimit = 3;
 
 
+    [SerializeField]
+    private GameObject effectListParent;
+
+    [SerializeField]
+    private bool effectListOn = false;
+
+    [SerializeField]
+    private TextMeshProUGUI itemEffectText;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -256,6 +266,110 @@ public class CrewShopMenu : MonoBehaviour
     {
         Inventory.instance.resources[0].SubtractAmount(itemCostNumbers[index - 1]);
 
+    }
+
+
+    public void Item1EffectListButtonPressed()
+    {
+        if (effectListOn == false)
+        {
+            itemReference = 1;
+
+            AudioManager.instance.Play("Menu Sound");
+            effectListParent.SetActive(true);
+            effectListOn = true;
+
+            for (int i = 0; i < Inventory.instance.crewTemplates.Count; i++) 
+            { 
+
+                if (Inventory.instance.crewTemplates[i].crewName
+                == itemTitles[itemReference - 1].text)
+                {
+
+                    itemEffectText.text = Inventory.instance.crewTemplates[i].effectDescription;
+                    break;
+                }
+                else
+                {
+                    itemEffectText.text = dummyCrew.effectDescription;
+                }
+            }
+
+            //itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
+        }
+
+
+    }
+
+    public void Item2EffectListButtonPressed()
+    {
+
+        if (effectListOn == false)
+        {
+            itemReference = 2;
+
+            AudioManager.instance.Play("Menu Sound");
+            effectListParent.SetActive(true);
+            effectListOn = true;
+
+            for (int i = 0; i < Inventory.instance.crewTemplates.Count; i++)
+            {
+
+                if (Inventory.instance.crewTemplates[i].crewName
+                == itemTitles[itemReference - 1].text)
+                {
+
+                    itemEffectText.text = Inventory.instance.crewTemplates[i].effectDescription;
+                    break;
+                }
+                else
+                {
+                    itemEffectText.text = dummyCrew.effectDescription;
+                }
+            }
+
+            //itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
+        }
+    }
+
+    public void Item3EffectListButtonPressed()
+    {
+        if (effectListOn == false)
+        {
+            itemReference = 3;
+
+            AudioManager.instance.Play("Menu Sound");
+            effectListParent.SetActive(true);
+            effectListOn = true;
+
+            for (int i = 0; i < Inventory.instance.crewTemplates.Count; i++)
+            {
+
+                if (Inventory.instance.crewTemplates[i].crewName
+                == itemTitles[itemReference - 1].text)
+                {
+
+                    itemEffectText.text = Inventory.instance.crewTemplates[i].effectDescription;
+                    break;
+                }
+                else
+                {
+                    itemEffectText.text = dummyCrew.effectDescription;
+                }
+            }
+
+            //itemMaterialListText.text += allItemMaterialTexts[itemReference - 1];
+        }
+
+    }
+
+    public void EffectlListMinimizeButtonPressed()
+    {
+        //Set window to false
+        AudioManager.instance.Play("Menu Sound");
+        itemEffectText.text = "";
+        effectListOn = false;
+        effectListParent.SetActive(false);
     }
 
 }

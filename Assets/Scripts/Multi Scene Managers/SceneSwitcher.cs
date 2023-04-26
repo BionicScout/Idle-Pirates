@@ -112,5 +112,10 @@ public class SceneSwitcher : MonoBehaviour {
 
     }
 
+    public string GetCurrentScene()
+    {
+        return currentScene;
+    }
+
 
 }

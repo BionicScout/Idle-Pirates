@@ -99,7 +99,8 @@ public class MapSceneUI : MonoBehaviour {
         availableCombatShips.SetActive(false);
 
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
-            city.gameObject.GetComponent<Button>().enabled = true;
+            //if(!city.gameObject.GetComponent<Node>().start)
+                city.gameObject.GetComponent<Button>().enabled = true;
         }
     }
 
@@ -330,8 +331,8 @@ public class MapSceneUI : MonoBehaviour {
 
     public void populateBuyMenu() {
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
-            Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
-            TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<TMP_Text>();
+            Image resourceIcon = city.gameObject.transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
+            TMP_Text numberText = city.gameObject.transform.GetChild(0).transform.GetChild(4).GetComponent<TMP_Text>();
 
             int randomResoureID = Mathf.Clamp(UnityEngine.Random.Range(0, Inventory.instance.tradeResourceTemplates.Count), 0, 2);
             MainResources resource = Inventory.instance.tradeResourceTemplates[randomResoureID];
@@ -373,6 +374,9 @@ public class MapSceneUI : MonoBehaviour {
         isBuy = true;
 
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
+            if(city.transform.GetComponent<Node>().start)
+                continue;
+
             city.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
@@ -406,12 +410,14 @@ public class MapSceneUI : MonoBehaviour {
             int tradeAmount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
             foreach(InventoryShip ship in Inventory.instance.ships) {
                 if(ship.use == InventoryShip.USED_IN.none) {
-                    int cost = potentialDeal.lostResource.GetAmount() * Mathf.Min(ship.maxCargo, tradeAmount);
+                    Resource gold = Inventory.instance.resources.Find(x => x.type == Resource.Type.Gold);
+                    int gain = Mathf.Min(ship.maxCargo, tradeAmount, gold.amount/potentialDeal.lostResource.amount);
+                    int cost = potentialDeal.lostResource.GetAmount() * gain;
 
                     GameObject obj = Instantiate(prefabAvailableTradeShip);
                     obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
                     obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
-                        "Time: " + totalTime + "\nGain: " + Mathf.Min(ship.maxCargo, tradeAmount) + " " + potentialDeal.gainedResource.GetName() +
+                        "Time: " + totalTime + "\nGain: " + gain + " " + potentialDeal.gainedResource.GetName() +
                         "\nCost: " + cost + " " + potentialDeal.lostResource.GetName();
 
                     obj.GetComponent<Button>().onClick.AddListener(() => { B_CreateDeal(ship, selectedCity); });
@@ -425,13 +431,15 @@ public class MapSceneUI : MonoBehaviour {
             int tradeAmount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
             foreach(InventoryShip ship in Inventory.instance.ships) {
                 if(ship.use == InventoryShip.USED_IN.none) {
-                    int gain = potentialDeal.gainedResource.GetAmount() * Mathf.Min(ship.maxCargo, tradeAmount);
+                    Resource tradeResource = Inventory.instance.resources.Find(x => x.GetName() == potentialDeal.lostResource.GetName());
+                    int cost = Mathf.Min(ship.maxCargo, tradeAmount, tradeResource.amount);
+                    int gain = potentialDeal.gainedResource.GetAmount() * cost;
 
                     GameObject obj = Instantiate(prefabAvailableTradeShip);
                     obj.transform.GetChild(0).GetComponent<Image>().sprite = ship.shipImage;
                     obj.transform.GetChild(1).GetComponent<TMP_Text>().text =
                         "Time: " + totalTime + "\nGain: " + gain + " " + potentialDeal.gainedResource.GetName() +
-                        "\nCost: " + -Mathf.Min(ship.maxCargo, tradeAmount) + " " + potentialDeal.lostResource.GetName();
+                        "\nCost: " + cost + " " + potentialDeal.lostResource.GetName();
 
                     obj.GetComponent<Button>().onClick.AddListener(() => { B_CreateDeal(ship, selectedCity); });
 
@@ -465,7 +473,19 @@ public class MapSceneUI : MonoBehaviour {
     }
 
     public void B_CreateDeal(InventoryShip ship, CityButtonScript city) {
-        int tradeAmount = Mathf.Min(ship.maxCargo, int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text));
+        int tradeAmount;
+        if(isBuy) {
+            Resource gold = Inventory.instance.resources.Find(x => x.type == Resource.Type.Gold);
+            tradeAmount = Mathf.Min(ship.maxCargo,
+                int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text),
+                gold.amount / potentialDeal.lostResource.amount);
+        }
+        else {
+            Resource tradeResource = Inventory.instance.resources.Find(x => x.GetName() == potentialDeal.lostResource.GetName());
+            tradeAmount = Mathf.Min(ship.maxCargo,
+                int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text),
+                tradeResource.amount);
+        }
 
         Resource temp = potentialDeal.gainedResource;
         Resource gained = new Resource(temp.type, temp.GetName(), temp.GetAmount() * tradeAmount, temp.GetCost());
@@ -497,14 +517,15 @@ public class MapSceneUI : MonoBehaviour {
         maxCargo = 0;
 
         foreach(InventoryShip ship in Inventory.instance.ships) {
-            if(ship.maxCargo > maxCargo)
+            if(ship.maxCargo > maxCargo && ship.use == InventoryShip.USED_IN.none)
                 maxCargo = ship.maxCargo;
         }
 
         int amount = int.Parse(availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text);
         availableTradeShip.transform.GetChild(5).GetChild(1).GetComponent<TMP_InputField>().text = Mathf.Clamp(amount, 0, maxCargo).ToString();
 
-        availableTradeShip.transform.GetChild(5).GetChild(2).GetComponent<TMP_Text>().text = maxCargo.ToString();
+        availableTradeShip.transform.GetChild(5).GetChild(2).GetComponent<TMP_Text>().text = 
+            "Max Cargo of one of these ships is: " + maxCargo.ToString() + ".\nHow much do you want to Trade";
 
         refreshAvailableTradeShips();
     }
@@ -512,6 +533,15 @@ public class MapSceneUI : MonoBehaviour {
     /**************************************************************************************************************************
         OTHER UI 
     **************************************************************************************************************************/
+    //public int getBiggestMultiple(int n, int d) {
+    //    for(int i = n-1; n > 1; i--) {
+    //        if(i % d == 0)
+    //            return i;
+    //    }
+
+    //    return 1;
+    //}
+
     void Update() {
         updateResources();
         updateTradeResources();

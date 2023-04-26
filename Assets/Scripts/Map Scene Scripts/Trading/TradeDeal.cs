@@ -25,6 +25,21 @@ public class TradeDeal {
         queries = q;
     }
 
+    public TradeDeal(SavaData_TradeDeal td, DateTime lastSave) {
+        gainedResource = new Resource(td.gainedResource);
+        lostResource = new Resource(td.lostResource);
+        //shipInUse  
+
+        queries = new List<TimeQuery>();
+        foreach(SavaData_TimeQuery q in td.queries) {
+            queries.Add(new TimeQuery(q));
+        }
+
+        totalTime = td.totalTime;
+        TimeSpan span = DateTime.Now - lastSave;
+        passedTime = td.passedTime + (DateTime.Now - lastSave).Seconds;
+    }
+
     public void activate() {
         totalTime = 0;
         foreach(TimeQuery query in queries) {
@@ -46,6 +61,8 @@ public class TradeDeal {
         if(queries.Count == 0) {
             Inventory.instance.AddResource(gainedResource);
             //Inventory.instance.AddResource(lostResource);
+
+            shipInUse.use = InventoryShip.USED_IN.none;
         }
 
         passedTime += Time.deltaTime;
