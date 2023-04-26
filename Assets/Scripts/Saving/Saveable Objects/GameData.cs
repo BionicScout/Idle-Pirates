@@ -24,6 +24,6 @@ public class GameData
 
     public bool firstMapLoadToSave = true;
 
-
+    public SaveData_TimedActivityManager timeManagerSave;
 
 }

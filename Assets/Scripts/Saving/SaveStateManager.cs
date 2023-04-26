@@ -89,8 +89,8 @@ public class SaveStateManager : MonoBehaviour {
         //    saveData.resourceAmountsToSave[i] = (Inventory.instance.resources[i].amount);
         //}
 
-    //Save TimedActivityManager and All Trade Deals
-        
+        //Save TimedActivityManager and All Trade Deals
+        saveData.timeManagerSave = new SaveData_TimedActivityManager();
 
     //Last Time Saved
         saveData.timeSaved =
