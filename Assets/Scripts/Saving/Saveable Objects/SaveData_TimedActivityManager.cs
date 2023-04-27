@@ -65,6 +65,10 @@ public class SaveData_TimedActivityManager {
             }
             if(deal.queries.Count == 0) {
                 deal.shipInUse.use = InventoryShip.USED_IN.none;
+                SaveStateManager.tradeInfo.Add(
+                    "One of your trades were completed.\nYou gained " + deal.gainedResource.amount + " " + deal.gainedResource.GetName());
+
+                UnityEngine.Debug.Log("ADDED INFO *********************************");
             }
         }
 

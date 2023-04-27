@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections.Generic;
 
 public class SaveStateManager : MonoBehaviour {
     //private DialogueManager dialogueManager;
@@ -12,6 +12,9 @@ public class SaveStateManager : MonoBehaviour {
 
     [SerializeField]
     private string menuSceneName;
+
+    public static List<string> tradeInfo = new List<string>();
+    public static DateTime lastSave = new DateTime();
 
     //public ExcursionBreakMenu exbMenu;
     //ExcursionBreakDialogueManager exbDialogueManager;
@@ -93,6 +96,7 @@ public class SaveStateManager : MonoBehaviour {
 
         //Last Time Saved
         saveData.timeSaved = System.DateTime.Now.ToBinary();
+        
 
         saveData.firstMapLoadToSave = SceneSwitcher.firstMapLoad;
 
@@ -185,7 +189,7 @@ public class SaveStateManager : MonoBehaviour {
 
             }
 
-            DateTime lastSave = DateTime.FromBinary(saveData.timeSaved);
+            lastSave = DateTime.FromBinary(saveData.timeSaved);
             saveData.timeManagerSave.Load(lastSave);
 
 

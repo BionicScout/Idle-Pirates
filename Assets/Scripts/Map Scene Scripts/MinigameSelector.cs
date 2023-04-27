@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class MinigameSelecter {
-    static string[] minigameScenes = { "Combat", "Ship Cleaning Game Instructions", "Coconut Mini Game Instructions", "Ship Mini Game Instructions" };
-    static int[] minigameWeights = { 1, 1, 1, 1};
+    static string[] minigameNames = { "Combat", "Ship Cleaning", "Coconut Mini", "Ship Mini"};
+    static string[] minigameScenes = { "Combat", "Ship Cleaning Instructions", "Coconut Mini Game Instructions", "Ship Sailing Mini Game Instructions" };
+    static string[] minigameDecriptions = { 
+        "Your fleet was attack by a neighbooring city", 
+        "Your ship got covered in gunk while sailing", 
+        "Your crew ran out of food", 
+        "Your crew attempted to get a bonus for a quick deleivery" };
+    static int[] minigameWeights = { 50, 50, 50, 50};
 
     public static string getMinigame() {
         int totalWeight = 0;
@@ -49,5 +55,20 @@ public static class MinigameSelecter {
         }
 
         return scenes;
+    }
+
+    public static List<string> getDescribtionList(List<string> sceneNames) {
+        List<string> descriptions = new List<string>();
+
+        foreach(string scene in sceneNames) {
+            for(int i = 0; i < minigameDecriptions.Length; i++){
+                if(minigameScenes[i] == scene) {
+                    descriptions.Add(minigameDecriptions[i]);
+                    break;
+                }
+            }
+        }
+
+        return descriptions;
     }
 }

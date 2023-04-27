@@ -60,6 +60,11 @@ public class SceneSwitcher : MonoBehaviour {
         TimedActivityManager.instance.refreshQuerries();
         mapShip.loadCurrentLocation();
 
+        if(SaveStateManager.tradeInfo.Count > 0) {
+            MapSceneUI.loadIdle = true;
+            Debug.Log("SET TRUE ***************************************8");
+        }
+
         //This just load testing ships and crew
         if (firstMapLoad)
         {
@@ -72,27 +77,11 @@ public class SceneSwitcher : MonoBehaviour {
                 Inventory.instance.AddShip(ship);
             }
 
-            //foreach (MainShips template in Inventory.instance.shipTemplates)
-            //{
-            //    Inventory.instance.AddShip(new InventoryShip(template));
-            //    break;
-            //}
-            //foreach (MainCrewMembers template in Inventory.instance.crewTemplates)
-            //{
-            //    InventoryCrew crew =
-            //        new InventoryCrew(Inventory.instance.crewTemplates
-            //        [Random.Range(0, Inventory.instance.shipTemplates.Count - 1)]);
-            //    crew.active = true;
-            //    Inventory.instance.AddCrew(crew);
-            //    break;
-            //}
-
             InventoryCrew crew =
                     new InventoryCrew(Inventory.instance.crewTemplates
                     [Random.Range(0, Inventory.instance.crewTemplates.Count - 1)]);
             crew.active = true;
             Inventory.instance.AddCrew(crew);
-
         }
     }
 

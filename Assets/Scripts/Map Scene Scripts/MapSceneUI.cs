@@ -54,7 +54,8 @@ public class MapSceneUI : MonoBehaviour {
 
     public GameObject prefabIdleMiniGame;
     public GameObject prefabIdleTradeInfo;
-    List<GameObject> idleList = new List<GameObject>();
+    public static List<GameObject> idleList = new List<GameObject>();
+    public static bool loadIdle = false;
 
     void Start() {
         populateBuyMenu();
@@ -560,13 +561,58 @@ public class MapSceneUI : MonoBehaviour {
         Idle UI 
     **************************************************************************************************************************/
     public void loadIdleMenu() {
-        resourceBarUI.SetActive(false);
+        baseUI.SetActive(false);
         idleMenu.SetActive(true);
+        loadIdle = false;
+
+
+        //Generate Trade INfo
+        Transform parent = idleMenu.transform.GetChild(2).GetChild(0);
+        foreach(string info in SaveStateManager.tradeInfo) {
+            GameObject obj = Instantiate(prefabIdleTradeInfo);
+            obj.transform.GetChild(0).GetComponent<TMP_Text>().text = info;
+
+            obj.transform.SetParent(parent);
+            idleList.Add(obj);
+        }
+
+        foreach(string info in SaveStateManager.tradeInfo) {
+            GameObject obj = Instantiate(prefabIdleTradeInfo);
+            obj.transform.GetChild(0).GetComponent<TMP_Text>().text = info;
+
+            obj.transform.SetParent(parent);
+            idleList.Add(obj);
+        }
+
+        int minigameAmount = 2;
+        List<string> minigameScenes = MinigameSelecter.getMinigameList(minigameAmount);
+        List<string> minigameDescription = MinigameSelecter.getDescribtionList(minigameScenes);
+
+        for(int i = 0; i < minigameDescription.Count; i++) {
+            Debug.Log(i);
+            string str = minigameScenes[i];
+            GameObject obj = Instantiate(prefabIdleMiniGame);
+            obj.transform.GetChild(0).GetComponent<TMP_Text>().text = minigameDescription[i];
+            obj.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => {
+                SceneSwitcher.instance.A_LoadScene(str);
+                obj.transform.GetChild(1).gameObject.SetActive(false);
+            });
+
+            obj.transform.SetParent(parent);
+            idleList.Add(obj);
+        }
+ 
     }
 
     public void B_ExitIdleMenu() {
-        resourceBarUI.SetActive(true);
+        baseUI.SetActive(true);
         idleMenu.SetActive(false);
+
+        for(int i = idleList.Count - 1; i >= 0; i--) {
+            GameObject obj = idleList[i];
+            idleList.Remove(obj);
+            Destroy(obj);
+        }
     }
 
     /**************************************************************************************************************************
@@ -585,5 +631,8 @@ public class MapSceneUI : MonoBehaviour {
             populateBuyMenu();
             timeSinceTradeTime = 0;
         }
+
+        if(loadIdle)
+            loadIdleMenu();
     }
 }
