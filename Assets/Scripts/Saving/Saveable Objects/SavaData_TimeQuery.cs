@@ -7,14 +7,12 @@ public class SavaData_TimeQuery  {
     public bool active;
 
     public bool shipQuery = false, tradeQuery = false;
-    public Node startNode, endNode;
     public string startName, endName;
 
     public long startTime;
     public long finishTime;
 
     public string nextQueryName;
-    public TimeQuery nextQuery;
 
     SaveData_Resource gainedResource, lostResource;
 

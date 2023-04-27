@@ -8,8 +8,8 @@ public class GameMaster : MonoBehaviour {
 
     private void Start() {
         if(SceneSwitcher.instance.GetCurrentScene() == "Map Scene") {
-            Debug.Log("Saved from Menu");
-            SaveStateManager.instance.SaveGame(saveData);
+            //Debug.Log("Saved from Menu");
+            //SaveStateManager.instance.SaveGame(saveData);
         }
     }
 
@@ -23,6 +23,7 @@ public class GameMaster : MonoBehaviour {
 
     public void OnLoadButtonClick() {
         saveData = SaveStateManager.instance.LoadGame();
+        Debug.Log("Loaded Save Data");
 
         //_gameStateManager?.SaveGame();
     }

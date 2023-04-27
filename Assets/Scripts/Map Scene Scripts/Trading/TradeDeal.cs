@@ -28,11 +28,11 @@ public class TradeDeal {
     public TradeDeal(SavaData_TradeDeal td, DateTime lastSave) {
         gainedResource = new Resource(td.gainedResource);
         lostResource = new Resource(td.lostResource);
-        //shipInUse  
+        shipInUse = Inventory.instance.ships.Find(x => x.GetShipName() == td.shipInUse && x.use == InventoryShip.USED_IN.trading);
 
         queries = new List<TimeQuery>();
-        foreach(SavaData_TimeQuery q in td.queries) {
-            queries.Add(new TimeQuery(q));
+        foreach(int i in td.queriesIndexs) {
+            queries.Add(TimedActivityManager.instance.timeQueries[i]);
         }
 
         totalTime = td.totalTime;

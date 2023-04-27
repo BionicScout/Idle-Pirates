@@ -70,48 +70,41 @@ public class SaveStateManager : MonoBehaviour {
         }
 
         saveData.shipNamesToSave = new string[Inventory.instance.ships.Count];
-        saveData.lastShipsinCombatIndexes = new int[3];
+        saveData.shipUses = new int[Inventory.instance.ships.Count];
 
-        int x = 0;
         for(int i = 0; i < Inventory.instance.ships.Count; i++) {
 
             saveData.shipNamesToSave[i] = (Inventory.instance.ships[i].GetShipName());
+            switch(Inventory.instance.ships[i].use) { //2 = trade, 1 = combat, 0 = none
+                case InventoryShip.USED_IN.none:
+                    saveData.shipUses[i] = 0;
+                    break;
 
-            if(Inventory.instance.ships[i].use == InventoryShip.USED_IN.combat) {
-                saveData.lastShipsinCombatIndexes[x] = i;
-                x++;
+                case InventoryShip.USED_IN.combat:
+                    saveData.shipUses[i] = 1;
+                    break;
+
+                case InventoryShip.USED_IN.trading:
+                    saveData.shipUses[i] = 2;
+                    break;
             }
         }
 
-        //Need to save amount for resources
-        //for (int i = 0; i < Inventory.instance.resources.Count; i++)
-        //{
-        //    saveData.resourceAmountsToSave[i] = (Inventory.instance.resources[i].amount);
-        //}
 
-        //Save TimedActivityManager and All Trade Deals
-        saveData.timeManagerSave = new SaveData_TimedActivityManager();
-
-    //Last Time Saved
-        saveData.timeSaved =
-            System.DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy  hh:mm tt");
+        //Last Time Saved
+        saveData.timeSaved = System.DateTime.Now.ToBinary();
 
         saveData.firstMapLoadToSave = SceneSwitcher.firstMapLoad;
 
+    //Save TimedActivityManager and All Trade Deals
+        saveData.timeManagerSave = new SaveData_TimedActivityManager();
 
-        //Get data for TimeActivityManager
-        TimeQueryList_Saveable queryList =
-            new TimeQueryList_Saveable(TimedActivityManager.instance.timeQueries);
-        // saveTime = System.DateTime.Now;
 
-        //Save Objects
+    //Save Objects
         FileStream dataStream = new FileStream(filePath, FileMode.Create);
-        //try to save data of scene
         BinaryFormatter converter = new BinaryFormatter();
 
         converter.Serialize(dataStream, saveData);
-        //converter.Serialize(dataStream, queryList);
-        // converter.Serialize(dataStream, saveTime);
 
 
         dataStream.Close();
@@ -169,20 +162,31 @@ public class SaveStateManager : MonoBehaviour {
             }
 
             for(int i = 0; i < saveData.shipNamesToSave.Length; i++) {
-                MainShips ship = Inventory.instance.shipTemplates.Find(x => x.name
+                MainShips temp = Inventory.instance.shipTemplates.Find(x => x.name
                 == saveData.shipNamesToSave[i]);
+                InventoryShip ship = new InventoryShip(temp);
 
-                Inventory.instance.ships.Add(new InventoryShip(ship));
+                switch(saveData.shipUses[i]) { //2 = trade, 1 = combat, 0 = none
+                    case 0:
+                        ship.use = InventoryShip.USED_IN.none;
+                        break;
+
+                    case 1:
+                        ship.use = InventoryShip.USED_IN.combat;
+                        break;
+
+                    case 2:
+                        ship.use = InventoryShip.USED_IN.trading;
+                        break;
+                }
+
+                Inventory.instance.ships.Add(ship);
 
 
             }
-            for(int i = 0; i < saveData.lastShipsinCombatIndexes.Length; i++) {
 
-                Inventory.instance.ships[saveData.lastShipsinCombatIndexes[i]].use
-                    = InventoryShip.USED_IN.combat;
-
-
-            }
+            DateTime lastSave = DateTime.FromBinary(saveData.timeSaved);
+            saveData.timeManagerSave.Load(lastSave);
 
 
             //Inventory.instance = saveData.inventoryToSave;

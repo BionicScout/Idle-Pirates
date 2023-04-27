@@ -49,6 +49,13 @@ public class MapSceneUI : MonoBehaviour {
     TradeDeal potentialDeal = null;
     CityButtonScript selectedCity = null;
 
+    [Header("Idle Menu")]
+    public GameObject idleMenu;
+
+    public GameObject prefabIdleMiniGame;
+    public GameObject prefabIdleTradeInfo;
+    List<GameObject> idleList = new List<GameObject>();
+
     void Start() {
         populateBuyMenu();
     }
@@ -473,6 +480,11 @@ public class MapSceneUI : MonoBehaviour {
     }
 
     public void B_CreateDeal(InventoryShip ship, CityButtonScript city) {
+        foreach(TimeQuery q in path) {
+            TimedActivityManager.instance.timeQueries.Remove(q);
+        }
+
+
         int tradeAmount;
         if(isBuy) {
             Resource gold = Inventory.instance.resources.Find(x => x.type == Resource.Type.Gold);
@@ -495,7 +507,17 @@ public class MapSceneUI : MonoBehaviour {
 
         ship.use = InventoryShip.USED_IN.trading;
 
-        TradeDeal deal = new TradeDeal(gained, lost, ship, Pathfinding.nodes.Find(x => x.start).getTradePath(city));
+        List<TimeQuery> qTemp = Pathfinding.nodes.Find(x => x.start).getTradePath(city);
+        DateTime time = DateTime.Now;
+        foreach(TimeQuery q in qTemp) {
+            q.queryName += " " + time.ToString();
+
+            if(q.nextQuery != null) {
+                q.nextQuery.queryName += " " + time.ToString();
+                q.nextQueryName = q.nextQuery.queryName;
+            }
+        }
+        TradeDeal deal = new TradeDeal(gained, lost, ship, qTemp);
 
         deal.activate();
         TimedActivityManager.instance.tradeDeals.Add(deal);
@@ -510,6 +532,10 @@ public class MapSceneUI : MonoBehaviour {
         B_TradingButton();
         foreach(CityButtonScript city in FindObjectsOfType<CityButtonScript>()) {
             city.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        foreach(TimeQuery q in path) {
+            TimedActivityManager.instance.timeQueries.Remove(q);
         }
     }
 
@@ -531,16 +557,21 @@ public class MapSceneUI : MonoBehaviour {
     }
 
     /**************************************************************************************************************************
+        Idle UI 
+    **************************************************************************************************************************/
+    public void loadIdleMenu() {
+        resourceBarUI.SetActive(false);
+        idleMenu.SetActive(true);
+    }
+
+    public void B_ExitIdleMenu() {
+        resourceBarUI.SetActive(true);
+        idleMenu.SetActive(false);
+    }
+
+    /**************************************************************************************************************************
         OTHER UI 
     **************************************************************************************************************************/
-    //public int getBiggestMultiple(int n, int d) {
-    //    for(int i = n-1; n > 1; i--) {
-    //        if(i % d == 0)
-    //            return i;
-    //    }
-
-    //    return 1;
-    //}
 
     void Update() {
         updateResources();

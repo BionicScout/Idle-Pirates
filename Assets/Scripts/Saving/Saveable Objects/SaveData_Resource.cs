@@ -9,6 +9,9 @@ public class SaveData_Resource {
     public int cost;
 
     public SaveData_Resource(Resource r) {
+        if(r == null)
+            return;
+
         switch(r.type) {
             case Resource.Type.Gold:
                 type = 1;

@@ -13,7 +13,7 @@ public class TimedActivityManager : MonoBehaviour {
     public static TimedActivityManager instance;
     public MapShip mapShip;
     public DateTime lastTimeOn;
-    string lastCityStoppedAt;
+    public string lastCityStoppedAt;
 
     public List<TradeDeal> tradeDeals = new List<TradeDeal>();
 
@@ -31,6 +31,7 @@ public class TimedActivityManager : MonoBehaviour {
 
         currentTime = System.DateTime.Now;
         lastTimeOn = currentTime;
+        lastCityStoppedAt = null;
         //Debug.Log("Start Time is " + currentTime.ToString("F"));
     }
 
@@ -70,12 +71,10 @@ public class TimedActivityManager : MonoBehaviour {
                 if(timeQueries[i].shipQuery) {
                     mapShip.timeQuery = next;
 
-                    Debug.Log(SceneSwitcher.currentScene + "*****************************");
                     if(SceneSwitcher.currentScene == "Map Scene") {
                         //If Ship has a next location and is in map scene
 
                         mapShip.updateLocation(timeQueries[i].endNode); //#1
-                        Debug.Log("*****************************************************************");
 
                         if(next != null) {
                             mapShip.setLocs();

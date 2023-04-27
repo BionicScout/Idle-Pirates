@@ -58,11 +58,6 @@ public class MapShip : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Q)) {
-            Resource r = new Resource(Resource.Type.Gold, "Gold", 1000, 1);
-            Inventory.instance.AddResource(r);
-        }
-
         if(timeQuery == null) {
             done = true;
             return;

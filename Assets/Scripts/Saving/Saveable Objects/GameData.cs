@@ -10,7 +10,7 @@ public class GameData
 
     public string[] raidedCityListforSave;
 
-    public string timeSaved;
+    public long timeSaved;
 
     
 
@@ -20,7 +20,7 @@ public class GameData
     public string[] crewNamesToSave;
     public int lastCrewActiveIndex;
 
-    public int[] lastShipsinCombatIndexes;
+    public int[] shipUses; //2 = trade, 1 = combat, 0 = none
 
     public bool firstMapLoadToSave = true;
 
